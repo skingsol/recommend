@@ -21,7 +21,7 @@ public class HomeController {
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public String test() {
 		logger.info("Test home!");		
-		return "/recommend/search"; 
+		return "search"; 
 	}
 	
 
