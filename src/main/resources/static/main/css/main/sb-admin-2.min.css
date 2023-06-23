@@ -248,7 +248,8 @@ button, select {
 }
 
 select {
-	word-wrap: normal
+	word-wrap: normal;
+	cursor: pointer;
 }
 
 [type=button], [type=reset], [type=submit], button {
@@ -360,9 +361,7 @@ template {
 
 .h5, h5 {
 	font-size: 1.25rem;
-	font-style: italic;
-	font-family: serif;
-	font-weight: bolder;
+
 }
 
 .h6, h6 {
@@ -5639,6 +5638,7 @@ a.close.disabled {
 }
 
 .modal {
+	background:rgba(0, 0, 0, 0.5);
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -5652,7 +5652,7 @@ a.close.disabled {
 
 .modal-dialog {
 	position: relative;
-	width: auto;
+	width: 600px;
 	margin: .5rem;
 	pointer-events: none
 }
@@ -5806,7 +5806,7 @@ a.close.disabled {
 
 @media ( min-width :576px) {
 	.modal-dialog {
-		max-width: 500px;
+		max-width: 640px;
 		margin: 1.75rem auto
 	}
 	.modal-dialog-scrollable {
