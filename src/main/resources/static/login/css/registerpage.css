@@ -1,0 +1,54 @@
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f1f1f1;
+}
+h1 {
+	font-size: 50px;
+	text-align: center;
+}
+table, caption, tbody, tfoot, thead, tr, th, td {
+    outline: 0;
+    background: transparent;
+    font-size: 100%;
+}
+
+.btn-black {
+    background-color: #222222;
+    color: #ffffff;
+}
+
+.btn-mint {
+	
+    background-color: #0ac7ce;
+    color: #ffffff;
+}
+
+.btn {
+    border: none;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    width: 100%;
+    cursor: pointer;
+    height: 40px;
+    font-size: 13px;
+}
+
+
+.w150 {
+    width: 150px;
+}
+.tc {
+    text-align: center;
+}
+.row {
+    width: 1250px;
+    margin: 0 auto;
+}
+.w400 {
+    width: 400px;
+}
+.fs-16 {
+    font-size: 16px;
+}
