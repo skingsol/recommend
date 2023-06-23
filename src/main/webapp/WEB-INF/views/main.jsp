@@ -5,10 +5,10 @@
 	<div class="inner">
 		<nav id="gnb" class="gnb">
 			<ul class="gnb_ul">
-				<li class=""><a href="..">
+				<li class="notice"><a href='<c:url value="/board/notice"  />'>
 						<span>공지사항</span>
 					</a></li>
-				<li class=""><a href="..">
+				<li class="qna"><a href='<c:url value="/board/qna"  />'>
 						<span>자주 묻는 질문</span>
 					</a></li>
 			</ul>
@@ -43,7 +43,6 @@
 
 
 
-
 <!-- 메뉴 선택 박스 -->
 <section class="box highlight">
 	<ul class="special">
@@ -69,530 +68,219 @@
 </section>
 
 
+
 <!-- 중간 : 카테고리별 음식점 랭킹순 정렬 -->
 <div class="category_section_wrap">
 	<!-- 라인 반복 -->
 	<section id="korean" class="bg-white category_section_line_wrap">
-		<span class="food_category_name"><a href="..">#한식</a></span>
+		<div class="loop">
+			<span class="food_category_name"><a href='<c:url value="/search?keyword=한식"  />'>#한식</a></span>
+		</div>
 		<div class="container mx-auto flex items-center flex-wrap ">
 			<!-- 라인 내 음식점 반복구간 -->
 			<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link">
-				<a href="#" class="">
+				<a href="" class="image_link">
 					<img src="https://file.rankingdak.com/image/RANK/PRODUCT/PRD001/20230106/IMG1672nhu966250394_330_330.jpg">
-					<div class="pt-3 flex items-center ">
-						<figcaption>
-							<p>
-								<a href="..." alt="음식점 상세 정보 링크">
-									#상호명 <strong class="point search_point "></strong>
-								</a>
-							</p>
-							<div style="display: inline-block; vertical-align: top;">
-								<img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" alt="img" />
-							</div>
-							<div style="display: inline-block;">
-								<span class="review">3.8점(77)</span>
-							</div>
-						</figcaption>
-						<div class="save_restaurant">
-							<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
-							<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
-						</div>
-					</div>
 				</a>
-			</div>
-
-			<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link">
-				<a href="#" class="">
-					<img src="https://file.rankingdak.com/image/RANK/PRODUCT/PRD001/20230106/IMG1672nhu966250394_330_330.jpg">
-					<div class="pt-3 flex items-center ">
-						<figcaption>
-							<a href="..." alt="음식점 상세 정보 링크">
+				<div id="shortcuts" class="pt-3 flex items-center">
+					<div class="line_diveider">
+						<p>
+							<a href="..." alt="음식점 상세페이지로 연결 링크">
 								#상호명 <strong class="point search_point "></strong>
 							</a>
-							<div class="count">
-								<span><img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" />3.8</span><span class="review">(77)</span>
-							</div>
-						</figcaption>
-						<div class="save_restaurant">
-							<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
-							<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
+						</p>
+						<div id="star_image" style="display: inline-block; vertical-align: top;">
+							<img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" alt="img" />
+						</div>
+						<div id="review_score" style="display: inline-block;">
+							<span class="review">3.8점(77)</span>
 						</div>
 					</div>
-				</a>
+					<div class="save_restaurant">
+						<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
+						<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
+					</div>
+				</div>
 			</div>
 
-			<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link">
-				<a href="#" class="">
-					<img src="https://file.rankingdak.com/image/RANK/PRODUCT/PRD001/20230106/IMG1672nhu966250394_330_330.jpg">
-					<div class="pt-3 flex items-center ">
-						<figcaption>
-							<a href="..." alt="음식점 상세 정보 링크">
-								#상호명 <strong class="point search_point "></strong>
-							</a>
-							<div class="count">
-								<span><img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" />3.8</span><span class="review">(77)</span>
-							</div>
-						</figcaption>
-						<div class="save_restaurant">
-							<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
-							<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
-						</div>
-					</div>
-				</a>
-			</div>
 
-			<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link">
-				<a href="#" class="">
-					<img src="https://file.rankingdak.com/image/RANK/PRODUCT/PRD001/20230106/IMG1672nhu966250394_330_330.jpg">
-					<div class="pt-3 flex items-center ">
-						<figcaption>
-							<a href="..." alt="음식점 상세 정보 링크">
-								#상호명 <strong class="point search_point "></strong>
-							</a>
-							<div class="count">
-								<span><img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" />3.8</span><span class="review">(77)</span>
-							</div>
-						</figcaption>
-						<div class="save_restaurant">
-							<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
-							<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
-						</div>
-					</div>
-				</a>
-			</div>
+
 		</div>
 	</section>
+
 	<!-- 일식 카테고리 -->
 	<section id="japanese" class="bg-white category_section_line_wrap">
-		<span class="food_category_name"><a href="..">#일식</a></span>
+		<div class="loop">
+			<span class="food_category_name"><a href='<c:url value="/search?keyword=일식"  />'>#일식</a></span>
+		</div>
 		<div class="container mx-auto flex items-center flex-wrap ">
 			<!-- 라인 내 음식점 반복구간 -->
 			<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link">
-				<a href="#" class="">
+				<a href="" class="image_link">
 					<img src="https://file.rankingdak.com/image/RANK/PRODUCT/PRD001/20230106/IMG1672nhu966250394_330_330.jpg">
-					<div class="pt-3 flex items-center ">
-						<figcaption>
-							<a href="..." alt="음식점 상세 정보 링크">
+				</a>
+				<div id="shortcuts" class="pt-3 flex items-center">
+					<div class="line_diveider">
+						<p>
+							<a href="..." alt="음식점 상세페이지로 연결 링크">
 								#상호명 <strong class="point search_point "></strong>
 							</a>
-							<div class="count">
-								<span><img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" />3.8</span><span class="review">(77)</span>
-							</div>
-						</figcaption>
-						<div class="save_restaurant">
-							<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
-							<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
+						</p>
+						<div id="star_image" style="display: inline-block; vertical-align: top;">
+							<img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" alt="img" />
+						</div>
+						<div id="review_score" style="display: inline-block;">
+							<span class="review">3.8점(77)</span>
 						</div>
 					</div>
-				</a>
+					<div class="save_restaurant">
+						<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
+						<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
+					</div>
+				</div>
 			</div>
 
-			<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link">
-				<a href="#" class="">
-					<img src="https://file.rankingdak.com/image/RANK/PRODUCT/PRD001/20230106/IMG1672nhu966250394_330_330.jpg">
-					<div class="pt-3 flex items-center ">
-						<figcaption>
-							<a href="..." alt="음식점 상세 정보 링크">
-								#상호명 <strong class="point search_point "></strong>
-							</a>
-							<div class="count">
-								<span><img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" />3.8</span><span class="review">(77)</span>
-							</div>
-						</figcaption>
-						<div class="save_restaurant">
-							<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
-							<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
-						</div>
-					</div>
-				</a>
-			</div>
-
-			<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link">
-				<a href="#" class="">
-					<img src="https://file.rankingdak.com/image/RANK/PRODUCT/PRD001/20230106/IMG1672nhu966250394_330_330.jpg">
-					<div class="pt-3 flex items-center ">
-						<figcaption>
-							<a href="..." alt="음식점 상세 정보 링크">
-								#상호명 <strong class="point search_point "></strong>
-							</a>
-							<div class="count">
-								<span><img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" />3.8</span><span class="review">(77)</span>
-							</div>
-						</figcaption>
-						<div class="save_restaurant">
-							<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
-							<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
-						</div>
-					</div>
-				</a>
-			</div>
-
-			<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link">
-				<a href="#" class="">
-					<img src="https://file.rankingdak.com/image/RANK/PRODUCT/PRD001/20230106/IMG1672nhu966250394_330_330.jpg">
-					<div class="pt-3 flex items-center ">
-						<figcaption>
-							<a href="..." alt="음식점 상세 정보 링크">
-								#상호명 <strong class="point search_point "></strong>
-							</a>
-							<div class="count">
-								<span><img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" />3.8</span><span class="review">(77)</span>
-							</div>
-						</figcaption>
-						<div class="save_restaurant">
-							<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
-							<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
-						</div>
-					</div>
-				</a>
-			</div>
 		</div>
 	</section>
+
 	<!-- 중식 카테고리 -->
 	<section id="chinese" class="bg-white category_section_line_wrap">
-		<span class="food_category_name"><a href="..">#중식</a></span>
+		<div class="loop">
+			<span class="food_category_name"><a href='<c:url value="/search?keyword=중식"  />'>#중식</a></span>
+		</div>
 		<div class="container mx-auto flex items-center flex-wrap ">
 			<!-- 라인 내 음식점 반복구간 -->
 			<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link">
-				<a href="#" class="">
+				<a href="" class="image_link">
 					<img src="https://file.rankingdak.com/image/RANK/PRODUCT/PRD001/20230106/IMG1672nhu966250394_330_330.jpg">
-					<div class="pt-3 flex items-center ">
-						<figcaption>
-							<a href="..." alt="음식점 상세 정보 링크">
+				</a>
+				<div id="shortcuts" class="pt-3 flex items-center">
+					<div class="line_diveider">
+						<p>
+							<a href="..." alt="음식점 상세페이지로 연결 링크">
 								#상호명 <strong class="point search_point "></strong>
 							</a>
-							<div class="count">
-								<span><img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" />3.8</span><span class="review">(77)</span>
-							</div>
-						</figcaption>
-						<div class="save_restaurant">
-							<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
-							<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
+						</p>
+						<div id="star_image" style="display: inline-block; vertical-align: top;">
+							<img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" alt="img" />
+						</div>
+						<div id="review_score" style="display: inline-block;">
+							<span class="review">3.8점(77)</span>
 						</div>
 					</div>
-				</a>
+					<div class="save_restaurant">
+						<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
+						<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
+					</div>
+				</div>
 			</div>
 
-			<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link">
-				<a href="#" class="">
-					<img src="https://file.rankingdak.com/image/RANK/PRODUCT/PRD001/20230106/IMG1672nhu966250394_330_330.jpg">
-					<div class="pt-3 flex items-center ">
-						<figcaption>
-							<a href="..." alt="음식점 상세 정보 링크">
-								#상호명 <strong class="point search_point "></strong>
-							</a>
-							<div class="count">
-								<span><img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" />3.8</span><span class="review">(77)</span>
-							</div>
-						</figcaption>
-						<div class="save_restaurant">
-							<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
-							<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
-						</div>
-					</div>
-				</a>
-			</div>
-
-			<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link">
-				<a href="#" class="">
-					<img src="https://file.rankingdak.com/image/RANK/PRODUCT/PRD001/20230106/IMG1672nhu966250394_330_330.jpg">
-					<div class="pt-3 flex items-center ">
-						<figcaption>
-							<a href="..." alt="음식점 상세 정보 링크">
-								#상호명 <strong class="point search_point "></strong>
-							</a>
-							<div class="count">
-								<span><img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" />3.8</span><span class="review">(77)</span>
-							</div>
-						</figcaption>
-						<div class="save_restaurant">
-							<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
-							<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
-						</div>
-					</div>
-				</a>
-			</div>
-
-			<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link">
-				<a href="#" class="">
-					<img src="https://file.rankingdak.com/image/RANK/PRODUCT/PRD001/20230106/IMG1672nhu966250394_330_330.jpg">
-					<div class="pt-3 flex items-center ">
-						<figcaption>
-							<a href="..." alt="음식점 상세 정보 링크">
-								#상호명 <strong class="point search_point "></strong>
-							</a>
-							<div class="count">
-								<span><img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" />3.8</span><span class="review">(77)</span>
-							</div>
-						</figcaption>
-						<div class="save_restaurant">
-							<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
-							<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
-						</div>
-					</div>
-				</a>
-			</div>
 		</div>
 	</section>
 	<!-- 양식 카테고리 -->
 	<section id="western" class="bg-white category_section_line_wrap">
-		<span class="food_category_name"><a href="..">#양식</a></span>
+		<div class="loop">
+			<span class="food_category_name"><a href='<c:url value="/search?keyword=양식"  />'>#양식</a></span>
+		</div>
 		<div class="container mx-auto flex items-center flex-wrap ">
 			<!-- 라인 내 음식점 반복구간 -->
 			<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link">
-				<a href="#" class="">
+				<a href="" class="image_link">
 					<img src="https://file.rankingdak.com/image/RANK/PRODUCT/PRD001/20230106/IMG1672nhu966250394_330_330.jpg">
-					<div class="pt-3 flex items-center ">
-						<figcaption>
-							<a href="..." alt="음식점 상세 정보 링크">
+				</a>
+				<div id="shortcuts" class="pt-3 flex items-center">
+					<div class="line_diveider">
+						<p>
+							<a href="..." alt="음식점 상세페이지로 연결 링크">
 								#상호명 <strong class="point search_point "></strong>
 							</a>
-							<div class="count">
-								<span><img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" />3.8</span><span class="review">(77)</span>
-							</div>
-						</figcaption>
-						<div class="save_restaurant">
-							<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
-							<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
+						</p>
+						<div id="star_image" style="display: inline-block; vertical-align: top;">
+							<img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" alt="img" />
+						</div>
+						<div id="review_score" style="display: inline-block;">
+							<span class="review">3.8점(77)</span>
 						</div>
 					</div>
-				</a>
+					<div class="save_restaurant">
+						<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
+						<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
+					</div>
+				</div>
 			</div>
 
-			<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link">
-				<a href="#" class="">
-					<img src="https://file.rankingdak.com/image/RANK/PRODUCT/PRD001/20230106/IMG1672nhu966250394_330_330.jpg">
-					<div class="pt-3 flex items-center ">
-						<figcaption>
-							<a href="..." alt="음식점 상세 정보 링크">
-								#상호명 <strong class="point search_point "></strong>
-							</a>
-							<div class="count">
-								<span><img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" />3.8</span><span class="review">(77)</span>
-							</div>
-						</figcaption>
-						<div class="save_restaurant">
-							<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
-							<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
-						</div>
-					</div>
-				</a>
-			</div>
-
-			<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link">
-				<a href="#" class="">
-					<img src="https://file.rankingdak.com/image/RANK/PRODUCT/PRD001/20230106/IMG1672nhu966250394_330_330.jpg">
-					<div class="pt-3 flex items-center ">
-						<figcaption>
-							<a href="..." alt="음식점 상세 정보 링크">
-								#상호명 <strong class="point search_point "></strong>
-							</a>
-							<div class="count">
-								<span><img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" />3.8</span><span class="review">(77)</span>
-							</div>
-						</figcaption>
-						<div class="save_restaurant">
-							<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
-							<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
-						</div>
-					</div>
-				</a>
-			</div>
-
-			<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link">
-				<a href="#" class="">
-					<img src="https://file.rankingdak.com/image/RANK/PRODUCT/PRD001/20230106/IMG1672nhu966250394_330_330.jpg">
-					<div class="pt-3 flex items-center ">
-						<figcaption>
-							<a href="..." alt="음식점 상세 정보 링크">
-								#상호명 <strong class="point search_point "></strong>
-							</a>
-							<div class="count">
-								<span><img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" />3.8</span><span class="review">(77)</span>
-							</div>
-						</figcaption>
-						<div class="save_restaurant">
-							<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
-							<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
-						</div>
-					</div>
-				</a>
-			</div>
 		</div>
 	</section>
 	<!-- 패스트푸드 카테고리 -->
 	<section id="fastfood" class="bg-white category_section_line_wrap">
-		<span class="food_category_name"><a href="..">#패스트 푸드</a></span>
+		<div class="loop">
+			<span class="food_category_name"><a href='<c:url value="/search?keyword=패스트푸드"  />'>#패스트 푸드</a></span>
+		</div>
 		<div class="container mx-auto flex items-center flex-wrap ">
 			<!-- 라인 내 음식점 반복구간 -->
 			<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link">
-				<a href="#" class="">
+				<a href="" class="image_link">
 					<img src="https://file.rankingdak.com/image/RANK/PRODUCT/PRD001/20230106/IMG1672nhu966250394_330_330.jpg">
-					<div class="pt-3 flex items-center ">
-						<figcaption>
-							<a href="..." alt="음식점 상세 정보 링크">
+				</a>
+				<div id="shortcuts" class="pt-3 flex items-center">
+					<div class="line_diveider">
+						<p>
+							<a href="..." alt="음식점 상세페이지로 연결 링크">
 								#상호명 <strong class="point search_point "></strong>
 							</a>
-							<div class="count">
-								<span><img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" />3.8</span><span class="review">(77)</span>
-							</div>
-						</figcaption>
-						<div class="save_restaurant">
-							<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
-							<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
+						</p>
+						<div id="star_image" style="display: inline-block; vertical-align: top;">
+							<img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" alt="img" />
+						</div>
+						<div id="review_score" style="display: inline-block;">
+							<span class="review">3.8점(77)</span>
 						</div>
 					</div>
-				</a>
+					<div class="save_restaurant">
+						<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
+						<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
+					</div>
+				</div>
 			</div>
 
-			<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link">
-				<a href="#" class="">
-					<img src="https://file.rankingdak.com/image/RANK/PRODUCT/PRD001/20230106/IMG1672nhu966250394_330_330.jpg">
-					<div class="pt-3 flex items-center ">
-						<figcaption>
-							<a href="..." alt="음식점 상세 정보 링크">
-								#상호명 <strong class="point search_point "></strong>
-							</a>
-							<div class="count">
-								<span><img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" />3.8</span><span class="review">(77)</span>
-							</div>
-						</figcaption>
-						<div class="save_restaurant">
-							<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
-							<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
-						</div>
-					</div>
-				</a>
-			</div>
-
-			<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link">
-				<a href="#" class="">
-					<img src="https://file.rankingdak.com/image/RANK/PRODUCT/PRD001/20230106/IMG1672nhu966250394_330_330.jpg">
-					<div class="pt-3 flex items-center ">
-						<figcaption>
-							<a href="..." alt="음식점 상세 정보 링크">
-								#상호명 <strong class="point search_point "></strong>
-							</a>
-							<div class="count">
-								<span><img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" />3.8</span><span class="review">(77)</span>
-							</div>
-						</figcaption>
-						<div class="save_restaurant">
-							<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
-							<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
-						</div>
-					</div>
-				</a>
-			</div>
-
-			<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link">
-				<a href="#" class="">
-					<img src="https://file.rankingdak.com/image/RANK/PRODUCT/PRD001/20230106/IMG1672nhu966250394_330_330.jpg">
-					<div class="pt-3 flex items-center ">
-						<figcaption>
-							<a href="..." alt="음식점 상세 정보 링크">
-								#상호명 <strong class="point search_point "></strong>
-							</a>
-							<div class="count">
-								<span><img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" />3.8</span><span class="review">(77)</span>
-							</div>
-						</figcaption>
-						<div class="save_restaurant">
-							<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
-							<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
-						</div>
-					</div>
-				</a>
-			</div>
 		</div>
 	</section>
 	<!-- 카페 카테고리 -->
 	<section id="desert" class="bg-white category_section_line_wrap">
-		<span class="food_category_name"><a href="..">#카페</a></span>
+		<div class="loop">
+			<span class="food_category_name"><a href='<c:url value="/search?keyword=카페"  />'>#카페</a></span>
+		</div>
 		<div class="container mx-auto flex items-center flex-wrap ">
 			<!-- 라인 내 음식점 반복구간 -->
 			<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link">
-				<a href="#" class="">
+				<a href="" class="image_link">
 					<img src="https://file.rankingdak.com/image/RANK/PRODUCT/PRD001/20230106/IMG1672nhu966250394_330_330.jpg">
-					<div class="pt-3 flex items-center ">
-						<figcaption>
-							<a href="..." alt="음식점 상세 정보 링크">
+				</a>
+				<div id="shortcuts" class="pt-3 flex items-center">
+					<div class="line_diveider">
+						<p>
+							<a href="..." alt="음식점 상세페이지로 연결 링크">
 								#상호명 <strong class="point search_point "></strong>
 							</a>
-							<div class="count">
-								<span><img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" />3.8</span><span class="review">(77)</span>
-							</div>
-						</figcaption>
-						<div class="save_restaurant">
-							<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
-							<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
+						</p>
+						<div id="star_image" style="display: inline-block; vertical-align: top;">
+							<img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" alt="img" />
+						</div>
+						<div id="review_score" style="display: inline-block;">
+							<span class="review">3.8점(77)</span>
 						</div>
 					</div>
-				</a>
+					<div class="save_restaurant">
+						<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
+						<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
+					</div>
+				</div>
 			</div>
 
-			<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link">
-				<a href="#" class="">
-					<img src="https://file.rankingdak.com/image/RANK/PRODUCT/PRD001/20230106/IMG1672nhu966250394_330_330.jpg">
-					<div class="pt-3 flex items-center ">
-						<figcaption>
-							<a href="..." alt="음식점 상세 정보 링크">
-								#상호명 <strong class="point search_point "></strong>
-							</a>
-							<div class="count">
-								<span><img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" />3.8</span><span class="review">(77)</span>
-							</div>
-						</figcaption>
-						<div class="save_restaurant">
-							<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
-							<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
-						</div>
-					</div>
-				</a>
-			</div>
-
-			<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link">
-				<a href="#" class="">
-					<img src="https://file.rankingdak.com/image/RANK/PRODUCT/PRD001/20230106/IMG1672nhu966250394_330_330.jpg">
-					<div class="pt-3 flex items-center ">
-						<figcaption>
-							<a href="..." alt="음식점 상세 정보 링크">
-								#상호명 <strong class="point search_point "></strong>
-							</a>
-							<div class="count">
-								<span><img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" />3.8</span><span class="review">(77)</span>
-							</div>
-						</figcaption>
-						<div class="save_restaurant">
-							<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
-							<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
-						</div>
-					</div>
-				</a>
-			</div>
-
-			<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link">
-				<a href="#" class="">
-					<img src="https://file.rankingdak.com/image/RANK/PRODUCT/PRD001/20230106/IMG1672nhu966250394_330_330.jpg">
-					<div class="pt-3 flex items-center ">
-						<figcaption>
-							<a href="..." alt="음식점 상세 정보 링크">
-								#상호명 <strong class="point search_point "></strong>
-							</a>
-							<div class="count">
-								<span><img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" />3.8</span><span class="review">(77)</span>
-							</div>
-						</figcaption>
-						<div class="save_restaurant">
-							<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
-							<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
-						</div>
-					</div>
-				</a>
-			</div>
 		</div>
 	</section>
 </div>
+
 
 
 <script type="module" src="/main/js/main.js"></script>
