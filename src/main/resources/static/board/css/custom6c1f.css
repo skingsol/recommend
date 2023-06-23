@@ -1,0 +1,289 @@
+input::-webkit-input-placeholder { color: #888888; }
+
+button {
+    border:none;
+}
+
+.swiper-pagination-bullet-active {
+    background-color:#FFFFFF;
+}
+
+.sec_01 .title {
+    width:170px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;
+}
+.sec_01 .menu {
+    width:170px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;
+}
+
+.popup-full {
+    display:none;
+    width:100%;
+    height:100%;
+    position:fixed;
+    z-index:130;
+    top:0px;
+    left:0px;
+}
+
+.popup-full .header {
+    position:absolute;
+}
+
+.btn_review_box {
+    padding:7px 8px;
+    border:#222222 solid 1px;
+    border-radius:2px;
+}
+
+.btn_review_box.active {
+    background-color:#2483FF;
+    border:#2483FF solid 1px;
+    color:#FFFFFF;
+}
+
+.event_text {
+    height:100% !important;
+}
+
+.footer {margin-top: 11px;}
+.footer .fSection {background-color: #fff; border-bottom: 1px solid #d7d7dc;}
+.footer .fSec_01 {padding-top: 20px; padding-bottom: 20px; padding-right: 20px; padding-left: 100px; background: url('../../../s3-ap-northeast-1.amazonaws.com/dcicons/dicons_20160930/m/new/images/common/ic-footer-launcher%402x.png') no-repeat #fff; background-position: 20px 20px; background-size: 60px 60px;}
+.footer .fSec_01 h5 {font-size: 16px; font-weight: 600;}
+.footer .fSec_01 p {margin-top: 5px; font-size: 16px;}
+.footer .fSec_01 div{display: inline-block; margin-top: 10px; padding: 11px 37.5px; font-size: 15px; font-weight: 600; border: 1px solid #9999a0; border-radius: 2px; color: #66666e;}
+.footer .fSec_02 {margin-top: 30px; background-color: #c4c4cc;}
+.footer .fSec_02 {padding: 14px 4%; overflow: hidden;}
+
+#div_share, #div_map_more {
+    display:none;
+    position:fixed;
+    z-index:9999;
+    text-align:center;
+    width:100%;
+}
+
+.share_area {
+    background-color:rgba(233, 233, 233, 0.95);
+    border-radius: 10px;
+    margin:7px;
+}
+.share_header {
+    padding:7px 0;
+    margin-bottom:2px;
+    border-bottom:#AEAEAE solid 1px;
+    color:#999999;
+    font-size:12px;
+}
+
+.share_button div {
+    padding:9px 0;
+    color:#55A4E6;
+    border-bottom:#E0E0E0 solid 1px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.share_button div:last-child {
+    border-bottom:none;
+}
+
+#div_viewer, #div_viewer2 {
+    display:none;
+    position:fixed;
+    z-index:130;
+    height:100%;
+}
+
+#div_viewer .swiper-container, #div_viewer2 .swiper-container {
+    margin-top:44px;
+}
+
+#div_viewer .swiper-pagination-current, #div_viewer .swiper-pagination-total, #div_viewer2 .swiper-pagination-current, #div_viewer2 .swiper-pagination-total {
+    font-size:10px;
+    color:#FFFFFF;
+}
+
+#div_photo {
+    display:none;
+}
+
+#div_shadow, #div_wall, #div_button {
+    display:none;
+    position:fixed;
+    top:0;
+    z-index:130;
+    width:100%;
+    height:100%;
+    background-color:rgba(0, 0, 0, 0.3);
+}
+
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    height: 25px;
+    width: 10px;
+    border-radius: 10%;
+    background: #2c3e50;
+    border-top-color: #0AC7CE;
+    -webkit-animation: fade2 1s infinite;
+    animation: fade2 1s infinite;
+    transition: background .2s;
+}
+.loading:after, .loading:before {
+    content: '';
+    position: absolute;
+    display: block;
+    height: 20px;
+    width: 10px;
+    background: #2c3e50;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    left: -15px;
+    border-radius: 10%;
+    -webkit-animation: fade1 1s infinite;
+    animation: fade1 1s infinite;
+    transition: background .2s;
+}
+.loading:before {
+    left: 15px;
+    -webkit-animation: fade3 1s infinite;
+    animation: fade3 1s infinite;
+}
+
+@-webkit-keyframes fade1 {
+    0% {
+        background: #0AC7CE;
+    }
+}
+
+@keyframes fade1 {
+    0% {
+        background: #0AC7CE;
+    }
+}
+@-webkit-keyframes fade2 {
+    33% {
+        background: #0AC7CE;
+    }
+}
+@keyframes fade2 {
+    33% {
+        background: #0AC7CE;
+    }
+}
+@-webkit-keyframes fade3 {
+    66% {
+        background: #0AC7CE;
+    }
+}
+@keyframes fade3 {
+    66% {
+        background: #0AC7CE;
+    }
+}
+
+.moreInfo {
+    height:105px;
+    overflow:hidden;
+}
+
+.moreInfo.more{
+    height:100%;
+}
+
+.deliveryTab {
+    margin-top:15px;
+    text-align:center;
+    width:100%;
+}
+
+.deliveryTab li {
+    font-size:13px;
+    color:#999;
+    background-color:#FFF;
+    float:left;
+    width:50%;
+    padding-top:12px;
+    padding-bottom:12px;
+    border-bottom:solid #FFF 2px;
+}
+
+.deliveryTab li.on {
+    color:#000;
+    border-bottom:solid #000 2px;
+}
+
+#div_button .layer-button {
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-left:-40%;
+    width:80%;
+    background-color:#FFFFFF;
+    border-radius:5px;
+    overflow:hidden;
+}
+
+#div_button .layer-button button {
+    width:100%;
+    background-color:#FFFFFF;
+    padding:20px 0;
+    text-align:center;
+    font-size:14px;
+    border-bottom:solid 1px #E6E6EB;
+}
+
+.viewer {
+    display:none;
+    position:fixed;
+    top:0;
+    width:100%;
+    background-color:rgba(0, 0, 0, 0.7);
+}
+
+.imgBox {
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-top:-300px;
+    margin-left:-320px;
+    width:640px;
+}
+
+.userPhoto {
+    float:left;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    overflow:hidden;
+    margin:20px 10px 20px 20px;
+}
+
+.userInfo {
+    float:left;
+    margin-top:26px;
+    font-size:15px;
+    color:#FFFFFF;
+    font-weight:bold;
+}
+
+.userInfo span {
+    font-weight:normal;
+    font-size:13px;
+}
+
+.mapIcon { position:relative; display: inline-block; padding-top: 6px; width: 36px; height: 48px;  text-align: center; background-repeat: no-repeat; background-size: 100% 100%; box-sizing: border-box; font-weight:bold; }
+.marker-sel { background-image: url('../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/common/marker-list-sel%402x.png'); background-size:36px 48px; color: #FFFFFF; z-index:1; }
+.marker-nor { background-image: url('../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/common/marker-list-nor%402x.png'); background-size:36px 48px; color: #2483FF; }
+
+#div_favorites_list {
+    -ms-overflow-style:none;
+}
+
+#div_favorites_list::-webkit-scrollbar {
+    display: none !important;
+}
