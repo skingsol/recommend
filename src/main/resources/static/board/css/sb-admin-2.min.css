@@ -88,7 +88,13 @@ h1, h2, h3, h4, h5, h6 {
 	margin-bottom: .5rem
 }
 
-
+p {
+	margin-top: 0;
+	margin-bottom: 1rem;
+	font-size: xx-large;
+	font-style: italic;
+	font-family: serif;
+}
 
 abbr[data-original-title], abbr[title] {
 	text-decoration: underline;
@@ -248,8 +254,7 @@ button, select {
 }
 
 select {
-	word-wrap: normal;
-	cursor: pointer;
+	word-wrap: normal
 }
 
 [type=button], [type=reset], [type=submit], button {
@@ -361,7 +366,9 @@ template {
 
 .h5, h5 {
 	font-size: 1.25rem;
-
+	font-style: italic;
+	font-family: serif;
+	font-weight: bolder;
 }
 
 .h6, h6 {
@@ -684,7 +691,10 @@ pre code {
 	max-width: 91.66667%
 }
 
-
+.col-12 {
+	flex: 0 0 100%;
+	max-width: 100%
+}
 
 .order-first {
 	order: -1
@@ -5638,7 +5648,6 @@ a.close.disabled {
 }
 
 .modal {
-	background:rgba(0, 0, 0, 0.5);
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -5652,7 +5661,7 @@ a.close.disabled {
 
 .modal-dialog {
 	position: relative;
-	width: 600px;
+	width: auto;
 	margin: .5rem;
 	pointer-events: none
 }
@@ -5806,7 +5815,7 @@ a.close.disabled {
 
 @media ( min-width :576px) {
 	.modal-dialog {
-		max-width: 640px;
+		max-width: 500px;
 		margin: 1.75rem auto
 	}
 	.modal-dialog-scrollable {
@@ -8457,7 +8466,7 @@ supports ((position:-webkit-sticky) or (position:sticky)) { .
 		padding-top: 3rem !important
 	}
 	.pr-md-5, .px-md-5 {
-
+		padding-right: 3rem !important
 	}
 	.pb-md-5, .py-md-5 {
 		padding-bottom: 3rem !important

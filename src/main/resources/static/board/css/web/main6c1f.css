@@ -1,0 +1,912 @@
+@charset "utf-8";
+
+/* 상단 메뉴 */
+.main-top {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 42px;
+  background: #e5e5e5;
+}
+
+.main-top div {
+  padding: 0 !important;
+  margin-top: 10px;
+  letter-spacing: -0.7px;
+  color: #202020;
+}
+
+.main-top div .locUpdater {
+  margin-left: 14px;
+  padding: 3.6px 10px 5.4px;
+  border-radius: 14px;
+  border: solid 1px #dadada;
+  background-color: #fff;
+}
+
+.main-top div img {
+  position: relative;
+  top: 1px;
+}
+
+.main-top div .locUpdater span {
+  margin-left: 5px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.65px;
+  text-align: left;
+  color: #505050;
+}
+
+.main-top:before {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  width: 4000px;
+  margin-left: -2000px;
+  height: 100%;
+  background: #e5e5e5;
+  content: '';
+  z-index: -1;
+}
+
+.main-top .menu {
+  display: flex;
+  width: auto;
+  height: 20px;
+  object-fit: contain;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.7px;
+  color: #505050;
+}
+
+.menu li {
+  margin-left: 44px;
+}
+
+.menu li:first-child {
+  margin-left: 0px !important;
+}
+
+.main-top .loca {
+  float: left;
+  line-height: 40px;
+  font-size: 13px;
+  color: #222228;
+}
+.main-top .loca a {
+  color: #222228;
+  font-weight: 600;
+  padding-left: 5px;
+  text-decoration: underline;
+}
+
+.m-list .order-btn {
+  display: block;
+  border: solid 1px #222228;
+  font-size: 13px;
+  line-height: 30px;
+  text-align: center;
+  color: #222228;
+  margin-top: 10px;
+  border-radius: 2px;
+}
+.m-list .order-btn .point {
+  padding-left: 18px;
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/common/rating-on%402x.png)
+    no-repeat left;
+  background-size: 15px;
+  margin-left: 3px;
+  font-weight: 600;
+}
+
+/*메인 리스트 할인 추천*/
+.m-list.discount {
+  padding: 30px 20px 20px 20px;
+  background: #fff;
+  box-shadow: 1px 1px 3px #d8d8d8;
+}
+.m-list.discount .btit {
+  font-size: 24px;
+  color: #222228;
+  line-height: 120%;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.m-list.discount .list {
+  overflow: hidden;
+  margin: 0px -10px;
+}
+.m-list.discount .list li {
+  width: 210px;
+  margin: 0px 10px;
+  float: left;
+}
+.m-list.discount .list li a {
+  display: block;
+}
+.m-list.discount .list li .img {
+  position: relative;
+  width: 210px;
+  height: 146px;
+  overflow: hidden;
+  display: block;
+  margin-bottom: 19px;
+}
+.m-list.discount .list li .img img {
+  width: 100%;
+  height: auto;
+}
+.m-list.discount .list li .img .m-point {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 11px;
+  color: #2483ff;
+  background: #ffdd00;
+  display: block;
+  line-height: 20px;
+  padding: 0px 7px;
+  border-radius: 2px;
+}
+.m-list.discount .list li .btxt {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: #222228;
+  line-height: 140%;
+  margin-bottom: 10px;
+}
+.m-list.discount .list li .stxt {
+  position: relative;
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: #222228;
+  line-height: 120%;
+  margin-bottom: 8px;
+}
+.m-list.discount .list li .stxt .favor {
+  position: absolute;
+  top: 0px;
+  left: 189px;
+  width: 20px;
+  height: 20px;
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/common/like-off%402x.png)
+    no-repeat right;
+  background-size: 20px;
+  display: block;
+}
+.m-list.discount .list li .stxt .favor.on {
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/common/like-on%402x.png)
+    no-repeat right;
+  background-size: 20px;
+}
+.m-list.discount .list li .ctxt {
+  display: block;
+  font-size: 13px;
+  color: #66666e;
+  line-height: 130%;
+  margin-bottom: 2px;
+}
+.m-list.discount .list li .ctxt strong {
+  font-weight: 600;
+  color: #222228;
+}
+
+/*메인 리스트 배달 추천*/
+.m-list.delivery {
+  padding: 30px 20px 20px 20px;
+  background: #fff;
+  box-shadow: 1px 1px 3px #d8d8d8;
+}
+.m-list.delivery .btit {
+  font-size: 24px;
+  color: #222228;
+  line-height: 120%;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.m-list.delivery .list {
+  overflow: hidden;
+  margin: 0px -10px;
+}
+.m-list.delivery .list li {
+  width: 210px;
+  margin: 0px 10px;
+  float: left;
+}
+.m-list.delivery .list li a {
+  display: block;
+}
+.m-list.delivery .list li .img {
+  position: relative;
+  width: 210px;
+  height: 146px;
+  overflow: hidden;
+  display: block;
+  margin-bottom: 19px;
+}
+.m-list.delivery .list li .img img {
+  width: 100%;
+  height: auto;
+}
+.m-list.delivery .list li .img .m-point {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 11px;
+  color: #2483ff;
+  background: #ffdd00;
+  display: block;
+  line-height: 20px;
+  padding: 0px 7px;
+  border-radius: 2px;
+}
+.m-list.delivery .list li .stxt {
+  position: relative;
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: #222228;
+  line-height: 120%;
+  margin-bottom: 8px;
+}
+.m-list.delivery .list li .stxt .favor {
+  position: absolute;
+  top: 0px;
+  left: 189px;
+  width: 20px;
+  height: 20px;
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/common/like-off%402x.png)
+    no-repeat right;
+  background-size: 20px;
+  display: block;
+}
+.m-list.delivery .list li .stxt .favor.on {
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/common/like-on%402x.png)
+    no-repeat right;
+  background-size: 20px;
+}
+.m-list.delivery .list li .ctxt {
+  display: block;
+  font-size: 13px;
+  color: #66666e;
+  line-height: 130%;
+  margin-bottom: 2px;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  white-space: nowrap;
+}
+.m-list.delivery .list li .ctxt strong {
+  font-weight: 600;
+  color: #222228;
+}
+.m-list.delivery .list li .order-btn {
+  display: block;
+  border: solid 1px #222228;
+  font-size: 13px;
+  line-height: 30px;
+  text-align: center;
+  color: #222228;
+  margin-top: 10px;
+  border-radius: 2px;
+}
+.m-list.delivery .list li .order-btn .point {
+  padding-left: 18px;
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/common/rating-on%402x.png)
+    no-repeat left;
+  background-size: 15px;
+  margin-left: 3px;
+  font-weight: 600;
+}
+
+/*메인 리스트 평가*/
+.m-list.appra {
+  padding: 30px 20px 20px 20px;
+  background: #fff;
+  box-shadow: 1px 1px 3px #d8d8d8;
+}
+.m-list.appra .btit {
+  font-size: 24px;
+  color: #222228;
+  line-height: 120%;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+.m-list.appra .stit {
+  font-size: 15px;
+  color: #222228;
+  line-height: 120%;
+  margin-bottom: 20px;
+}
+.m-list.appra .list {
+  overflow: hidden;
+  margin: 0px -10px;
+}
+.m-list.appra .list li {
+  width: 210px;
+  margin: 0px 10px;
+  float: left;
+}
+.m-list.appra .list li a {
+  display: block;
+}
+.m-list.appra .list li .img {
+  position: relative;
+  width: 210px;
+  height: 146px;
+  overflow: hidden;
+  display: block;
+  margin-bottom: 19px;
+}
+.m-list.appra .list li .img img {
+  width: 100%;
+  height: auto;
+}
+.m-list.appra .list li .img .m-point {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 11px;
+  color: #2483ff;
+  background: #ffdd00;
+  display: block;
+  line-height: 20px;
+  padding: 0px 7px;
+  border-radius: 2px;
+}
+.m-list.appra .list li .stxt {
+  position: relative;
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: #222228;
+  line-height: 120%;
+  margin-bottom: 8px;
+}
+.m-list.appra .list li .stxt .favor {
+  position: absolute;
+  top: 0px;
+  left: 189px;
+  width: 20px;
+  height: 20px;
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/common/like-off%402x.png)
+    no-repeat right;
+  background-size: 20px;
+  display: block;
+}
+.m-list.appra .list li .stxt .favor.on {
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/common/like-on%402x.png)
+    no-repeat right;
+  background-size: 20px;
+}
+.m-list.appra .list li .ctxt {
+  display: block;
+  font-size: 13px;
+  color: #66666e;
+  line-height: 130%;
+  margin-bottom: 2px;
+}
+.m-list.appra .list li .ctxt strong {
+  font-weight: 600;
+  color: #222228;
+}
+.m-list.appra .list li .order-btn {
+  display: block;
+  border: solid 1px #222228;
+  font-size: 13px;
+  line-height: 30px;
+  text-align: center;
+  color: #222228;
+  margin-top: 10px;
+  border-radius: 2px;
+}
+.m-list.appra .list li .order-btn .point {
+  padding-left: 18px;
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/common/rating-on%402x.png)
+    no-repeat left;
+  background-size: 15px;
+  margin-left: 3px;
+  font-weight: 600;
+}
+
+/*메인 리스트 할인 추천*/
+.m-list.magazine {
+  padding: 20px;
+  background: #fff;
+  box-shadow: 1px 1px 3px #d8d8d8;
+}
+.m-list.magazine .btit {
+  font-size: 24px;
+  color: #222228;
+  line-height: 120%;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.m-list.magazine .list {
+  overflow: hidden;
+  margin: 0px -10px;
+}
+.m-list.magazine .list li {
+  width: 210px;
+  height: 210px;
+  margin: 0px 10px;
+  float: left;
+  overflow: hidden;
+}
+.m-list.magazine .list li a {
+  position: relative;
+  display: block;
+  background: #000;
+  width: 100%;
+  height: 100%;
+}
+.m-list.magazine .list li a .btxt {
+  position: absolute;
+  top: 85px;
+  left: 0px;
+  color: #fff;
+  text-align: center;
+  z-index: 1;
+  width: 100%;
+}
+.m-list.magazine .list li a .btxt strong {
+  font-size: 15px;
+  display: block;
+}
+.m-list.magazine .list li a .btxt i {
+  font-size: 13px;
+  display: block;
+}
+.m-list.magazine .list li a img {
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+.m-list.magazine .list li a:hover img {
+  transform: scale(1.1, 1.1);
+  -webkit-transform: scale(1.1, 1.1);
+  -moz-transform: scale(1.1, 1.1);
+  -ms-transform: scale(1.1, 1.1);
+}
+
+/*메인 실시간 맛집평가*/
+.m-list.realtime-appra {
+  padding: 20px 20px 0px 20px;
+  background: #fff;
+  box-shadow: 1px 1px 3px #d8d8d8;
+}
+.m-list.realtime-appra .btit {
+  font-size: 24px;
+  color: #222228;
+  line-height: 120%;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.m-list.realtime-appra .list {
+  /*-moz-column-count:2; -webkit-column-count:2; column-count:2;*/
+}
+.m-list.realtime-appra .list .item {
+  display: inline-block;
+  padding: 20px;
+  border: 1px solid #e6e6eb;
+  margin-bottom: 20px;
+  width: 395px;
+}
+.m-list.realtime-appra .list .item .img-grade {
+  position: relative;
+  padding-left: 80px;
+  min-height: 70px;
+  margin-bottom: 10px;
+}
+.m-list.realtime-appra .list .item .img-grade .img {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+}
+.m-list.realtime-appra .list .item .img-grade .img img {
+  width: 100%;
+  height: auto;
+}
+.m-list.realtime-appra .list .item .img-grade .btxt {
+  font-size: 15px;
+  color: #222228;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.m-list.realtime-appra .list .item .img-grade .stxt {
+  font-size: 13px;
+  color: #222228;
+  margin-bottom: 2px;
+}
+.m-list.realtime-appra .list .item .img-grade .star {
+  position: relative;
+  width: 100px;
+  height: 20px;
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/common/rating-off%402x.png)
+    repeat-x left;
+  background-size: 20px;
+}
+.m-list.realtime-appra .list .item .img-grade .star span {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 50%;
+  height: 20px;
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/common/rating-on%402x.png)
+    repeat-x left;
+  background-size: 20px;
+}
+.m-list.realtime-appra .list .item .img-grade .region {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 13px;
+  color: #9999a0;
+}
+
+.m-list.realtime-appra .list .item .grade-list {
+  font-size: 0px;
+}
+.m-list.realtime-appra .list .item .grade-list .point {
+  font-size: 13px;
+  color: #222228;
+  margin-right: 10px;
+  display: inline-block;
+}
+.m-list.realtime-appra .list .item .grade-list .point .num {
+  padding-left: 15px;
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/common/rating-on%402x.png)
+    no-repeat left;
+  background-size: 12px;
+  margin-left: 3px;
+}
+.m-list.realtime-appra .list .item .ctxt {
+  font-size: 13px;
+  color: #222228;
+  margin-bottom: 5px;
+  max-height: auto;
+  overflow: hidden;
+}
+.m-list.realtime-appra .list .item.short .ctxt {
+  max-height: 65px;
+}
+.m-list.realtime-appra .list .item .img {
+}
+.m-list.realtime-appra .list .item .more-btn {
+  font-size: 13px;
+  color: #9999a0;
+  display: inline-block;
+}
+
+.m-list.realtime-appra .list .item .btns {
+  overflow: hidden;
+  margin-top: 20px;
+}
+.m-list.realtime-appra .list .item .btns .btn-sympa {
+  line-height: 30px;
+  border: 1px solid #222228;
+  display: block;
+  font-size: 13px;
+  color: #222228;
+  text-align: center;
+  display: inline-block;
+  padding: 0px 13px;
+  border-radius: 2px;
+}
+.m-list.realtime-appra .list .item .btns .btn-sympa.active {
+  background: #2483ff;
+  color: #fff;
+  border: 1px solid #2483ff;
+}
+.m-list.realtime-appra .list .item .btns .btn-appra {
+  line-height: 30px;
+  border: 1px solid #222228;
+  display: block;
+  font-size: 13px;
+  color: #222228;
+  text-align: center;
+  display: inline-block;
+  padding: 0px 24px;
+  border-radius: 2px;
+}
+.m-list.realtime-appra .list .item .btns .btn-appra .point {
+  padding-left: 18px;
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/common/rating-on%402x.png)
+    no-repeat left;
+  background-size: 15px;
+  margin-left: 3px;
+  font-weight: 600;
+}
+
+.m-list.realtime-appra div.item {
+  width: 50%;
+  margin-bottom: 20px;
+  border: 1px solid #e6e6eb;
+  padding: 1% 1% 2% 1%;
+}
+
+/*메인 내주변 맛집평가*/
+.m-list.surroun-appra {
+  padding: 20px 20px 0px 20px;
+  background: #fff;
+  box-shadow: 1px 1px 3px #d8d8d8;
+}
+.m-list.surroun-appra .btit {
+  font-size: 24px;
+  color: #222228;
+  line-height: 120%;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.m-list.surroun-appra .list {
+  /*-moz-column-count:2; -webkit-column-count:2; column-count:2;*/
+}
+.m-list.surroun-appra .list .item {
+  display: inline-block;
+  padding: 20px;
+  border: 1px solid #e6e6eb;
+  margin-bottom: 20px;
+  width: 395px;
+}
+.m-list.surroun-appra .list .item .img-grade {
+  position: relative;
+  padding-left: 80px;
+  min-height: 70px;
+  margin-bottom: 10px;
+}
+.m-list.surroun-appra .list .item .img-grade .img {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+}
+.m-list.surroun-appra .list .item .img-grade .img img {
+  width: 100%;
+  height: auto;
+}
+.m-list.surroun-appra .list .item .img-grade .btxt {
+  font-size: 15px;
+  color: #222228;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.m-list.surroun-appra .list .item .img-grade .stxt {
+  font-size: 13px;
+  color: #222228;
+  margin-bottom: 2px;
+}
+.m-list.surroun-appra .list .item .img-grade .star {
+  position: relative;
+  width: 100px;
+  height: 20px;
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/common/rating-off%402x.png)
+    repeat-x left;
+  background-size: 20px;
+}
+.m-list.surroun-appra .list .item .img-grade .star span {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 50%;
+  height: 20px;
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/common/rating-on%402x.png)
+    repeat-x left;
+  background-size: 20px;
+}
+.m-list.surroun-appra .list .item .img-grade .region {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 13px;
+  color: #9999a0;
+}
+
+.m-list.surroun-appra .list .item .grade-list {
+  font-size: 0px;
+}
+.m-list.surroun-appra .list .item .grade-list .point {
+  font-size: 13px;
+  color: #222228;
+  margin-right: 10px;
+  display: inline-block;
+}
+.m-list.surroun-appra .list .item .grade-list .point .num {
+  padding-left: 15px;
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/common/rating-on%402x.png)
+    no-repeat left;
+  background-size: 12px;
+  margin-left: 3px;
+}
+.m-list.surroun-appra .list .item .ctxt {
+  font-size: 13px;
+  color: #222228;
+  margin-bottom: 5px;
+  max-height: auto;
+  overflow: hidden;
+}
+.m-list.surroun-appra .list .item.short .ctxt {
+  max-height: 65px;
+}
+.m-list.surroun-appra .list .item .img {
+}
+.m-list.surroun-appra .list .item .more-btn {
+  font-size: 13px;
+  color: #9999a0;
+  display: inline-block;
+}
+
+.m-list.surroun-appra .list .item .btns {
+  overflow: hidden;
+  margin-top: 20px;
+}
+.m-list.surroun-appra .list .item .btns .btn-sympa {
+  line-height: 30px;
+  border: 1px solid #222228;
+  display: block;
+  font-size: 13px;
+  color: #222228;
+  text-align: center;
+  display: inline-block;
+  padding: 0px 13px;
+  border-radius: 2px;
+}
+.m-list.surroun-appra .list .item .btns .btn-sympa.active {
+  background: #26c5d4;
+  color: #fff;
+  border: 1px solid #26c5d4;
+}
+.m-list.surroun-appra .list .item .btns .btn-appra {
+  line-height: 30px;
+  border: 1px solid #222228;
+  display: block;
+  font-size: 13px;
+  color: #222228;
+  text-align: center;
+  display: inline-block;
+  padding: 0px 24px;
+  border-radius: 2px;
+}
+.m-list.surroun-appra .list .item .btns .btn-appra .point {
+  padding-left: 18px;
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/common/rating-on%402x.png)
+    no-repeat left;
+  background-size: 15px;
+  margin-left: 3px;
+  font-weight: 600;
+}
+
+.m-list.surroun-appra div.item {
+  width: 50%;
+  margin-bottom: 20px;
+  border: 1px solid #e6e6eb;
+  padding: 1% 1% 2% 1%;
+}
+
+.grid {
+  padding: 0;
+  max-width: 100%;
+}
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.grid-sizer,
+.grid-item {
+  width: 50%;
+}
+.grid img {
+  width: 100%;
+}
+
+/*메인 배너*/
+.mbanner-cont {
+  overflow: hidden;
+}
+.mbanner-cont .banner01 {
+  padding: 20px 0px;
+  background: #3c5e8b;
+  text-align: center;
+}
+.mbanner-cont .banner01 span {
+  font-size: 13px;
+  color: #fff;
+  text-align: left;
+  line-height: 150%;
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/Main/banner01-icon.jpg)
+    no-repeat right;
+  display: inline-block;
+  height: 40px;
+  padding-right: 125px;
+}
+
+.mbanner-cont .banner02 {
+  width: 460px;
+  padding: 20px 0px;
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/Main/banner02-bg.png)
+    repeat-y center;
+}
+.mbanner-cont .banner02 span {
+  font-size: 15px;
+  color: #fff;
+  text-align: left;
+  margin: 0px 20px;
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/index/ic-main-banner-point%402x.png)
+    no-repeat right;
+  background-size: 60px;
+  display: block;
+  height: 40px;
+  line-height: 140%;
+}
+
+.mbanner-cont .banner03 {
+  width: 460px;
+  padding: 20px 0px;
+  background: #fff;
+}
+.mbanner-cont .banner03 span {
+  font-size: 15px;
+  color: #222228;
+  text-align: left;
+  margin: 0px 20px;
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/index/ic-main-banner-dcbox%402x.png)
+    no-repeat right;
+  background-size: 60px;
+  display: block;
+  height: 40px;
+  line-height: 40px;
+}
+
+.mbanner-cont .banner04 {
+  width: 460px;
+  height: 82px;
+  background: #fff;
+}
+.mbanner-cont .banner04 img {
+  width: 100%;
+  height: 100%;
+}
+
+.mbanner-cont .banner05 {
+  width: 460px;
+  height: 82px;
+  background: #fff;
+}
+.mbanner-cont .banner05 img {
+  width: 100%;
+  height: 100%;
+}
+
+/*태그 추가*/
+.m-list .list .item .tags {
+  margin-top: 4px;
+  font-size: 11px;
+}
+.m-list .list .item .tags .tag {
+  background: #e6e6eb;
+  border-radius: 10px;
+  line-height: 15px;
+  padding: 2px 8px;
+  margin-right: 5px;
+  color: #66666e;
+  display: inline-block;
+}
+.m-list .list .item .tags .tag:last-child {
+  margin-right: 0px;
+}
