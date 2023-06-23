@@ -1,0 +1,75 @@
+p {
+	font-size: large;
+	font-style: normal;
+	letter-spacing: -0.75px;
+	white-space: nowrap;
+	margin-top: 0;
+}
+/*********************************/
+
+.search-results {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.sorting {
+  margin-bottom: 10px;
+}
+
+#results-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+#results-list li {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+
+/*********************************/
+.store_name {
+	font-size: xx-large;
+	font-weight: bolder;
+}
+
+.list_more_btn {
+	padding-top: 7em;
+}
+
+.list_more_btn a {
+	display: flex;
+	-webkit-box-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	align-items: center;
+	width: 100%;
+	padding: 18px 0px;
+	border-radius: 8px;
+	background-color: rgb(21, 98, 189);
+	font-size: 14px;
+	font-weight: 400;
+	color: rgb(255, 255, 255);
+}
+
+.more_btn_icon {
+	height: 20px;
+	width: 20px;
+}
+
+.section_wrap {
+	flex: 0 0 100%;
+	max-width: 100%;
+	padding: 1.2em;
+	border-radius: 2em;
+}
+
+.boxing:hover {
+	background-color: #f0f0f0;
+	border-radius: 2em;
+}
+
+.review_info{
+	padding-top: 1em;
+}

@@ -1,0 +1,225 @@
+@charset "UTF-8";
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  height: 100vh;
+}
+
+.restaurant_profile {
+  margin: 0 20%;
+}
+
+.item {
+	margin: 5px;
+}
+
+ /* Customize the nav buttons size and layout */
+.custom-nav {
+	color: rgba(0, 0, 0, 0);
+    opacity: 0; 
+    transition: opacity 0.3s; 
+    font-size: 100px;
+    position: absolute;
+    top: calc(50% - 30px); /* Center the buttons vertically */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    border-radius: 10%; /* 테두리 둥글게 */
+    background-color: transparent; /* 배경색 투명 */
+    width: 30px; /* 너비 조정 */
+    height: 30px; /* 높이 조정 */
+    justify-content: center; /* 내용 가운데 정렬 (수평) */
+    align-items: center; /* 내용 가운데 정렬 (수직) */
+    display: flex; /* 내용을 일정하게 정렬하고 싶으면 이 줄 추가 */
+    border: 1px solid transparent;
+}
+
+.custom-nav:hover {
+    color: rgba(0, 0, 0, 0.3); /* 마우스 오버 시 폰트 색상 70% 투명 */
+    opacity: 1; /* 마우스 오버 시 투명도 원래 상태로 되돌림 */
+}
+
+.custom-prev {
+    left: 0px; /* Change the left position value of the left button */
+    height: 25%;
+}
+
+.custom-next {
+    right: 0px; /* Change the right position value of the right button */
+    height: 25%;
+}
+
+
+.profile-slider {
+  width: 60%;
+  margin: 0 auto;
+  padding: 2% 0;
+  overflow: hidden;
+  height: auto;
+}
+
+.slider-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.slider-container img {
+  flex-basis: calc(33.333% - 10px);
+  height: auto;
+  object-fit: cover;
+  margin: 0 5px 10px;
+}
+
+#map-container * {
+	border-radius: 20px;
+	height: 100%;
+	width: 100%;
+	padding: 0%;
+}
+
+.wishlist-text {
+   margin-right: 20px;
+}
+
+.wishlist-button {
+	height: auto;
+	margin: auto;
+    border-radius: 10px; 
+    background-color: transparent;
+    border: 1px solid pink; /* 테두리색 설정 */
+    color: deeppink; /* 글자색 설정 */
+    transition: background-color 0.3s, color 03s; /* 버튼 색상변경 효과 */
+}
+
+.wishlist-button:hover {
+    background-color: pink; /* 마우스 오버 시 배경색 변경 */
+    color: white; /* 마우스 오버 시 글자색 변경 */
+}
+
+
+#reviews_section{
+	padding: 0 20% 5% 5%;
+	
+
+#myform fieldset{
+    display: inline-block;
+    direction: rtl;
+    border:0;    
+    padding-bottom: 5%;
+}
+#myform fieldset legend{
+    text-align: right;
+}
+#myform input[type=radio]{
+    display: none;
+}
+#myform label{
+    font-size: 3em;
+    color: transparent;
+    text-shadow: 0 0 0 #f0f0f0;
+}
+#myform label:hover{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+#myform label:hover ~ label{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+#myform input[type=radio]:checked ~ label{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+
+
+.reviews-header {
+    height: 100px;
+    border-radius: 20px 20px 0 0;
+    width: 100% !important;  	
+    background-color: rgb(226, 226, 226);
+    padding-left: 2%  !important;
+    padding-right: 10% !important;
+    padding-top: 10% !important;
+    padding-bottom : 8% !important;
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+}
+
+.reviews-bottom {
+   margin-bottom: 10% !important;
+}
+
+.profile-picture {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin: 15px;
+    width: 30%;
+    height: 30%;
+    border-radius : 100%;
+    margin-right: auto; 
+}
+
+.review-image {
+    margin-top: 2%;
+    margin-right: 5%; 
+    margin-bottom: 8%;
+    width: 25%;
+    height: 10%;
+}
+
+/*  리뷰 상자 오른쪽 레이아웃을 제어하기. */
+.reviews-top-right {
+    display: flex;
+    margin-right: 10px;
+}
+
+.review1{
+	border: solid 1.5px #D3D3D3;
+	height: 300px;
+	border-radius: 0 0 20px 20px;
+  	width: 100% !important;
+	background-color: rgb(264, 264, 264);
+	margin-left: 10% 10% !important;
+}
+
+#review-writeContents {
+    width: 100%;
+    height: 300px;
+    box-sizing: border-box;
+    border: solid 1.5px #D3D3D3;
+    border-radius : 20px 20px 20px 10px;
+    font-size: 16px;
+    resize: none;
+}
+
+#reviewContents{
+	width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    border: solid 1.5px #D3D3D3;
+    border-radius : 0 0 20px 20px;
+    font-size: 16px;
+    resize: none;
+}
+
+
+/* 파일 첨부 버튼 스타일 */
+#uproad_button {
+    float: left; 
+    margin-top: 10px; 
+    border-radius: 10px;
+}
+
+/* 리뷰 작성 버튼 스타일 */
+#review_button {
+    float: right; 
+    margin-top: 15px; 
+    border-radius: 10px;
+}
+
+/* 클리어 픽스 클래스 추가 */
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
