@@ -1,0 +1,233 @@
+@charset "utf-8";
+/*왼쪽 카테고리 메뉴*/
+.category-menu {
+  background: #fff;
+  margin-bottom: 10px;
+  box-shadow: 0px 1px 3px #d8d8d8;
+}
+.category-menu .title {
+  padding: 20px 0px;
+  margin: 0px 20px 0px 20px;
+  border-bottom: 1px solid #e6e6eb;
+  font-size: 18px;
+  font-weight: 600;
+  color: #222228;
+  line-height: 150%;
+}
+.category-menu .title .region {
+  display: block;
+}
+
+.category-menu .list {
+  margin: 10px 0px 14px 0px;
+}
+.category-menu .list li a {
+  font-size: 12px;
+  padding: 0px 20px;
+  line-height: 40px;
+  display: block;
+}
+.category-menu .list li:hover a {
+  background: #0ac7ce;
+  color: #fff;
+}
+.category-menu .list li.active a {
+  background: #0ac7ce;
+  color: #fff;
+}
+.category-menu .list li.disc a {
+  padding-left: 45px;
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/search/ic-sale%402x.png)
+    no-repeat 20px 10px;
+  background-size: 20px;
+}
+.category-menu .list li.deli a {
+  padding-left: 45px;
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/search/ic-delivery%402x.png)
+    no-repeat 20px 10px;
+  background-size: 20px;
+}
+
+.category-menu .list li:hover.disc a {
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/search/ic-sale%402x.png)
+    no-repeat 20px 10px #0ac7ce;
+  color: #fff;
+  background-size: 20px;
+}
+.category-menu .list li:hover.deli a {
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/search/ic-delivery%402x.png)
+    no-repeat 20px 10px #0ac7ce;
+  color: #fff;
+  background-size: 20px;
+}
+.category-menu .list li.disc.active a {
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/search/ic-sale%402x.png)
+    no-repeat 20px 10px #0ac7ce;
+  background-size: 20px;
+}
+.category-menu .list li.deli.active a {
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/search/ic-delivery%402x.png)
+    no-repeat 20px 10px #0ac7ce;
+  background-size: 20px;
+}
+
+.category-menu .more-btn {
+  border-top: 1px solid #e6e6eb;
+}
+.category-menu .more-btn a {
+  display: block;
+  padding: 20px 0px;
+  text-align: center;
+  color: #222228;
+  background: #f9f9fa;
+}
+.category-menu .more-btn a span {
+  font-size: 13px;
+  padding-right: 20px;
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/common/list-more-down%402x.png)
+    no-repeat right;
+  background-size: 20px;
+}
+.category-menu .more-btn a span.up {
+  font-size: 13px;
+  padding-right: 20px;
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/common/list-more-up%402x.png)
+    no-repeat right;
+  background-size: 20px;
+}
+
+/*왼쪽 지도 및 검색*/
+.mini-map {
+  padding: 10px 10px 0px 10px;
+  background: #fff;
+  margin-bottom: 10px;
+  box-shadow: 0px 1px 3px #d8d8d8;
+}
+.mini-map .map {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+.mini-map .delisor-search {
+  padding: 20px 0;
+  display: block;
+  margin: 0px 10px;
+  font-size: 15px;
+  color: #222222;
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/Sub/minimap-more.png)
+    no-repeat right;
+}
+.mini-map .delivery-search {
+  padding: 20px 0px;
+  display: block;
+  margin: 0px 10px;
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/Sub/minimap-more.png)
+    no-repeat right;
+  color: #66666e;
+  font-size: 13px;
+}
+.mini-map .delivery-search strong {
+  font-size: 15px;
+  color: #222222;
+  display: block;
+}
+
+/*왼쪽 광고*/
+.left-adverti {
+  padding: 10px;
+  background: #fff;
+  margin-bottom: 10px;
+  box-shadow: 0px 1px 3px #d8d8d8;
+}
+.left-adverti .img {
+  width: 100%;
+  height: 90px;
+  margin-bottom: 10px;
+}
+.left-adverti .img img {
+  width: 100%;
+  height: auto;
+}
+.left-adverti .btn {
+  display: inline-block;
+  line-height: 18px;
+  padding: 0px 8px;
+  color: #222228;
+  font-size: 12px;
+  border: 1px solid #222228;
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+.left-adverti .btxt {
+  font-size: 18px;
+  color: #222228;
+  line-height: 120%;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.left-adverti .stxt {
+  font-size: 13px;
+  color: #66666e;
+  line-height: 160%;
+  letter-spacing: -0.02em;
+  padding-bottom: 20px;
+}
+.left-adverti .favor-review {
+  border-top: 1px solid #e6e6eb;
+  padding: 20px 0px 10px 0px;
+  overflow: hidden;
+}
+.left-adverti .favor-review .favor {
+  display: inline-block;
+  font-size: 13px;
+  color: #222228;
+  margin-right: 20px;
+  padding-left: 25px;
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/common/like-of%402x.png)
+    no-repeat left;
+  background-size: 20px;
+  float: left;
+}
+.left-adverti .favor-review .favor.on {
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/common/like-on%402x.png)
+    no-repeat left;
+  background-size: 20px;
+}
+.left-adverti .favor-review .review {
+  display: inline-block;
+  font-size: 13px;
+  color: #222228;
+  margin-right: 20px;
+  padding-left: 25px;
+  background: url(../../../../s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/common/review%402x.png)
+    no-repeat left;
+  background-size: 20px;
+  float: left;
+}
+.left-adverti .favor-review .point {
+  display: inline-block;
+  font-size: 15px;
+  color: #222228;
+  font-weight: 600;
+  float: right;
+  padding-right: 10px;
+}
+
+/*지도 왼쪽*/
+.localeft-cont {
+  width: 470px;
+  border-right: 1px solid #e6e6eb;
+  overflow-y: auto;
+  float: left;
+}
+
+/*지도 영역*/
+#map-area-wrap {
+  float: left;
+}
+.maploca-cont {
+  width: 100%;
+}
+.maploca-cont img {
+  height: 100%;
+}

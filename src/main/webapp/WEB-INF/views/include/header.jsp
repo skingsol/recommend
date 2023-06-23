@@ -32,19 +32,24 @@
 <link rel="stylesheet" type="text/css" href="/main/css/main/font-awesome.min.css">
 
 <!-- search page css -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="/search/css/owl.carousel.min.css">
-  <link rel="stylesheet" href="/search/css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="/search/fonts/style.css">
-  <link rel="stylesheet" href="/search/fonts/flaticon.css">
-  <link rel="stylesheet" href="/search/css/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="/search/css/aos.css">
-  <link rel="stylesheet" href="/search/css/style.css">
-  <link rel="stylesheet" href="/search/css/search.css">
-  
-  <!-- 메인페이지 대문 슬라이드 및 푸터영역 stylesheet -->
-  <link rel="stylesheet" href="/main/css/include.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/search/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/search/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="/search/fonts/style.css">
+<link rel="stylesheet" href="/search/fonts/flaticon.css">
+<link rel="stylesheet" href="/search/css/jquery.fancybox.min.css">
+<link rel="stylesheet" href="/search/css/aos.css">
+<link rel="stylesheet" href="/search/css/style.css">
+<link rel="stylesheet" href="/search/css/search.css">
+
+<!-- 메인페이지 대문 슬라이드 및 푸터영역 stylesheet -->
+<link rel="stylesheet" href="/main/css/include.css">
+
+<!-- 메인페이지 & 서치 페이지 디자인 영역 종료 -->
+
+
+
 
 
 </head>
@@ -57,30 +62,39 @@
 						<img class="main_logo_img" src="/main/img/korean_food.png" alt="로고" />
 					</a>
 				</div>
-				<div class="search_bar">
-					<div class="search_input_bar">
-						<input class="search_input" placeholder="지역, 음식 또는 식당명 입력" value="" />
-						<button class="search_icon" type="button" aria-label="검색하기 버튼"></button>
+				<form action="" class="searchForm">
+					<div class="search_bar">
+						<div class="search_input_bar">
+							<input class="search_input" placeholder="지역, 음식 또는 식당명 입력" value="" />
+							<button class="search_icon" type="submit" aria-label="검색하기 버튼"></button>
+						</div>
 					</div>
-				</div>
+				</form>
+
+
+
+
+
+
+
+
+
 
 				<!-- Topbar Navbar -->
 				<ul class="navbar-nav ml-auto">
 
 					<!-- Nav Item - User Information -->
 					<li class="nav-item dropdown no-arrow"><a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<span class="mr-2 d-none d-lg-inline text-gray-600 small">아이디 님</span> <img class="img-profile rounded-circle" src="/main/img/undraw_profile.svg">
+							<span class="mr-2 d-none d-lg-inline text-gray-600 small">아이디 님</span> <img class="img-profile rounded-circle" src="main/img/undraw_profile.svg">
 						</a> <!-- Dropdown - User Information -->
 
 						<div class="dropdown-menu dropdown-menu-right  animated--grow-in" aria-labelledby="userDropdown" style="text-align: center;">
 							<!-- 사용자 인증 여부에 따라 로그인/로그아웃 페이지 설정 -->
 							<sec:authorize access="isAnonymous()">
-								<a class="dropdown-item" href="..">로그인
-								</a>
+								<a class="dropdown-item" href='<c:url value="/member/login"  />'>로그인 </a>
 							</sec:authorize>
 
-							<a class="dropdown-item" href="#"> 회원가입
-							</a>
+							<a class="dropdown-item" href='<c:url value="/member/signup"  />'> 회원가입 </a>
 
 
 							<!-- 사용자 로그인 시: 드롭다운 메뉴 변경 -->
@@ -103,3 +117,13 @@
 	</nav>
 
 
+
+
+
+
+
+
+
+
+
+	<!-- 고정 헤드 -->
