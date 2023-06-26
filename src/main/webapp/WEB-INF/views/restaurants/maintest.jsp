@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="include/header.jsp"%>
+<%@ include file="../include/header.jsp"%>
 <!-- 메인페이지 헤드2 -게시판 안내- -->
 <div class="gnb-wrap">
 	<div class="inner">
@@ -17,6 +17,8 @@
 	</div>
 	<!--// inner -->
 </div>
+
+
 
 <!-- 대문 이미지 슬라이드 -->
 <div class="slideshow-container">
@@ -65,8 +67,6 @@
 	</ul>
 </section>
 
-
-
 <!-- 중간 : 카테고리별 음식점 랭킹순 정렬 -->
 <div class="category_section_wrap">
 	<!-- 라인 반복 -->
@@ -75,36 +75,40 @@
 			<span class="food_category_name"><a href='<c:url value="/search?keyword=한식"  />'>#한식</a></span>
 		</div>
 		<div class="container mx-auto flex items-center flex-wrap ">
+		
 			<!-- 라인 내 음식점 반복구간 -->
-			<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link">
-				<a href="" class="image_link">
-					<img src="https://file.rankingdak.com/image/RANK/PRODUCT/PRD001/20230106/IMG1672nhu966250394_330_330.jpg">
-				</a>
-				<div id="shortcuts" class="pt-3 flex items-center">
-					<div class="line_diveider">
-						<p>
-							<a href="..." alt="음식점 상세페이지로 연결 링크">
-								#상호명 <strong class="point search_point "></strong>
-							</a>
-						</p>
-						<div id="star_image" style="display: inline-block; vertical-align: top;">
-							<img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" alt="img" />
-						</div>
-						<div id="review_score" style="display: inline-block;">
-							<span class="review">3.8점(77)</span>
-						</div>
-					</div>
-					<div class="save_restaurant">
-						<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
-						<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
-					</div>
-				</div>
-			</div>
-
-
-
+			
+				<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link" >
+					
+					<a href="">
+						<img src="https://file.rankingdak.com/image/RANK/PRODUCT/PRD001/20230106/IMG1672nhu966250394_330_330.jpg" data-title="해운대암소갈비집">
+					</a>
+						
+						<div id="shortcuts" class="pt-3 flex items-center">
+							<div class="line_diveider">							
+								<p>							
+									<a href="">
+										<span class="restaurant_name">해운대암소갈비집</span> <strong class="point search_point "></strong>							
+									</a>
+								</p>
+								<div id="star_image" style="display: inline-block; vertical-align: top;">
+									<img class="score_image" src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png" alt="img" />
+								</div>
+								<div id="review_score" style="display: inline-block;">
+									<span class="review">3.8점(77)</span>
+								</div>
+							</div>
+							<div class="save_restaurant">
+								<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
+								<span class="icon is-small"><i class="fa fa-heart-o" aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
+							</div>
+						</div>					
+				</div>			
 		</div>
 	</section>
+	
+	
+
 
 	<!-- 일식 카테고리 -->
 	<section id="japanese" class="bg-white category_section_line_wrap">
@@ -216,7 +220,7 @@
 		</div>
 		<div class="container mx-auto flex items-center flex-wrap ">
 			<!-- 라인 내 음식점 반복구간 -->
-			<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link">
+			<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link" >
 				<a href="" class="image_link">
 					<img src="https://file.rankingdak.com/image/RANK/PRODUCT/PRD001/20230106/IMG1672nhu966250394_330_330.jpg">
 				</a>
@@ -242,7 +246,8 @@
 			</div>
 
 		</div>
-	</section>
+	</section>	
+	
 	<!-- 카페 카테고리 -->
 	<section id="desert" class="bg-white category_section_line_wrap">
 		<div class="loop">
@@ -281,5 +286,6 @@
 
 
 
+<script src="/restaurants/js/result.js"></script>
 <script type="module" src="/main/js/main.js"></script>
-<%@ include file="include/footer.jsp"%>
+<%@ include file="../include/footer.jsp"%>

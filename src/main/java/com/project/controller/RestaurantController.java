@@ -1,11 +1,16 @@
 package com.project.controller;
 
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.project.domain.ResultDTO;
+import com.project.service.ResultService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -15,13 +20,24 @@ import lombok.extern.slf4j.Slf4j;
 public class RestaurantController {
 	
 	@Autowired
-	//private  service;
+	private ResultService resultService;
 	
-	//login.jsp 보여주는 컨트롤러 작성
+		
 	@GetMapping("/profile")
-	public void profileGet() {
-		log.info("맛집상세페이지 요청");
+	public void profileGet(String restaurantName, Model model) {
+		log.info("맛집 상세페이지 요청: " + restaurantName);
+		ResultDTO result = resultService.result(restaurantName);
+		model.addAttribute("result", result);	
+		log.info("result"+result);
 	}
+	
+
+	
+	@GetMapping("/maintest")
+	public void maintest() {
+		log.info("홈 화면 테스트");
+	}
+	
 }
 
 

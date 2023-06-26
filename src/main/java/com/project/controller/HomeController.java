@@ -18,9 +18,4 @@ public class HomeController {
 		return "main"; //test
 	}
 	
-	@RequestMapping(value = "/search", method = RequestMethod.GET)
-	public String restaurants() {
-		logger.info("Welcome home!");		
-		return "search"; //test
-	}
 }
