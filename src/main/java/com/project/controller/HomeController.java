@@ -18,9 +18,9 @@ public class HomeController {
 		return "main"; //test
 	}
 	
-	@RequestMapping(value = "/restaurants/profile", method = RequestMethod.GET)
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public String restaurants() {
 		logger.info("Welcome home!");		
-		return "restaurants/profile"; //test
+		return "search"; //test
 	}
 }
