@@ -9,22 +9,22 @@
 	<div class="restaurant_poto_slider">
 		<div class="slider-container owl-carousel">
 			<div class="item">
-				<img src="/restaurants/img/japanese.png" alt="맛집이미지 2" id="result_image">
+				<img src="${result.imageLink}" alt="맛집이미지 1" >
 			</div>
 			<div class="item">
-				<img src="/restaurants/img/chinese.png" alt="맛집이미지 2" id="result_image">
+				<img src="${result.imageLink}" alt="맛집이미지 2" >
 			</div>
 			<div class="item">
-				<img src="/restaurants/img/korean_food.png" alt="맛집이미지 3" id="result_image">
+				<img src="${result.imageLink}" alt="맛집이미지 3" >
 			</div>
 			<div class="item">
-				<img src="/restaurants/img/chinese.png" alt="맛집이미지 4" id="result_image">
+				<img src="${result.imageLink}" alt="맛집이미지 4" >
 			</div>
 			<div class="item">
-				<img src="/restaurants/img/japanese.png" alt="맛집이미지 5" id="result_image">
+				<img src="${result.imageLink}" alt="맛집이미지 5" >
 			</div>
 			<div class="item">
-				<img src="/restaurants/img/korean_food.png" alt="맛집이미지 6" id="result_image">
+				<img src="${result.imageLink}" alt="맛집이미지 6">
 			</div>
 		</div>
 	</div>
@@ -38,9 +38,9 @@
 					<div id="map" style="width:100%;height:350px;"></div>					
 				</div>
 				<div class="col-md-6">
-					<h2 class="display-5 fw-bolder" id="result_title"><span>맛집 이름</span></h2>
+					<h2 class="display-5 fw-bolder" id=""><span>${result.title}</span></h2>
 					<h5>
-						<span id="result_category">음식 카테고리</span>
+						<span id="result_category">${result.category}</span>
 					</h5>
 					<div class="fs-5 mb-5">
 						<div class="fs-5 mb-5">
@@ -55,7 +55,7 @@
 							<tbody>
 								<tr class="">
 									<th class="text-start" >주소</th>
-									<td  class="text-end"><span class="" id="result_address">맛집 주소</span><br /> <span class="" id="result_road_address">도로명 주소</span></td>
+									<td  class="text-end"><span class="" id="result_address">${result.address}</span><br /> <span class="" id="result_road_address">${result.roadAddress}</span></td>
 								</tr>
 
 								<tr class="">

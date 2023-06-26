@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class ResultImageReq {
 	
 	private String query = "";
-	private String display = "1";
+	private String display = "6";
 	private String start = "1";
 	private String sort = "sim";
 	private String filter = "all";

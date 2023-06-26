@@ -25,6 +25,7 @@
 		</span>
 	</div>
 </footer>
+<!-- profile.jsp -->
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7981cac6d0986eb33d99fce3ac0af96a&libraries=services"></script>
 <script>
@@ -44,7 +45,7 @@ var map = new kakao.maps.Map(mapContainer, mapOption);
 var ps = new kakao.maps.services.Places(); 
 
 // 키워드로 장소를 검색합니다
-ps.keywordSearch('종로 솔데스크', placesSearchCB); 
+ps.keywordSearch('해운대암소갈비집', placesSearchCB); 
 
 // 키워드 검색 완료 시 호출되는 콜백함수 입니다
 function placesSearchCB (data, status, pagination) {
