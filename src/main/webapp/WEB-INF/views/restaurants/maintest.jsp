@@ -81,14 +81,14 @@
 				<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link" >
 					
 					<a href="">
-						<img src="https://file.rankingdak.com/image/RANK/PRODUCT/PRD001/20230106/IMG1672nhu966250394_330_330.jpg" data-title="해운대암소갈비집">
+						<img src="https://file.rankingdak.com/image/RANK/PRODUCT/PRD001/20230106/IMG1672nhu966250394_330_330.jpg" data-title="파스타즈">
 					</a>
 						
 						<div id="shortcuts" class="pt-3 flex items-center">
 							<div class="line_diveider">							
 								<p>							
 									<a href="">
-										<span class="restaurant_name">해운대암소갈비집</span> <strong class="point search_point "></strong>							
+										<span class="restaurant_name">파스타즈</span> <strong class="point search_point "></strong>							
 									</a>
 								</p>
 								<div id="star_image" style="display: inline-block; vertical-align: top;">

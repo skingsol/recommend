@@ -1,5 +1,8 @@
 package com.project.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -50,7 +53,7 @@ public class ResultServiceImpl implements ResultService {
 			
 			if(imageRes.getTotal() > 0) {
 				// 이미지 정보들 중에서 첫번째 가져오기
-				ResultImageItem imageItem = imageRes.getItems().get(0);
+				 List<ResultImageItem> imageItems = imageRes.getItems();
 				
 				// 받은 정보들을 원하는 데이터만 추출해서 ResultDTO 담기
 				ResultDTO dto = new ResultDTO();
@@ -59,7 +62,12 @@ public class ResultServiceImpl implements ResultService {
 				dto.setAddress(localItem.getAddress());
 				dto.setRoadAddress(localItem.getRoadAddress());
 				dto.setHomePageLink(localItem.getLink());
-				dto.setImageLink(imageItem.getLink());
+				
+				List<String> imageLinks = new ArrayList<>();
+			    for (ResultImageItem imageItem : imageItems) {
+			        imageLinks.add(imageItem.getLink());
+			    }
+			    dto.setImageLink(imageLinks);
 				
 				return dto;
 			

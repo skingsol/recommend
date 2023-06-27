@@ -1,5 +1,7 @@
 package com.project.domain;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,5 +16,5 @@ public class ResultDTO {
 		private String address;				// 주소
 		private String roadAddress;			// 도로명
 		private String homePageLink;		// homepageLink
-		private String imageLink;			// 음식, 가게 이미지 주소
+		private List<String> imageLink;			// 음식, 가게 이미지 주소
 }

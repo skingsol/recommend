@@ -70,6 +70,11 @@ body {
   height: auto;
   object-fit: cover;
   margin: 0 5px 10px;
+  height: 300px;
+}
+
+.restaurant_poto_slider{
+	margin-bottom: 50px;
 }
 
 #map-container * {
@@ -77,6 +82,20 @@ body {
 	height: 100%;
 	width: 100%;
 	padding: 0%;
+}
+.detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+}
+
+.adress {
+	margin: 50px auto;
+}
+
+.number{
+	margin: 50px auto;
 }
 
 .wishlist-text {
@@ -100,8 +119,8 @@ body {
 
 
 #reviews_section{
-	padding: 0 20% 5% 5%;
-	
+	margin-bottom: 20%;	
+}
 
 #myform fieldset{
     display: inline-block;
