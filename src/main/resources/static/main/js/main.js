@@ -1,12 +1,14 @@
 //---------------------------------------------------------------//
 //    업체명 글자수 제한
 //---------------------------------------------------------------//
-
-const innerText = document.querySelectorAll(".restaurant_name");
-innerText.forEach((element) => {
-  const shortName = element.innerHTML.substring(0, 10);
-  element.innerHTML = shortName;
-});
+subName();
+function subName() {
+  const innerText = document.querySelectorAll(".restaurant_name");
+  innerText.forEach((element) => {
+    const shortName = element.innerHTML.substring(0, 10);
+    element.innerHTML = shortName;
+  });
+}
 
 //---------------------------------------------------------------//
 //    대문 이미지 슬라이드
@@ -44,6 +46,9 @@ special.addEventListener("click", (e) => {
   //어느 카테고리가 클릭이 되었는가?
   const category = e.target.dataset.genre;
   console.log("내가 선택한 카테고리:", category);
+  //카테고리 이름 변경하기
+  const foodCategory = document.querySelector(".food_category_name");
+  foodCategory.innerHTML = "#" + category;
 
   //기존 정보(메인)를 가져온 후에 새로운 api 정보를 jsp에 담기
   fetch("/api/server/search?query=" + category)
@@ -55,18 +60,39 @@ special.addEventListener("click", (e) => {
     })
     .then((data) => {
       console.log(data);
-
+      let str = "";
       data.forEach((element) => {
-        let str = "";
-
-        element.forEach((item) => {
-          console.log("두번째 foreach", item);
-        });
-        document.querySelector(".loop_section").innerHTML = "";
-
-        // special.innerHTML = "";
-        // special.innerHTML = str;
+        //console.log(element);
+        "<c:forEach var='food' items='${list }'>";
+        str += "<div class='w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link'>";
+        str += "<a href='' class='image_link'>";
+        str +=
+          "<img id='image_link' src='" +
+          element.imageLink +
+          "' style='width: 205px; height: 235px;' data-title=''></a>";
+        str += "<div id='shortcuts' class='pt-3 flex items-center'>";
+        str += "<div class='line_diveider'>";
+        str += "<a href='...' id='store_name'>";
+        str += "<span class='restaurant_name'>" + element.title + "</span>";
+        str += "<strong class='point search_point'>";
+        str += "</strong></a></p>";
+        str += "<div id='star_image' style='display: inline-block; vertical-align: top;'>";
+        str +=
+          "<img class='score_image' src='https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png' alt='img' />";
+        str += "</div>";
+        str += "<div id='review_score' style='display: inline-block;'>";
+        str += "<span class='review'>3.8점(77)</span>";
+        str += "</div> </div>";
+        str += "<div class='save_restaurant'>";
+        str +=
+          "<span class='icon is-small'><i class='fa fa-heart-o' aria-hidden='true'></i></span> &nbsp;<span class='like-num'></span>";
+        str += "</div></div></div>";
+        //str = "</c:forEach>";
       });
+      console.log(str);
+      document.querySelector(".loop_section").innerHTML = "";
+      document.querySelector(".loop_section").innerHTML = str;
+      subName();
     })
     .catch((error) => console.log(error));
 });
