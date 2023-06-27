@@ -1,12 +1,11 @@
 //---------------------------------------------------------------//
-//    카테고리 버튼 선택 시 해당 바디로 스크롤 이동
+//    업체명 글자수 제한
 //---------------------------------------------------------------//
-$(document).ready(function ($) {
-  $("#scroll_move").click(function (event) {
-    event.preventDefault();
 
-    $("html,body").animate({ scrollTop: $(this.hash).offset().top }, 500);
-  });
+const innerText = document.querySelectorAll(".restaurant_name");
+innerText.forEach((element) => {
+  const shortName = element.innerHTML.substring(0, 10);
+  element.innerHTML = shortName;
 });
 
 //---------------------------------------------------------------//
@@ -35,9 +34,90 @@ function showSlides() {
   setTimeout(showSlides, 3000); // 3초마다 슬라이드 변경
 }
 
-//---------------------------------------------------------------//
-//    카테고리별 랭킹순 음식점 액자식 진열 정보 가져오기
-//---------------------------------------------------------------//
+//----------------------------------------------------
+//  카테고리 아이콘 클릭 시 해당 카테고리 api 가져와서 보여주기
+//----------------------------------------------------
+
+const special = document.querySelector(".special");
+
+special.addEventListener("click", (e) => {
+  //어느 카테고리가 클릭이 되었는가?
+  const category = e.target.dataset.genre;
+  console.log("내가 선택한 카테고리:", category);
+
+  //기존 정보(메인)를 가져온 후에 새로운 api 정보를 jsp에 담기
+  fetch("/api/server/search?query=" + category)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("잘못된 요청");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+
+      data.forEach((element) => {
+        let str = "";
+
+        element.forEach((item) => {
+          console.log("두번째 foreach", item);
+        });
+        document.querySelector(".loop_section").innerHTML = "";
+
+        // special.innerHTML = "";
+        // special.innerHTML = str;
+      });
+    })
+    .catch((error) => console.log(error));
+});
+
+// const categoryIcons = document.querySelectorAll(".category_icon");
+
+// categoryIcons.forEach((icon) => {
+//   icon.addEventListener("click", () => {
+//     //기존 값 제거(imageLink, title 정보)
+//     document.querySelector(".loop_section").innerHTML = "";
+//     document.querySelectorAll("#image_link").forEach((img) => {
+//       img.removeAttribute("src");
+//     });
+//     document.querySelectorAll(".restaurant_name").forEach((brand) => {
+//       brand.innerHTML = "";
+//     });
+
+//     //클릭한 카테고리 정보 음식점 리스트 요소에 담기
+//     const genre = icon.querySelector(".genre").innerHTML;
+//     //console.log("내가 선택한 장르:", genre);
+
+//     const foodCategory = document.querySelector(".food_category_name");
+//     foodCategory.innerHTML = "#" + genre;
+//     //console.log("루프 이름", loopName.innerHTML);
+//     foodCategory.setAttribute("data-name", genre);
+//     const query = foodCategory.dataset.name;
+//     console.log("내가 불러올 쿼리:", query);
+
+//     fetch("/api/server/search?query=" + query)
+//       .then((response) => {
+//         if (!response.ok) {
+//           throw new Error("잘못된 요청");
+//         }
+//         return response.json();
+//       })
+//       .then((data) => {
+//         //console.log(data);
+
+//         data.forEach((element) => {
+//           console.log("매장 이미지", element.imageLink);
+//           console.log("매장 이름", element.title);
+//         });
+//       })
+//       .catch((error) => console.log(error));
+//   });
+// });
+//----------------------------------------------------
+//document.querySelector("#image_link").src = element.imageLink;
+//document.querySelector(".restaurant_name").innerHTML = element.title;
+
+//----------------------------------------------------
 
 //---------------------------------------------------------------//
 //    맛집 위시리스트 저장 / 이미 저장된 맛집은 채워진 하트로 표시
