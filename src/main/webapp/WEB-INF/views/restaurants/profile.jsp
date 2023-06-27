@@ -4,54 +4,53 @@
   
     
     <!-- 맛집 상세 이미지 표시 -->
-     <div class="restaurant_profile">
+<div class="restaurant_profile">
 	<div class="restaurant_poto_slider">
 		<div class="slider-container owl-carousel">
-			<c:forEach  var="img" items="${result.imageLink}">
+			<c:forEach var="img" items="${result.imageLink}">
 				<div class="item">
-					<img src="${img}" alt="맛집이미지 1" >
+					<img src="${img}" alt="맛집이미지 1">
 				</div>
-			
+
 			</c:forEach>
-			
+
 		</div>
 	</div>
-	
-   
-	
+
+
 	<div class="row gx-4 gx-lg-5 align-items-center">
 		<div class="col-md-6">
-		
+
 			<!-- 지도 가져다 보여줄 영역 -->
 			<div id="map" style="width: 100%; height: 350px;"></div>
-			
-		</div>		
-		
-	<!-- 상세정보 시작 부분 지도 오른편 -->
+
+		</div>
+
+		<!-- 상세정보 시작 부분 지도 오른편 -->
 		<!-- 제목, 카테고리 평점 -->
 		<div class="col-md-6">
 			<div class="fs-5 mb-5">
-			
-		<div class="restaurant_title">		
-			<h2 class="display-5 fw-bolder" id="">
-				<span>${result.title}</span>
-			</h2>
-			
-			<div class="category&score">			
-				<h5>
-					<span class="result_category">${result.category}</span>
-				</h5>
-				
-				<div class="star_score">
-					별점: <span> ★ </span> <span>5.0</span>
+
+				<div class="restaurant_title">
+					<h2 class="display-5 fw-bolder" id="">
+						<span>${result.title}</span>
+					</h2>
+
+					<div class="category&score">
+						<h5>
+							<span class="result_category">${result.category}</span>
+						</h5>
+
+						<div class="star_score">
+							별점: <span> ★ </span> <span>5.0</span>
+						</div>
+
+					</div>
 				</div>
-				
 			</div>
-		</div>
-			</div>
-			
-			
-			
+
+
+
 
 			<!-- 현위치에서 거리 계산 -->
 			<div class="fs-5 mb-5">
@@ -70,7 +69,7 @@
 		</div>
 	</div>
 	<!-- 상세 정보 영역 -->
-<div class="detail">
+	<div class="detail">
 		<!-- 주소정보 -->
 		<div class="adress">
 			<table>
@@ -99,102 +98,81 @@
 					</tr>
 				</tbody>
 			</table>
-		
-	</div>
-	<!-- 메뉴 표기 -->
-	<div class="restaurant_menu">
-		<!-- 반복될 메뉴 정보 영역 -->
-		<ul class="result_menu">
-			<li class="menu"><strong><span class="text-start">메뉴</span></strong> <span class="text-muted">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span> <strong><span class="text-end">?.000<small>원</small></span></strong></li>
-		</ul>
-		
-		<ul class="result_menu">
-			<li class="menu"><strong><span class="text-start">메뉴</span></strong> <span class="text-muted">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span> <strong><span class="text-end">?.000<small>원</small></span></strong></li>
-		</ul>
-		
-		<ul class="result_menu">
-			<li class="menu"><strong><span class="text-start">메뉴</span></strong> <span class="text-muted">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span> <strong><span class="text-end">?.000<small>원</small></span></strong></li>
-		</ul>
 
-	</div>
-</div>
-
-
-	<!-- 리뷰 세션 -->
-	<section class="" id="reviews_section">	
-		<!-- 리뷰 박스 -->
-		<div class="pt-5">
-		
-			<!-- 리뷰 보여주기 반복할 구간 Start @@@@@ -->
-			<!-- 리뷰 박스 상단 -->
-			<form class="reviews-header" name="reviews-header" id="reviews-header" method="post">
-				<div>
-					<!-- 프로필 사진 -->
-					<div class="reviews-top">
-						<img src="/restaurants/img/Ryan.jpg" class="profile-picture" alt="...">
-					</div>
-				</div>
-
-				<div class="reviews-top-right">
-					<img src="/restaurants/img/chinese.png" class="review-image" alt="...">
-					<img src="/restaurants/img/japanese.png" class="review-image" alt="..."> 
-					<img src="/restaurants/img/korean_food.png" class="review-image" alt="..."> 
-				</div>
-			<!-- 리뷰 박스 하단 -->
-			<div class="reviews-bottom">
-				<textarea class="col-auto form-control" id="reviewContents" placeholder="리뷰 내용 보여주기" readonly></textarea>
-			</div>
-			</form>
-			<!-- 리뷰 보여주기 반복할 구간 End @@@@@ -->
-			
-			<!-- 리뷰 보여주기 반복할 구간 Start @@@@@ -->
-			<!-- 리뷰 박스 상단 -->
-			<form class="reviews-header" name="reviews-header" id="reviews-header" method="post">
-				<div>
-					<!-- 프로필 사진 -->
-					<div class="reviews-top">
-						<img src="/restaurants/img/Ryan.jpg" class="profile-picture" alt="...">
-					</div>
-				</div>
-
-				<div class="reviews-top-right">
-					<img src="/restaurants/img/chinese.png" class="review-image" alt="...">
-					<img src="/restaurants/img/japanese.png" class="review-image" alt="..."> 
-					<img src="/restaurants/img/korean_food.png" class="review-image" alt="..."> 
-				</div>
-			<!-- 리뷰 박스 하단 -->
-			<div class="reviews-bottom">
-				<textarea class="col-auto form-control" id="reviewContents" placeholder="리뷰 내용 보여주기" readonly></textarea>
-			</div>
-			</form>
-			<!-- 리뷰 보여주기 반복할 구간 End @@@@@ -->
-			
-			<!-- 리뷰 보여주기 반복할 구간 Start @@@@@ -->
-			<!-- 리뷰 박스 상단 -->
-			<form class="reviews-header" name="reviews-header" id="reviews-header" method="post">
-				<div>
-					<!-- 프로필 사진 -->
-					<div class="reviews-top">
-						<img src="/restaurants/img/Ryan.jpg" class="profile-picture" alt="...">
-					</div>
-				</div>
-
-				<div class="reviews-top-right">
-					<img src="/restaurants/img/chinese.png" class="review-image" alt="...">
-					<img src="/restaurants/img/japanese.png" class="review-image" alt="..."> 
-					<img src="/restaurants/img/korean_food.png" class="review-image" alt="..."> 
-				</div>
-			<!-- 리뷰 박스 하단 -->
-			<div class="reviews-bottom">
-				<textarea class="col-auto form-control" id="reviewContents" placeholder="리뷰 내용 보여주기" readonly></textarea>
-			</div>
-			</form>
-			<!-- 리뷰 보여주기 반복할 구간 End @@@@@ -->
-			
 		</div>
+		<!-- 메뉴 표기 -->
+		<div class="restaurant_menu">
+			<!-- 반복될 메뉴 정보 영역 -->
+			<ul class="result_menu">
+				<li class="menu"><strong><span class="text-start">메뉴</span></strong> <span class="text-muted"> - - - - - - - - - - - - - - - - - - - -</span> <strong><span class="text-end">?.000<small>원</small></span></strong></li>
+			</ul>
+
+			<ul class="result_menu">
+				<li class="menu"><strong><span class="text-start">메뉴</span></strong> <span class="text-muted"> - - - - - - - - - - - - - - - - - - - -</span> <strong><span class="text-end">?.000<small>원</small></span></strong></li>
+			</ul>
+
+			<ul class="result_menu">
+				<li class="menu"><strong><span class="text-start">메뉴</span></strong> <span class="text-muted"> - - - - - - - - - - - - - - - - - - - -</span> <strong><span class="text-end">?.000<small>원</small></span></strong></li>
+			</ul>
+
+		</div>
+	</div>
+
+
+	<!-- 리뷰 보여주기 부분 start -->
+	<div class="reviews_part">
+		<div class="main">
+			<ul class="comment">
+
+				<%-- <c:forEach items="${store.reviewList }" var="reviewList"> --%>
+				<li>
+					<div class="client">
+
+						<div class="review_header">
+							<div>
+								<div class="nickname">닉네임</div>
+								<%-- <div class="nickname">${reviewList.nickname }</div> --%>
+								<div>
+
+									<%-- <c:forEach begin="0" end="4" var="i">
+									<c:choose>
+										<c:when test="${Math.round(reviewList.score) > i }"> --%>
+									<i class="far fas fa-star">★★★★★</i>
+									<%-- </c:when>
+										<c:otherwise> --%>
+									<i class="far fa-star"></i>
+									<%-- </c:otherwise>
+									</c:choose>
+								</c:forEach> --%>
+								</div>
+							</div>
+							<div class="create_date">
+								<span>2023-06-28</span>
+							</div>
+							<%-- <span><fm:formatDate value="${reviewList.regiDate }" pattern="yyyy-MM-dd" /> </span> --%>
+						</div>
+
+						<div>
+							<%-- <c:if test="${!empty reviewList.reviewImg }"> --%>
+							<div class="review_img_box">
+								<%-- <img src="${reviewList.reviewImg }" alt="이미지" class="review_img"> --%>
+								<img src="/restaurants/img/japanese.png" alt="이미지" class="review_img">
+							</div>
+							<%-- </c:if> --%>
+							<div class="review_contents">리뷰 내용 입니다.</div>
+							<%-- <div>${reviewList.reviewContent }</div> --%>
+						</div>
+					</div>
+				</li>
+				<%-- </c:forEach> --%>
+			</ul>
+		</div>
+		<!-- 리뷰 보여주기 부분 end -->
+
+
 		<!-- 리뷰 작성 폼-->
-		<form class="mt-3" name="myform" id="myform" method="post">		
-		
+		<form class="mt-3" name="myform" id="myform" method="post">
+
 			<fieldset>
 				<span class="text-bold">별점을 선택해주세요</span>
 				<input type="radio" name="reviewStar" value="5" id="rate1">
@@ -231,6 +209,6 @@
 			</div>
 		</form>
 		<div class="mb-5"></div>
-	</section>
 	</div>
+</div>
 <%@ include file="../include/footer_restaruant.jsp"%>

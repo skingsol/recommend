@@ -48,7 +48,8 @@
   <link rel="stylesheet" href="/main/css/include.css">
 
 	<!-- 상단 이미지 표시 css, 리뷰 쓰기 별 css -->
-	<link href="/restaurants/css/profile.css" rel="stylesheet">
+	<link rel="stylesheet" href="/restaurants/css/profile.css">
+	<link rel="stylesheet" href="/restaurants/css/detail.css">	
 
 </head>
 <body>
