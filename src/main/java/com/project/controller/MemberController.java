@@ -1,5 +1,6 @@
 package com.project.controller;
 
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -15,6 +17,7 @@ import com.project.domain.ChangeDTO;
 import com.project.domain.LoginDTO;
 import com.project.domain.MemberDTO;
 import com.project.service.MemberService;
+import com.project.service.MemberServiceImpl;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -32,7 +35,7 @@ public class MemberController {
 		log.info("로그인 폼 요청");
 	}
 	//register_complete.jsp 보여주는
-	@GetMapping("/register_complete")
+	@GetMapping("/registerComplete")
 	public void registerCompleteGet() {
 		log.info("회원가입 완료 폼 요청");
 	}
@@ -41,9 +44,10 @@ public class MemberController {
 	public void mypageGet() {
 		log.info("마이페이지 폼 요청");
 	}
-	@GetMapping("/register")
-	public void registerGet() {
-		log.info("마이페이지 폼 요청");
+	//changePwd.jsp 보여주는
+	@GetMapping("/changePwd")
+	public void changePwdGet() {	
+		log.info("비밀번호 변경 페이지 요청 ");
 	}
 	
 	
@@ -57,7 +61,7 @@ public class MemberController {
 		if(authDTO != null) {
 			//session 로그인 정보 담기
 			session.setAttribute("authDTO", authDTO);
-			//index 이동
+			//main 이동
 			return "redirect:/";			
 		}else {
 			return "redirect:/member/login";
@@ -69,9 +73,9 @@ public class MemberController {
 	public String logoutGet(HttpSession session) {
 		log.info("로그아웃 요청");
 		
-		//session.removeAttribute("authDTO");
+		session.removeAttribute("authDTO");
 		
-		//session 해제 index 이동
+		//session 해제 main 이동
 		return "redirect:/main";
 	}
 	
@@ -90,21 +94,26 @@ public class MemberController {
 		else {
 			rttr.addFlashAttribute("check", false);
 			return "redirect:/member/step1";
-			//return "/member/step1"; // ==> View Resolver
 		}		
 	}
+	
+	
+	
 	
 	@PostMapping("/register")
 	public String registerPost(MemberDTO dto) {
 		log.info("회원가입 요청 "+ dto);
 		
-		//회원가입 성공 시 로그인 페이지 이동
+		//회원가입 성공 시 성공 완료 화면
 		if(service.register(dto)) {
-			return "redirect:/member/register_complete";
+			return "redirect:/member/registerComplete";
 		}else {
 			return "/member/register";
 		}
 	}
+	
+	
+	
 	
 	
 	//중복 아이디 
@@ -141,14 +150,8 @@ public class MemberController {
 		return "redirect:/member/leave";
 	}
 	
-	@GetMapping("/changePwd")
-	public void changePwdGet() {	
-		
-		
-		
-		// changePwd.jsp 보여주기
-		log.info("비밀번호 변경 페이지 요청 ");
-	}
+	
+	
 	
 	@PostMapping("/changePwd")
 	public String changePwdPost(ChangeDTO changeDTO,HttpSession session) {		
@@ -166,6 +169,13 @@ public class MemberController {
 		}			
 		return "redirect:/member/changePwd";
 	}
+	
+	
+	
+	
+	
+	
+	
 }
 
 

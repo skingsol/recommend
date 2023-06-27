@@ -10,7 +10,7 @@
 
 <!-- Custom styles for this template-->
 
-<link href="/css/register_completepage.css" rel="stylesheet">
+<link href="/login/css/register_completepage.css" rel="stylesheet">
 <!-- Add this line to link the custom CSS -->
 </head>
 <body>
@@ -19,7 +19,7 @@
         <h1>회원가입이 완료되었습니다!</h1>
         <p>축하합니다. 회원가입이 성공적으로 완료되었습니다.</p>
         <div class="buttons">
-            <a href="login.jsp" class="login-button">로그인</a>
+            <a href="/member/login" class="login-button">로그인</a>
         </div>
     </div>
 </body>

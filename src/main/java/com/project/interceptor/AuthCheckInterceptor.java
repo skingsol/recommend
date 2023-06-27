@@ -32,7 +32,7 @@ public class AuthCheckInterceptor implements HandlerInterceptor {
 		return false;
 	}
 	
-	// postHandle() : 컨트롤러 작업 끝난 후 추가 작업이 필요하다면
+	
 }
 
 

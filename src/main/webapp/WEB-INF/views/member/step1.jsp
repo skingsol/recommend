@@ -146,11 +146,10 @@
 	<label id="textarea1" style="font-size:16px;">
 		<input type="checkbox" name="agree" value="true"> 약관동의
 	</label>
-	<input type="submit" class="btn btn-primary btn-sm"  value="다음단계">
+	<input type="submit" class="btn btn-primary btn-sm" value="다음단계">
 	</form>	
 </div>
 <script>
-	// 스크립트에서 값이 비어 있을 때도 false 상황임
 	let check = '${check}';
 	if(check == "false"){
 		alert("약관에 동의를 해야 합니다.");		

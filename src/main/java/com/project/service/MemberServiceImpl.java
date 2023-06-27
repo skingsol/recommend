@@ -1,15 +1,18 @@
 package com.project.service;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.google.inject.spi.Message;
 import com.project.domain.AuthDTO;
 import com.project.domain.ChangeDTO;
 import com.project.domain.LoginDTO;
 import com.project.domain.MemberDTO;
 import com.project.mapper.MemberMapper;
+
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -79,6 +82,10 @@ public class MemberServiceImpl implements MemberService {
 		}
 		return false;
 	}
+	
+	
+	
+	
 	
 }
 

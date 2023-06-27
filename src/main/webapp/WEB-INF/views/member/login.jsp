@@ -1,17 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
 <!-- Custom styles for this template-->
-<link href="/css/loginpage.css" rel="stylesheet">
+<link href="/login/css/loginpage.css" rel="stylesheet">
 
 	<div class="container">
 		<div class="row">
-			<form id="frm_login" method="POST">
-				<input name="retURL" type="hidden" value="https://www.diningcode.com/">
+			<form id="login" method="POST">
+				<input name="retURL" type="hidden" action='<c:url value="/member/login"/>'>
 				<div class="login">
 					<div class="title bb-gray">로그인 및 회원가입</div>
 					<div class="fs-15 fw-b" style="padding: 24px 0;">로그인을 통해 다양한 혜택을 누리세요.</div>
 					<div>
-						<input id="txt_id" type="text" class="input-text" placeholder="휴대전화번호 또는 이메일 입력" style="margin-bottom: 7px;"> <input id="txt_pw" type="password" class="input-text" placeholder="비밀번호 입력">
+						<input id="floatingInput" type="text" class="input-text" placeholder="아이디 입력" name="userid" >
+						<input id="floatingPassword" type="password" class="input-text" placeholder="비밀번호 입력" name="password">
 					</div>
 					<div style="padding: 24px 0;">
 						<div class="fl">
@@ -29,10 +30,10 @@
 						<div class="fr" style="border-bottom: solid #E0E0E0 1px; width: 180px; height: 7px;"></div>
 						<div class="clear"></div>
 					</div>
-					<button id="btn_facebook" type="button" class="btn btn-facebook">페이스북으로 로그인</button>
+					<a button id="btn_facebook" type="button" class="btn btn-facebook" href="https://ko-kr.facebook.com/">페이스북으로 로그인</a>
 					<div style="margin: 24px 0 100px 0; padding: 24px 0; border: solid #E0E0E0 1px; line-height: 24px;">
 						<span class="fs-15 fw-b">아직 회원이 아니신가요?</span><br> <span>회원가입을 하시면 더 많은 정보와 혜택을 받으실 수 있습니다.</span>
-						<button id="btn_intro" type="button" class="btn btn-white w200" style="margin-top: 12px;">회원가입</button>
+						<a button id="btn_intro" type="button" class="btn btn-white w200" href="/member/step1" style="margin-top: 12px;">회원가입</a>
 					</div>
 				</div>
 			</form>

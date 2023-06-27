@@ -26,7 +26,7 @@
 	    <button class="w-100 btn btn-lg btn-primary" type="submit">비밀번호 변경</button>	    
 	  </form>
 	</main>
-<script src='<c:url value="/js/change.js" />'></script>
+<script src='<c:url value="/login/js/change.js" />'></script>
 <%@ include file="../include/footer.jsp" %>
 
 

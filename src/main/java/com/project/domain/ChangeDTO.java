@@ -10,7 +10,7 @@ import lombok.ToString;
 @ToString @AllArgsConstructor
 @NoArgsConstructor
 public class ChangeDTO {
-   //changePwd.jsp 와 일치
+   
 	private String userid;	
 	
 	private String currentPassword;

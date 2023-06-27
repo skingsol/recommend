@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.mapper.MemberMapper">
+	
+	<!-- 암호화된 비번 가져오기 -->
+	<select id="getPass" resultType="java.lang.String">
+		select password from member_project 
+		where userid=#{userid}
+	</select>
+
+	<!-- 로그인 : userid,password 일치 시 userid 조회 -->
+	<select id="login" resultType="com.project.domain.AuthDTO">
+		select userid, email from member_project 
+		where userid=#{userid}
+	</select>
+	
+	<!-- 회원가입 -->
+	<insert id="insert">
+		insert into member_project(phone,userid,password,email,txt_intro)
+		values(#{phone},#{userid},#{password},#{email},#{txt_intro})
+	</insert>
+	
+	<!-- 중복 아이디 체크 -->
+	<!-- <select id="dupId"  resultType="java.lang.String">
+		select userid from member_project where userid = #{userid}
+	</select> -->	
+	
+	<select id="dupId"  resultType="java.lang.Integer">
+		select count(*) from member_project where userid = #{userid}
+	</select>
+	
+	
+	<!-- 회원탈퇴 -->
+	<delete id="leave">
+		delete from member_project where userid = #{userid}
+	</delete>
+	
+	<!-- 비밀번호 변경 -->
+	<update id="update">
+		update member_project set password=#{newPassword}
+		where userid=#{userid}
+	</update>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

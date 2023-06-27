@@ -45,7 +45,6 @@
 
 <!-- 메인페이지 대문 슬라이드 및 푸터영역 stylesheet -->
 <link rel="stylesheet" href="/main/css/include.css">
-
 <!-- 메인페이지 & 서치 페이지 디자인 영역 종료 -->
 
 
@@ -91,10 +90,10 @@
 						<div class="dropdown-menu dropdown-menu-right  animated--grow-in" aria-labelledby="userDropdown" style="text-align: center;">
 							<!-- 사용자 인증 여부에 따라 로그인/로그아웃 페이지 설정 -->
 							<sec:authorize access="isAnonymous()">
-								<a class="dropdown-item" href='<c:url value="/member/login"  />'>로그인 </a>
+								<a class="dropdown-item" href="/member/login"<c:url value="/member/login"  />'>로그인 </a>
 							</sec:authorize>
 
-							<a class="dropdown-item" href='<c:url value="/member/signup"  />'> 회원가입 </a>
+							<a class="dropdown-item" href="/member/step1"<c:url value="/member/register"  />'> 회원가입 </a>
 
 
 							<!-- 사용자 로그인 시: 드롭다운 메뉴 변경 -->

@@ -11,9 +11,10 @@ import lombok.ToString;
 @NoArgsConstructor
 @Getter @Setter
 public class MemberDTO {
+	private String phone;
 	private String userid;
 	private String password;
-	private String name;
-	private String gender;
 	private String email;
+	private String txt_intro;
+	
 }

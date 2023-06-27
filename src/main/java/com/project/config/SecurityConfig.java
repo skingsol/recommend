@@ -21,8 +21,9 @@ public class SecurityConfig {
 	
 	
 	@Bean
-	protected SecurityFilterChain configure(HttpSecurity http) throws Exception {
-		http.formLogin().loginPage("/recommend/login");
+	public SecurityFilterChain filterchain(HttpSecurity http) throws Exception {
+		http.authorizeHttpRequests().anyRequest().permitAll().and().httpBasic().and().csrf().disable();
+		
 		return http.getOrBuild();
 	}
 }
