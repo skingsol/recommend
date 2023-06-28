@@ -16,6 +16,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.project.naver.dto.SearchImageReq;
 import com.project.naver.dto.SearchImageRes;
 import com.project.naver.dto.SearchLocalReq;
+import com.project.naver.dto.SearchLocalReq2;
 import com.project.naver.dto.SearchLocalRes;
 
 import lombok.extern.slf4j.Slf4j;
@@ -38,6 +39,7 @@ public class NaverClient {
 	@Value("${naver.uri.search.image}")
 	private String naverImageSearchUrl;
 	
+	//메인페이지 전용
 	public SearchLocalRes searchLocal(SearchLocalReq searchLocalReq) {
 		
 		URI uri = UriComponentsBuilder.fromUriString(naverLocalSearchUrl)
@@ -64,6 +66,35 @@ public class NaverClient {
 		ResponseEntity<SearchLocalRes> resEntity = new RestTemplate().exchange(uri, HttpMethod.GET, httpEntity, resReference);
 		return resEntity.getBody();
 	}
+	
+	//검색결과 페이지 전용 메소드
+	public SearchLocalRes searchLocal2(SearchLocalReq2 searchLocalReq2) {
+		
+		URI uri = UriComponentsBuilder.fromUriString(naverLocalSearchUrl)
+															.queryParams(searchLocalReq2.toMultiValueMap())
+															.encode()
+															.build()
+															.toUri();
+		
+		log.info("지역검색 ", uri.toString());
+		
+		//헤더 추가
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("X-Naver-Client-Id", "duSq6A4xuhsQBxveH3cy");
+		headers.set("X-Naver-Client-Secret", "KSpQMKvLZv");
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		HttpEntity<HttpHeaders> httpEntity = new HttpEntity<>(headers);
+		
+		log.info("clientID, {}",naverClientId);
+		log.info("naverClientSecret, {}", naverClientSecret);
+		
+		
+		ParameterizedTypeReference<SearchLocalRes> resReference = new ParameterizedTypeReference<SearchLocalRes>() {};
+		
+		ResponseEntity<SearchLocalRes> resEntity = new RestTemplate().exchange(uri, HttpMethod.GET, httpEntity, resReference);
+		return resEntity.getBody();
+	}
+	
 	
 	
 	public SearchImageRes searchImage(SearchImageReq searchImageReq) {

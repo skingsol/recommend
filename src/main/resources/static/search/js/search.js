@@ -28,10 +28,10 @@ document.querySelector(".search_icon").addEventListener("click", () => {
   document.querySelector("#search_road_address").innerHTML = "";
   document.querySelector("#search_link").removeAttribute("href");
 
-  fetch("/api/server/search?query=" + query)
+  fetch("/api/search?query=" + query)
     .then((response) => {
       if (!response.ok) {
-        throw new Error("잘못된 요청");
+        throw new Error("잘못된 쿼리 요청");
       }
       return response.json();
     })

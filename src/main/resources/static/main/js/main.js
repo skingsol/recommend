@@ -51,7 +51,7 @@ special.addEventListener("click", (e) => {
   foodCategory.innerHTML = "#" + category;
 
   //기존 정보(메인)를 가져온 후에 새로운 api 정보를 jsp에 담기
-  fetch("/api/server/search?query=" + category)
+  fetch("/api/main?query=" + category)
     .then((response) => {
       if (!response.ok) {
         throw new Error("잘못된 요청");
@@ -97,54 +97,20 @@ special.addEventListener("click", (e) => {
     .catch((error) => console.log(error));
 });
 
-// const categoryIcons = document.querySelectorAll(".category_icon");
-
-// categoryIcons.forEach((icon) => {
-//   icon.addEventListener("click", () => {
-//     //기존 값 제거(imageLink, title 정보)
-//     document.querySelector(".loop_section").innerHTML = "";
-//     document.querySelectorAll("#image_link").forEach((img) => {
-//       img.removeAttribute("src");
-//     });
-//     document.querySelectorAll(".restaurant_name").forEach((brand) => {
-//       brand.innerHTML = "";
-//     });
-
-//     //클릭한 카테고리 정보 음식점 리스트 요소에 담기
-//     const genre = icon.querySelector(".genre").innerHTML;
-//     //console.log("내가 선택한 장르:", genre);
-
-//     const foodCategory = document.querySelector(".food_category_name");
-//     foodCategory.innerHTML = "#" + genre;
-//     //console.log("루프 이름", loopName.innerHTML);
-//     foodCategory.setAttribute("data-name", genre);
-//     const query = foodCategory.dataset.name;
-//     console.log("내가 불러올 쿼리:", query);
-
-//     fetch("/api/server/search?query=" + query)
-//       .then((response) => {
-//         if (!response.ok) {
-//           throw new Error("잘못된 요청");
-//         }
-//         return response.json();
-//       })
-//       .then((data) => {
-//         //console.log(data);
-
-//         data.forEach((element) => {
-//           console.log("매장 이미지", element.imageLink);
-//           console.log("매장 이름", element.title);
-//         });
-//       })
-//       .catch((error) => console.log(error));
-//   });
-// });
-//----------------------------------------------------
-//document.querySelector("#image_link").src = element.imageLink;
-//document.querySelector(".restaurant_name").innerHTML = element.title;
-
-//----------------------------------------------------
-
+//----------------------------------------------------//
+//  검색 아이콘 클릭 시 검색결과 페이지로 이동
+//----------------------------------------------------//
+const searchForm = document.querySelector("#searchForm");
+searchForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const keyword = document.querySelector(".search_input");
+  if (keyword.value === "") {
+    alert("검색어를 입력하세요");
+    keyword.focus();
+    return;
+  }
+  searchForm.submit();
+});
 //---------------------------------------------------------------//
 //    맛집 위시리스트 저장 / 이미 저장된 맛집은 채워진 하트로 표시
 //---------------------------------------------------------------//
