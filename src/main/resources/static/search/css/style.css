@@ -473,8 +473,10 @@ h1, h2, h3 {
   border-radius: 30px;
   border: 2px solid transparent; }
   .btn.btn-primary {
-    background: #a4c639;
-    border-color: #a4c639; }
+    background: rgb(25, 183, 194);
+    border-color: rgb(25, 183, 194);
+    width: 350px;
+    margin: 0 auto; }
     .btn.btn-primary:hover {
       border-color: #a4c639; }
   .btn.btn-outline-primary {
