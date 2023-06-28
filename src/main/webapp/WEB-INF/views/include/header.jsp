@@ -112,7 +112,7 @@
 						aria-expanded="false"> <span
 							class="mr-2 d-none d-lg-inline text-gray-600 small">아이디 님</span>
 							<img class="img-profile rounded-circle"
-							src="main/img/undraw_profile.svg">
+							src="/main/img/undraw_profile.svg">
 					</a> <!-- Dropdown - User Information -->
 
 						<div class="dropdown-menu dropdown-menu-right  animated--grow-in"

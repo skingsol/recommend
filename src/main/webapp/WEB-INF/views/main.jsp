@@ -82,7 +82,7 @@
 		</div>
 		<div
 			class="container mx-auto flex items-center flex-wrap loop_section">
-
+ 
 			<!-- 라인 내 음식점 반복구간 -->
 			<c:forEach var="food" items="${list }">
 				<div
