@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp" %>
+ <link href="/board/css/sb-admin-2.ssb.css" rel="stylesheet"> 
+
 <!-- Page Heading -->
 <div class="gnb-wrap">
 	<div class="inner">
@@ -17,7 +19,7 @@
 	</div>
 	<!--// inner -->
 </div>
-<div class="row">
+<div class="row ">
 	<div class="col">
 		<form action="" method="post" id="registerForm" novalidate>
 		  <div class="form-group">

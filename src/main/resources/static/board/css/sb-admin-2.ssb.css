@@ -556,8 +556,9 @@ pre code {
 .row {
 	display: flex;
 	flex-wrap: wrap;
-	margin-right: -.75rem;
-	margin-left: -.75rem
+	margin-top: 2rem;
+	margin-right: 15rem;
+	margin-left: 15rem
 }
 
 .no-gutters {
@@ -4476,7 +4477,8 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 	background-color: #fff;
 	background-clip: border-box;
 	border: 1px solid #e3e6f0;
-	border-radius: .35rem
+	border-radius: .35rem;
+	margin-bottom: 2rem
 }
 
 .card>hr {
@@ -4509,6 +4511,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 	flex: 1 1 auto;
 	min-height: 1px;
 	padding: 1.25rem
+	
 }
 
 .card-title {
