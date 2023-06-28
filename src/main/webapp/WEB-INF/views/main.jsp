@@ -74,10 +74,12 @@
 
 
 
+
 <!-- 중간 : 카테고리별 음식점 랭킹순 정렬
 	메인 페이지 카테고리 클릭 전까지는 컨트롤러로 api 불러오기
 	카테고리 클릭 시 fetch로 접근
  -->
+ 
 <div class="category_section_wrap">
 	<!-- 라인 반복 -->
 	<section id="korean" class="bg-white category_section_line_wrap">
@@ -88,7 +90,7 @@
 			class="container mx-auto flex items-center flex-wrap loop_section">
 
 			<!-- 라인 내 음식점 반복구간 -->
-			<c:forEach var="food" items="${list }">
+			<c:forEach var="food" items="${list}">
 				<div
 					class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link">
 					<a href="" class="image_link"> <img id="image_link"
@@ -125,9 +127,7 @@
 		</div>
 	</section>
 
-
 </div>
-
 
 <script type="module" src="/main/js/main.js"></script>
 <%@ include file="include/footer.jsp"%>

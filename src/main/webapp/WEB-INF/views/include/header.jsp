@@ -80,13 +80,12 @@
 						src="/main/img/korean_food.png" alt="로고" />
 					</a>
 				</div>
-				
-				
-				<form action='<c:url value="/api/search/query=${query}"/>' class="searchForm todo-form" id="searchForm">
+
+				<form  class="searchForm todo-form" id="searchForm">
 					<div class="search_bar">
 						<div class="search_input_bar">
 							<input type="search" class="search_input"
-								placeholder="지역, 음식 또는 식당명 입력" value="" />
+								placeholder="지역, 음식 또는 식당명 입력"/>
 							<button class="search_icon" type="submit" aria-label="검색하기 버튼"></button>
 						</div>
 				<div class="todo-inner">

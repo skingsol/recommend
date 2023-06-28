@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class SearchLocalReq {
 
 	private String query = "";
-	private String display = "4";
+	private String display = "8";
 	private String start = "1";
 	private String sort = "comment";
 	

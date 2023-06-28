@@ -26,6 +26,7 @@ public class ApiController {
 	@Autowired
 	private WishListService wishListService;
 	
+	// 메인에서 카테고리 클릭 시 작동하는 컨트롤러
 	@GetMapping("/main")
 	public List<WishListDTO> main(String query) {
 		log.info("푸드 카테고리별 맛집 요청"+query);
@@ -35,14 +36,5 @@ public class ApiController {
 		return wishListService.main(query);
 	}
 
-	
-	@GetMapping("/search")
-	public List<WishListDTO> search(String query, Model model) {
-		log.info("맛집 정보 검색 요청" + query);
-		List<WishListDTO> srchList= wishListService.search(query);
-		model.addAttribute("query", query);
-		model.addAttribute("srchList", srchList);
-		log.info("음식점 리스트"+srchList);
-		return wishListService.search(query);
-	}
+
 }

@@ -38,7 +38,7 @@
 			</div>
 
 			<div class="row" id="search_result">
-				<%-- style='visibility: hidden'--%>
+			
 				<!-- 검색결과 리스트 반복 구간 -->
 				<c:forEach var="srch" items="${srchList}">
 					<div class="col-12 boxing">
@@ -70,7 +70,7 @@
 									</div>
 								</div>
 								<p class="store_link_result">
-									<a id='search_link' target='_blank' class='' href="${srch.homepageLink}">홈페이지 바로가기</a>
+									<a id='search_homePageLink' target='_blank' class='' href="${srch.homePageLink}">홈페이지 바로가기</a>
 								</p>
 								<p id="search_road_address" class="store_address_result">${srch.roadAddress}</p>
 								<div class="review_info">

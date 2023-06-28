@@ -63,7 +63,7 @@ special.addEventListener("click", (e) => {
       let str = "";
       data.forEach((element) => {
         //console.log(element);
-        "<c:forEach var='food' items='${list }'>";
+        //str += "<c:forEach var='food' items='${list }'>";
         str += "<div class='w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link'>";
         str += "<a href='' class='image_link'>";
         str +=
@@ -89,7 +89,7 @@ special.addEventListener("click", (e) => {
         str += "</div></div></div>";
         //str = "</c:forEach>";
       });
-      console.log(str);
+      //console.log(str);
       document.querySelector(".loop_section").innerHTML = "";
       document.querySelector(".loop_section").innerHTML = str;
       subName();
@@ -109,6 +109,7 @@ searchForm.addEventListener("submit", (e) => {
     keyword.focus();
     return;
   }
+  searchForm.setAttribute("action", "/search/query=" + keyword.value);
   searchForm.submit();
 });
 //---------------------------------------------------------------//

@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class SearchLocalReq2 {
 
 	private String query = "";
-	private String display = "10";	//최대 10개
+	private String display = "6";	
 	private String start = "1";
 	private String sort = "random";		//관련도 순
 	

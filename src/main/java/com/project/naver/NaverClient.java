@@ -48,8 +48,6 @@ public class NaverClient {
 															.build()
 															.toUri();
 		
-		log.info("지역검색 ", uri.toString());
-		
 		//헤더 추가
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("X-Naver-Client-Id", "duSq6A4xuhsQBxveH3cy");
@@ -66,6 +64,33 @@ public class NaverClient {
 		ResponseEntity<SearchLocalRes> resEntity = new RestTemplate().exchange(uri, HttpMethod.GET, httpEntity, resReference);
 		return resEntity.getBody();
 	}
+	
+	
+public SearchImageRes searchImage(SearchImageReq searchImageReq) {
+		
+		URI uri = UriComponentsBuilder.fromUriString(naverImageSearchUrl)
+															.queryParams(searchImageReq.toMultiValueMap())
+															.encode()
+															.build()
+															.toUri();
+		
+		//헤더 추가
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("X-Naver-Client-Id", "duSq6A4xuhsQBxveH3cy");
+		headers.set("X-Naver-Client-Secret", "KSpQMKvLZv");
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		HttpEntity<HttpHeaders> httpEntity = new HttpEntity<>(headers);
+		
+		
+		ParameterizedTypeReference<SearchImageRes> resReference 
+											= new ParameterizedTypeReference<SearchImageRes>() {};
+		
+		ResponseEntity<SearchImageRes> resEntity 
+											= new RestTemplate().exchange(uri, HttpMethod.GET, httpEntity, resReference);
+		return resEntity.getBody();
+	}
+	
+	
 	
 	//검색결과 페이지 전용 메소드
 	public SearchLocalRes searchLocal2(SearchLocalReq2 searchLocalReq2) {
@@ -97,29 +122,6 @@ public class NaverClient {
 	
 	
 	
-	public SearchImageRes searchImage(SearchImageReq searchImageReq) {
-		
-		URI uri = UriComponentsBuilder.fromUriString(naverImageSearchUrl)
-															.queryParams(searchImageReq.toMultiValueMap())
-															.encode()
-															.build()
-															.toUri();
-		
-		//헤더 추가
-		HttpHeaders headers = new HttpHeaders();
-		headers.set("X-Naver-Client-Id", "duSq6A4xuhsQBxveH3cy");
-		headers.set("X-Naver-Client-Secret", "KSpQMKvLZv");
-		headers.setContentType(MediaType.APPLICATION_JSON);
-		HttpEntity<HttpHeaders> httpEntity = new HttpEntity<>(headers);
-		
-		
-		ParameterizedTypeReference<SearchImageRes> resReference 
-											= new ParameterizedTypeReference<SearchImageRes>() {};
-		
-		ResponseEntity<SearchImageRes> resEntity 
-											= new RestTemplate().exchange(uri, HttpMethod.GET, httpEntity, resReference);
-		return resEntity.getBody();
-	}
 	
 	
 	
