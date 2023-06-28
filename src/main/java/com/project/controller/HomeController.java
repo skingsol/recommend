@@ -41,16 +41,7 @@ public class HomeController {
 		return "main"; 
 	}
 	
-	// 서치페이지에서 작동하는 컨트롤러(메인에서 검색 시에도 작동)
-	@GetMapping("/search")
-	public List<WishListDTO> search(String query, Model model) {
-		log.info("맛집 정보 검색 요청" + query);
-		List<WishListDTO> srchList= wishListService.search(query);
-		model.addAttribute("query", query);
-		model.addAttribute("srchList", srchList);
-		log.info("음식점 리스트"+srchList);
-		return wishListService.search(query);
-	}
+
 
 	
 

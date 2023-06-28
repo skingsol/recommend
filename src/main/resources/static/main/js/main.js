@@ -109,9 +109,12 @@ searchForm.addEventListener("submit", (e) => {
     keyword.focus();
     return;
   }
-  searchForm.setAttribute("action", "/search?query=" + keyword.value);
-  searchForm.submit();
+  console.log("키워드 내용", keyword.value);
+  // searchForm.setAttribute("action", "/search?query=" + keyword.value);
+  // console.log("서치폼 링크", searchForm.getAttribute("action"));
+  // searchForm.submit();
 });
+
 //---------------------------------------------------------------//
 //    맛집 위시리스트 저장 / 이미 저장된 맛집은 채워진 하트로 표시
 //---------------------------------------------------------------//

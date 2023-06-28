@@ -22,7 +22,6 @@
 
 
 
-
 <!-- 대문 이미지 슬라이드 -->
 <div class="slideshow-container">
 	<div class="slides">
@@ -130,4 +129,5 @@
 </div>
 
 <script type="module" src="/main/js/main.js"></script>
+
 <%@ include file="include/footer.jsp"%>

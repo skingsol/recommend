@@ -81,7 +81,8 @@
 					</a>
 				</div>
 
-				<form  class="searchForm todo-form" id="searchForm">
+
+				<form action="api/search/query=${query}" class="searchForm todo-form" id="searchForm">
 					<div class="search_bar">
 						<div class="search_input_bar">
 							<input type="search" class="search_input"
