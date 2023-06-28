@@ -22,18 +22,31 @@ ul.special li a {
 	outline: 0;
 }
 
-ul.special li a img {
+ul.special li img {
 	height: 5em;
 	width: 5em;
 }
 
-/*얘가 그 선택동그라미*/
-ul.special li a:hover {
+ul.special li img:hover {
 	opacity: 0.35;
 	color: #333333;
 	font-weight: bold;
+	cursor: pointer;
 }
 
+.food_category_name{
+	font-size: 18px;
+    font-weight: bold;
+    padding-left: 12px;
+}
+
+ .restaurant_name{
+ 	font-size: 18px;
+    font-weight: bold;
+white-space: no-wrap;
+overflow: hidden;
+text-overflow: ellipsis;
+ }
 /*****************************************/
 /*메인 대문 이미지 슬라이드*/
 .mySlides {
@@ -113,4 +126,9 @@ to {
 .line_diveider {
 	display: block;
 	padding: 2em 0 0 0;
+}
+
+.image_link{
+	width: 205px;
+	height: 245px;
 }

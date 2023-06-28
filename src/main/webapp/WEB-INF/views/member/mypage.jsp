@@ -94,7 +94,7 @@
 			</div>
 
 			<div class="row" style="padding: 24px 0 0 40px;">
-				<a id="btn_deactivate" href="#"
+				<a id="btn_deactivate" href="/member/leave"
 					style="color: #222222; text-decoration: none;">회원탈퇴하기</a> <span>
 				</span>
 				<div class="row tc" style="padding: 50px 0 55px 0;">

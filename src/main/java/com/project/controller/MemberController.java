@@ -170,7 +170,10 @@ public class MemberController {
 		return "redirect:/member/changePwd";
 	}
 	
-	
+	@RequestMapping(value = "/find_pw_form.do")
+	public String find_pw_form() throws Exception{
+		return "/member/find_pw_form";
+	}
 	
 	
 	

@@ -1,32 +1,49 @@
 package com.project.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.http.MediaType;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import com.project.domain.SearchDTO;
+import com.project.naver.dto.WishListDTO;
+import com.project.naver.service.WishListService;
 
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Controller
+@RequestMapping("")
 public class HomeController {
+
+	@Autowired
+	private WishListService wishListService;
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home() {
-		logger.info("Welcome home!");		
-		return "main"; //test
+	@GetMapping("/")
+	public String home(Model model) {
+		log.info("메인 페이지 요청");		
+
+		List<WishListDTO> list= wishListService.search("한식");
+		
+		log.info("음식점 리스트"+list);
+		
+		model.addAttribute("list", list);
+		return "main"; 
 	}
 	
-	@RequestMapping(value = "/restaurants/profile", method = RequestMethod.GET)
-	public String restaurants() {
-		logger.info("Welcome home!");		
-		return "restaurants/profile"; //test
+	@GetMapping("/search")
+	public String searchGet(SearchDTO search, Model model) {
+		log.info("검색 결과 페이지 요청"+search);
+		model.addAttribute("searchDTO", search);
+
+		return "search"; 
 	}
+
+	
+
 }

@@ -7,7 +7,8 @@
 	    required, maxlength, max, min, email, url
 	-->
 <link href="/login/css/registerpage.css" rel="stylesheet">
-<form action='<c:url value="/member/register" />' method="post"	novalidate>
+<form action='<c:url value="/member/register" />' method="post"
+	novalidate>
 	<div class="row">
 
 		<table id="tbl_info" class="table table-user">
@@ -30,10 +31,9 @@
 								<!-- 인증번호와 내가 입력창에 입력한 인증번호 비교하는 창 -->
 							</div>
 							<div id="phoneError" class="error"></div>
-
-
 							<br> <br> 개인화된 맛집추천, 좋아요, 비밀번호찾기, 맛집평가작성, 포인트 적립 및 사용,
 							할인쿠폰 등의 모든 서비스 혜택을 받을 수 있습니다.
+							
 						</div>
 
 
@@ -88,19 +88,17 @@
 
 				<tr id="tr_photo">
 					<th>프로필 사진</th>
-					<td>
-						<input name="key" type="hidden" value="profile"> <input
-							name="val" type="hidden" value=""> <input id="hid_photo"
-							type="hidden" value=""> <input id="hid_image"
-							name="fImage" type="file" class="hide">
+					<td><input name="key" type="hidden" value="profile"> <input
+						name="val" type="hidden" value=""> <input id="hid_photo"
+						type="hidden" value=""> <input id="hid_image"
+						name="fImage" type="file" class="hide">
 
 						<div class="fl"
 							style="width: 110px; height: 110px; background: url(https://dfzrjox9sv97l.cloudfront.net/dicons_20160930/img/common/img-profile-default.png);">
 							<img id="img_photo" src="" width="110" height="110"
 								style="border-radius: 50%; display: none;">
 						</div>
-						<div class="clear"></div>
-					<br> 회원 프로필 사진으로 사용될 이미지를 등록해 주세요.</td>
+						<div class="clear"></div> <br> 회원 프로필 사진으로 사용될 이미지를 등록해 주세요.</td>
 				</tr>
 
 			</tbody>
