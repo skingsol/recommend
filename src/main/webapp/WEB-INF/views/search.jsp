@@ -1,3 +1,4 @@
+<%@page import="com.project.naver.dto.SearchLocalRes"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="include/header.jsp"%>
@@ -20,33 +21,33 @@
 </div>
 
 
+
 <!-- 바디-->
 <div class="section-latest">
 	<div class="container">
 		<div class="row gutter-v1 align-items-stretch mb-5">
+		<%--
 			<!-- 검색결과 정렬 선택 박스 -->
 			<div class="search-results">
 				<h2>검색 결과 (nn건)</h2>
 				<div class="sorting">
 					<label for="sort-select">정렬 기준:</label> <select id="sort-select">
-						<option value="distance">거리순</option>
-						<option value="rating">별점순</option>
-						<option value="review">리뷰순</option>
-						<option value="recommendation">추천순</option>
+						<option value="relation">관련도순</option>
+						<option value="rating">리뷰순</option>
 					</select>
 				</div>
-			</div>
-
+			</div> 
+		 --%>
 
 			<div class="row" id="search_result">
 			
 				<!-- 검색결과 리스트 반복 구간 -->
 				<c:forEach var="srch" items="${srchList}">
-					<div class="col-12 boxing">
-						<div class="post-entry horizontal d-md-flex">
+					<div class="col-12 boxing space_wrap" >
+						<div class="post-entry horizontal d-md-flex" style="align-items: center;">
 							<div class="media">
 								<a href="#"> <img id="search_image"
-									src="${srch.imageLink}" alt="음식점 썸네일" class="img-fluid">
+									src="${srch.imageLink}" alt="음식점 썸네일" class="img-fluid" >
 								</a>
 							</div>
 							<div class="content_text">
@@ -87,10 +88,8 @@
 
 				<!-- 검색결과 더보기 버튼 -->
 				<div class="load_more">
-					<a aria-label="show more results" href=""
-						alt="리스트 더 불러오는 쿼리문 연결된 링크" id="list_more_btn"> <img
-						class="more_btn_icon"
-						src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAApCAYAAAChi6CMAAAABHNCSVQICAgIfAhkiAAAAc9JREFUWEftmY1NwzAQhe0JoBMAEwATkG7ABpQJ2m6QbgAT0E4ATNBsQLtBRmgnCO9JDgTj/DSxXUeypShq0tx9fo7vzo4siuJOCPGGg2e95biwlFJ+GO6d7ZIE9A7ebxsIDoCenI3Q4JjQhbq+xJkdqLat+jEFeBYKeBX6H1ilQ0boDqPkop+r3tAATkBUjoQLuFqbQ6AvYZUT9cIrsRCfvaEJCrUJboo6zvrBuUVoqnXV4mWCPx+ckZxomNCPeGbdMMwrAKcn2nX6d1laVxNLd7YLSeES7gfaqTSWjUdoy4LWx2lfjmz6Ge/rgcgxq4nVOaLHxqZKNmwxTr/A0LzBWAbwqQ1ntmwQmpmO9cMeh571HpSjG4AzcwbRhtYezKZNCwgXndz0hlbLtC8XVC028zFCH3tDUw2oneKUeFZ7UYVew7k+2QjFdo+JqK8fPbP+uiM0YZ8aCPYA9lrot6lBaK4+ZjgYCfRGddPQytPxpvG24QjtflTa14hEpb0prWqIdzi8Njhl1cetXsbyYFrc6vU1FL0LJpVJuWvqO8W/DoFOABy3eju+Xn9WLgs8pJefmTJU9yUgbvV2VFp02ep9Di5Ol70zbfWG9EWrOgrfyNkNmKd2R2cAAAAASUVORK5CYII="
+					<a aria-label="show more results" href="" alt="리스트 더 불러오는 쿼리문 연결된 링크" id="list_more_btn"> 
+						<img class="more_btn_icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAApCAYAAAChi6CMAAAABHNCSVQICAgIfAhkiAAAAc9JREFUWEftmY1NwzAQhe0JoBMAEwATkG7ABpQJ2m6QbgAT0E4ATNBsQLtBRmgnCO9JDgTj/DSxXUeypShq0tx9fo7vzo4siuJOCPGGg2e95biwlFJ+GO6d7ZIE9A7ebxsIDoCenI3Q4JjQhbq+xJkdqLat+jEFeBYKeBX6H1ilQ0boDqPkop+r3tAATkBUjoQLuFqbQ6AvYZUT9cIrsRCfvaEJCrUJboo6zvrBuUVoqnXV4mWCPx+ckZxomNCPeGbdMMwrAKcn2nX6d1laVxNLd7YLSeES7gfaqTSWjUdoy4LWx2lfjmz6Ge/rgcgxq4nVOaLHxqZKNmwxTr/A0LzBWAbwqQ1ntmwQmpmO9cMeh571HpSjG4AzcwbRhtYezKZNCwgXndz0hlbLtC8XVC028zFCH3tDUw2oneKUeFZ7UYVew7k+2QjFdo+JqK8fPbP+uiM0YZ8aCPYA9lrot6lBaK4+ZjgYCfRGddPQytPxpvG24QjtflTa14hEpb0prWqIdzi8Njhl1cetXsbyYFrc6vU1FL0LJpVJuWvqO8W/DoFOABy3eju+Xn9WLgs8pJefmTJU9yUgbvV2VFp02ep9Di5Ol70zbfWG9EWrOgrfyNkNmKd2R2cAAAAASUVORK5CYII="
 						alt="검색 결과 더보기 버튼 이미지">&nbsp; 검색 결과 더보기
 					</a>
 				</div>
@@ -98,7 +97,7 @@
 
 				<!-- 검색결과 더보기 없을 때 맛집등록 요청 메뉴 화면에 보이기 -->
 
-				<div class="sc-fHekdT cJGyla rq_reg_restaurant">
+				<div class="sc-fHekdT cJGyla rq_reg_restaurant" >
 					<div class="sc-ifyqMZ ijJQce AddPoi">
 						<h1>찾으시는 식당이 없으신가요?</h1>
 						<button class="sc-blmETK dzoqkg Add__Poi__Button" id="rq_reg_btn"
@@ -148,5 +147,9 @@
 
 <!-- 테스트 끝 -->
 
+
+
+
 <script type="module" src="/search/js/search.js"></script>
+<script src = "/restaurants/js/result2.js"></script>
 <%@ include file="include/footer.jsp"%>

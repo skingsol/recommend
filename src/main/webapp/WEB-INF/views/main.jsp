@@ -73,11 +73,11 @@
 
 
 
-
 <!-- 중간 : 카테고리별 음식점 랭킹순 정렬
 	메인 페이지 카테고리 클릭 전까지는 컨트롤러로 api 불러오기
 	카테고리 클릭 시 fetch로 접근
  -->
+ 
  
 <div class="category_section_wrap">
 	<!-- 라인 반복 -->
@@ -121,11 +121,16 @@
 					</div>
 				</div>
 			</c:forEach>
+			
+			
+			
 		</div>
-	</section>
+	</section>	
+
 
 </div>
-<script src="/restaurants/js/result.js"></script>
-<script type="module" src="/main/js/main.js"></script>
+
+<script src = "/main/js/main.js"></script>
+<script src = "/restaurants/js/result.js"></script>
 
 <%@ include file="include/footer.jsp"%>

@@ -1,16 +1,4 @@
 //---------------------------------------------------------------//
-//    업체명 글자수 제한
-//---------------------------------------------------------------//
-subName();
-function subName() {
-  const innerText = document.querySelectorAll(".restaurant_name");
-  innerText.forEach((element) => {
-    const shortName = element.innerHTML.substring(0, 10);
-    element.innerHTML = shortName;
-  });
-}
-
-//---------------------------------------------------------------//
 //    대문 이미지 슬라이드
 //---------------------------------------------------------------//
 
@@ -36,12 +24,24 @@ function showSlides() {
   setTimeout(showSlides, 3000); // 3초마다 슬라이드 변경
 }
 
+//---------------------------------------------------------------//
+//    업체명 글자수 제한
+//---------------------------------------------------------------//
+subName();
+function subName() {
+  const innerText = document.querySelectorAll(".restaurant_name");
+  innerText.forEach((element) => {
+    const shortName = element.innerHTML.substring(0, 10);
+    element.innerHTML = shortName;
+  });
+}
+
 //----------------------------------------------------
 //  카테고리 아이콘 클릭 시 해당 카테고리 api 가져와서 보여주기
 //----------------------------------------------------
 
 const special = document.querySelector(".special");
-
+const restaurant_link = document.querySelector(".loop_section");
 special.addEventListener("click", (e) => {
   //어느 카테고리가 클릭이 되었는가?
   const category = e.target.dataset.genre;
@@ -69,7 +69,9 @@ special.addEventListener("click", (e) => {
         str +=
           "<img id='image_link' src='" +
           element.imageLink +
-          "' style='width: 205px; height: 235px;' data-title=''></a>";
+          "' style='width: 205px; height: 235px;' data-title='" +
+          element.title +
+          "'></a>";
         str += "<div id='shortcuts' class='pt-3 flex items-center'>";
         str += "<div class='line_diveider'>";
         str += "<a href='...' id='store_name'>";
@@ -90,8 +92,8 @@ special.addEventListener("click", (e) => {
         //str = "</c:forEach>";
       });
       //console.log(str);
-      document.querySelector(".loop_section").innerHTML = "";
-      document.querySelector(".loop_section").innerHTML = str;
+      restaurant_link.innerHTML = "";
+      restaurant_link.innerHTML = str;
       subName();
     })
     .catch((error) => console.log(error));
@@ -100,20 +102,20 @@ special.addEventListener("click", (e) => {
 //----------------------------------------------------//
 //  검색 아이콘 클릭 시 검색결과 페이지로 이동
 //----------------------------------------------------//
-const searchForm = document.querySelector("#searchForm");
-searchForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const keyword = document.querySelector(".search_input");
-  if (keyword.value === "") {
-    alert("검색어를 입력하세요");
-    keyword.focus();
-    return;
-  }
-  console.log("키워드 내용", keyword.value);
-  // searchForm.setAttribute("action", "/search?query=" + keyword.value);
-  // console.log("서치폼 링크", searchForm.getAttribute("action"));
-  // searchForm.submit();
-});
+// const searchForm = document.querySelector("#searchForm");
+// searchForm.addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   const keyword = document.querySelector(".search_input");
+//   if (keyword.value === "") {
+//     alert("검색어를 입력하세요");
+//     keyword.focus();
+//     return;
+//   }
+//   console.log("키워드 내용", keyword.value);
+//   //searchForm.setAttribute("action", "/api/search?query=" + keyword.value);
+//   // console.log("서치폼 링크", searchForm.getAttribute("action"));
+//   // searchForm.submit();
+// });
 
 //---------------------------------------------------------------//
 //    맛집 위시리스트 저장 / 이미 저장된 맛집은 채워진 하트로 표시
