@@ -1,12 +1,14 @@
 //---------------------------------------------------------------//
 //    업체명 글자수 제한
 //---------------------------------------------------------------//
-
-const innerText = document.querySelectorAll(".restaurant_name");
-innerText.forEach((element) => {
-  const shortName = element.innerHTML.substring(0, 10);
-  element.innerHTML = shortName;
-});
+subName();
+function subName() {
+  const innerText = document.querySelectorAll(".restaurant_name");
+  innerText.forEach((element) => {
+    const shortName = element.innerHTML.substring(0, 10);
+    element.innerHTML = shortName;
+  });
+}
 
 //---------------------------------------------------------------//
 //    대문 이미지 슬라이드
@@ -44,9 +46,12 @@ special.addEventListener("click", (e) => {
   //어느 카테고리가 클릭이 되었는가?
   const category = e.target.dataset.genre;
   console.log("내가 선택한 카테고리:", category);
+  //카테고리 이름 변경하기
+  const foodCategory = document.querySelector(".food_category_name");
+  foodCategory.innerHTML = "#" + category;
 
   //기존 정보(메인)를 가져온 후에 새로운 api 정보를 jsp에 담기
-  fetch("/api/server/search?query=" + category)
+  fetch("/api/main?query=" + category)
     .then((response) => {
       if (!response.ok) {
         throw new Error("잘못된 요청");
@@ -55,70 +60,58 @@ special.addEventListener("click", (e) => {
     })
     .then((data) => {
       console.log(data);
-
+      let str = "";
       data.forEach((element) => {
-        let str = "";
-
-        element.forEach((item) => {
-          console.log("두번째 foreach", item);
-        });
-        document.querySelector(".loop_section").innerHTML = "";
-
-        // special.innerHTML = "";
-        // special.innerHTML = str;
+        //console.log(element);
+        //str += "<c:forEach var='food' items='${list }'>";
+        str += "<div class='w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link'>";
+        str += "<a href='' class='image_link'>";
+        str +=
+          "<img id='image_link' src='" +
+          element.imageLink +
+          "' style='width: 205px; height: 235px;' data-title=''></a>";
+        str += "<div id='shortcuts' class='pt-3 flex items-center'>";
+        str += "<div class='line_diveider'>";
+        str += "<a href='...' id='store_name'>";
+        str += "<span class='restaurant_name'>" + element.title + "</span>";
+        str += "<strong class='point search_point'>";
+        str += "</strong></a></p>";
+        str += "<div id='star_image' style='display: inline-block; vertical-align: top;'>";
+        str +=
+          "<img class='score_image' src='https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png' alt='img' />";
+        str += "</div>";
+        str += "<div id='review_score' style='display: inline-block;'>";
+        str += "<span class='review'>3.8점(77)</span>";
+        str += "</div> </div>";
+        str += "<div class='save_restaurant'>";
+        str +=
+          "<span class='icon is-small'><i class='fa fa-heart-o' aria-hidden='true'></i></span> &nbsp;<span class='like-num'></span>";
+        str += "</div></div></div>";
+        //str = "</c:forEach>";
       });
+      //console.log(str);
+      document.querySelector(".loop_section").innerHTML = "";
+      document.querySelector(".loop_section").innerHTML = str;
+      subName();
     })
     .catch((error) => console.log(error));
 });
 
-// const categoryIcons = document.querySelectorAll(".category_icon");
-
-// categoryIcons.forEach((icon) => {
-//   icon.addEventListener("click", () => {
-//     //기존 값 제거(imageLink, title 정보)
-//     document.querySelector(".loop_section").innerHTML = "";
-//     document.querySelectorAll("#image_link").forEach((img) => {
-//       img.removeAttribute("src");
-//     });
-//     document.querySelectorAll(".restaurant_name").forEach((brand) => {
-//       brand.innerHTML = "";
-//     });
-
-//     //클릭한 카테고리 정보 음식점 리스트 요소에 담기
-//     const genre = icon.querySelector(".genre").innerHTML;
-//     //console.log("내가 선택한 장르:", genre);
-
-//     const foodCategory = document.querySelector(".food_category_name");
-//     foodCategory.innerHTML = "#" + genre;
-//     //console.log("루프 이름", loopName.innerHTML);
-//     foodCategory.setAttribute("data-name", genre);
-//     const query = foodCategory.dataset.name;
-//     console.log("내가 불러올 쿼리:", query);
-
-//     fetch("/api/server/search?query=" + query)
-//       .then((response) => {
-//         if (!response.ok) {
-//           throw new Error("잘못된 요청");
-//         }
-//         return response.json();
-//       })
-//       .then((data) => {
-//         //console.log(data);
-
-//         data.forEach((element) => {
-//           console.log("매장 이미지", element.imageLink);
-//           console.log("매장 이름", element.title);
-//         });
-//       })
-//       .catch((error) => console.log(error));
-//   });
-// });
-//----------------------------------------------------
-//document.querySelector("#image_link").src = element.imageLink;
-//document.querySelector(".restaurant_name").innerHTML = element.title;
-
-//----------------------------------------------------
-
+//----------------------------------------------------//
+//  검색 아이콘 클릭 시 검색결과 페이지로 이동
+//----------------------------------------------------//
+const searchForm = document.querySelector("#searchForm");
+searchForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const keyword = document.querySelector(".search_input");
+  if (keyword.value === "") {
+    alert("검색어를 입력하세요");
+    keyword.focus();
+    return;
+  }
+  searchForm.setAttribute("action", "/search?query=" + keyword.value);
+  searchForm.submit();
+});
 //---------------------------------------------------------------//
 //    맛집 위시리스트 저장 / 이미 저장된 맛집은 채워진 하트로 표시
 //---------------------------------------------------------------//

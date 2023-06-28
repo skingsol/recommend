@@ -6,12 +6,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.project.naver.SearchNaverClient;
+import com.project.naver.NaverClient;
 import com.project.naver.dto.SearchImageItem;
 import com.project.naver.dto.SearchImageReq;
 import com.project.naver.dto.SearchImageRes;
 import com.project.naver.dto.SearchLocalItem;
 import com.project.naver.dto.SearchLocalReq;
+import com.project.naver.dto.SearchLocalReq2;
 import com.project.naver.dto.SearchLocalRes;
 import com.project.naver.dto.WishListDTO;
 
@@ -19,11 +20,11 @@ import com.project.naver.dto.WishListDTO;
 public class WishListServiceImpl implements WishListService {
 
 	@Autowired
-	private SearchNaverClient searchNaverClient;
+	private NaverClient naverClient;
 
 	@Override
-	public List<WishListDTO> search(String query) {
-		// index 에서 보여줄 음식점 리스트
+	public List<WishListDTO> main(String query) {
+		// main 에서 보여줄 음식점 리스트
 		// 상호명(title), 이미지링크(imageLink)
 
 		List<WishListDTO> list = new ArrayList<>();
@@ -33,7 +34,7 @@ public class WishListServiceImpl implements WishListService {
 		req.setQuery(query);
 
 		// 지역 검색 결과 받기
-		SearchLocalRes res = searchNaverClient.searchLocal(req);
+		SearchLocalRes res = naverClient.searchLocal(req);
 
 		if (res.getTotal() > 0) {
 			
@@ -51,7 +52,7 @@ public class WishListServiceImpl implements WishListService {
 				imageReq.setQuery(imageQuery);
 
 				// 이미지 검색 결과 받기
-				SearchImageRes imageRes = searchNaverClient.searchImage(imageReq);
+				SearchImageRes imageRes = naverClient.searchImage(imageReq);
 
 				if (imageRes.getTotal() > 0) {
 
@@ -67,5 +68,47 @@ public class WishListServiceImpl implements WishListService {
 			}
 		}
 		return list;
+	}
+
+	
+	//검색결과용 메소드
+	@Override
+	public List<WishListDTO> search(String query) {
+				List<WishListDTO> list = new ArrayList<>();
+				
+				SearchLocalReq2 req2 = new SearchLocalReq2();
+				req2.setQuery(query);
+
+				SearchLocalRes res = naverClient.searchLocal2(req2);
+
+				if (res.getTotal() > 0) {
+					
+					
+					for (SearchLocalItem item : res.getItems()) {
+
+						SearchLocalItem localItem = item;
+
+						String imageQuery = localItem.getTitle().replaceAll("<[^>]*>", "");
+
+						SearchImageReq imageReq = new SearchImageReq();
+						imageReq.setQuery(imageQuery);
+
+						SearchImageRes imageRes = naverClient.searchImage(imageReq);
+
+						if (imageRes.getTotal() > 0) {
+
+							SearchImageItem imageItem = imageRes.getItems().get(0);
+
+							WishListDTO dto = new WishListDTO();
+							dto.setTitle(localItem.getTitle());
+							dto.setCategory(localItem.getCategory());
+							dto.setRoadAddress(localItem.getRoadAddress());
+							dto.setHomePageLink(localItem.getLink());
+							dto.setImageLink(imageItem.getLink());
+							list.add(dto);
+						}
+					}
+				}
+				return list;
 	}
 }
