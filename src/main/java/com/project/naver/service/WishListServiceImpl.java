@@ -16,11 +16,14 @@ import com.project.naver.dto.SearchLocalReq2;
 import com.project.naver.dto.SearchLocalRes;
 import com.project.naver.dto.WishListDTO;
 
+
+
 @Service
 public class WishListServiceImpl implements WishListService {
 
 	@Autowired
 	private NaverClient naverClient;
+	
 
 	@Override
 	public List<WishListDTO> main(String query) {

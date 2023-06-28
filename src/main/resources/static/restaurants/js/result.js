@@ -1,4 +1,6 @@
-document.querySelector(".restaurant_link").addEventListener("click", (e) => {
+const restaurant_link = document.querySelector(".loop_section");
+
+restaurant_link.addEventListener("click", (e) => {
   e.preventDefault();
 
   const tag = e.target;
