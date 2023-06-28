@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.mapper.ReplyMapper">
+	
+	<!-- 댓글 하나 가져오기 : rno 일치 시 -->
+	<select id="read" resultType="com.project.domain.ReplyDTO">
+		select * from spring_reply where rno=#{rno}
+	</select>	
+	
+	<!-- 댓글 추가  -->
+	<insert id="insert">
+		insert into spring_reply(rno, bno, reply, replyer)
+		values(seq_reply.nextval,#{bno},#{reply},#{replyer})
+	</insert>
+	
+	<!-- 댓글 전체 가져오기 : bno 일치 시 -->
+	<!-- <select id="listAll" resultType="com.project.domain.ReplyDTO">
+		select * from spring_reply where bno=#{bno}
+	</select> -->
+	
+	<!-- 댓글 페이징 처리 -->
+	<select id="listAll" resultType="com.project.domain.ReplyDTO">
+		<![CDATA[ 		
+			select rno, bno, reply, replyer,replydate,updatedate
+			from (select /*+INDEX(spring_reply idx_reply)*/ rownum rn, rno, bno, reply, replyer,replydate,updatedate
+	      		  from spring_reply
+	      		  where bno=#{bno} and rownum <= #{cri.page}*#{cri.amount})
+			where rn > (#{cri.page}-1) * #{cri.amount}		
+		]]>	
+	</select>
+	<!-- 원본 글번호에 달려있는 댓글 전체 개수 -->
+	<select id="getCountByBno" resultType="int">
+		select count(*) from spring_reply where bno=#{bno}
+	</select>
+	
+	<!-- 댓글 수정 : rno 일치 시 댓글 내용 수정, updatedate -->
+	<update id="update">
+		update spring_reply 
+		set reply=#{reply}, updatedate=sysdate
+		where rno=#{rno}
+	</update>
+	
+	<!--  댓글 하나 삭제 -->
+	<delete id="delete">
+		delete from spring_reply where rno=#{rno}
+	</delete>
+	
+	<!-- bno 와 일치하는 댓글 제거 -->
+	<delete id="deleteAll">
+		delete from spring_reply where bno=#{bno}
+	</delete>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

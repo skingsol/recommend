@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.mapper.BoardMapper">
+	
+	<!-- 전체조회 -->
+	<!-- <select id="list" resultType="com.project.domain.BoardDTO">
+		select bno,title,writer,regdate,updatedate from spring_board order by bno desc, regdate desc
+	</select> -->
+	
+	<!-- 페이지 나누기 조회 -->
+	<select id="list" resultType="com.project.domain.BoardDTO">
+		<![CDATA[
+			select bno,title,writer,regdate,updatedate,replycnt
+			from (select /*+INDEX_DESC(spring_board pk_spring_board)*/ rownum rn, bno, title, writer,regdate,updatedate,replycnt
+			      from spring_board
+			      where 
+		]]>	 
+			<include refid="criteria"></include>		     
+		<![CDATA[	      
+			      
+			      rownum <= (#{page}*#{amount}))
+			where rn > (#{page}-1)*#{amount}		
+		]]>	
+	</select>
+	
+	<!-- 전체 게시물 개수 : totalCnt -->
+	<select id="totalCnt" resultType="java.lang.Integer">
+		select count(*) from spring_board
+		where
+			<include refid="criteria"></include>
+		bno > 0		
+	</select>
+	
+	<!-- 댓글 수 추가  -->
+	<update id="updateReplyCnt">
+		update spring_board set replycnt = replycnt + #{amount}
+		where bno=#{bno}
+	</update>
+	
+	
+	
+	
+	
+	<!-- 동적 쿼리 
+	
+		board/list?page=1&amount=20&type=T&keyword=파이썬     요청
+	
+	    collection="typeArr" => Criteria 객체의 getTypeArr() 메소드 실행됨 => [T]
+	    item="type" => 배열 요소를 접근하기 위한 변수  
+	-->
+	<sql id="criteria">
+		<trim prefix="(" suffix=") AND" prefixOverrides="OR">
+			<foreach collection="typeArr" item="type">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'T'.toString()">
+							title like '%'||#{keyword}||'%' 
+						</when>
+						<when test="type == 'C'.toString()">
+							content like '%'||#{keyword}||'%' 
+						</when>
+						<when test="type == 'W'.toString()">
+							writer like '%'||#{keyword}||'%' 
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- 글 등록 -->
+	<insert id="insert">
+		<!-- 주로 pk 값을 미리 SQL 을 통해서 처리해 두고 특정한 이름으로 결과를 보관 -->
+		<selectKey keyProperty="bno" order="BEFORE" resultType="int">
+			select seq_board.nextval from dual
+		</selectKey>	
+	
+		insert into spring_board(bno,title,content,writer) 
+		values(#{bno},#{title},#{content},#{writer})
+	</insert>
+
+	<!-- 특정 번호 조회  -->
+	<select id="get" resultType="com.project.domain.BoardDTO">
+		select bno,title,writer,content from spring_board where bno=#{bno}
+	</select>
+	
+	<!-- 특정 번호 조회 + 파일 정보 
+	     property : dto 변수명과 일치
+	-->
+	<resultMap type="com.project.domain.BoardDTO" id="boardMap">
+		<id property="bno" column="bno"/>
+		<result property="title" column="title"/>
+		<result property="content" column="content"/>
+		<result property="writer" column="writer"/>
+		<collection property="attachList" resultMap="attachMap"/>
+	</resultMap>	
+	<resultMap type="com.project.domain.AttachFileDTO" id="attachMap">
+		<result property="uuid" column="uuid"/>
+		<result property="uploadPath" column="uploadPath"/>
+		<result property="fileName" column="fileName"/>
+		<result property="fileType" column="fileType"/>
+		<result property="bno" column="bno"/>
+	</resultMap>	
+	<select id="readAttach" resultMap="boardMap">
+		select title,content,writer,sa.bno, uuid, uploadpath,filetype,filename
+		from spring_board sb join spring_attach sa on sb.bno = sa.bno
+		where sb.bno=#{bno}	
+	</select>
+	
+	
+	
+	
+	<!-- 글 수정 : bno 일치 시 (title, content, updatedate) -->
+	<update id="update">
+		update spring_board set title=#{title}, content=#{content}, updatedate=sysdate
+		where bno=#{bno}
+	</update>
+	
+	<!-- 글 삭제 -->
+	<delete id="delete">
+		delete from spring_board where bno=#{bno}
+	</delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

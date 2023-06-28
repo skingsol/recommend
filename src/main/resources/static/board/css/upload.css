@@ -1,0 +1,16 @@
+@charset "UTF-8";
+.uploadResult{
+	width:100%;
+	background-color: rgb(224,224,224);
+}
+.uploadResult ul{
+	display : flex;
+	flex-flow: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.uploadResult ul li{
+	list-style: none;
+	padding: 10px;	
+}

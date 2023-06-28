@@ -9,8 +9,7 @@
 				<li class="notice"><a href='<c:url value="/board/notice"  />'>
 						<span>공지사항</span>
 				</a></li>
-				<li class="qna"><a href='<c:url value="/board/qna"  />'> <span>자주
-							묻는 질문</span>
+				<li class="qna"><a href="/board/list?page=1&amount=10&type=&keyword="> <span>게시판</span>
 				</a></li>
 			</ul>
 		</nav>

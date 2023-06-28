@@ -54,10 +54,9 @@ html {
 	-webkit-tap-highlight-color: transparent
 }
 
-article, aside, figcaption, figure, footer, header, hgroup, main, 
+article, aside, figcaption, figure, footer, header, hgroup, main, nav,
 	section {
-	display: block;
-	padding: 2em 0 0 0;
+	display: block
 }
 
 body {
@@ -90,10 +89,7 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
 	margin-top: 0;
-	margin-bottom: 1rem;
-	font-size: xx-large;
-	font-style: italic;
-	font-family: serif;
+	margin-bottom: 1rem
 }
 
 abbr[data-original-title], abbr[title] {
@@ -114,6 +110,7 @@ address {
 
 dl, ol, ul {
 	margin-top: 0;
+	margin-bottom: 1rem
 }
 
 ol ol, ol ul, ul ol, ul ul {
@@ -344,8 +341,7 @@ template {
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
 	margin-bottom: .5rem;
 	font-weight: 400;
-	line-height: 1.2;
-
+	line-height: 1.2
 }
 
 .h1, h1 {
@@ -365,10 +361,7 @@ template {
 }
 
 .h5, h5 {
-	font-size: 1.25rem;
-	font-style: italic;
-	font-family: serif;
-	font-weight: bolder;
+	font-size: 1.25rem
 }
 
 .h6, h6 {
@@ -412,6 +405,7 @@ hr {
 }
 
 .small, small {
+	font-size: 80%;
 	font-weight: 400
 }
 
@@ -1465,8 +1459,8 @@ pre code {
 }
 
 .table {
-	width: 100%;
-	margin-bottom: 1rem;
+	width: 80%;
+	margin-bottom: 10rem;
 	color: #858796
 }
 
@@ -4086,8 +4080,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-between;
-	padding: .5rem 1rem;
-	margin: 0 auto;
+	padding: .5rem 1rem
 }
 
 .navbar .container, .navbar .container-fluid, .navbar .container-lg,
@@ -4335,7 +4328,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 
 .navbar-expand {
 	flex-flow: row nowrap;
-	justify-content: center;
+	justify-content: flex-start
 }
 
 .navbar-expand>.container, .navbar-expand>.container-fluid,
@@ -9830,8 +9823,12 @@ opacity
 
 .sidebar .nav-item .nav-link .img-profile, .topbar .nav-item .nav-link .img-profile
 	{
-	height: 3rem;
-	width: 3rem
+	height: 2rem;
+	width: 2rem
+}
+
+.topbar {
+	height: 4.375rem
 }
 
 .topbar #sidebarToggleTop {
@@ -10020,6 +10017,7 @@ opacity
 
 .sidebar .nav-item .collapse .collapse-inner {
 	border-radius: .35rem;
+	box-shadow: 0 .15rem 1.75rem 0 rgba(58, 59, 69, .15)
 }
 
 .sidebar .nav-item .collapsing {
