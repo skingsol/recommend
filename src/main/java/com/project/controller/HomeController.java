@@ -35,6 +35,8 @@ public class HomeController {
 		return "main"; 
 	}
 	
+
+
 	@GetMapping("/search")
 	public String searchGet(SearchDTO search, Model model) {
 		log.info("검색 결과 페이지 요청"+search);
