@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.project.naver.NaverClient;
+import com.project.naver.SearchNaverClient;
 import com.project.naver.dto.SearchImageItem;
 import com.project.naver.dto.SearchImageReq;
 import com.project.naver.dto.SearchImageRes;
@@ -19,7 +19,7 @@ import com.project.naver.dto.WishListDTO;
 public class WishListServiceImpl implements WishListService {
 
 	@Autowired
-	private NaverClient naverClient;
+	private SearchNaverClient searchNaverClient;
 
 	@Override
 	public List<WishListDTO> search(String query) {
@@ -33,7 +33,7 @@ public class WishListServiceImpl implements WishListService {
 		req.setQuery(query);
 
 		// 지역 검색 결과 받기
-		SearchLocalRes res = naverClient.searchLocal(req);
+		SearchLocalRes res = searchNaverClient.searchLocal(req);
 
 		if (res.getTotal() > 0) {
 			
@@ -51,7 +51,7 @@ public class WishListServiceImpl implements WishListService {
 				imageReq.setQuery(imageQuery);
 
 				// 이미지 검색 결과 받기
-				SearchImageRes imageRes = naverClient.searchImage(imageReq);
+				SearchImageRes imageRes = searchNaverClient.searchImage(imageReq);
 
 				if (imageRes.getTotal() > 0) {
 

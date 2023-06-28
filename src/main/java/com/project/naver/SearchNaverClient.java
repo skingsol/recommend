@@ -22,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Component
 @Slf4j
-public class NaverClient {
+public class SearchNaverClient {
 	
 	//application.properties 에 있는 정보 가져오기
 	@Value("${naver.client.id}")

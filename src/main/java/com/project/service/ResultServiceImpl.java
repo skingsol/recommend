@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.project.api.NaverClient;
 import com.project.domain.ResultDTO;
+import com.project.naver.ResultNaverClient;
 import com.project.restaurants.dto.ResultImageItem;
 import com.project.restaurants.dto.ResultImageReq;
 import com.project.restaurants.dto.ResultImageRes;
@@ -23,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 public class ResultServiceImpl implements ResultService {
 
 	@Autowired
-	private NaverClient naverClient;
+	private ResultNaverClient naverClient;
 	
 	@Override
 	public ResultDTO result(String restaurantName) {
