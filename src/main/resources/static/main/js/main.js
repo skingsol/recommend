@@ -109,7 +109,7 @@ searchForm.addEventListener("submit", (e) => {
     keyword.focus();
     return;
   }
-  searchForm.setAttribute("action", "/search/query=" + keyword.value);
+  searchForm.setAttribute("action", "/search?query=" + keyword.value);
   searchForm.submit();
 });
 //---------------------------------------------------------------//

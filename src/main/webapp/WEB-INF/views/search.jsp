@@ -37,6 +37,7 @@
 				</div>
 			</div>
 
+
 			<div class="row" id="search_result">
 			
 				<!-- 검색결과 리스트 반복 구간 -->
