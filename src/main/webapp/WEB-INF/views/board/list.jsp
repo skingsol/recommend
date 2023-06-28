@@ -81,22 +81,22 @@
 <table class="table table-bordered table-hover">
 	<thead>
 		<tr>
-			<th scope="col">번호</th>
-			<th scope="col">제목</th>
-			<th scope="col">작성자</th>
-			<th scope="col">작성일</th>
-			<th scope="col">수정일</th>
+			<th scope="col" width="200" style="text-align: center;" bord><strong>번호</strong></th>
+			<th scope="col"width="600" style="text-align: center;">제목</th>
+			<th scope="col"width="200" style="text-align: center;">작성자</th>
+			<th scope="col" style="text-align: center;">작성일</th>
+			<th scope="col" style="text-align: center;">수정일</th>
 		</tr>
 	</thead>
 	<tbody>
 		<c:forEach var="dto" items="${list}">
 			<tr>
-				<th scope="row">${dto.bno}</th>
-				<td><a href="${dto.bno}" class="move">${dto.title}</a> <strong>[${dto.replyCnt}]</strong></td>
-				<td>${dto.writer}</td>
-				<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
+				<th scope="row" style="text-align: center;">${dto.bno}</th>
+				<td ><a href="${dto.bno}" class="move">${dto.title}</a> <strong>[${dto.replyCnt}]</strong></td>
+				<td style="text-align: center;">${dto.writer}</td>
+				<td style="text-align: center;"><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
 						value="${dto.regDate}" /></td>
-				<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
+				<td style="text-align: center;"><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
 						value="${dto.updateDate}" /></td>
 			</tr>
 		</c:forEach>

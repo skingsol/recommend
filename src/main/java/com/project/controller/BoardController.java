@@ -54,7 +54,7 @@ public class BoardController {
 	
 	// register.jsp 보여주기
 	
-	@PreAuthorize("isAuthenticated()")
+//	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/register")
 	public void registerGet() {
 		log.info("글쓰기 폼 요청");

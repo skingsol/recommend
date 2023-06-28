@@ -2,8 +2,20 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp" %>
 <!-- Page Heading -->
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Board Register</h1>   
+<div class="gnb-wrap">
+	<div class="inner">
+		<nav id="gnb" class="gnb">
+			<ul class="gnb_ul">
+				<li class="notice"><a href='<c:url value="/board/notice"  />'>
+						<span>공지사항</span>
+				</a></li>
+				<li class="qna"><a href="/board/list?page=1&amount=10&type=&keyword="> <span>게시판</span>
+				</a></li>
+			</ul>
+		</nav>
+		<!--// gnb -->
+	</div>
+	<!--// inner -->
 </div>
 <div class="row">
 	<div class="col">
