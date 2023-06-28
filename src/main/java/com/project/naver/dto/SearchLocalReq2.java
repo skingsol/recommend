@@ -11,12 +11,12 @@ import lombok.NoArgsConstructor;
 // query=갈비집&display=5&start=1&sort=random <이런 거
 
 @Data @AllArgsConstructor @NoArgsConstructor
-public class SearchLocalReq {
+public class SearchLocalReq2 {
 
 	private String query = "";
-	private String display = "8";
+	private String display = "6";	
 	private String start = "1";
-	private String sort = "comment";
+	private String sort = "random";		//관련도 순
 	
 	public MultiValueMap<String, String> toMultiValueMap(){
 		LinkedMultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
