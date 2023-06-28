@@ -94,7 +94,7 @@
 					class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link">
 					<a href="" class="image_link"> <img id="image_link"
 						src="${food.imageLink}" style="width: 205px; height: 235px;"
-						data-title="">
+						data-title="${food.title}">
 					</a>
 					<div id="shortcuts" class="pt-3 flex items-center">
 						<div class="line_diveider">
@@ -121,13 +121,11 @@
 					</div>
 				</div>
 			</c:forEach>
-
-
 		</div>
 	</section>
 
 </div>
-
+<script src="/restaurants/js/result.js"></script>
 <script type="module" src="/main/js/main.js"></script>
 
 <%@ include file="include/footer.jsp"%>

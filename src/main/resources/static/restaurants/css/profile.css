@@ -70,6 +70,11 @@ body {
   height: auto;
   object-fit: cover;
   margin: 0 5px 10px;
+  height: 300px;
+}
+
+.restaurant_poto_slider{
+	margin-bottom: 50px;
 }
 
 #map-container * {
@@ -77,6 +82,26 @@ body {
 	height: 100%;
 	width: 100%;
 	padding: 0%;
+}
+.detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+    margin-bottom: 100px;
+}
+
+
+.adress {
+	margin: 50px auto;
+}
+
+.number{
+	margin: 50px auto;
+}
+
+.restaurant_menu{
+	margin: 50px auto;
 }
 
 .wishlist-text {
@@ -99,9 +124,10 @@ body {
 }
 
 
-#reviews_section{
-	padding: 0 20% 5% 5%;
-	
+.reviews_part{
+	margin-bottom: 20%;	
+	padding: 0 20%;
+}
 
 #myform fieldset{
     display: inline-block;
@@ -223,3 +249,129 @@ body {
     display: table;
     clear: both;
 }
+
+/* 리뷰(코멘트)css start */
+.score_box .fas {
+	color: gold;
+}
+
+.comment .fas {
+	color: gold;
+}
+
+.main .comment .score_info {
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	padding: 15px;
+	display: flex;
+	justify-content: space-around;
+}
+
+.main .comment .score_info .score {
+	font-size: 4.5rem;
+	font-weight: bold;
+	text-align: center;
+}
+
+.main .comment .score_info i {
+	font-size: 1.4rem;
+}
+
+.main .comment .score_count {
+	font-size: 1.4rem;
+}
+
+.main .comment .score_count>div {
+	display: flex;
+	justify-content: space-between;
+	width: 150px;
+}
+
+.main .comment .score_info .score_count>div div:first-child {
+	font-weight: bold;
+}
+
+.main .comment .score_count .graph_box {
+	position: relative;
+	width: 100px;
+}
+
+.main .comment .score_count .graph_box div {
+	width: 100%;
+	height: 5px;
+	background: #ddd;
+	border-radius: 5px;
+	position: absolute;
+	top: 40%;
+}
+
+.main .comment .score_info .score_count .review_count {
+	color: #999999;
+	text-align: left;
+	width: 0px;
+}
+
+.main .comment .boss_comment {
+	margin-bottom: 10px;
+}
+
+.main .comment li {
+	border-radius: 10px;
+	width: 100%;
+	margin: 15px auto 30px;
+	font-size: 1.8rem;
+}
+
+.main .comment li .nickname {
+	font-weight: bold;
+}
+
+.main .comment li .client {
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	padding: 15px;
+}
+
+.review_header {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 15px;
+}
+
+.review_header div div:last-child {
+	font-size: 1.4rem;
+}
+
+.main .comment li .boss_comment_box {
+	background: #ddd;
+	width: 90%;
+	border-radius: 10px;
+	padding: 15px;
+	position: relative;
+	left: 6%;
+	margin-top: 15px;
+}
+
+.review_btn, .boss_comment_btn {
+	background: #fff;
+	border-radius: 5px;
+	padding: 5px;
+}
+
+
+.review_img {
+	width: 30%;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+.create_date{
+	text-align: right;
+	font-size: 20px;	
+}
+
+.review_contents{
+	margin-top: 30px;
+}
+/* 리뷰(코멘트)css end */
+
