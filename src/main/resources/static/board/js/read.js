@@ -6,32 +6,67 @@ function showAttachFile(uploadResultArr) {
     //fileType 이 true 라면 image 파일이라면 썸네일 이미지 보여주기
     if (item.fileType) {
       //썸네일 이미지 경로 생성
-      let fileCallPath = encodeURIComponent(item.uploadPath + "\\s_" + item.uuid + "_" + item.fileName);
+      let fileCallPath = encodeURIComponent(
+        item.uploadPath + "\\s_" + item.uuid + "_" + item.fileName
+      );
       //썸네일 이미지 클릭 ==> 원본 이미지 보여주기
-      let oriFileCallPath = encodeURIComponent(item.uploadPath + "\\" + item.uuid + "_" + item.fileName);
+      let oriFileCallPath = encodeURIComponent(
+        item.uploadPath + "\\" + item.uuid + "_" + item.fileName
+      );
 
-      str += "<li data-path='" + item.uploadPath + "' data-uuid='" + item.uuid + "' ";
-      str += " data-filename='" + item.fileName + "' data-type='" + item.fileType + "' >";
-      str += "<a href='/display?fileName=" + oriFileCallPath + "' data-lightbox='image'>";
-      str += "<div class='text-center'><img src='/display?fileName=" + fileCallPath + "'></a></div>";
+      str +=
+        "<li data-path='" +
+        item.uploadPath +
+        "' data-uuid='" +
+        item.uuid +
+        "' ";
+      str +=
+        " data-filename='" +
+        item.fileName +
+        "' data-type='" +
+        item.fileType +
+        "' >";
+      str +=
+        "<a href='/display?fileName=" +
+        oriFileCallPath +
+        "' data-lightbox='image'>";
+      str +=
+        "<div class='text-center'><img src='/display?fileName=" +
+        fileCallPath +
+        "'></a></div>";
       str += "<small>" + item.fileName + "</small> ";
       str += "</li>";
     } else {
       //txt 파일 경로 생성
-      let fileCallPath = encodeURIComponent(item.uploadPath + "\\" + item.uuid + "_" + item.fileName);
+      let fileCallPath = encodeURIComponent(
+        item.uploadPath + "\\" + item.uuid + "_" + item.fileName
+      );
 
-      str += "<li data-path='" + item.uploadPath + "' data-uuid='" + item.uuid + "' ";
-      str += " data-filename='" + item.fileName + "' data-type='" + item.fileType + "' >";
+      str +=
+        "<li data-path='" +
+        item.uploadPath +
+        "' data-uuid='" +
+        item.uuid +
+        "' ";
+      str +=
+        " data-filename='" +
+        item.fileName +
+        "' data-type='" +
+        item.fileType +
+        "' >";
       str += "<a href='/download?fileName=" + fileCallPath + "'>";
-      str += "<div class='text-center'><img src='/resources/img/txt-file.png'></div>";
+      str +=
+        "<div class='text-center'><img src='/resources/img/txt-file.png'></div>";
       str += "<small>" + item.fileName + "</small></a> ";
       str += "</li>";
     }
   });
-  document.querySelector(".uploadResult ul").insertAdjacentHTML("beforeend", str);
+  document
+    .querySelector(".uploadResult ul")
+    .insertAdjacentHTML("beforeend", str);
 }
 
-fetch("/board/getAttachList?bno=" + bno)
+fetch("/board/getAttachList?post_id=" + post_id)
   .then((response) => {
     if (!response.ok) {
       throw new Error("첨부물 없음");
@@ -84,16 +119,29 @@ function showReplyPage(total) {
 
   let str = "<ul class='pagination justify-content-end'>";
   if (prev) {
-    str += "<li class='page-item'><a class='page-link' href='" + (startPage - 1) + "'>Previous</a></li>";
+    str +=
+      "<li class='page-item'><a class='page-link' href='" +
+      (startPage - 1) +
+      "'>Previous</a></li>";
   }
 
   for (let i = startPage; i <= endPage; i++) {
     let active = page == i ? "active" : "";
-    str += "<li class='page-item " + active + " '><a class='page-link' href='" + i + "'>" + i + "</a></li>";
+    str +=
+      "<li class='page-item " +
+      active +
+      " '><a class='page-link' href='" +
+      i +
+      "'>" +
+      i +
+      "</a></li>";
   }
 
   if (next) {
-    str += "<li class='page-item'><a class='page-link' href='" + (endPage + 1) + "'>Next</a></li>";
+    str +=
+      "<li class='page-item'><a class='page-link' href='" +
+      (endPage + 1) +
+      "'>Next</a></li>";
   }
 
   str += "</ul>";
@@ -113,41 +161,51 @@ document.querySelector(".card-footer").addEventListener("click", (e) => {
 function showList(pageNum) {
   // 현재 게시물에 대한 댓글 가져오기
   // page: page||1 => page 변수값이 존재하면 page 값 사용하고 없으면 1
-  replyService.getList({ bno: bno, page: page || 1 }, (total, result) => {
-    console.log("read.js에서 확인");
-    console.log(total);
-    console.log(result);
+  replyService.getList(
+    { post_id: post_id, page: page || 1 },
+    (total, result) => {
+      console.log("read.js에서 확인");
+      console.log(total);
+      console.log(result);
 
-    if (pageNum == -1) {
-      //마지막 페이지 알아내기
-      page = Math.ceil(total / 10.0);
-      showList(page);
-      return;
-    }
+      if (pageNum == -1) {
+        //마지막 페이지 알아내기
+        page = Math.ceil(total / 10.0);
+        showList(page);
+        return;
+      }
 
-    // 도착한 데이터를 화면에 보여주기
-    if (result == null || result.length == 0) {
-      chat.innerHTML = "";
-      return;
-    }
+      // 도착한 데이터를 화면에 보여주기
+      if (result == null || result.length == 0) {
+        chat.innerHTML = "";
+        return;
+      }
 
-    let str = "";
-    for (let idx = 0; idx < result.length; idx++) {
-      str += "<li class='list-group-item border-bottom' data-rno='" + result[idx].rno + "'>";
-      str += "<div class='d-flex justify-content-between'>";
-      str += "<strong class='primary-font'>" + result[idx].replyer + "</strong>";
-      str += "<small class='text-muted text-right'>" + replyService.displayTime(result[idx].replyDate) + "</small>";
-      str += "</div>";
-      str += "<p>" + result[idx].reply + "</p>";
-      str += "<div class='btn-group btn-group-sm'>";
-      str += "<button class='btn btn-warning' type='button'>수정</button>";
-      str += "<button class='btn btn-danger' type='button'>삭제</button>";
-      str += "</div>";
-      str += "</li>";
+      let str = "";
+      for (let idx = 0; idx < result.length; idx++) {
+        str +=
+          "<li class='list-group-item border-bottom' data-reply_id='" +
+          result[idx].reply_id +
+          "'>";
+        str += "<div class='d-flex justify-content-between'>";
+        str +=
+          "<strong class='primary-font'>" + result[idx].replyer + "</strong>";
+        str +=
+          "<small class='text-muted text-right'>" +
+          replyService.displayTime(result[idx].reply_regdate) +
+          "</small>";
+        str += "</div>";
+        str += "<p>" + result[idx].reply_content + "</p>";
+        str += "<div class='btn-group btn-group-sm'>";
+        str += "<button class='btn btn-warning' type='button'>수정</button>";
+        str += "<button class='btn btn-danger' type='button'>삭제</button>";
+        str += "</div>";
+        str += "</li>";
+      }
+      chat.innerHTML = str;
+      showReplyPage(total); //현 게시물에 달린 댓글 총 숫자를 이용한 페이지 나누기 함수 호출
     }
-    chat.innerHTML = str;
-    showReplyPage(total); //현 게시물에 달린 댓글 총 숫자를 이용한 페이지 나누기 함수 호출
-  });
+  );
 }
 
 // 댓글 작업 호출 => 댓글 작성 버튼 클릭 시
@@ -156,16 +214,23 @@ const replyForm = document.querySelector("#replyForm");
 if (replyForm) {
   replyForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    const reply = document.querySelector("#reply");
+    const reply_content = document.querySelector("#reply_content");
     const replyer = document.querySelector("#replyer");
 
-    replyService.add({ bno: bno, reply: reply.value, replyer: replyer.value }, (result) => {
-      //alert(result);
-      //댓글 작성 부분 지우기
-      reply.value = "";
+    replyService.add(
+      {
+        post_id: post_id,
+        reply_content: replycontent.value,
+        replyer: replyer.value
+      },
+      (result) => {
+        //alert(result);
+        //댓글 작성 부분 지우기
+        reply_content.value = "";
 
-      showList(-1);
-    });
+        showList(-1);
+      }
+    );
   });
 }
 
@@ -190,11 +255,11 @@ chat.addEventListener("click", (e) => {
   console.log("이벤트 발생 ", li);
 
   //rno 가져오기 ( data-* 속성값 가져오기 : dataset)
-  let rno = li.dataset.rno;
-  console.log("rno ", rno);
+  let reply_id = li.dataset.reply_id;
+  console.log("reply_id ", reply_id);
 
   //댓글 작성자 정보 가져오기
-  let replyer = li.firstElementChild.firstElementChild.innerHTML;
+  let user_idx = li.firstElementChild.firstElementChild.innerHTML;
   console.log("댓글 작성자 ", replyer);
 
   //로그인 사용자 정보 가져오기
@@ -218,12 +283,13 @@ chat.addEventListener("click", (e) => {
     }
 
     //댓글 하나 가져오기
-    replyService.get(rno, (result) => {
+    replyService.get(reply_id, (result) => {
       console.log(result);
 
       //모달 창 안에 가져온 내용 보여주기
-      document.querySelector(".modal-body #rno").value = result.rno;
-      document.querySelector(".modal-body #reply").value = result.reply;
+      document.querySelector(".modal-body #reply_id").value = result.reply_id;
+      document.querySelector(".modal-body #reply_content").value =
+        result.reply_content;
       document.querySelector(".modal-body #replyer").value = result.replyer;
 
       $("#replyModal").modal("show");
@@ -236,7 +302,7 @@ chat.addEventListener("click", (e) => {
     }
 
     //삭제버튼 클릭 시
-    replyService.remove(rno, replyer, (result) => {
+    replyService.remove(reply_id, replyer, (result) => {
       if (result === "success") {
         alert("삭제 성공");
         showList(page);
@@ -246,21 +312,23 @@ chat.addEventListener("click", (e) => {
 });
 
 // 모달 창 수정 버튼이 클릭되면 댓글 수정
-document.querySelector(".modal-footer .btn-primary").addEventListener("click", () => {
-  //모달 창안에 있는 rno, reply 가져온 후 자바스크립트 객체 생성
-  const updateReply = {
-    rno: document.querySelector(".modal-body #rno").value,
-    reply: document.querySelector(".modal-body #reply").value,
-    replyer: document.querySelector(".modal-body #replyer").value,
-  };
+document
+  .querySelector(".modal-footer .btn-primary")
+  .addEventListener("click", () => {
+    //모달 창안에 있는 rno, reply 가져온 후 자바스크립트 객체 생성
+    const updateReply = {
+      rnreply_ido: document.querySelector(".modal-body #reply_id").value,
+      reply_content: document.querySelector(".modal-body #reply_content").value,
+      replyer: document.querySelector(".modal-body #replyer").value
+    };
 
-  // replyService.update 호출
-  replyService.update(updateReply, (result) => {
-    //alert(result);
-    //모달 창 닫기
-    if (result === "success") {
-      $("#replyModal").modal("hide");
-      showList(page);
-    }
+    // replyService.update 호출
+    replyService.update(updateReply, (result) => {
+      //alert(result);
+      //모달 창 닫기
+      if (result === "success") {
+        $("#replyModal").modal("hide");
+        showList(page);
+      }
+    });
   });
-});

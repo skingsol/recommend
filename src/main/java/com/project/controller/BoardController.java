@@ -60,7 +60,7 @@ public class BoardController {
 		log.info("글쓰기 폼 요청");
 	}
 	
-	@PreAuthorize("isAuthenticated()")
+//	@PreAuthorize("isAuthenticated()")
 	@PostMapping("/register")
 	public String registerPost(BoardDTO dto,RedirectAttributes rttr,Criteria cri) {
 		log.info("글쓰기 등록 요청 "+dto);
@@ -72,9 +72,9 @@ public class BoardController {
 		
 		if(service.insert(dto)) {
 			
-			log.info("글 번호 : "+dto.getBno());
+			log.info("글 번호 : "+dto.getPostId());
 			
-			rttr.addFlashAttribute("result", dto.getBno());
+			rttr.addFlashAttribute("result", dto.getPostId());
 			//페이지 나누기 정보 주소줄에 같이 보내기
 			rttr.addAttribute("page", cri.getPage());
 			rttr.addAttribute("amount", cri.getAmount());
@@ -86,16 +86,17 @@ public class BoardController {
 	//   http://localhost:8080/board/read?page=5&amount=10&bno=1
 	//   http://localhost:8080/board/modify?page=5&amount=10&bno=1
 	@GetMapping({"/read","/modify"})
-	public void readGet(int bno,Model model,@ModelAttribute("cri") Criteria cri){
-		log.info("내용 조회 "+bno);
+	public void readGet(int post_id,Model model,@ModelAttribute("cri") Criteria cri){
+		log.info("내용 조회 "+post_id);
 		
-		//bno 에 맞는 내용 가져오기
-		BoardDTO dto = service.getRow(bno);
+		//post_id 에 맞는 내용 가져오기
+		BoardDTO dto = service.getRow(post_id);
+		log.info("내용조회2"+dto);
 		model.addAttribute("dto", dto);		
 	}
 	
 	@PostMapping("/modify")
-	@PreAuthorize("principal.username == #dto.writer") // 로그인 사용자 == 작성자
+//	@PreAuthorize("principal.username == #dto.user_idx") // 로그인 사용자 == 작성자
 	public String modifyPost(BoardDTO dto,RedirectAttributes rttr,Criteria cri) {
 		log.info("내용 수정 "+cri);
 		//성공 시 리스트
@@ -115,15 +116,15 @@ public class BoardController {
 	// /board/remove?bno=21
 	
 	@GetMapping("/remove")
-	@PreAuthorize("principal.username == #writer") // 로그인 사용자 == 작성자
-	public String removeGet(int bno,String writer,RedirectAttributes rttr,Criteria cri) {
+//	@PreAuthorize("principal.username == #user_idx") // 로그인 사용자 == 작성자
+	public String removeGet(int post_id,String user_idx,RedirectAttributes rttr,Criteria cri) {
 		
 		//폴더에서 첨부 파일 제거
-		List<AttachFileDTO> attachList = service.getAttachList(bno);
+		List<AttachFileDTO> attachList = service.getAttachList(post_id);
 		deleteAttachFiles(attachList);
 		
 		//성공 시 리스트
-		service.delete(bno);
+		service.delete(post_id);
 		
 		rttr.addFlashAttribute("result", "삭제가 완료되었습니다.");
 		
@@ -137,11 +138,11 @@ public class BoardController {
 		return "redirect:/board/list";		
 	}
 	
-	// 첨부파일 가져오기(/getAttachList) + GET + bno
+	// 첨부파일 가져오기(/getAttachList) + GET + post_id
 	
 	@GetMapping("/getAttachList")
-	public ResponseEntity<List<AttachFileDTO>> attachList(int bno){
-		List<AttachFileDTO> attachList = service.getAttachList(bno);
+	public ResponseEntity<List<AttachFileDTO>> attachList(int post_id){
+		List<AttachFileDTO> attachList = service.getAttachList(post_id);
 		
 		return attachList!= null? new ResponseEntity<List<AttachFileDTO>>(attachList,HttpStatus.OK):
 			new ResponseEntity<>(HttpStatus.NOT_FOUND);

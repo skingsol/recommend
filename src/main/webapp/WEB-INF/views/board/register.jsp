@@ -23,29 +23,29 @@
 	<div class="col">
 		<form action="" method="post" id="registerForm" novalidate>
 		  <div class="form-group">
-		    <label for="title">Title</label>
-		    <input type="text" class="form-control" id="title" placeholder="title" name="title" required>		  	
+		    <label for="post_title">post_title</label>
+		    <input type="text" class="form-control" id="post_title" placeholder="post_title" name="post_title" required>		  	
 		  	<div class="invalid-feedback">
 		  		제목을 확인해 주세요
 		  	</div>
 		  </div>		 	  
 		  <div class="form-group">
-		    <label for="content">Content</label>
-		    <textarea class="form-control" id="content" rows="10" name="content" placeholder="content" required></textarea>		  
+		    <label for="post_content">post_content</label>
+		    <textarea class="form-control" id="post_content" rows="10" name="post_content" placeholder="post_content" required></textarea>		  
 		  	<div class="invalid-feedback">
 		  		내용을 확인해 주세요
 		  	</div>
 		  </div>
 		  <div class="form-group">
-		    <label for="writer">Writer</label>
-		    <input type="text" class="form-control" id="writer" name="writer"  readonly
-		    		value='<security:authentication property="principal.username"/>'>		  	
+		    <label for="userid">userid</label>
+		    <input type="text" class="form-control" id="userid" name="userid"  placeholder="userid" required
+		    		<%-- value='<security:authentication property="principal.username"/>' --%>>		  	
 		  	<div class="invalid-feedback">
 		  		작성자를 확인해 주세요
 		  	</div>
 		  </div>
-		  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />	
-		  <button type="submit" class="btn btn-primary">등록</button>
+		  <%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> --%>	
+ 		  <button type="submit" class="btn btn-primary">등록</button>
 		  <button type="reset" class="btn btn-secondary">취소</button>
 		</form>
 	</div>
@@ -68,12 +68,12 @@
 		</div>
 	</div>
 </div>
-<script>	
+ <!-- <script>	
 	const path = '${pageContext.request.requestURI}';	
 	
 	// CSRF 토큰 값 생성
 	const csrfToken = '${_csrf.token}';
-</script>
+</script>  -->
 <script src="/board/js/register.js"></script>
 <script src="/board/js/upload.js"></script>
 <%@ include file="../include/footer.jsp" %>

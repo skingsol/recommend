@@ -24,23 +24,17 @@
 	<div class="flex-grow-1 pb-2 pt-4 justify-content-center">
 		<form action="" id="searchForm">
 			<%-- 검색 버튼 클릭 시 검색 결과는 무조건 1page 부터 봐야 하기 때문에 --%>
-			<input type="hidden" name="page" value="1" /> <input type="hidden"
-				name="amount" value="${cri.amount}" />
+			<input type="hidden" name="page" value="1" />
+			<input type="hidden" name="amount" value="${cri.amount}" />
 			<div class="form-row"> 
 				<div class="form-group col-3">
 					<select name="type" id="type" class="form-control">
 						<option value="" <c:out value="${cri.type == ''?'selected':''}"/>>---------</option>
-						<option value="T"
-							<c:out value="${cri.type == 'T'?'selected':''}"/>>제목</option>
-						<option value="C"
-							<c:out value="${cri.type == 'C'?'selected':''}"/>>내용</option>
-						<option value="W"
-							<c:out value="${cri.type == 'W'?'selected':''}"/>>작성자</option>
-						<option value="TC"
-							<c:out value="${cri.type == 'TC'?'selected':''}"/>>제목 or
-							내용</option>
-						<option value="TW"
-							<c:out value="${cri.type == 'TW'?'selected':''}"/>>제목 or
+						<option value="T" <c:out value="${cri.type == 'T'?'selected':''}"/>>제목</option>
+						<option value="C" <c:out value="${cri.type == 'C'?'selected':''}"/>>내용</option>
+						<option value="W" <c:out value="${cri.type == 'W'?'selected':''}"/>>작성자</option>
+						<option value="TC" <c:out value="${cri.type == 'TC'?'selected':''}"/>>제목 or	내용</option>
+						<option value="TW" <c:out value="${cri.type == 'TW'?'selected':''}"/>>제목 or
 							작성자</option>
 						<option value="TCW"
 							<c:out value="${cri.type == 'TCW'?'selected':''}"/>>제목
@@ -69,8 +63,7 @@
 				</div>
 				<div class="pb-2">
 					<button class="btn btn-xs btn-success" type="button"
-						onclick="location.href='/board/register'">Register New
-						Board</button>
+						onclick="location.href='/board/register'">새글작성</button>
 				</div>
 			</div>
 		</form>
@@ -81,23 +74,21 @@
 <table class="table table-bordered table-hover">
 	<thead>
 		<tr>
-			<th scope="col" width="200" style="text-align: center;" bord><strong>번호</strong></th>
-			<th scope="col"width="600" style="text-align: center;">제목</th>
-			<th scope="col"width="200" style="text-align: center;">작성자</th>
+			<th scope="col" width="200" style="text-align: center;">글번호</th>
+			<th scope="col" width="300" style="text-align: center;">제목</th>
+			<th scope="col" width="600" style="text-align: center;">내용</th>
+			<th scope="col" width="200" style="text-align: center;">작성자</th>
 			<th scope="col" style="text-align: center;">작성일</th>
-			<th scope="col" style="text-align: center;">수정일</th>
 		</tr>
 	</thead>
 	<tbody>
 		<c:forEach var="dto" items="${list}">
 			<tr>
-				<th scope="row" style="text-align: center;">${dto.bno}</th>
-				<td ><a href="${dto.bno}" class="move">${dto.title}</a> <strong>[${dto.replyCnt}]</strong></td>
-				<td style="text-align: center;">${dto.writer}</td>
-				<td style="text-align: center;"><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
-						value="${dto.regDate}" /></td>
-				<td style="text-align: center;"><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
-						value="${dto.updateDate}" /></td>
+				<th scope="row" style="text-align: center;">${dto.postId}</th>
+				<td ><a href="${dto.postId}" class="move">${dto.postTitle}</a> <strong>[${dto.replyCnt}]</strong></td>
+				<td style="text-align: center;">${dto.postContent}</td>
+				<td style="text-align: center;">${dto.userid}</td>
+				<td style="text-align: center;"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${dto.postRegdate}" /></td>
 			</tr>
 		</c:forEach>
 	</tbody>
@@ -116,7 +107,7 @@
 			<li class="page-item ${pageDTO.cri.page==idx?'active':'' }"><a
 				class="page-link" href="${idx}">${idx}</a></li>
 
-		</c:forEach>
+		</c:forEach>	
 
 		<c:if test="${pageDTO.next}">
 			<li class="page-item"><a class="page-link"

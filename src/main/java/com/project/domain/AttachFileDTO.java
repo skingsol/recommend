@@ -15,5 +15,5 @@ public class AttachFileDTO {
 	private String uploadPath;
 	private String fileName;
 	private boolean fileType;
-	private int bno;
+	private int postId;
 }

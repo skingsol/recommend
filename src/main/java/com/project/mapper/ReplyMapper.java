@@ -9,13 +9,13 @@ import com.project.domain.Criteria;
 import com.project.domain.ReplyDTO;
 @Mapper
 public interface ReplyMapper {
-	public ReplyDTO read(int rno);
+	public ReplyDTO read(int replyId);
 	public int insert(ReplyDTO dto);
-	public List<ReplyDTO> listAll(@Param("cri") Criteria cri,@Param("bno") int bno);
-	public int getCountByBno(int bno);
+	public List<ReplyDTO> listAll(@Param("cri") Criteria cri,@Param("postId") int postId);
+	public int getCountBypostId(int postId);
 	public int update(ReplyDTO dto);
-	public int delete(int rno);
-	public int deleteAll(int bno);
+	public int delete(int replyId);
+	public int deleteAll(int postId);
 }
 
 

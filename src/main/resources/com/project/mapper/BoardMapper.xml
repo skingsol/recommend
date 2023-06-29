@@ -4,15 +4,15 @@
 	
 	<!-- 전체조회 -->
 	<!-- <select id="list" resultType="com.project.domain.BoardDTO">
-		select bno,title,writer,regdate,updatedate from spring_board order by bno desc, regdate desc
+		select post_id,post_title,userid,post_regdate from post order by post_id desc, post_regdate desc
 	</select> -->
 	
 	<!-- 페이지 나누기 조회 -->
 	<select id="list" resultType="com.project.domain.BoardDTO">
 		<![CDATA[
-			select bno,title,writer,regdate,updatedate,replycnt
-			from (select /*+INDEX_DESC(spring_board pk_spring_board)*/ rownum rn, bno, title, writer,regdate,updatedate,replycnt
-			      from spring_board
+			select post_id,post_title,userid,post_regdate,post_content,replycnt
+			from (select /*+INDEX_DESC(post pk_post)*/ rownum rn, post_id, post_title, userid,post_regdate,post_content,replycnt
+			      from post
 			      where 
 		]]>	 
 			<include refid="criteria"></include>		     
@@ -25,16 +25,16 @@
 	
 	<!-- 전체 게시물 개수 : totalCnt -->
 	<select id="totalCnt" resultType="java.lang.Integer">
-		select count(*) from spring_board
+		select count(*) from post
 		where
 			<include refid="criteria"></include>
-		bno > 0		
+		post_id > 0		
 	</select>
 	
 	<!-- 댓글 수 추가  -->
 	<update id="updateReplyCnt">
-		update spring_board set replycnt = replycnt + #{amount}
-		where bno=#{bno}
+		update post set replycnt = replycnt + #{amount}
+		where post_id=#{postId}
 	</update>
 	
 	
@@ -54,13 +54,13 @@
 				<trim prefix="OR">
 					<choose>
 						<when test="type == 'T'.toString()">
-							title like '%'||#{keyword}||'%' 
+							post_title like '%'||#{keyword}||'%' 
 						</when>
 						<when test="type == 'C'.toString()">
-							content like '%'||#{keyword}||'%' 
+							post_content like '%'||#{keyword}||'%' 
 						</when>
 						<when test="type == 'W'.toString()">
-							writer like '%'||#{keyword}||'%' 
+							userid like '%'||#{keyword}||'%' 
 						</when>
 					</choose>
 				</trim>
@@ -70,39 +70,30 @@
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	<!-- 글 등록 -->
 	<insert id="insert">
 		<!-- 주로 pk 값을 미리 SQL 을 통해서 처리해 두고 특정한 이름으로 결과를 보관 -->
-		<selectKey keyProperty="bno" order="BEFORE" resultType="int">
-			select seq_board.nextval from dual
+		<selectKey keyProperty="post_id" order="BEFORE" resultType="int">
+			select post_seq.nextval from dual
 		</selectKey>	
 	
-		insert into spring_board(bno,title,content,writer) 
-		values(#{bno},#{title},#{content},#{writer})
+		insert into post(post_id,post_title,post_content,userid) 
+		values(#{postId},#{postTitle},#{postContent},#{userid})
 	</insert>
 
 	<!-- 특정 번호 조회  -->
 	<select id="get" resultType="com.project.domain.BoardDTO">
-		select bno,title,writer,content from spring_board where bno=#{bno}
+		select post_id,post_title,userid,post_content from post where post_id=#{postId}
 	</select>
 	
 	<!-- 특정 번호 조회 + 파일 정보 
 	     property : dto 변수명과 일치
 	-->
 	<resultMap type="com.project.domain.BoardDTO" id="boardMap">
-		<id property="bno" column="bno"/>
-		<result property="title" column="title"/>
-		<result property="content" column="content"/>
-		<result property="writer" column="writer"/>
+		<id property="postId" column="post_id"/>
+		<result property="postTitle" column="post_title"/>
+		<result property="postContent" column="post_content"/>
+		<result property="userid" column="userid"/>
 		<collection property="attachList" resultMap="attachMap"/>
 	</resultMap>	
 	<resultMap type="com.project.domain.AttachFileDTO" id="attachMap">
@@ -110,26 +101,26 @@
 		<result property="uploadPath" column="uploadPath"/>
 		<result property="fileName" column="fileName"/>
 		<result property="fileType" column="fileType"/>
-		<result property="bno" column="bno"/>
+		<result property="postId" column="post_id"/>
 	</resultMap>	
 	<select id="readAttach" resultMap="boardMap">
-		select title,content,writer,sa.bno, uuid, uploadpath,filetype,filename
-		from spring_board sb join spring_attach sa on sb.bno = sa.bno
-		where sb.bno=#{bno}	
+		select post_title,post_content,userid,sa.post_id, uuid, uploadpath,filetype,filename
+		from post sb join attach sa on sb.post_id = sa.post_id
+		where sb.post_id=#{postId}	
 	</select>
 	
 	
 	
 	
-	<!-- 글 수정 : bno 일치 시 (title, content, updatedate) -->
+	<!-- 글 수정 : post_id 일치 시 (post_title, post_content, updatedate) -->
 	<update id="update">
-		update spring_board set title=#{title}, content=#{content}, updatedate=sysdate
-		where bno=#{bno}
+		update post set post_title=#{postTitle}, post_content=#{postContent}
+		where post_id=#{postId}
 	</update>
 	
 	<!-- 글 삭제 -->
 	<delete id="delete">
-		delete from spring_board where bno=#{bno}
+		delete from post where post_id=#{postId}
 	</delete>
 </mapper>
 

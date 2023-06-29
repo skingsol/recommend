@@ -8,8 +8,8 @@ import com.project.domain.AttachFileDTO;
 @Mapper
 public interface AttachMapper {
 	public int insert(AttachFileDTO dto);
-	public List<AttachFileDTO> select(int bno);
-	public int deleteAll(int bno);
+	public List<AttachFileDTO> select(int postId);
+	public int deleteAll(int postId);
 	
 	public List<AttachFileDTO> oldFiles();
 }

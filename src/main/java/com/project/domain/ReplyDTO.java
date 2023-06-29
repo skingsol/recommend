@@ -12,11 +12,12 @@ import lombok.ToString;
 @AllArgsConstructor
 @Getter @Setter @ToString
 public class ReplyDTO {
-	private int rno;
-	private int bno;
-	private String reply;
+	private int replyId;
+	private int postId;
+	private String replyContent;
 	private String replyer;
-	private Date replyDate;	
-	private Date updateDate;	
+	private Date replyRegdate;	
+//	private Date updateDate;
+	private int replyAuth;
 	
 }

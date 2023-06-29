@@ -43,7 +43,7 @@ public class BoardServiceImpl implements BoardService {
 		}
 		
 		dto.getAttachList().forEach(attach -> {
-			attach.setBno(dto.getBno());
+			attach.setPostId(dto.getPostId());
 			attachMapper.insert(attach); 
 		});
 		
@@ -51,12 +51,12 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public BoardDTO getRow(int bno) {			
+	public BoardDTO getRow(int postId) {			
 		
 //		BoardDTO dto = mapper.readAttach(bno);
 //		log.info("상세 + 파일첨부 "+dto);
 		
-		return mapper.get(bno);
+		return mapper.get(postId);
 	}
 	
 	@Transactional
@@ -66,7 +66,7 @@ public class BoardServiceImpl implements BoardService {
 		boolean updateFlag = mapper.update(dto)==1?true:false;
 		
 		// 기존 첨부목록 제거
-		attachMapper.deleteAll(dto.getBno());		
+		attachMapper.deleteAll(dto.getPostId());		
 		
 		// 첨부파일이 있다면
 		if(dto.getAttachList() == null || dto.getAttachList().size() == 0) {
@@ -75,7 +75,7 @@ public class BoardServiceImpl implements BoardService {
 		
 		// 첨부목록 삽입
 		dto.getAttachList().forEach(attach -> {
-			attach.setBno(dto.getBno());
+			attach.setPostId(dto.getPostId());
 			attachMapper.insert(attach); 
 		});
 		
@@ -84,15 +84,15 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Transactional
 	@Override
-	public boolean delete(int bno) {
+	public boolean delete(int postId) {
 		
 		//자식 댓글 삭제
-		replyMapper.deleteAll(bno);
+		replyMapper.deleteAll(postId);
 		
 		//첨부파일 삭제
-		attachMapper.deleteAll(bno);	
+		attachMapper.deleteAll(postId);	
 		
-		return mapper.delete(bno)==1?true:false;
+		return mapper.delete(postId)==1?true:false;
 	}
 
 	@Override
@@ -101,8 +101,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<AttachFileDTO> getAttachList(int bno) {		
-		return attachMapper.select(bno);
+	public List<AttachFileDTO> getAttachList(int postId) {		
+		return attachMapper.select(postId);
 	}
 }
 
