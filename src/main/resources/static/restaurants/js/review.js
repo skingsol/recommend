@@ -54,7 +54,7 @@ function getReviewList() {
     })
     .catch((error) => console.log("데이터를 가져올 수 없습니다.", error));
 }
-getReviewList();
+//getReviewList();
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 // 상세페이지 댓글 작성 기능넣기(insert)
@@ -93,17 +93,19 @@ document.querySelector("#insertForm").addEventListener("submit", (e) => {
   e.preventDefault();
 
   const reviewContent = document.querySelector("#insertForm #reviewContent").value;
-  const userId = document.querySelector("#insertForm #userId").value;
-
+  const userId = document.querySelector("#insertForm #userId").innerHTML;
+  
   const data = {
     reviewContent: reviewContent,
     userId: userId,
-    restauantId: restauantId,
-    grade: grade,
+    //restauantId: restauantId,
+    //grade: grade,
+    restauantId: 'jonnamatzip',
+    grade: 5,
   };
 
-  fetch("/profile/new", {
-    method: "post",
+  fetch("/restaurants/new", {
+    method: "get",
     headers: {
       "content-type": "application/json",
     },

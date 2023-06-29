@@ -150,13 +150,14 @@
 			</div>
 		</div> 
 		<!-- 리뷰 수정 폼 종료(모달) -->
-		
+		 
 		
 		<div class="write_review">
 			<form action="" id="insertForm">
 				<div class="section-title">
 					<h5>리뷰 작성하기</h5>
-					<input type="text" class="userId" id="userId" value="${userId}" readonly />
+					<%-- <input type="text" class="userId" id="userId" value="${userId}" readonly /> --%>
+					<span class="userId" id="userId" >test</span>
 				</div>
 				<div class="content_block">
 				<textarea placeholder="내용 입력" id="reviewContent"></textarea>
@@ -170,6 +171,9 @@
 			</form>
 		</div>
 	</div>
+	
+	
+	
 
 
 
