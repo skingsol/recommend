@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.mapper.ReviewMapper">
+
+	<!-- 상세페이지 리뷰 보여주기 -->
+	<select id="ReviewList" resultType="com.project.domain.ReviewDTO">
+		select * from review where restauant_id=#{restauantId}
+	</select>
+	
+	<!-- 상세페이지 리뷰 추가 -->		
+	<insert id="insert">
+		insert into review(restauant_id,review_id,review_content,userid,grade) 
+		values(#{restauantId},detailreply_seq.nextval,#{reviewContent},#{userId},#{grade})
+	</insert>
+	
+	<!-- 상세페이지 리뷰 수정 -->
+	<update id="update">
+		update review set review_content=#{reviewContent}, review_updatedate=sysdate where review_id=#{reviewId}
+	</update>
+	
+	<!-- 리뷰 하나 가져오기 -->
+	<select id="read" resultType="com.project.domain.ReviewDTO">
+		select * from review where review_id=#{reviewId}
+	</select>
+	
+	<!-- 리뷰 삭제하기 -->
+	<delete id="delete">
+		delete from review where review_id=#{reviewId}
+	</delete>
+	
+</mapper>

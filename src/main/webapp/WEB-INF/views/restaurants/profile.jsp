@@ -121,56 +121,113 @@
 
 	<!-- 리뷰 보여주기 부분 start -->
 	<div class="reviews_part">
-		<div class="main">
-			<ul class="comment">
-
-				<%-- <c:forEach items="${store.reviewList }" var="reviewList"> --%>
-				<li>
-					<div class="client">
-
-						<div class="review_header">
-							<div>
-								<div class="nickname">닉네임</div>
-								<%-- <div class="nickname">${reviewList.nickname }</div> --%>
-								<div>
-
-									<%-- <c:forEach begin="0" end="4" var="i">
-									<c:choose>
-										<c:when test="${Math.round(reviewList.score) > i }"> --%>
-									<i class="far fas fa-star">★★★★★</i>
-									<%-- </c:when>
-										<c:otherwise> --%>
-									<i class="far fa-star"></i>
-									<%-- </c:otherwise>
-									</c:choose>
-								</c:forEach> --%>
-								</div>
-							</div>
-							<div class="create_date">
-								<span>2023-06-28</span>
-							</div>
-							<%-- <span><fm:formatDate value="${reviewList.regiDate }" pattern="yyyy-MM-dd" /> </span> --%>
+	<h5>리뷰</h5>	
+		
+		<!-- 리뷰 수정 폼(모달) -->
+		<div class="modal" tabindex="-1" id="reviewModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">리뷰 수정</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<input type="hidden" name="reviewId" id="reviewId" />
+						<div class="form-group">
+							<textarea name="reviewContent" id="reviewContent" rows="4" class="form-control"></textarea>
 						</div>
-
-						<div>
-							<%-- <c:if test="${!empty reviewList.reviewImg }"> --%>
-							<div class="review_img_box">
-								<%-- <img src="${reviewList.reviewImg }" alt="이미지" class="review_img"> --%>
-								<img src="/restaurants/img/japanese.png" alt="이미지" class="review_img">
-							</div>
-							<%-- </c:if> --%>
-							<div class="review_contents">리뷰 내용 입니다.</div>
-							<%-- <div>${reviewList.reviewContent }</div> --%>
+						<div class="form-group">
+							<input type="text" name="userid" id="userid" class="form-control" value="${userid}" readonly />
 						</div>
 					</div>
-				</li>
-				<%-- </c:forEach> --%>
-			</ul>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+						<button type="button" class="btn btn-primary">수정</button>
+					</div>
+				</div>
+			</div>
+		</div> 
+		<!-- 리뷰 수정 폼 종료(모달) -->
+		
+		
+		<div class="write_review">
+			<form action="" id="insertForm">
+				<div class="section-title">
+					<h5>리뷰 작성하기</h5>
+					<input type="text" class="userId" id="userId" value="${userId}" readonly />
+				</div>
+				<div class="content_block">
+				<textarea placeholder="내용 입력" id="reviewContent"></textarea>
+				</div>
+				<div class="rating">
+					<i class="fa fa-star-o" data-value="1"></i> <i class="fa fa-star-o" data-value="2"></i> <i class="fa fa-star-o" data-value="3"></i> <i class="fa fa-star-o" data-value="4"></i> <i class="fa fa-star-o" data-value="5"></i>
+				</div>
+				<button type="submit" class="riew_button">
+					<i class="fa fa-location-arrow"></i> 확인
+				</button>
+			</form>
 		</div>
-		<!-- 리뷰 보여주기 부분 end -->
+	</div>
 
 
-		<!-- 리뷰 작성 폼-->
+
+
+
+
+
+    <%-- 
+	<div class="main">
+		<ul class="comment">
+			<c:forEach items="${store.reviewList }" var="reviewList">
+			<li>
+				<div class="client">
+
+					<div class="review_header">
+						<div>
+							<div class="nickname">닉네임</div>
+							<div class="nickname">${reviewList.nickname }</div>
+							<div>
+
+								<c:forEach begin="0" end="4" var="i">
+									<c:choose>
+										<c:when test="${Math.round(reviewList.score) > i }">
+								<i class="far fas fa-star">★★★★★</i>
+								</c:when>
+										<c:otherwise>
+								<i class="far fa-star"></i>
+								</c:otherwise>
+									</c:choose>
+								</c:forEach>
+							</div>
+						</div>
+						<div class="create_date">
+							<span>2023-06-28</span>
+						</div>
+						<span><fm:formatDate value="${reviewList.regiDate }" pattern="yyyy-MM-dd" /> </span>
+					</div>
+
+					<div>
+						<c:if test="${!empty reviewList.reviewImg }">
+						<div class="review_img_box">
+							<img src="${reviewList.reviewImg }" alt="이미지" class="review_img">
+							<img src="/restaurants/img/japanese.png" alt="이미지" class="review_img">
+						</div>
+						</c:if>
+						<div class="review_contents">리뷰 내용 입니다.</div>
+						<div>${reviewList.reviewContent }</div>
+					</div>
+				</div>
+			</li>
+			</c:forEach>
+		</ul>
+	</div>
+	<!-- 리뷰 보여주기 부분 end -->
+
+
+
+	<!-- 리뷰 작성 폼-->
 		<form class="mt-3" name="myform" id="myform" method="post">
 
 			<fieldset>
@@ -207,7 +264,12 @@
 					</div>
 				</div>
 			</div>
-		</form>
+		</form> --%>
+		
+		
+		
+		
+		
 		<div class="mb-5"></div>
 	</div>
 </div>
