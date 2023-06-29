@@ -1,4 +1,4 @@
-package com.project.naver.dto;
+package com.project.ms.dto;
 
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;

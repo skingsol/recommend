@@ -8,8 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.project.naver.dto.WishListDTO;
-import com.project.naver.service.WishListService;
+import com.project.ms.dto.BringNaverApiDTO;
+import com.project.service.BringNaverService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,13 +19,13 @@ import lombok.extern.slf4j.Slf4j;
 public class HomeController {
 
 	@Autowired
-	private WishListService wishListService;
+	private BringNaverService brService;
 	
 	@GetMapping("/")
 	public String home(Model model) {
 		log.info("메인 페이지 요청");		
 
-		List<WishListDTO> list= wishListService.main("한식");
+		List<BringNaverApiDTO> list= brService.main("한식");
 		
 		log.info("음식점 리스트"+list);
 		

@@ -1,4 +1,4 @@
-package com.project.naver.service;
+package com.project.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,31 +6,30 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.project.ms.dto.BringNaverApiDTO;
+import com.project.ms.dto.SearchImageItem;
+import com.project.ms.dto.SearchImageReq;
+import com.project.ms.dto.SearchImageRes;
+import com.project.ms.dto.SearchLocalItem;
+import com.project.ms.dto.SearchLocalReq;
+import com.project.ms.dto.SearchLocalReq2;
+import com.project.ms.dto.SearchLocalRes;
 import com.project.naver.NaverClient;
-import com.project.naver.dto.SearchImageItem;
-import com.project.naver.dto.SearchImageReq;
-import com.project.naver.dto.SearchImageRes;
-import com.project.naver.dto.SearchLocalItem;
-import com.project.naver.dto.SearchLocalReq;
-import com.project.naver.dto.SearchLocalReq2;
-import com.project.naver.dto.SearchLocalRes;
-import com.project.naver.dto.WishListDTO;
-
 
 
 @Service
-public class WishListServiceImpl implements WishListService {
+public class BringNaverServiceImpl implements BringNaverService {
 
 	@Autowired
 	private NaverClient naverClient;
 	
 
 	@Override
-	public List<WishListDTO> main(String query) {
+	public List<BringNaverApiDTO> main(String query) {
 		// main 에서 보여줄 음식점 리스트
 		// 상호명(title), 이미지링크(imageLink)
 
-		List<WishListDTO> list = new ArrayList<>();
+		List<BringNaverApiDTO> list = new ArrayList<>();
 		
 		// 지역 검색 요청
 		SearchLocalReq req = new SearchLocalReq();
@@ -63,7 +62,7 @@ public class WishListServiceImpl implements WishListService {
 					SearchImageItem imageItem = imageRes.getItems().get(0);
 
 					// 받은 정보들을 원하는 데이터만 추출해서 WishListDTO 담기
-					WishListDTO dto = new WishListDTO();
+					BringNaverApiDTO dto = new BringNaverApiDTO();
 					dto.setTitle(localItem.getTitle());					
 					dto.setImageLink(imageItem.getLink());
 					list.add(dto);
@@ -76,8 +75,8 @@ public class WishListServiceImpl implements WishListService {
 	
 	//검색결과용 메소드
 	@Override
-	public List<WishListDTO> search(String query) {
-				List<WishListDTO> list = new ArrayList<>();
+	public List<BringNaverApiDTO> search(String query) {
+				List<BringNaverApiDTO> list = new ArrayList<>();
 				
 				SearchLocalReq2 req2 = new SearchLocalReq2();
 				req2.setQuery(query);
@@ -102,7 +101,7 @@ public class WishListServiceImpl implements WishListService {
 
 							SearchImageItem imageItem = imageRes.getItems().get(0);
 
-							WishListDTO dto = new WishListDTO();
+							BringNaverApiDTO dto = new BringNaverApiDTO();
 							dto.setTitle(localItem.getTitle());
 							dto.setCategory(localItem.getCategory());
 							dto.setRoadAddress(localItem.getRoadAddress());
