@@ -63,7 +63,7 @@ public class BringNaverServiceImpl implements BringNaverService {
 
 					// 받은 정보들을 원하는 데이터만 추출해서 WishListDTO 담기
 					BringNaverApiDTO dto = new BringNaverApiDTO();
-					dto.setTitle(localItem.getTitle());					
+					dto.setTitle(localItem.getTitle().replaceAll("<[^>]*>", ""));
 					dto.setImageLink(imageItem.getLink());
 					list.add(dto);
 				}
@@ -102,7 +102,7 @@ public class BringNaverServiceImpl implements BringNaverService {
 							SearchImageItem imageItem = imageRes.getItems().get(0);
 
 							BringNaverApiDTO dto = new BringNaverApiDTO();
-							dto.setTitle(localItem.getTitle());
+							dto.setTitle(localItem.getTitle().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", ""));
 							dto.setCategory(localItem.getCategory());
 							dto.setRoadAddress(localItem.getRoadAddress());
 							dto.setHomePageLink(localItem.getLink());
