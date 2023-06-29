@@ -1,4 +1,4 @@
-<%@page import="com.project.naver.dto.SearchLocalRes"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="include/header.jsp"%>
@@ -39,6 +39,7 @@
 			</div> 
 		 --%>
 
+
 			<div class="row" id="search_result">
 			
 				<!-- 검색결과 리스트 반복 구간 -->
@@ -46,14 +47,14 @@
 					<div class="col-12 boxing space_wrap" >
 						<div class="post-entry horizontal d-md-flex" style="align-items: center;">
 							<div class="media">
-								<a href="#"> <img id="search_image"
-									src="${srch.imageLink}" alt="음식점 썸네일" class="img-fluid" >
+								<a href=""> <img id="search_image"
+									src="${srch.imageLink}" alt="음식점 썸네일" class="img-fluid" data-title="${srch.title}">
 								</a>
 							</div>
 							<div class="content_text">
 								<div>
 									<div class="store_category_result">
-										<a href="#" id="search_title" class="store_name">${srch.title}</a>
+										<a href="" id="search_title" class="store_name">${srch.title}</a>
 										&nbsp; &nbsp;
 										<p id="search_category">${srch.category}</p>
 									</div>
@@ -143,6 +144,7 @@
 		</div>
 	</div>
 </div>
+
 
 
 <!-- 테스트 끝 -->

@@ -1,8 +1,4 @@
-//---------------------------------------------------------------//
 //    메인페이지 음식점 클릭 시 상세페이지 이동
-//---------------------------------------------------------------//
-
-const restaurant_link = document.querySelector(".loop_section");
 restaurant_link.addEventListener("click", (e) => {
   e.preventDefault();
 
