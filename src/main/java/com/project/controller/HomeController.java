@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.project.ms.dto.BringNaverApiDTO;
 import com.project.service.BringNaverService;
-import com.project.service.RegisterRstrntService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -21,8 +20,6 @@ public class HomeController {
 
 	@Autowired
 	private BringNaverService brService;
-	@Autowired
-	private RegisterRstrntService reqService;
 
 	// 메인페이지 화면단 api 정보 가져오기
 	@GetMapping("/")
