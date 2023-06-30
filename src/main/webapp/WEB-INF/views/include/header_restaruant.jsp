@@ -82,7 +82,7 @@
 					<div class="search_bar">
 						<div class="search_input_bar">
 							<input type="search" class="search_input"
-								placeholder="지역, 음식 또는 식당명 입력" name="query" />
+								placeholder="지역, 음식 또는 식당명 입력" name="query" value="${query }" />
 							<button class="search_icon" type="submit" aria-label="검색하기 버튼"></button>
 						</div>
 						<div class="todo-inner">
@@ -113,10 +113,10 @@
 							aria-labelledby="userDropdown" style="text-align: center;">
 							<!-- 사용자 인증 여부에 따라 로그인/로그아웃 페이지 설정 -->
 							<sec:authorize access="isAnonymous()">
-								<a class="dropdown-item" href="..">로그인 </a>
+								<a class="dropdown-item" href="/member/login">로그인 </a>
+							<a class="dropdown-item" href="/member/step1"> 회원가입 </a>
 							</sec:authorize>
 
-							<a class="dropdown-item" href="#"> 회원가입 </a>
 
 
 							<!-- 사용자 로그인 시: 드롭다운 메뉴 변경 -->

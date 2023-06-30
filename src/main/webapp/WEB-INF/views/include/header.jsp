@@ -86,7 +86,7 @@
 				<form action="/api/search/" class="searchForm todo-form" id="searchForm">
 					<div class="search_bar">
 						<div class="search_input_bar">
-							<input type="search" class="search_input" placeholder="지역, 음식 또는 식당명 입력" name="query"/>
+							<input type="search" class="search_input" placeholder="지역, 음식 또는 식당명 입력" name="query" value="${query}"/>
 							<button class="search_icon" type="submit" aria-label="검색하기 버튼"></button>
 						</div>
 				<div class="todo-inner">
@@ -99,7 +99,6 @@
 				</div>
 					</div>
 				</form>
-
 
 
 				<!-- Topbar Navbar -->
@@ -122,10 +121,10 @@
 							<sec:authorize access="isAnonymous()">
 								<a class="dropdown-item" href='<c:url value="/member/login"  />'>로그인
 								</a>
-							</sec:authorize>
-
 							<a class="dropdown-item" href='<c:url value="/member/signup"  />'>
 								회원가입 </a>
+							</sec:authorize>
+
 
 							<!-- 사용자 로그인 시: 드롭다운 메뉴 변경 -->
 							<sec:authorize access="isAuthenticated()">

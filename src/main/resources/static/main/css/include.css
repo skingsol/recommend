@@ -171,7 +171,7 @@ a {
 
 /*******검색창 옵션********/
 .todo-inner {
-	display: none; 
+	display: none;
 	background: #fff;
 	border: 1px solid rgb(241, 241, 241);
 	border-top: 0;
@@ -198,13 +198,17 @@ a {
 	justify-content: space-between;
 }
 
-#todo-list > li{
+#todo-list>li {
 	padding: 12px 15px 6px;
 	display: flex;
 	height: calc(12px * 2 + 20px);
 	align-items: center;
 	justify-content: space-between;
 }
-#todo-list > li>span{
+
+#todo-list>li>span {
 	font-size: 1em;
 }
+
+
+/***-----------카카오톡 공유하기 버튼--------------***/

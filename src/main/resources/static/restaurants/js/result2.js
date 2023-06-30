@@ -7,14 +7,13 @@ restaurant_link.addEventListener("click", (e) => {
   let restaurantName = "";
 
   if (tag.dataset.title) {
-    //img 태그에서 들어오는 경우
+    //data-title 속성이 있는 태그인 경우 맛집상세페이지로 이동
     restaurantName = tag.dataset.title;
-  } else {
-    //span 태그에서 들어오는 경우
-    restaurantName = tag.innerHTML;
+    location.href = "/restaurants/profile?restaurantName=" + restaurantName;
+  } else if (tag.href) {
+    //태그에 href 속성이 있으면 해당 링크로 이동
+    location.href = tag.href;
   }
 
   console.log(restaurantName);
-
-  location.href = "/restaurants/profile?restaurantName=" + restaurantName;
 });
