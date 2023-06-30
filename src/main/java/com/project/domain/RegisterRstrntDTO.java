@@ -9,9 +9,10 @@ import lombok.Setter;
 import lombok.ToString;
 
 @AllArgsConstructor @NoArgsConstructor
-@ToString @Getter @Setter
-public class SearchDTO {
-	private int search_id;
-	private String searchKeyword;
-	private Date searchDate;
+@Getter @Setter @ToString
+public class RegisterRstrntDTO {
+	private int reqId;
+	private String reqName;
+	private String reqContent;
+	private Date regDate;
 }

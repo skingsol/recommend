@@ -13,11 +13,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.project.naver.dto.SearchImageReq;
-import com.project.naver.dto.SearchImageRes;
-import com.project.naver.dto.SearchLocalReq;
-import com.project.naver.dto.SearchLocalReq2;
-import com.project.naver.dto.SearchLocalRes;
+import com.project.ms.dto.SearchImageReq;
+import com.project.ms.dto.SearchImageRes;
+import com.project.ms.dto.SearchLocalReq;
+import com.project.ms.dto.SearchLocalReq2;
+import com.project.ms.dto.SearchLocalRes;
 
 import lombok.extern.slf4j.Slf4j;
 

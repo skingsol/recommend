@@ -121,5 +121,21 @@ p {
 }
 
 
+/**--------------------------**/
 
+.space_wrap{
+	padding-bottom: 1em;
+}
 
+#search_image{
+	    height: 225px;
+    width: 210px;
+    padding-top: 18px;
+}
+
+/**--------------------------**/
+
+.msg_wrap{
+	text-align: center;
+    font-size: 18px;
+}

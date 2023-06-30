@@ -1,4 +1,4 @@
-package com.project.naver.dto;
+package com.project.ms.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

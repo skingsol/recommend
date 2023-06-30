@@ -4,7 +4,6 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.project.domain.MemberAuthDTO;
 import com.project.domain.ChangeDTO;
-import com.project.domain.LoginDTO;
 import com.project.domain.MemberDTO;
 
 @Mapper

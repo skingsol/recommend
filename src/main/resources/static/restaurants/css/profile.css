@@ -124,9 +124,65 @@ body {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.write_review{
+	border: 5px solid #D3D3D3;
+	border-radius: 20px;
+	padding: 20px;
+}
+
+.content_block{
+	width: 100%;
+}
+
+#reviewContent{
+	width: 100%;
+	height: auto;
+	border: 1px solid;
+	border-radius: 5px;
+}
+
+.riew_button{
+	border: 1px solid;
+	padding : 2px;
+	border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .reviews_part{
 	margin-bottom: 20%;	
-	padding: 0 20%;
+	padding: 0 15%;
 }
 
 #myform fieldset{
