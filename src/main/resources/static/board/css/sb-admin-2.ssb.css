@@ -694,6 +694,7 @@ pre code {
 .col-11 {
 	flex: 0 0 91.66667%;
 	max-width: 91.66667%
+	
 }
 
 
@@ -1777,7 +1778,7 @@ pre code {
 	background-color: #fff;
 	background-clip: padding-box;
 	border: 1px solid #d1d3e2;
-	border-radius: .35rem;
+	border-radius: 1rem;
 	transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
 }
 
@@ -7732,7 +7733,9 @@ supports ((position:-webkit-sticky) or (position:sticky)) { .
 }
 
 .mt-3, .my-3 {
-	margin-top: 1rem !important
+	margin-top: 1rem !important;
+	    margin-right: 15rem;
+    margin-left: 15rem;
 }
 
 .mr-3, .mx-3 {
@@ -7752,7 +7755,9 @@ supports ((position:-webkit-sticky) or (position:sticky)) { .
 }
 
 .mt-4, .my-4 {
-	margin-top: 1.5rem !important
+	margin-top: 1.5rem !important;
+	margin-right: 15rem;
+    margin-left: 15rem;
 }
 
 .mr-4, .mx-4 {

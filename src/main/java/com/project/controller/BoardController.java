@@ -86,11 +86,11 @@ public class BoardController {
 	//   http://localhost:8080/board/read?page=5&amount=10&bno=1
 	//   http://localhost:8080/board/modify?page=5&amount=10&bno=1
 	@GetMapping({"/read","/modify"})
-	public void readGet(int post_id,Model model,@ModelAttribute("cri") Criteria cri){
-		log.info("내용 조회 "+post_id);
+	public void readGet(int postId,Model model,@ModelAttribute("cri") Criteria cri){
+		log.info("내용 조회 "+postId);
 		
 		//post_id 에 맞는 내용 가져오기
-		BoardDTO dto = service.getRow(post_id);
+		BoardDTO dto = service.getRow(postId);
 		log.info("내용조회2"+dto);
 		model.addAttribute("dto", dto);		
 	}
@@ -101,7 +101,7 @@ public class BoardController {
 		log.info("내용 수정 "+cri);
 		//성공 시 리스트
 		service.update(dto);
-		
+		 
 		rttr.addFlashAttribute("result", "수정이 완료되었습니다.");
 		
 		//페이지 나누기 정보 주소줄에 같이 보내기
@@ -117,14 +117,14 @@ public class BoardController {
 	
 	@GetMapping("/remove")
 //	@PreAuthorize("principal.username == #user_idx") // 로그인 사용자 == 작성자
-	public String removeGet(int post_id,String user_idx,RedirectAttributes rttr,Criteria cri) {
+	public String removeGet(int postId,String user_idx,RedirectAttributes rttr,Criteria cri) {
 		
 		//폴더에서 첨부 파일 제거
-		List<AttachFileDTO> attachList = service.getAttachList(post_id);
+		List<AttachFileDTO> attachList = service.getAttachList(postId);
 		deleteAttachFiles(attachList);
 		
 		//성공 시 리스트
-		service.delete(post_id);
+		service.delete(postId);
 		
 		rttr.addFlashAttribute("result", "삭제가 완료되었습니다.");
 		
@@ -141,8 +141,8 @@ public class BoardController {
 	// 첨부파일 가져오기(/getAttachList) + GET + post_id
 	
 	@GetMapping("/getAttachList")
-	public ResponseEntity<List<AttachFileDTO>> attachList(int post_id){
-		List<AttachFileDTO> attachList = service.getAttachList(post_id);
+	public ResponseEntity<List<AttachFileDTO>> attachList(int postId){
+		List<AttachFileDTO> attachList = service.getAttachList(postId);
 		
 		return attachList!= null? new ResponseEntity<List<AttachFileDTO>>(attachList,HttpStatus.OK):
 			new ResponseEntity<>(HttpStatus.NOT_FOUND);

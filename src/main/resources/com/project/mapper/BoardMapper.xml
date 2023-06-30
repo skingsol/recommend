@@ -12,22 +12,17 @@
 <select id="list" resultType="com.project.domain.BoardDTO">
 	<![CDATA[
 		SELECT post_id, post_title, userid, post_regdate, post_content, replycnt
-		FROM (
-			SELECT /*+INDEX_DESC(post pk_post)*/ rownum rn, p.*
-			FROM (
-				SELECT *
-				FROM post
-				WHERE 1 = 1
-	]]>	 
-		<include refid="criteria"></include>		     
-	<![CDATA[	      
-				ORDER BY post_id DESC
-			) p
-			WHERE rownum <= (#{page} * #{amount})
-		)
-		WHERE rn > (#{page} - 1) * #{amount}		
-	]]>	
-</select>
+		FROM (SELECT /*+INDEX_DESC(post pk_post)*/ rownum rn, post_id,post_title,userid,post_regdate,post_content,replycnt
+			from post 
+			      where 
+		]]>	 
+			<include refid="criteria"></include>		     
+		<![CDATA[	      
+			      
+			      rownum <= (#{page}*#{amount}))
+			where rn > (#{page}-1)*#{amount}		
+		]]>	
+	</select>
 	
 	<!-- 전체 게시물 개수 : totalCnt -->
 	<select id="totalCnt" resultType="java.lang.Integer">

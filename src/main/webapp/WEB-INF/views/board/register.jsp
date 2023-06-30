@@ -68,12 +68,12 @@
 		</div>
 	</div>
 </div>
- <!-- <script>	
+  <script>	
 	const path = '${pageContext.request.requestURI}';	
 	
 	// CSRF 토큰 값 생성
 	const csrfToken = '${_csrf.token}';
-</script>  -->
+</script>  
 <script src="/board/js/register.js"></script>
 <script src="/board/js/upload.js"></script>
 <%@ include file="../include/footer.jsp" %>

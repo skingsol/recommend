@@ -66,8 +66,8 @@ moves.forEach((move) => {
 
     const href = e.target.getAttribute("href");
 
-    const post_id = "<input type='hidden' name='post_id' value='" + href + "'>";
-    operForm.insertAdjacentHTML("beforeend", post_id);
+    const postId = "<input type='hidden' name='postId' value='" + href + "'>";
+    operForm.insertAdjacentHTML("beforeend", postId);
 
     operForm.action = "/board/read";
     //console.log(operForm);

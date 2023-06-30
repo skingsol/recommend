@@ -66,7 +66,7 @@ function showAttachFile(uploadResultArr) {
     .insertAdjacentHTML("beforeend", str);
 }
 
-fetch("/board/getAttachList?post_id=" + post_id)
+fetch("/board/getAttachList?postId=" + postId)
   .then((response) => {
     if (!response.ok) {
       throw new Error("첨부물 없음");
@@ -185,17 +185,17 @@ function showList(pageNum) {
       for (let idx = 0; idx < result.length; idx++) {
         str +=
           "<li class='list-group-item border-bottom' data-reply_id='" +
-          result[idx].reply_id +
+          result[idx].replyId +
           "'>";
         str += "<div class='d-flex justify-content-between'>";
         str +=
           "<strong class='primary-font'>" + result[idx].replyer + "</strong>";
         str +=
           "<small class='text-muted text-right'>" +
-          replyService.displayTime(result[idx].reply_regdate) +
+          replyService.displayTime(result[idx].replyRegdate) +
           "</small>";
         str += "</div>";
-        str += "<p>" + result[idx].reply_content + "</p>";
+        str += "<p>" + result[idx].replyContent + "</p>";
         str += "<div class='btn-group btn-group-sm'>";
         str += "<button class='btn btn-warning' type='button'>수정</button>";
         str += "<button class='btn btn-danger' type='button'>삭제</button>";
