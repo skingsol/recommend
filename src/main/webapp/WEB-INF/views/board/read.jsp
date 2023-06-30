@@ -1,33 +1,47 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
+ <link href="/board/css/sb-admin-2.ssb.css" rel="stylesheet"> 
 <!-- Page Heading -->
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-	<h1 class="h3 mb-0 text-gray-800">Board Read</h1>
+
+<div class="gnb-wrap">
+	<div class="inner">
+		<nav id="gnb" class="gnb">
+			<ul class="gnb_ul">
+				<li class="notice"><a href='<c:url value="/board/notice"  />'>
+						<span>공지사항</span>
+				</a></li>
+				<li class="qna"><a href="/board/list?page=1&amount=10&type=&keyword="> <span>게시판</span>
+				</a></li>
+			</ul>
+		</nav>
+		<!--// gnb -->
+	</div>
+	<!--// inner -->
 </div>
 <div class="row">
 	<div class="col">
 		<form action="" method="post">
 			<div class="form-group">
-				<label for="title">Title</label>
-				<input type="text" class="form-control" id="title" name="title" readonly value="${dto.title}">
+				<label for="post_title">post_title</label>
+				<input type="text" class="form-control" id="post_title" name="postTitle" readonly value="${dto.postTitle}">
 			</div>
 			<div class="form-group">
-				<label for="content">Content</label>
-				<textarea class="form-control" id="content" rows="10" name="content" readonly>${dto.content}</textarea>
+				<label for="post_content">post_content</label>
+				<textarea class="form-control" id="post_content" rows="10" name="postContent" readonly>${dto.postContent}</textarea>
 			</div>
 			<div class="form-group">
-				<label for="writer">Writer</label>
-				<input type="text" class="form-control" id="writer" name="writer" readonly value="${dto.writer}">
+				<label for="userid">userid</label>
+				<input type="text" class="form-control" id="userid" name="userid" readonly value="${dto.userid}">
 			</div>
 			
 			<%-- 로그인 상황에서 해당 게시물 작성자와 동일할 때만 보여주기 --%>
 			
 			<security:authorize access="isAuthenticated()">
 				<security:authentication property="principal.username" var="username"/>
-				<c:if test="${username == dto.writer}">
+				<c:if test="${username == dto.userid}">
 					<button type="button" class="btn btn-info">수정</button>
 				</c:if>
-			</security:authorize>		
+			</security:authorize> 		
 			
 			<button type="button" class="btn btn-secondary">목록</button>
 		</form>
@@ -50,16 +64,16 @@
 </div>
 
 <!--  댓글 작성 폼 -->
-<security:authorize access="isAuthenticated()">
+ <security:authorize access="isAuthenticated()">
 	<form action="" class="mt-3" id="replyForm">
 		<div class="form-row">
 			<div class="col-11">
-				<textarea name="reply" id="reply" rows="5" class="form-control"></textarea>
+				<textarea name="reply_content" id="reply_content" rows="5" class="form-control"></textarea>
 			</div>
 			<div class="col my-2">
 				<div class="form-row my-2">
 					<input type="text" name="replyer" id="replyer" class="form-control"  readonly
-		    					value='<security:authentication property="principal.username"/>'/>
+		    					 value='<security:authentication property="principal.username"/>'/>
 				</div>
 				<div class="form-row my-2">
 					<button class="btn btn-success btn-block">댓글 작성</button>
@@ -76,7 +90,7 @@
 	</div>
 	<div class="card-body">
 		<ul class="chat list-group list-group-flush">
-			<li class='list-group-item border-bottom' data-rno='1'>
+			<li class='list-group-item border-bottom' data-reply_id='1'>
 				<div class="d-flex justify-content-between">
 					<strong class='primary-font'>user00</strong>
 					<small class='text-muted text-right'>2023-05-24 00:00</small>				
@@ -84,7 +98,7 @@
 				<p>Good JOB</p>
 				<div class="btn-group btn-group-sm">
 					<button class="btn btn-warning" type="button">수정</button>
-					<button class="btn btn-danger" type="button">삭제</button>
+					<button class="btn btnㄹ-danger" type="button">삭제</button>
 				</div>
 			</li>
 		</ul>
@@ -104,9 +118,9 @@
         </button>
       </div>
       <div class="modal-body">
-        <input type="hidden" name="rno" id="rno" />
+        <input type="hidden" name="replyId" id="reply_id" />
         <div class="form-group">
-        	<textarea name="reply" id="reply" rows="4" class="form-control"></textarea>
+        	<textarea name="replyContent" id="reply_content" rows="4" class="form-control"></textarea>
         </div>
         <div class="form-group">
         	<input type="text" name="replyer" id="replyer" class="form-control" readonly/>
@@ -116,11 +130,11 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">수정</button>
       </div>
-    </div>
+    </div> 
   </div>
 </div>
 <form action="" id="operForm">
-	<input type="hidden" name="bno" value="${dto.bno}" />
+	<input type="hidden" name="postId" value="${dto.postId}" />
 	<input type="hidden" name="page" value="${cri.page}" />
 	<input type="hidden" name="amount" value="${cri.amount}" />
 	<input type="hidden" name="type" value="${cri.type}" />
@@ -130,10 +144,10 @@
 
 <script>
 	//게시물 글번호 가져오기
-	const bno = ${dto.bno};
+	const postId = ${dto.postId};
 	
 	// CSRF 토큰 값 생성
-	const csrfToken = '${_csrf.token}';
+	 const csrfToken = '${_csrf.token}'; 
 </script>
 <script src="/board/js/reply.js"></script>
 <script src="/board/js/read.js"></script>

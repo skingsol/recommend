@@ -14,4 +14,5 @@ import lombok.ToString;
 public class MemberAuthDTO {
 	private String userid;
 	private String auth;
+
 }

@@ -42,6 +42,17 @@
 	-font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
 		"Liberation Mono", "Courier New", monospace
 }
+.table {
+  table-layout: fixed; /* 열 너비 고정 */
+}
+
+.table td,
+.table td.author,
+.table td.date  {
+  white-space: nowrap; /* 줄바꿈 방지 */
+  overflow: hidden; /* 내용을 넘어갈 경우 숨김 */
+  text-overflow: ellipsis; /* 생략 부호로 표시 */
+}
 
 *, ::after, ::before {
 	box-sizing: border-box
@@ -556,8 +567,9 @@ pre code {
 .row {
 	display: flex;
 	flex-wrap: wrap;
-	margin-right: -.75rem;
-	margin-left: -.75rem
+	margin-top: 2rem;
+	margin-right: 15rem;
+	margin-left: 15rem
 }
 
 .no-gutters {
@@ -682,6 +694,7 @@ pre code {
 .col-11 {
 	flex: 0 0 91.66667%;
 	max-width: 91.66667%
+	
 }
 
 
@@ -1765,7 +1778,7 @@ pre code {
 	background-color: #fff;
 	background-clip: padding-box;
 	border: 1px solid #d1d3e2;
-	border-radius: .35rem;
+	border-radius: 1rem;
 	transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
 }
 
@@ -4476,7 +4489,8 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 	background-color: #fff;
 	background-clip: border-box;
 	border: 1px solid #e3e6f0;
-	border-radius: .35rem
+	border-radius: .35rem;
+	margin-bottom: 2rem
 }
 
 .card>hr {
@@ -4509,6 +4523,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 	flex: 1 1 auto;
 	min-height: 1px;
 	padding: 1.25rem
+	
 }
 
 .card-title {
@@ -7718,7 +7733,9 @@ supports ((position:-webkit-sticky) or (position:sticky)) { .
 }
 
 .mt-3, .my-3 {
-	margin-top: 1rem !important
+	margin-top: 1rem !important;
+	    margin-right: 15rem;
+    margin-left: 15rem;
 }
 
 .mr-3, .mx-3 {
@@ -7738,7 +7755,9 @@ supports ((position:-webkit-sticky) or (position:sticky)) { .
 }
 
 .mt-4, .my-4 {
-	margin-top: 1.5rem !important
+	margin-top: 1.5rem !important;
+	margin-right: 15rem;
+    margin-left: 15rem;
 }
 
 .mr-4, .mx-4 {

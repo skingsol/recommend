@@ -12,13 +12,13 @@ public interface BoardService {
 	//글등록
 	public boolean insert(BoardDTO dto);
 	//특정 게시글 조회
-	public BoardDTO getRow(int bno);
+	public BoardDTO getRow(int postId);
 	//글수정
 	public boolean update(BoardDTO dto);
 	//글삭제
-	public boolean delete(int bno);
+	public boolean delete(int postId);
 	//전체 게시물 개수
 	public int getTotalCnt(Criteria cri);	
 	//첨부 파일 가져오기
-	public List<AttachFileDTO> getAttachList(int bno);
+	public List<AttachFileDTO> getAttachList(int postId);
 }

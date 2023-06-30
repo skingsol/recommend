@@ -22,23 +22,23 @@ public class ReplyServiceImpl implements ReplyService {
 	private BoardMapper mapper;
 	
 	@Override
-	public ReplyDTO read(int rno) {		
-		return reMapper.read(rno);
+	public ReplyDTO read(int replyId) {		
+		return reMapper.read(replyId);
 	}
 
 	@Transactional
 	@Override
 	public boolean insert(ReplyDTO dto) {
 		//댓글 수 추가
-		mapper.updateReplyCnt(dto.getBno(), 1);
+		mapper.updateReplyCnt(dto.getPostId(), 1);
 		//댓글 등록
 		return reMapper.insert(dto)==1?true:false;
 	}
 
 	@Override
-	public ReplyPageDTO getList(Criteria cri,int bno) {		
-		List<ReplyDTO> list = reMapper.listAll(cri,bno);
-		int replyCnt = reMapper.getCountByBno(bno);
+	public ReplyPageDTO getList(Criteria cri,int postId) {		
+		List<ReplyDTO> list = reMapper.listAll(cri,postId);
+		int replyCnt = reMapper.getCountBypostId(postId);
 		return new ReplyPageDTO(replyCnt, list);
 	}
 
@@ -49,14 +49,14 @@ public class ReplyServiceImpl implements ReplyService {
 
 	@Transactional
 	@Override
-	public boolean delete(int rno) {	
+	public boolean delete(int replyId) {	
 		
-		ReplyDTO dto = reMapper.read(rno);
+		ReplyDTO dto = reMapper.read(replyId);
 		
 		// 댓글 수 차감
-		mapper.updateReplyCnt(dto.getBno(), -1);
+		mapper.updateReplyCnt(dto.getPostId(), -1);
 		// 댓글 제거
-		return reMapper.delete(rno)==1?true:false;
+		return reMapper.delete(replyId)==1?true:false;
 	}
 
 }

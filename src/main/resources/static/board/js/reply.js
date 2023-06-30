@@ -4,16 +4,16 @@
 let replyService = (function () {
   //reply : 댓글 작성 자바스크립트 객체
   //callback : function
-  function add(reply, callback) {
+  function add(reply_content, callback) {
     console.log("add 함수");
 
     fetch("/replies/new", {
       method: "post",
       headers: {
         "content-type": "application/json",
-        "X-CSRF-TOKEN": csrfToken,
+        "X-CSRF-TOKEN": csrfToken
       },
-      body: JSON.stringify(reply),
+      body: JSON.stringify(reply)
     })
       .then((response) => {
         //결과가 도착하게 되면 자동 호출(비동기호출)
@@ -33,10 +33,10 @@ let replyService = (function () {
   } // add 종료
 
   function getList(param, callback) {
-    let bno = param.bno;
+    let post_id = param.post_id;
     let page = param.page;
 
-    fetch("/replies/pages/" + bno + "/" + page)
+    fetch("/replies/pages/" + post_id + "/" + page)
       .then((response) => {
         if (!response.ok) {
           throw new Error("리스트 없음");
@@ -75,18 +75,30 @@ let replyService = (function () {
       let ss = dateObj.getSeconds();
 
       // 시분초 한자리를 두자리로 처리
-      return [(hh > 9 ? "" : "0") + hh, ":", (mi > 9 ? "" : "0") + mi, ":", (ss > 9 ? "" : "0") + ss].join("");
+      return [
+        (hh > 9 ? "" : "0") + hh,
+        ":",
+        (mi > 9 ? "" : "0") + mi,
+        ":",
+        (ss > 9 ? "" : "0") + ss
+      ].join("");
     } else {
       const yy = dateObj.getFullYear();
       const mm = dateObj.getMonth() + 1; //월은 0부터 시작
       const dd = dateObj.getDate();
 
-      return [yy, "/", (mm > 9 ? "" : "0") + mm, "/", (dd > 9 ? "" : "0") + dd].join("");
+      return [
+        yy,
+        "/",
+        (mm > 9 ? "" : "0") + mm,
+        "/",
+        (dd > 9 ? "" : "0") + dd
+      ].join("");
     }
   }
 
-  function get(rno, callback) {
-    fetch("/replies/" + rno)
+  function get(reply_id, callback) {
+    fetch("/replies/" + reply_id)
       .then((response) => {
         if (!response.ok) {
           throw new Error("가져올 댓글 없음");
@@ -101,14 +113,14 @@ let replyService = (function () {
       .catch((error) => console.log(error));
   }
 
-  function update(reply, callback) {
-    fetch("/replies/" + reply.rno, {
+  function update(reply_content, callback) {
+    fetch("/replies/" + reply_content.reply_id, {
       method: "put",
       headers: {
         "content-type": "application/json",
-        "X-CSRF-TOKEN": csrfToken,
+        "X-CSRF-TOKEN": csrfToken
       },
-      body: JSON.stringify(reply),
+      body: JSON.stringify(reply_content)
     })
       .then((response) => {
         if (!response.ok) {
@@ -124,16 +136,16 @@ let replyService = (function () {
       .catch((error) => console.log(error));
   }
 
-  function remove(rno, replyer, callback) {
-    const reply = { replyer: replyer };
+  function remove(reply_id, reply_content, callback) {
+    const reply_content = { replyer: replyer };
 
-    fetch("/replies/" + rno, {
+    fetch("/replies/" + reply_id, {
       method: "delete",
       headers: {
         "X-CSRF-TOKEN": csrfToken,
-        "content-type": "application/json",
+        "content-type": "application/json"
       },
-      body: JSON.stringify(reply),
+      body: JSON.stringify(reply_content)
     })
       .then((response) => {
         if (!response.ok) {
@@ -156,6 +168,6 @@ let replyService = (function () {
     displayTime: displayTime,
     get: get,
     update: update,
-    remove: remove,
+    remove: remove
   };
 })();

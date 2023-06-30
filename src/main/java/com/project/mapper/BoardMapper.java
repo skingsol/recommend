@@ -11,12 +11,12 @@ import com.project.domain.Criteria;
 public interface BoardMapper {
 	public List<BoardDTO> list(Criteria cri);
 	public int insert(BoardDTO dto);
-	public BoardDTO get(int bno);
+	public BoardDTO get(int postId);
 	public int update(BoardDTO dto);
-	public int delete(int bno);
+	public int delete(int postId);
 	public int totalCnt(Criteria cri);
-	public int updateReplyCnt(@Param("bno")int bno, @Param("amount")int amount);
+	public int updateReplyCnt(@Param("postId")int postId, @Param("amount")int amount);
 	
 	//상세조회 + 파일정보
-	public BoardDTO readAttach(int bno);
+	public BoardDTO readAttach(int postId);
 }

@@ -14,13 +14,14 @@ import lombok.ToString;
 @NoArgsConstructor
 @Getter @Setter
 public class BoardDTO {
-	private int bno;
-	private String title;
-	private String content;
-	private String writer;
-	private Date regDate;
-	private Date updateDate;
+	private int postId;
+	private String postTitle;
+	private String postContent;
+	private String userid;
+	private Date postRegdate;
+//	private Date updateDate;
 	private int replyCnt;
+	private int postAuth;
 	//첨부파일 정보
 	private List<AttachFileDTO> attachList;
 }

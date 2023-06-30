@@ -1,0 +1,47 @@
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f8f8f8;
+}
+
+.container {
+	max-width: 100px;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+	
+	margin-bottom: 20px;
+}
+
+.form-floating {
+	margin-bottom: 20px;
+}
+
+.form-floating label {
+	font-size: 14px;
+	color: #777;
+}
+
+.form-floating input {
+	width: 21%;
+	padding: 8px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	font-size: 14px;
+}
+
+.btn-danger {
+	max-width: 400px;
+	background-color: #dc3545;
+	border: none;
+	padding: 8px 20px;
+	font-size: 14px;
+}
+
+.btn-danger:hover {
+	background-color: #c82333;
+}

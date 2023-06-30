@@ -7,7 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
-import com.project.domain.AuthDTO;
+import com.project.domain.MemberAuthDTO;
 
 
 public class AuthCheckInterceptor implements HandlerInterceptor {
@@ -23,8 +23,8 @@ public class AuthCheckInterceptor implements HandlerInterceptor {
 		
 		HttpSession session = request.getSession();
 		
-		AuthDTO authDTO = (AuthDTO)session.getAttribute("authDTO");
-		if(authDTO!=null) {
+		MemberAuthDTO memberauthDTO = (MemberAuthDTO)session.getAttribute("authDTO");
+		if(memberauthDTO!=null) {
 			return true;
 		}
 		
@@ -32,7 +32,7 @@ public class AuthCheckInterceptor implements HandlerInterceptor {
 		return false;
 	}
 	
-	// postHandle() : 컨트롤러 작업 끝난 후 추가 작업이 필요하다면
+	
 }
 
 

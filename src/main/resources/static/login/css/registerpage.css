@@ -29,11 +29,12 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
-    width: 100%;
+    width: 20%;
     cursor: pointer;
     height: 40px;
     font-size: 13px;
 }
+
 
 
 .w150 {
@@ -51,4 +52,10 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 }
 .fs-16 {
     font-size: 16px;
+}
+.error {
+    margin-top: 9px;
+    font-size: 12px;
+    color: red;    
+    display: none;
 }
