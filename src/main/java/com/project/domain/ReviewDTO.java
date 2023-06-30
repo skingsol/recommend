@@ -10,10 +10,9 @@ import lombok.NoArgsConstructor;
 public class ReviewDTO {
 	private int reviewId;
 	private int restauantId;
-	private int userId;
+	private String userId;
 	private String reviewContent;
 	private int grade;
 	private String reviewDate;
-	private String reviewUpdatedate;  
-	private int reviewAuth;
+	private String reviewUpdatedate;
 }

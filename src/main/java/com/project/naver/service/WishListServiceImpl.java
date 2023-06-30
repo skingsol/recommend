@@ -16,8 +16,10 @@ import com.project.naver.dto.SearchLocalReq2;
 import com.project.naver.dto.SearchLocalRes;
 import com.project.naver.dto.WishListDTO;
 
+import lombok.extern.slf4j.Slf4j;
 
 
+@Slf4j
 @Service
 public class WishListServiceImpl implements WishListService {
 

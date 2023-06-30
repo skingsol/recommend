@@ -118,7 +118,7 @@
 		</div>
 	</div>
 
-
+ 
 	<!-- 리뷰 보여주기 부분 start -->
 	<div class="reviews_part">
 	<h5>리뷰</h5>	
@@ -151,7 +151,7 @@
 		</div> 
 		<!-- 리뷰 수정 폼 종료(모달) -->
 		 
-		
+		   
 		<div class="write_review">
 			<form action="" id="insertForm">
 				<div class="section-title">

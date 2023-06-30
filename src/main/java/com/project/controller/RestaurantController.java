@@ -9,8 +9,10 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -47,9 +49,9 @@ public class RestaurantController {
 	
 	// 리뷰 보여주기
 	@GetMapping("/list/{restauantId}")
-	public List<ReviewDTO> reviewList(@PathVariable("restauantId") int restauantId){
+	public ResponseEntity<List<ReviewDTO>> reviewList(@PathVariable("restauantId") int restauantId){
 		log.info("리뷰 요청" + restauantId);
-		return reviewService.getList(restauantId);
+		return new ResponseEntity<List<ReviewDTO>>(reviewService.getList(restauantId), HttpStatus.OK);
 	}
 	
 	// 특정 조회
@@ -61,29 +63,29 @@ public class RestaurantController {
 	
 	// insert 작업
 //	@PostMapping("/new")
-//	public ResponseEntity<String> create(@RequestBody ReviewDTO movieDetailReplyDTO,Model model){
+//	public ResponseEntity<String> create(@RequestBody ReviewDTO ReviewDTO,Model model){
 	@GetMapping("/new")
-	public ResponseEntity<String> create(@RequestParam ReviewDTO movieDetailReplyDTO,Model model){
-		log.info("댓글 삽입 "+movieDetailReplyDTO);
+	public ResponseEntity<String> create(@ModelAttribute ReviewDTO ReviewDTO,Model model){
+		log.info("댓글 삽입 "+ReviewDTO);
 		
-		model.addAttribute("dto", movieDetailReplyDTO);
-		return reviewService.insert(movieDetailReplyDTO)?
+		model.addAttribute("dto", ReviewDTO);
+		return reviewService.insert(ReviewDTO)?
 				new ResponseEntity<String>("success", HttpStatus.OK):
 					new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
 	// update 작업
-	@PutMapping("/{reviewId}")
-	public ResponseEntity<String> modify(@RequestBody ReviewDTO movieDetailReplyDTO){
-		log.info("댓글 수정 "+movieDetailReplyDTO);
+	@GetMapping("/update")
+	public ResponseEntity<String> modify(@ModelAttribute ReviewDTO ReviewDTO){
+		log.info("댓글 수정 "+ReviewDTO);
 		
-		return reviewService.update(movieDetailReplyDTO)?
+		return reviewService.update(ReviewDTO)?
 				new ResponseEntity<String>("success",HttpStatus.OK):
 					new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
 	// delete 작업
-	@DeleteMapping("/{reviewId}")
+	@GetMapping("/delete/{reviewId}")
 	public ResponseEntity<String> remove(@PathVariable("reviewId") int reviewId){
 		log.info("댓글 삭제 "+reviewId);
 		return reviewService.delete(reviewId)?

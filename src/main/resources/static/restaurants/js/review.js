@@ -6,7 +6,8 @@ function getReviewList() {
     return;
   }
 
-  fetch("/profile/list/" + restauantId)
+  //리턴이 잘못된거같은데 db 셀렉까진 에러가 없는데
+  fetch("/restaurants/list/" + '123')//restauantId)
     .then((response) => {
       if (!response.ok) {
         throw new Error("리스트 없음");
@@ -17,7 +18,8 @@ function getReviewList() {
       //console.log(data);
       var reviewList = "";
       data.forEach((list) => {
-        var isCurrentUser = list.userId === userId; // 현재 사용자와 댓글 작성자를 비교
+        //var isCurrentUser = list.userId === userId; // 현재 사용자와 댓글 작성자를 비교
+        var isCurrentUser = true;
 
         var buttons = "";
         if (isCurrentUser) {
@@ -44,17 +46,20 @@ function getReviewList() {
                             ${ratingStars}
                           </div>
                       </div>                         
-                        <h6>${buttons}</h6>                                        
+                        <h6>
+                          ${buttons}
+                        </h6>                                        
                     <p>${list.reviewContent}</p>
                 </div>
             </div>`;
         reviewList += review;
       });
-      reviewGetList.innerHTML = reviewList;
+      var userIdSpan = `<h5>리뷰 작성하기</h5><span class="userId" id="userId" >test</span>`
+      reviewGetList.innerHTML = userIdSpan + reviewList;
     })
     .catch((error) => console.log("데이터를 가져올 수 없습니다.", error));
 }
-//getReviewList();
+getReviewList();
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 // 상세페이지 댓글 작성 기능넣기(insert)
@@ -93,6 +98,7 @@ document.querySelector("#insertForm").addEventListener("submit", (e) => {
   e.preventDefault();
 
   const reviewContent = document.querySelector("#insertForm #reviewContent").value;
+  //const userId = document.querySelector("#insertForm #userId").value;
   const userId = document.querySelector("#insertForm #userId").innerHTML;
   
   const data = {
@@ -100,16 +106,17 @@ document.querySelector("#insertForm").addEventListener("submit", (e) => {
     userId: userId,
     //restauantId: restauantId,
     //grade: grade,
-    restauantId: 'jonnamatzip',
-    grade: 5,
+    restauantId: 123,
+    grade: grade, //이거 바꾸셈 나중에 아 확인요 ㅋㅋㅋ
   };
 
-  fetch("/restaurants/new", {
+  const queryString = new URLSearchParams(data).toString();
+
+  fetch("/restaurants/new?" + queryString, {
     method: "get",
     headers: {
       "content-type": "application/json",
     },
-    body: JSON.stringify(data),
   })
     .then((response) => {
       if (!response.ok) {
@@ -126,41 +133,41 @@ document.querySelector("#insertForm").addEventListener("submit", (e) => {
 });
 ////////////////////////////////////////////////////////////////////////////////////////////////
 // 댓글 수정하기전 댓글 정보 가져오는 작업(read)
-document.querySelector(".section-restauantId").addEventListener("click", (e) => {
+document.querySelector(".section-title").addEventListener("click", (e) => {
   // e.target : 이벤트 발생 대상
   // 이벤트 발생 대상을 감싸고 있는 부모 div 찾기
   let div = e.target.closest("div");
   //console.log("이벤트 발생 ", div);
 
   // reviewId 가져오기 (data-* 속성값 가져오기 : dataset)
-  let reviewId = div.dataset.reviewId;
-  //console.log("reviewId ", reviewId);
+  let reviewId = div.dataset.reviewid;
+  console.log("reviewId ", reviewId);
 
   // 댓글 작성자 정보 가져오기
-  let userId = div.querySelector("div.col > h6").innerHTML;
+  // let userId = div.querySelector("div.col > h6").innerHTML;
   //console.log("댓글 작성자 ", userId);
 
   // 로그인 사용자 정보 가져오기
-  let form_reviewer = document.querySelector("#insertForm #userId");
-  let login_user = "";
-  if (form_reviewer) {
-    login_user = form_reviewer.value;
-  }
+  // let form_reviewer = document.querySelector("#insertForm #userId");
+  // let login_user = "";
+  // if (form_reviewer) {
+  //   login_user = form_reviewer.value;
+  // }
 
-  if (!login_user) {
-    alert("로그인 한 후 수정 및 삭제가 가능합니다.");
-    return;
-  }
+  // if (!login_user) {
+  //   alert("로그인 한 후 수정 및 삭제가 가능합니다.");
+  //   return;
+  // }
 
   // 이벤트를 부모가 감지를 하기 때문에
   if (e.target.classList.contains("btn-warning")) {
     // 댓글 하나 가져오기
     // 로그인 사용자와 댓글 작성자가 같은지 확인
-    if (userId != login_user) {
-      alert("자신의 댓글만 수정이 가능합니다.");
-      return;
-    }
-    fetch("/profile/" + reviewId)
+    // if (userId != login_user) {
+    //   alert("자신의 댓글만 수정이 가능합니다.");
+    //   return;
+    // }
+    fetch("/restaurants/" + reviewId)
       .then((response) => {
         if (!response.ok) {
           throw new Error("가져올 댓글 없음");
@@ -171,7 +178,8 @@ document.querySelector(".section-restauantId").addEventListener("click", (e) => 
         //console.log(data);
         document.querySelector(".modal-body #reviewId").value = data.reviewId;
         document.querySelector(".modal-body #reviewContent").value = data.reviewContent;
-        document.querySelector(".modal-body #userId").value = data.userId;
+        document.querySelector(".modal-body #userid").value = data.userId;
+        // document.getElementById("reviewModal").style.display = 'block';
         $("#reviewModal").modal("show");
       })
       .catch((error) => console.log(error));
@@ -180,14 +188,14 @@ document.querySelector(".section-restauantId").addEventListener("click", (e) => 
     // 모달 창 안에 가져온 내용 보여주기
   } else if (e.target.classList.contains("btn-danger")) {
     // 로그인 사용자와 댓글 작성자가 같은지 확인
-    if (userId != login_user) {
-      alert("자신의 댓글만 수정이 가능합니다.");
-      return;
-    }
+    // if (userId != login_user) {
+    //   alert("자신의 댓글만 수정이 가능합니다.");
+    //   return;
+    // }
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     // 삭제버튼 클릭 시(delete)
-    fetch("/profile/" + reviewId, {
-      method: "delete",
+    fetch("/restaurants/delete/" + reviewId, {
+      method: "get",
       headers: {
         "content-type": "application/json",
       },
@@ -216,16 +224,17 @@ document.querySelector(".modal-footer .btn-primary").addEventListener("click", (
   const updateReview = {
     reviewId: reviewId,
     reviewContent: document.querySelector(".form-group #reviewContent").value,
-    userId: document.querySelector(".form-group #userId").value,
+    userId: document.querySelector(".form-group #userid").value,
   };
 
+  const queryString = new URLSearchParams(updateReview).toString();
+
   // fetch update 호출
-  fetch("/profile/" + reviewId, {
-    method: "put",
+  fetch("/restaurants/update?" + queryString, {
+    method: "get",
     headers: {
       "content-type": "application/json",
     },
-    body: JSON.stringify(updateReview),
   })
     .then((response) => {
       if (!response.ok) {
@@ -241,6 +250,14 @@ document.querySelector(".modal-footer .btn-primary").addEventListener("click", (
       }
     })
     .catch((error) => console.log(error));
+});
+
+document.querySelector(".modal-footer .btn-secondary").addEventListener("click", () => {
+  $("#reviewModal").modal("hide");
+});
+
+document.querySelector(".modal-header .close").addEventListener("click", () => {
+  $("#reviewModal").modal("hide");
 });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
