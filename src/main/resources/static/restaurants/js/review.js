@@ -6,8 +6,7 @@ function getReviewList() {
     return;
   }
 
-  //리턴이 잘못된거같은데 db 셀렉까진 에러가 없는데
-  fetch("/restaurants/list/" + '123')//restauantId)
+  fetch("/restaurants/list/" + "123") //restauantId)
     .then((response) => {
       if (!response.ok) {
         throw new Error("리스트 없음");
@@ -54,7 +53,7 @@ function getReviewList() {
             </div>`;
         reviewList += review;
       });
-      var userIdSpan = `<h5>리뷰 작성하기</h5><span class="userId" id="userId" >test</span>`
+      var userIdSpan = `<h5>리뷰 작성하기</h5><span class="userId" id="userId" >test</span>`;
       reviewGetList.innerHTML = userIdSpan + reviewList;
     })
     .catch((error) => console.log("데이터를 가져올 수 없습니다.", error));
@@ -100,14 +99,14 @@ document.querySelector("#insertForm").addEventListener("submit", (e) => {
   const reviewContent = document.querySelector("#insertForm #reviewContent").value;
   //const userId = document.querySelector("#insertForm #userId").value;
   const userId = document.querySelector("#insertForm #userId").innerHTML;
-  
+
   const data = {
     reviewContent: reviewContent,
     userId: userId,
     //restauantId: restauantId,
     //grade: grade,
     restauantId: 123,
-    grade: grade, //이거 바꾸셈 나중에 아 확인요 ㅋㅋㅋ
+    grade: grade,
   };
 
   const queryString = new URLSearchParams(data).toString();
