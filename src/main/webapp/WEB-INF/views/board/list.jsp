@@ -77,7 +77,10 @@
 			<th scope="col" width="10%" style="text-align: center;">글번호</th>
 			<th scope="col" width="50%" style="text-align: center;">제목</th>
 <!-- 			<th scope="col" width="600" style="text-align: center;">내용</th>
- -->			<th scope="col" width="20%" style="text-align: center;">작성자</th>
+
+ -->			
+			 <th scope="col" width="5%" style="text-align: center;">댓글수</th>
+			 <th scope="col" width="10%" style="text-align: center;">작성자</th>
 			<th scope="col" width="20%" style="text-align: center;">작성일</th>
 		</tr>
 	</thead> 
@@ -85,7 +88,9 @@
 		<c:forEach var="dto" items="${list}">
 			<tr>
 				<th scope="row" style="text-align: center;">${dto.postId}</th>
-				<td class="post-title" ><a href="${dto.postId}" class="move">${dto.postTitle}</a> <strong>[${dto.replyCnt}]</strong></td>
+				<td class="post-title" ><a href="${dto.postId}" class="move">${dto.postTitle}</a>
+				<td class="author" style="text-align: center;"><strong>${dto.replyCnt}</strong></td>
+				 
 <%-- 				<td class="post-content" style="text-align: center;">${dto.postContent}</td>
  --%>				<td class="author" style="text-align: center;">${dto.userid}</td>
 				<td class="date" style="text-align: center;"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${dto.postRegdate}" /></td>

@@ -12,7 +12,7 @@
 <select id="list" resultType="com.project.domain.BoardDTO">
 	<![CDATA[
 		SELECT post_id, post_title, userid, post_regdate, post_content, replycnt
-		FROM (SELECT /*+INDEX_DESC(post pk_post)*/ rownum rn, post_id,post_title,userid,post_regdate,post_content,replycnt
+		FROM (SELECT /*+INDEX_DESC(post sys_c008595)*/ rownum rn, post_id,post_title,userid,post_regdate,post_content,replycnt
 			from post 
 			      where 
 		]]>	 

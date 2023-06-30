@@ -78,7 +78,7 @@
 <script src="/board/js/upload.js"></script>
 <%@ include file="../include/footer.jsp" %>
 
-
+ 
 
 
 
