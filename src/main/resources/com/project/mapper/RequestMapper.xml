@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.mapper.RequestMapper">
+
+	<!-- 맛집 등록 요청 DB에 담기 -->
+	<insert id="sendRequest">
+		insert into register_restaurant(req_id, req_name, req_content) 
+		values(sq_register.nextval, #{reqName}, #{reqContent})
+	</insert>
+
+	<select id="readRequest" resultType="com.project.domain.RegisterRstrntDTO">
+		select * from register_restaurant where req_id = #{reqId}
+	</select>
+
+</mapper>
