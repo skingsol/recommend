@@ -20,7 +20,6 @@
 	</properties>
 	<dependencies>
 
-
 		<!-- OAUTH2 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
