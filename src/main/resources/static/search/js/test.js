@@ -57,3 +57,7 @@ document.querySelector("body").addEventListener("click", function (event) {
   // 클릭된 요소가 input 요소나 recent-search-menu 요소의 자식 요소가 아니면 recent-search-menu 요소 숨김
   document.querySelector(".recent-search-menu").style.display = "none";
 });
+
+//---------------------------------------------------------------//
+//    검색결과 api 목록 가져오기
+//---------------------------------------------------------------//

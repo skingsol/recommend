@@ -4,7 +4,7 @@
 	prefix="sec"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -79,13 +79,12 @@
 						src="/main/img/korean_food.png" alt="로고" />
 					</a>
 				</div>
-				
-				
-				<form action="" class="searchForm todo-form" id="searchForm">
+
+				<form  class="searchForm todo-form" id="searchForm">
 					<div class="search_bar">
 						<div class="search_input_bar">
 							<input type="search" class="search_input"
-								placeholder="지역, 음식 또는 식당명 입력" value="" />
+								placeholder="지역, 음식 또는 식당명 입력"/>
 							<button class="search_icon" type="submit" aria-label="검색하기 버튼"></button>
 						</div>
 				<div class="todo-inner">
@@ -111,7 +110,7 @@
 						aria-expanded="false"> <span
 							class="mr-2 d-none d-lg-inline text-gray-600 small">아이디 님</span>
 							<img class="img-profile rounded-circle"
-							src="main/img/undraw_profile.svg">
+							src="/main/img/undraw_profile.svg">
 					</a> <!-- Dropdown - User Information -->
 
 						<div class="dropdown-menu dropdown-menu-right  animated--grow-in"
@@ -119,20 +118,15 @@
 							
 							<!-- 사용자 인증 여부에 따라 로그인/로그아웃 페이지 설정 -->
 							<sec:authorize access="isAnonymous()">
-<<<<<<< HEAD
 								<a class="dropdown-item" href="/member/login"<c:url value="/member/login"  />'>로그인 </a>
-=======
 								<a class="dropdown-item" href='<c:url value="/member/login"  />'>로그인
 								</a>
->>>>>>> refs/heads/master
 							</sec:authorize>
 
-<<<<<<< HEAD
 							<a class="dropdown-item" href="/member/step1"<c:url value="/member/register"  />'> 회원가입 </a>
-=======
+
 							<a class="dropdown-item" href='<c:url value="/member/signup"  />'>
 								회원가입 </a>
->>>>>>> refs/heads/master
 
 
 							<!-- 사용자 로그인 시: 드롭다운 메뉴 변경 -->

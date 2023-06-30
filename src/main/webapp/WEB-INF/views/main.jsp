@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="include/header.jsp"%>
+
 <!-- 메인페이지 헤드2 -게시판 안내- -->
 <div class="gnb-wrap">
 	<div class="inner">
@@ -9,8 +10,7 @@
 				<li class="notice"><a href='<c:url value="/board/notice"  />'>
 						<span>공지사항</span>
 				</a></li>
-				<li class="qna"><a href='<c:url value="/board/qna"  />'> <span>자주
-							묻는 질문</span>
+				<li class="qna"><a href="/board/list?page=1&amount=10&type=&keyword="> <span>게시판</span>
 				</a></li>
 			</ul>
 		</nav>
@@ -18,6 +18,8 @@
 	</div>
 	<!--// inner -->
 </div>
+
+
 
 
 <!-- 대문 이미지 슬라이드 -->
@@ -71,10 +73,12 @@
 
 
 
+
 <!-- 중간 : 카테고리별 음식점 랭킹순 정렬
 	메인 페이지 카테고리 클릭 전까지는 컨트롤러로 api 불러오기
 	카테고리 클릭 시 fetch로 접근
  -->
+ 
 <div class="category_section_wrap">
 	<!-- 라인 반복 -->
 	<section id="korean" class="bg-white category_section_line_wrap">
@@ -83,14 +87,14 @@
 		</div>
 		<div
 			class="container mx-auto flex items-center flex-wrap loop_section">
-
+ 
 			<!-- 라인 내 음식점 반복구간 -->
-			<c:forEach var="food" items="${list }">
+			<c:forEach var="food" items="${list}">
 				<div
 					class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link">
 					<a href="" class="image_link"> <img id="image_link"
 						src="${food.imageLink}" style="width: 205px; height: 235px;"
-						data-title="">
+						data-title="${food.title}">
 					</a>
 					<div id="shortcuts" class="pt-3 flex items-center">
 						<div class="line_diveider">
@@ -117,14 +121,10 @@
 					</div>
 				</div>
 			</c:forEach>
-
 		</div>
 	</section>
 
-
 </div>
-
-
+<script src="/restaurants/js/result.js"></script>
 <script type="module" src="/main/js/main.js"></script>
-
 <%@ include file="include/footer.jsp"%>

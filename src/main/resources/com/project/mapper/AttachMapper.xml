@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.mapper.AttachMapper">
+	
+	<!-- 첨부 파일 입력 -->
+	<insert id="insert">
+		insert into attach(uuid,uploadpath,filename,filetype,post_id)
+		values(#{uuid},#{uploadPath},#{fileName},#{fileType},#{postId})
+	</insert>
+	
+	<!-- bno 와 일치하는 첨부파일 목록 가지고 오기 -->
+	<select id="select" resultType="com.project.domain.AttachFileDTO">
+		select uuid,uploadpath,filename,filetype,post_id
+		from attach
+		where post_id=#{postId}
+	</select>
+	
+	<!-- bno 와 일치하는 첨부파일 제거 -->
+	<delete id="deleteAll">
+		delete from attach where post_id=#{postId}
+	</delete>
+	
+	<!-- 어제 날짜의 첨부파일 목록 추출 -->
+	<select id="oldFiles" resultType="com.project.domain.AttachFileDTO">
+		select * from attach where uploadpath = to_char(sysdate-1,'yyyy\mm\dd')
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
