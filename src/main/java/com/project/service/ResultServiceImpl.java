@@ -23,19 +23,19 @@ import lombok.extern.slf4j.Slf4j;
 public class ResultServiceImpl implements ResultService {
 
 	@Autowired
-	private ResultNaverClient naverClient;
+	private ResultNaverClient resultNaverClient;
 	
 	@Override
 	public ResultDTO result(String restaurantName) {
 		
 		// 지역 검색 요청
 		ResultLocalReq req = new ResultLocalReq();
-		//해운대암소갈비집
 		req.setQuery(restaurantName);	
+		log.info("검색 정보 로그 요청"+restaurantName);
 		
 		
 		// 지역 검색 결과 받기
-		ResultLocalRes res = naverClient.ResultLocal(req);
+		ResultLocalRes res = resultNaverClient.ResultLocal(req);
 		
 		if(res.getTotal() >0) {			
 			// 지역 검색 중에서 첫번째 가져오기
@@ -49,7 +49,7 @@ public class ResultServiceImpl implements ResultService {
 			imageReq.setQuery(imageQuery);
 			
 			// 이미지 검색 결과 받기
-			ResultImageRes imageRes = naverClient.ResultImage(imageReq);
+			ResultImageRes imageRes = resultNaverClient.ResultImage(imageReq);
 			
 			if(imageRes.getTotal() > 0) {
 				// 이미지 정보들 중에서 첫번째 가져오기
