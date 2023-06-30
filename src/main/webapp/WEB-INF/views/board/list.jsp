@@ -80,15 +80,15 @@
 			<th scope="col" width="200" style="text-align: center;">작성자</th>
 			<th scope="col" style="text-align: center;">작성일</th>
 		</tr>
-	</thead>
+	</thead> 
 	<tbody>
 		<c:forEach var="dto" items="${list}">
 			<tr>
 				<th scope="row" style="text-align: center;">${dto.postId}</th>
-				<td ><a href="${dto.postId}" class="move">${dto.postTitle}</a> <strong>[${dto.replyCnt}]</strong></td>
-				<td style="text-align: center;">${dto.postContent}</td>
-				<td style="text-align: center;">${dto.userid}</td>
-				<td style="text-align: center;"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${dto.postRegdate}" /></td>
+				<td class="post-title" ><a href="${dto.postId}" class="move">${dto.postTitle}</a> <strong>[${dto.replyCnt}]</strong></td>
+				<td class="post-content" style="text-align: center;">${dto.postContent}</td>
+				<td class="author" style="text-align: center;">${dto.userid}</td>
+				<td class="date" style="text-align: center;"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${dto.postRegdate}" /></td>
 			</tr>
 		</c:forEach>
 	</tbody>

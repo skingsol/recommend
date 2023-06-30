@@ -42,6 +42,17 @@
 	-font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
 		"Liberation Mono", "Courier New", monospace
 }
+.table {
+  table-layout: fixed; /* 열 너비 고정 */
+}
+
+.table td,
+.table td.author,
+.table td.date  {
+  white-space: nowrap; /* 줄바꿈 방지 */
+  overflow: hidden; /* 내용을 넘어갈 경우 숨김 */
+  text-overflow: ellipsis; /* 생략 부호로 표시 */
+}
 
 *, ::after, ::before {
 	box-sizing: border-box

@@ -24,14 +24,14 @@
 		<form action="" method="post" id="registerForm" novalidate>
 		  <div class="form-group">
 		    <label for="post_title">post_title</label>
-		    <input type="text" class="form-control" id="post_title" placeholder="post_title" name="post_title" required>		  	
+		    <input type="text" class="form-control" id="post_title" placeholder="postTitle" name="postTitle" required>		  	
 		  	<div class="invalid-feedback">
 		  		제목을 확인해 주세요
 		  	</div>
 		  </div>		 	  
 		  <div class="form-group">
 		    <label for="post_content">post_content</label>
-		    <textarea class="form-control" id="post_content" rows="10" name="post_content" placeholder="post_content" required></textarea>		  
+		    <textarea class="form-control" id="post_content" rows="10" name="postContent" placeholder="post_content" required></textarea>		  
 		  	<div class="invalid-feedback">
 		  		내용을 확인해 주세요
 		  	</div>
@@ -44,7 +44,7 @@
 		  		작성자를 확인해 주세요
 		  	</div>
 		  </div>
-		  <%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> --%>	
+		  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
  		  <button type="submit" class="btn btn-primary">등록</button>
 		  <button type="reset" class="btn btn-secondary">취소</button>
 		</form>

@@ -8,20 +8,26 @@
 	</select> -->
 	
 	<!-- 페이지 나누기 조회 -->
-	<select id="list" resultType="com.project.domain.BoardDTO">
-		<![CDATA[
-			select post_id,post_title,userid,post_regdate,post_content,replycnt
-			from (select /*+INDEX_DESC(post pk_post)*/ rownum rn, post_id, post_title, userid,post_regdate,post_content,replycnt
-			      from post
-			      where 
-		]]>	 
-			<include refid="criteria"></include>		     
-		<![CDATA[	      
-			      
-			      rownum <= (#{page}*#{amount}))
-			where rn > (#{page}-1)*#{amount}		
-		]]>	
-	</select>
+	<!-- 페이지 나누기 조회 -->
+<select id="list" resultType="com.project.domain.BoardDTO">
+	<![CDATA[
+		SELECT post_id, post_title, userid, post_regdate, post_content, replycnt
+		FROM (
+			SELECT /*+INDEX_DESC(post pk_post)*/ rownum rn, p.*
+			FROM (
+				SELECT *
+				FROM post
+				WHERE 1 = 1
+	]]>	 
+		<include refid="criteria"></include>		     
+	<![CDATA[	      
+				ORDER BY post_id DESC
+			) p
+			WHERE rownum <= (#{page} * #{amount})
+		)
+		WHERE rn > (#{page} - 1) * #{amount}		
+	]]>	
+</select>
 	
 	<!-- 전체 게시물 개수 : totalCnt -->
 	<select id="totalCnt" resultType="java.lang.Integer">
@@ -73,7 +79,7 @@
 	<!-- 글 등록 -->
 	<insert id="insert">
 		<!-- 주로 pk 값을 미리 SQL 을 통해서 처리해 두고 특정한 이름으로 결과를 보관 -->
-		<selectKey keyProperty="post_id" order="BEFORE" resultType="int">
+		<selectKey keyProperty="postId" order="BEFORE" resultType="int">
 			select post_seq.nextval from dual
 		</selectKey>	
 	

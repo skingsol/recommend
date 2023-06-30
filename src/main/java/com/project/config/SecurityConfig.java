@@ -22,7 +22,7 @@ public class SecurityConfig {
 	
 	@Bean
 	protected SecurityFilterChain configure(HttpSecurity http) throws Exception {
-		http.formLogin().loginPage("/recommend/login");
+		//http.formLogin().loginPage("/recommend/login");
 		return http.getOrBuild();
 	}
 }
