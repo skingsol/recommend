@@ -44,10 +44,10 @@
 								</form> <br> <br>회원 프로필 사진으로 사용될 이미지를 등록해 주세요.</td>
 						</tr>
 						<tr id="tr_name">
-							<th>닉네임</th>
+							<th>아이디</th>
 							<td><input id="txt_name" class="input-text w400" type="text"
-								value="" placeholder="닉네임"><br> <br> <span
-								id="lbl_name_check" class="">회원정보로 등록하실 닉네임을 입력해주세요. (영문
+								value="" placeholder="아이디"><br> <br> <span
+								id="lbl_name_check" class="">회원정보로 등록하실 아이디를 입력해주세요. (영문
 									또는 숫자 4~10자, 한글 포함 시 2~10자)</span></td>
 						</tr>
 						<tr id="tr_intro">

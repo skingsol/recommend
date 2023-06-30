@@ -2,45 +2,92 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.project.mapper.MemberMapper">
-	
+
 	<!-- 암호화된 비번 가져오기 -->
 	<select id="getPass" resultType="java.lang.String">
-		select password from member_project 
-		where userid=#{userid}
+		select password from users
+		where
+		userid=#{userid}
 	</select>
 
-	<!-- 로그인 : userid,password 일치 시 userid 조회 -->
-	<select id="login" resultType="com.project.domain.AuthDTO">
-		select userid, email from member_project 
-		where userid=#{userid}
+	<!-- 로그인 : userid 일치 시 userid 조회 -->
+	<select id="login" resultType="com.project.domain.MemberAuthDTO">
+		select userid, auth from users
+		where
+		userid=#{userid}
 	</select>
-	
+
 	<!-- 회원가입 -->
 	<insert id="insert">
-		insert into member_project(phone,userid,password,email,txt_intro)
-		values(#{phone},#{userid},#{password},#{email},#{txt_intro})
+		insert into
+		users(userid,password,email,phone,introduce,enabled)
+		values(#{userid},#{password},#{email}, #{phone},#{introduce},1)
 	</insert>
-	
+
+
+
+
 	<!-- 중복 아이디 체크 -->
-	<!-- <select id="dupId"  resultType="java.lang.String">
-		select userid from member_project where userid = #{userid}
-	</select> -->	
-	
-	<select id="dupId"  resultType="java.lang.Integer">
-		select count(*) from member_project where userid = #{userid}
+	<!-- <select id="dupId" resultType="java.lang.String"> select userid from 
+		member_project where userid = #{userid} </select> -->
+
+	<select id="dupId" resultType="java.lang.Integer">
+		select count(*) from users where
+		userid = #{userid}
 	</select>
-	
-	
+
+
 	<!-- 회원탈퇴 -->
 	<delete id="leave">
-		delete from member_project where userid = #{userid}
+		delete from users where userid = #{userid}
 	</delete>
-	
+
 	<!-- 비밀번호 변경 -->
 	<update id="update">
-		update member_project set password=#{newPassword}
-		where userid=#{userid}
+		update users set password=#{newPassword}
+		where
+		userid=#{userid}
 	</update>
+
+
+
+
+
+	<insert id="setAuth"
+		parameterType="com.project.domain.MemberAuthDTO">
+		INSERT INTO authority (userid, auth)
+		VALUES (#{userid}, #{auth})
+	</insert>
+
+
+
+
+
+	<resultMap type="com.project.domain.MemberDTO" id="memberDTO">
+		<id property="userid" column="userid" />
+		<result property="password" column="password" />
+		<result property="email" column="email" />
+		<result property="phone" column="phone" />
+		<result property="introduce" column="introduce" />
+		<result property="regdate" column="regdate" />
+		<result property="updatedate" column="updatedate" />
+		<result property="enabled" column="enabled" />
+		<collection property="authorities" resultMap="authList" />
+	</resultMap>
+	<resultMap type="com.project.domain.MemberAuthDTO"
+		id="authList">
+		<result property="userid" column="userid" />
+		<result property="auth" column="auth" />
+	</resultMap>
+
+
+
+	<select id="read" resultMap="memberDTO">
+		select
+		s1.userid,password,email,phone,introduce,regdate,updatedate,enabled,auth
+		from users s1 left outer join authority s2 on s1.userid = s2.userid
+		where s1.userid = #{userid}
+	</select>
 </mapper>
 
 

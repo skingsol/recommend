@@ -11,12 +11,17 @@
 	novalidate>
 	<div class="row">
 
+
 		<table id="tbl_info" class="table table-user">
 			<tbody>
 				<tr id="tr_phone">
 					<th>휴대전화인증</th>
 					<td>
-
+					
+					
+				
+					
+			
 						<div id="div_phone_Y">
 							<div id="contents">
 								받는사람 : <input type="text" id="phone" name="phone" />
@@ -33,9 +38,8 @@
 							<div id="phoneError" class="error"></div>
 							<br> <br> 개인화된 맛집추천, 좋아요, 비밀번호찾기, 맛집평가작성, 포인트 적립 및 사용,
 							할인쿠폰 등의 모든 서비스 혜택을 받을 수 있습니다.
-							
-						</div>
 
+						</div>
 
 					</td>
 				</tr>
@@ -45,6 +49,7 @@
 						name="userid" placeholder="아이디를 입력하세요." maxlength="10" required
 						pattern="^(?=[A-Za-z])(?=.*\d))[A-Za-z\d!@#$%]{5,12}$"><br>
 						<br> <span id="lbl_name_check" class="fc-blue"></span>
+						
 						<div id="idError" class="error"></div>
 
 						<div class="col-2">
@@ -58,32 +63,42 @@
 						placeholder="비밀번호를 입력하세요." required
 						pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%])[A-Za-z\d!@#$%]{5,15}$"
 						aria-autocomplete="list">
-						<div id="passwordError" class="error"></div> <br> <input
-						id="password2" class="input-text w400" type="password"
+						
+						<div id="passwordError" class="error"></div> <br> 
+						
+						<input id="password2" class="input-text w400" type="password"
 						name="password2" placeholder="비밀번호 확인"><br> <br>
 						특수문자(예: !@#$ 등) 1자 이상을 포함한 5~15 글자의 비밀번호로 설정해주세요.
 
 						<div class="invalid-feedback">비밀번호를 확인해 주세요</div>
+						
 						<div id="password2Error" class="error"></div></td>
 				</tr>
+
 
 				<tr id="tr_email">
 					<th>이메일</th>
 					<td><input id="email" class="input-text w400" type="text"
-						id="email" name="email" placeholder="이메일을 입력하세요.">
-						<div id="emailError" class="error"></div> <br> <br> <span
-						id="lbl_email_check" class="fc-blue"></span></td>
+					name="email" placeholder="이메일을 입력하세요.">
+						
+						<div id="emailError" class="error"></div> <br> <br> 
+						
+						<span id="lbl_email_check" class="fc-blue"></span></td>
 				</tr>
 				<tr id="tr_intro">
 					<th>자기소개</th>
-					<td><input id="txt_intro" class="input-text w400" type="text"
-						name="txt_intro" placeholder="자기소개를 입력하세요."
-						onkeyup="CutStr(this, 25, 'lbl_limit');">
+					
+					<!-- onkeyup="CutStr(this, 25, 'lbl_limit');" -->
+					<td><input id="introduce" class="input-text w400" type="text"
+						name="introduce" placeholder="자기소개를 입력하세요."
+						>
 						<div id="txt_introError" class="error"></div> <br> <br>
 						<div class="w400 tr">
 							<span id="lbl_limit">0</span> ~ 25자
 						</div></td>
 				</tr>
+				
+				
 
 
 				<tr id="tr_photo">
@@ -109,11 +124,12 @@
 				style="height: 65px;">회원가입하기</button>
 		</div>
 	</div>
-
+<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 </form>
-<!--<script>
-	const path = '<c:url value="/list.do"/>';
-</script>  -->
+<script>
+	//CSRF 토큰 값 생성
+	const csrfToken = '${_csrf.token}';
+</script>
 
 <script src='<c:url value="/login/js/register.js" />'></script>
 <%@ include file="../include/footer.jsp"%>

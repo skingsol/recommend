@@ -4,7 +4,11 @@ package com.project.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.project.domain.AuthDTO;
+import com.project.domain.MemberAuthDTO;
 import com.project.domain.ChangeDTO;
 import com.project.domain.LoginDTO;
 import com.project.domain.MemberDTO;
@@ -52,32 +56,41 @@ public class MemberController {
 	
 	
 	
-	@PostMapping("/login")
-	public String loginPost(LoginDTO loginDTO,HttpSession session) {
-		log.info("로그인 요청 "+loginDTO);
-		
-		AuthDTO authDTO = service.login(loginDTO);
-		
-		if(authDTO != null) {
-			//session 로그인 정보 담기
-			session.setAttribute("authDTO", authDTO);
-			//main 이동
-			return "redirect:/";			
-		}else {
-			return "redirect:/member/login";
-		}
-	}
+//	@PostMapping("/login")
+//	public String loginPost(LoginDTO loginDTO,HttpSession session) {
+//		log.info("로그인 요청 "+loginDTO);
+//		
+//		MemberAuthDTO memberAuthDTO = service.login(loginDTO);
+//		
+//		if(authDTO != null) {
+//			//session 로그인 정보 담기
+//			session.setAttribute("memberAuthDTO", memberAuthDTO);
+//			//main 이동
+//			return "redirect:/";			
+//		}else {
+//			return "redirect:/member/login";
+//		}
+//	}
 	
 	
-	@GetMapping("/logout")
-	public String logoutGet(HttpSession session) {
-		log.info("로그아웃 요청");
+	
+	@GetMapping("/login-error")
+	public String loginError(Model model) {
 		
-		session.removeAttribute("authDTO");
+		model.addAttribute("error", "아이디나 비밀번호를 확인해 주세요");
 		
-		//session 해제 main 이동
-		return "redirect:/main";
+		return "/member/login";
 	}
+	
+//	@GetMapping("/logout")
+//	public String logoutGet(HttpSession session) {
+//		log.info("로그아웃 요청");
+//		
+//		session.removeAttribute("memberAuthDTO");
+//		
+//		//session 해제 main 이동
+//		return "redirect:/main";
+//	}
 	
 	@GetMapping("/step1")
 	public void stepGet() {
@@ -125,9 +138,9 @@ public class MemberController {
 		boolean idCheck = service.dupId(userid);
 		
 		if(idCheck) {
-			return "true";  //   /WEB-INF/views/true.jsp 
+			return "true";  
 		}else {
-			return "false"; //   /WEB-INF/views/false.jsp 
+			return "false";  
 		}		
 	}
 	
@@ -170,9 +183,16 @@ public class MemberController {
 		return "redirect:/member/changePwd";
 	}
 	
-	@RequestMapping(value = "/find_pw_form.do")
-	public String find_pw_form() throws Exception{
-		return "/member/find_pw_form";
+	@GetMapping("/admin")
+	public void adminGet() {
+		log.info("admin 요청");
+	}
+	
+	
+	@GetMapping("/auth")
+	@ResponseBody
+	public Authentication auth() {		
+		return SecurityContextHolder.getContext().getAuthentication(); 
 	}
 	
 	

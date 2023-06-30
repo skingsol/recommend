@@ -1,5 +1,8 @@
 package com.project.domain;
 
+import java.util.Date;
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,6 +18,11 @@ public class MemberDTO {
 	private String userid;
 	private String password;
 	private String email;
-	private String txt_intro;
+	private String introduce;
 	
+	private Date regdate;
+	private Date updatedate;
+	private boolean enabled;
+	
+	private List<MemberAuthDTO> authorities;
 }

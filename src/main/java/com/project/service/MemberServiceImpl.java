@@ -5,9 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.google.inject.spi.Message;
-import com.project.domain.AuthDTO;
+import com.project.domain.MemberAuthDTO;
 import com.project.domain.ChangeDTO;
 import com.project.domain.LoginDTO;
 import com.project.domain.MemberDTO;
@@ -24,7 +25,7 @@ public class MemberServiceImpl implements MemberService {
 	private BCryptPasswordEncoder bPasswordEncoder;
 
 	@Override
-	public AuthDTO login(LoginDTO loginDTO) {	
+	public MemberAuthDTO login(LoginDTO loginDTO) {	
 		// 1234 ==> bPasswordEncoder.encode(1234) ==> 암호화
 		// matches(암호화하기 전 코드, 암호화된 코드)
 		// matches(1234,db암호화된 문자)
@@ -40,6 +41,8 @@ public class MemberServiceImpl implements MemberService {
 		}		
 	}
 	
+	
+	@Transactional
 	@Override
 	public boolean register(MemberDTO memberDTO) {
 		// 비밀번호 암호화 : encode(암호화할 원본 코드)
@@ -47,7 +50,20 @@ public class MemberServiceImpl implements MemberService {
 		//                   1234, 암호화된 코드
 		memberDTO.setPassword(bPasswordEncoder.encode(memberDTO.getPassword()));
 		
-		return mapper.insert(memberDTO)==1?true:false;
+		
+		
+//		// 회원 가입 정보 저장
+        boolean result = mapper.insert(memberDTO)==1?true:false;
+		
+		
+
+        // 권한 정보 저장
+        MemberAuthDTO memberAuthDTO = new MemberAuthDTO(memberDTO.getUserid(), "ROLE_USER");
+       
+        mapper.setAuth(memberAuthDTO);
+
+		
+		return result;
 	}
 
 	@Override
@@ -82,6 +98,9 @@ public class MemberServiceImpl implements MemberService {
 		}
 		return false;
 	}
+
+
+	
 
 	
 	

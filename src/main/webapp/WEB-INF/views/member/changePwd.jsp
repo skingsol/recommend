@@ -23,7 +23,8 @@
 	       name="confirmPassword">
 	      <label for="floatingPassword3">새 비밀번호 확인</label>
 	    </div>	    
-	    <button class="w-100 btn btn-lg btn-primary" type="submit">비밀번호 변경</button>	    
+	    <button class="w-100 btn btn-lg btn-primary" type="submit">비밀번호 변경</button>	
+	    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />    
 	  </form>
 	</main>
 <script src='<c:url value="/login/js/change.js" />'></script>
