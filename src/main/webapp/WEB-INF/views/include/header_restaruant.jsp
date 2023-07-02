@@ -117,22 +117,17 @@
 							<a class="dropdown-item" href="/member/step1"> 회원가입 </a>
 							</sec:authorize>
 
-
-
+							
 							<!-- 사용자 로그인 시: 드롭다운 메뉴 변경 -->
 							<sec:authorize access="isAuthenticated()">
-								<a class="dropdown-item" href="#" data-toggle="modal"
-									data-target="#logoutModal"> <i
-									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-									로그아웃
-								</a>
-								<a class="dropdown-item" href="#"> <i
-									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> 내 위시리스트
-								</a>
-								<a class="dropdown-item" href="#"> <i
-									class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> 내 프로필
-									수정
-								</a>
+								<a class="dropdown-item" href="#" id="logout"> 로그아웃 </a>
+							</sec:authorize>
+							<sec:authorize access="hasRole('ROLE_ADMIN')">
+								<a class="dropdown-item" href="/api/master">사용자 요청 목록 </a>
+							</sec:authorize>
+							<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')">
+								<a class="dropdown-item" href="#">내 위시리스트 </a>
+								<a class="dropdown-item" href="/member/mypage"> 내 프로필 수정 </a>
 							</sec:authorize>
 
 						</div></li>

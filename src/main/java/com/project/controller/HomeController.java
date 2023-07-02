@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.project.domain.MemberAuthDTO;
 import com.project.ms.dto.BringNaverApiDTO;
 import com.project.service.BringNaverService;
 import com.project.service.RegisterRstrntService;
