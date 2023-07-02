@@ -20,7 +20,6 @@
 	<!--// inner -->
 </div>
 
-
 <div class="row read_wrap">
 	<div class="col">
 		<form action="" method="post" id="readForm">
