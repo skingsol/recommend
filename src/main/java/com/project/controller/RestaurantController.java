@@ -9,19 +9,15 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
+import com.project.domain.RestaurantDTO;
 import com.project.domain.ResultDTO;
 import com.project.domain.ReviewDTO;
+import com.project.service.RestaurantService;
 import com.project.service.ResultService;
 import com.project.service.ReviewService;
 
@@ -36,15 +32,30 @@ public class RestaurantController {
 	private ResultService resultService;
 	@Autowired
 	private ReviewService reviewService;
-	
+	@Autowired
+	private RestaurantService restaurantService;
 		
+	/*
+	 * @GetMapping("/profile") public void profileGet(String restaurantName, Model
+	 * model) { log.info("맛집 상세페이지 요청: " + restaurantName); ResultDTO result =
+	 * resultService.result(restaurantName); model.addAttribute("result", result);
+	 * log.info("result"+result); }
+	 */
+	
 	@GetMapping("/profile")
 	public void profileGet(String restaurantName, Model model) {
-		log.info("맛집 상세페이지 요청: " + restaurantName);
-		ResultDTO result = resultService.result(restaurantName);
-		model.addAttribute("result", result);	
-		log.info("result"+result);
+	    log.info("맛집 상세페이지 요청: " + restaurantName);
+	    ResultDTO result = resultService.result(restaurantName);
+	    
+	    RestaurantDTO restaurantDTO = new RestaurantDTO();
+	    restaurantDTO.setTitle(result.getTitle());
+	    restaurantDTO.setAddress(result.getAddress());
+	    restaurantService.saveRestaurant(restaurantDTO);
+	    
+	    model.addAttribute("result", result);    
+	    log.info("result"+result);
 	}
+
 	
 	
 	// 리뷰 보여주기
@@ -62,8 +73,6 @@ public class RestaurantController {
 	}
 	
 	// insert 작업
-//	@PostMapping("/new")
-//	public ResponseEntity<String> create(@RequestBody ReviewDTO ReviewDTO,Model model){
 	@GetMapping("/new")
 	public ResponseEntity<String> create(@ModelAttribute ReviewDTO ReviewDTO,Model model){
 		log.info("댓글 삽입 "+ReviewDTO);
