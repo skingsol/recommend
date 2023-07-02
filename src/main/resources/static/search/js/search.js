@@ -23,10 +23,10 @@ window.addEventListener("keyup", (e) => {
 //---------------------------------------------------------------//
 
 document.querySelector("#modalForm").addEventListener("submit", (e) => {
-  e.preventDefault();
-  const name = document.querySelector(".reqName").innerHTML;
-  const content = document.querySelector(".reqContent").innerHTML;
+  const name = document.querySelector(".reqName").value;
+  const content = document.querySelector(".reqContent").value;
   console.log(name, content);
+  e.preventDefault();
   // const requestForm = {
   //   reqName: document.querySelector(".reqName").innerHTML,
   //   reqContent: document.querySelector(".reqContent").innerHTML,
