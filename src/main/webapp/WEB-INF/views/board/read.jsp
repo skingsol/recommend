@@ -72,16 +72,16 @@
 			</div>
 			<div class="col my-2">
 				<div class="form-row my-2">
-					<input type="text" name="replyer" id="replyer" class="form-control"  readonly
-		    					 value='<security:authentication property="principal.username"/>'/>
+					<input type="text" name="replyer" id="replyer" class="form-control" readonly
+      					 value="${pageContext.request.userPrincipal.name}" />
 				</div>
 				<div class="form-row my-2">
 					<button class="btn btn-success btn-block">댓글 작성</button>
 				</div>
-			</div>
-		</div>
+			</div>  
+		</div> 
 	</form>
-</security:authorize>	
+</security:authorize>	 
 <!-- 댓글 목록 -->
 <div class="card mt-4">
 	<div class="card-header">
