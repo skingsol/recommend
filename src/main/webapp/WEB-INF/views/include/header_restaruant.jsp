@@ -74,7 +74,7 @@
 			<div class="desc_header_wrap">
 				<div class="main_logo">
 					<a href="/"> <img class="main_logo_img"
-						src="/main/img/korean_food.png" alt="로고" />
+						src="/main/img/BaB.png" alt="로고" />
 					</a>
 				</div>
 				<form action="/api/search/" class="searchForm todo-form"

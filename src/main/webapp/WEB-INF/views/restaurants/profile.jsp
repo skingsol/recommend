@@ -11,31 +11,23 @@
 				<div class="item">
 					<img src="${img}" alt="맛집이미지 1">
 				</div>
-
 			</c:forEach>
-
 		</div>
 	</div>
-
-
 	<div class="row gx-4 gx-lg-5 align-items-center">
+	
+		<!-- 지도 가져다 보여줄 영역 -->
 		<div class="col-md-6">
-
-			<!-- 지도 가져다 보여줄 영역 -->
 			<div id="map" style="width: 100%; height: 350px;"></div>
-
 		</div>
 
-		<!-- 상세정보 시작 부분 지도 오른편 -->
 		<!-- 제목, 카테고리 평점 -->
 		<div class="col-md-6">
 			<div class="fs-5 mb-5">
-
 				<div class="restaurant_title">
 					<h2 class="display-5 fw-bolder" id="">
 						<span>${result.title}</span>
 					</h2>
-
 					<div class="category&score">
 						<h5>
 							<span class="result_category">${result.category}</span>
@@ -48,9 +40,6 @@
 					</div>
 				</div>
 			</div>
-
-
-
 
 			<!-- 현위치에서 거리 계산 -->
 			<div class="fs-5 mb-5">
@@ -123,7 +112,7 @@
 	<div class="reviews_part">
 	<h5>리뷰</h5>	
 		
-		<!-- 리뷰 수정 폼(모달) -->
+		<!-- 리뷰수정 모달 Start -->
 		<div class="modal" tabindex="-1" id="reviewModal">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -149,132 +138,34 @@
 				</div>
 			</div>
 		</div> 
-		<!-- 리뷰 수정 폼 종료(모달) -->
-		 
-		   
+		<!--리뷰수정 모달 end -->		
+	
 		<div class="write_review">
 			<form action="" id="insertForm">
 				<div class="section-title">
-					<h5>리뷰 작성하기</h5>
 					<%-- <input type="text" class="userId" id="userId" value="${userId}" readonly /> --%>
-					<span class="userId" id="userId" >test</span>
+				</div>
+				<div class="test2">
+				<h5>리뷰 작성하기</h5>
+				<span class="userId" id="userId">${pageContext.request.userPrincipal.name}</span>
+				<div class="rating">
+					<i class="fa fa-star-o" data-value="1"></i> <i class="fa fa-star-o" data-value="2"></i> <i class="fa fa-star-o" data-value="3"></i> <i class="fa fa-star-o" data-value="4"></i> <i class="fa fa-star-o" data-value="5"></i>
 				</div>
 				<div class="content_block">
 				<textarea placeholder="내용 입력" id="reviewContent"></textarea>
 				</div>
-				<div class="rating">
-					<i class="fa fa-star-o" data-value="1"></i> <i class="fa fa-star-o" data-value="2"></i> <i class="fa fa-star-o" data-value="3"></i> <i class="fa fa-star-o" data-value="4"></i> <i class="fa fa-star-o" data-value="5"></i>
-				</div>
+				<div class="button_box">
 				<button type="submit" class="riew_button">
-					<i class="fa fa-location-arrow"></i> 확인
+					<i class="fa fa-location-arrow"></i> 작성
 				</button>
+				</div>
+				</div>
 			</form>
 		</div>
 	</div>
-	
-	
-	
+                  
+       
 
-
-
-
-
-
-
-    <%-- 
-	<div class="main">
-		<ul class="comment">
-			<c:forEach items="${store.reviewList }" var="reviewList">
-			<li>
-				<div class="client">
-
-					<div class="review_header">
-						<div>
-							<div class="nickname">닉네임</div>
-							<div class="nickname">${reviewList.nickname }</div>
-							<div>
-
-								<c:forEach begin="0" end="4" var="i">
-									<c:choose>
-										<c:when test="${Math.round(reviewList.score) > i }">
-								<i class="far fas fa-star">★★★★★</i>
-								</c:when>
-										<c:otherwise>
-								<i class="far fa-star"></i>
-								</c:otherwise>
-									</c:choose>
-								</c:forEach>
-							</div>
-						</div>
-						<div class="create_date">
-							<span>2023-06-28</span>
-						</div>
-						<span><fm:formatDate value="${reviewList.regiDate }" pattern="yyyy-MM-dd" /> </span>
-					</div>
-
-					<div>
-						<c:if test="${!empty reviewList.reviewImg }">
-						<div class="review_img_box">
-							<img src="${reviewList.reviewImg }" alt="이미지" class="review_img">
-							<img src="/restaurants/img/japanese.png" alt="이미지" class="review_img">
-						</div>
-						</c:if>
-						<div class="review_contents">리뷰 내용 입니다.</div>
-						<div>${reviewList.reviewContent }</div>
-					</div>
-				</div>
-			</li>
-			</c:forEach>
-		</ul>
+	<div class="mb-5"></div>
 	</div>
-	<!-- 리뷰 보여주기 부분 end -->
-
-
-
-	<!-- 리뷰 작성 폼-->
-		<form class="mt-3" name="myform" id="myform" method="post">
-
-			<fieldset>
-				<span class="text-bold">별점을 선택해주세요</span>
-				<input type="radio" name="reviewStar" value="5" id="rate1">
-				<label for="rate1">★</label>
-				<input type="radio" name="reviewStar" value="4" id="rate2">
-				<label for="rate2">★</label>
-				<input type="radio" name="reviewStar" value="3" id="rate3">
-				<label for="rate3">★</label>
-				<input type="radio" name="reviewStar" value="2" id="rate4">
-				<label for="rate4">★</label>
-				<input type="radio" name="reviewStar" value="1" id="rate5">
-				<label for="rate5">★</label>
-			</fieldset>
-			<div>
-				<textarea class="col-auto form-control" type="text" id="review-writeContents" placeholder="리뷰 작성"></textarea>
-			</div>
-			<div class="row mt-3">
-				<div class="col">
-					<div class="card">
-						<div class="card-header">
-							<i class="fa fa-file"></i> 파일첨부
-						</div>
-						<div class="card-body">
-							<div class="uploadResult">
-								<ul></ul>
-							</div>
-						</div>
-					</div>
-					<div class="clearfix">
-						<button class="" type="button" id="uproad_button">파일 첨부</button>
-						<button class="" type="button" id="review_button">리뷰 작성</button>
-					</div>
-				</div>
-			</div>
-		</form> --%>
-		
-		
-		
-		
-		
-		<div class="mb-5"></div>
-	</div>
-</div>
 <%@ include file="../include/footer_restaruant.jsp"%>
