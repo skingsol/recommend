@@ -9,8 +9,8 @@
 	
 	<!-- 댓글 추가  -->
 	<insert id="insert">
-		insert into reply(reply_id, post_id, reply_content, replyer)
-		values(seq_reply.nextval,#{postId},#{replyContent},#{replyer})
+		insert into reply(reply_id, post_id, reply_content, userid)
+		values(seq_reply.nextval,#{postId},#{replyContent},#{userid})
 	</insert>
 	
 	<!-- 댓글 전체 가져오기 : post_id 일치 시 -->
@@ -21,18 +21,18 @@
 	<!-- 댓글 페이징 처리 -->
 	<select id="listAll" resultType="com.project.domain.ReplyDTO">
 		<![CDATA[ 		
-			select reply_id, post_id, reply_content, replyer,reply_regdate
-			from (select /*+INDEX(reply idx_reply)*/ rownum rn, reply_id, post_id, reply_content, replyer, reply_regdate
+			select reply_id, post_id, reply_content, userid,reply_regdate
+			from (select /*+INDEX(reply idx_reply)*/ rownum rn, reply_id, post_id, reply_content, userid, reply_regdate
 	      		  from reply
 	      		  where post_id=#{postId} and rownum <= #{cri.page}*#{cri.amount})
 			where rn > (#{cri.page}-1) * #{cri.amount}		
 		]]>	
 	</select>
 	<!-- 원본 글번호에 달려있는 댓글 전체 개수 -->
-	<select id="getCountBypost_id" resultType="int">
+	<select id="getCountBypostId" resultType="int">
 		select count(*) from reply where post_id=#{postId}
 	</select>
-	
+	 
 	<!-- 댓글 수정 : reply_id 일치 시 댓글 내용 수정, updatedate -->
 	<update id="update">
 		update reply 

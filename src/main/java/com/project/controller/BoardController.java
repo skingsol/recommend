@@ -36,7 +36,7 @@ public class BoardController {
 	private BoardService service;
 	
 	
-	// 전체 리스트 보여주기 컨트롤러 작성 : list.jsp 보여주기
+	// 전체 리스트 보여주기 컨트롤러 작성 : list.jsp 보여주기 
 	
 	@GetMapping("/list")
 	public void listGet(Model model,@ModelAttribute("cri") Criteria cri) {
@@ -54,13 +54,13 @@ public class BoardController {
 	
 	// register.jsp 보여주기
 	
-//	@PreAuthorize("isAuthenticated()")
+	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/register")
 	public void registerGet() {
 		log.info("글쓰기 폼 요청");
 	}
 	
-//	@PreAuthorize("isAuthenticated()")
+	@PreAuthorize("isAuthenticated()")
 	@PostMapping("/register")
 	public String registerPost(BoardDTO dto,RedirectAttributes rttr,Criteria cri) {
 		log.info("글쓰기 등록 요청 "+dto);
@@ -91,12 +91,11 @@ public class BoardController {
 		
 		//post_id 에 맞는 내용 가져오기
 		BoardDTO dto = service.getRow(postId);
-		log.info("내용조회2"+dto);
 		model.addAttribute("dto", dto);		
 	}
 	
 	@PostMapping("/modify")
-//	@PreAuthorize("principal.username == #dto.user_idx") // 로그인 사용자 == 작성자
+	@PreAuthorize("principal.username == #dto.userid") // 로그인 사용자 == 작성자
 	public String modifyPost(BoardDTO dto,RedirectAttributes rttr,Criteria cri) {
 		log.info("내용 수정 "+cri);
 		//성공 시 리스트
@@ -116,8 +115,8 @@ public class BoardController {
 	// /board/remove?bno=21
 	
 	@GetMapping("/remove")
-//	@PreAuthorize("principal.username == #user_idx") // 로그인 사용자 == 작성자
-	public String removeGet(int postId,String user_idx,RedirectAttributes rttr,Criteria cri) {
+	@PreAuthorize("principal.username == #userid") // 로그인 사용자 == 작성자
+	public String removeGet(int postId,String userid,RedirectAttributes rttr,Criteria cri) {
 		
 		//폴더에서 첨부 파일 제거
 		List<AttachFileDTO> attachList = service.getAttachList(postId);

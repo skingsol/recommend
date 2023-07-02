@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="security"
+	uri="http://www.springframework.org/security/tags"%>
+
 <%@ include file="../include/header.jsp"%>
 <link href="/board/css/sb-admin-2.ssb.css" rel="stylesheet">
 <!-- Page Heading -->
@@ -23,7 +26,7 @@
 </div>
 <div class="row card-header">상세페이지</div>
 
-</div>
+
 <div class="row">
 	<div class="col">
 		<form action="" method="post">
@@ -75,19 +78,19 @@
 	<form action="" class="mt-3" id="replyForm">
 		<div class="form-row">
 			<div class="col-11">
-				<textarea name="reply_content" id="reply_content" rows="5"
+				<textarea name="replyContent" id="replyContent" rows="5"
 					class="form-control"></textarea>
 			</div>
-			<div class="col my-2">
+			<div class="col my-2"> 
 				<div class="form-row my-2">
-					<input type="text" name="replyer" id="replyer" class="form-control"
-						readonly value="${pageContext.request.userPrincipal.name}" />
+					<input type="text" name="userid" id="userid" class="form-control"
+						readonly value='<security:authentication property="principal.username"/>'/>
 				</div>
 				<div class="form-row my-2">
 					<button class="btn btn-success btn-block">댓글 작성</button>
 				</div>
 			</div>
-		</div>
+		</div> 
 	</form>
 </security:authorize>
 <!-- 댓글 목록 -->
@@ -97,7 +100,7 @@
 	</div>
 	<div class="card-body">
 		<ul class="chat list-group list-group-flush">
-			<li class='list-group-item border-bottom' data-reply_id='1'>
+			<li class='list-group-item border-bottom' data-replyId='1'>
 				<div class="d-flex justify-content-between">
 					<strong class='primary-font'>user00</strong> <small
 						class='text-muted text-right'>2023-05-24 00:00</small>
@@ -126,13 +129,13 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<input type="hidden" name="replyId" id="reply_id" />
+				<input type="hidden" name="replyId" id="replyId" />
 				<div class="form-group">
-					<textarea name="replyContent" id="reply_content" rows="4"
+					<textarea name="replyContent" id="replyContent" rows="4"
 						class="form-control"></textarea>
 				</div>
 				<div class="form-group">
-					<input type="text" name="replyer" id="replyer" class="form-control"
+					<input type="text" name="userid" id="userid" class="form-control"
 						readonly />
 				</div>
 			</div>
@@ -151,14 +154,11 @@
 		name="keyword" value="${cri.keyword}" />
 </form>
 
-
+ 
 <script>
 	//게시물 글번호 가져오기
-	const postId = $
-	{
-		dto.postId
-	};
-
+	const postId = ${dto.postId};
+ 
 	// CSRF 토큰 값 생성
 	const csrfToken = '${_csrf.token}';
 </script>
