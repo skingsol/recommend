@@ -30,15 +30,16 @@
 	const rawValue = '${result.title}';
 	const textValue = rawValue.replace(/<[^>]*>/g, '');
 </script>
-
-<script src="/restaurants/js/review.js"></script>
+  
 
 <!-- 리뷰용 변수담기 -->
-<script>	
+<script>
+const restaurantId = '${restaurantId}'
 const title = '${detail.title}';
 const userid = '${pageContext.request.userPrincipal.name}';
 </script>
 
+<script src="/restaurants/js/review.js"></script>
 <!-- 좌표를 바탕으로 거리계산하기 -->
 <script src="/restaurants/js/distance.js"></script>
 

@@ -8,6 +8,11 @@
 		INSERT INTO restaurant (restaurant_id, title, address, wishlist_count, review_count, menu_id)
 		VALUES (restaurant_seq.nextval,#{title},#{address},#{wishlistCount},#{reviewCount},#{menuId})		
 	</insert>
-	
+		
   
+  	<!-- 레스토랑 정보 조회 -->
+    <select id="checkRestaurant" resultType="com.project.domain.RestaurantDTO">
+        SELECT * FROM restaurant WHERE title = #{title} AND address = #{address}
+    </select>
+    
 </mapper>

@@ -35,13 +35,10 @@ public class RestaurantController {
 	@Autowired
 	private RestaurantService restaurantService;
 		
-	/*
-	 * @GetMapping("/profile") public void profileGet(String restaurantName, Model
-	 * model) { log.info("맛집 상세페이지 요청: " + restaurantName); ResultDTO result =
-	 * resultService.result(restaurantName); model.addAttribute("result", result);
-	 * log.info("result"+result); }
-	 */
 	
+	
+	// 맛집 상세페이지 이동
+	// 맛집 정보 테이블에 담기 (담기전 음식점 타이틀과 주소로 중복검사하기)
 	@GetMapping("/profile")
 	public void profileGet(String restaurantName, Model model) {
 	    log.info("맛집 상세페이지 요청: " + restaurantName);
@@ -50,12 +47,11 @@ public class RestaurantController {
 	    RestaurantDTO restaurantDTO = new RestaurantDTO();
 	    restaurantDTO.setTitle(result.getTitle());
 	    restaurantDTO.setAddress(result.getAddress());
-	    restaurantService.saveRestaurant(restaurantDTO);
+	    int restaurantId = restaurantService.saveRestaurant(restaurantDTO);
 	    
-	    model.addAttribute("result", result);    
-	    log.info("result"+result);
+	    model.addAttribute("result", result);
+	    model.addAttribute("restaurantId", restaurantId);
 	}
-
 	
 	
 	// 리뷰 보여주기
@@ -100,17 +96,6 @@ public class RestaurantController {
 		return reviewService.delete(reviewId)?
 				new ResponseEntity<String>("success",HttpStatus.OK):
 					new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-	}
-
-	
+	}	
 	
 }
-
-
-
-
-
-
-
-
-

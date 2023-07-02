@@ -1,3 +1,4 @@
+
 //상세페이지 리뷰 전체 리스트(listAll)
 function getReviewList() {
   var reviewGetList = document.querySelector(".write_review .section-title");
@@ -6,7 +7,7 @@ function getReviewList() {
     return;
   }
 
-  fetch("/restaurants/list/" + "123") //restauantId)
+  fetch("/restaurants/list/" + restaurantId)
     .then((response) => {
       if (!response.ok) {
         throw new Error("리스트 없음");
@@ -106,8 +107,8 @@ document.querySelector("#insertForm").addEventListener("submit", (e) => {
   const data = {
     reviewContent: reviewContent,
     userId: userId,
-    //restauantId: restauantId,
-    restauantId: 123,
+    restaurantId: restaurantId,
+    //restauantId: 123,
     grade: grade,
   };
 
@@ -172,6 +173,7 @@ document.querySelector(".section-title").addEventListener("click", (e) => {
        alert("자신의 댓글만 수정이 가능합니다.");
        return;
      }
+     
     fetch("/restaurants/" + reviewId)
       .then((response) => {
         if (!response.ok) {
@@ -183,7 +185,7 @@ document.querySelector(".section-title").addEventListener("click", (e) => {
         //console.log(data);
         document.querySelector(".modal-body #reviewId").value = data.reviewId;
         document.querySelector(".modal-body #reviewContent").value = data.reviewContent;
-        document.querySelector(".modal-body #userid").value = data.userId;
+        document.querySelector(".modal-body #userId").value = data.userId;
         //document.getElementById("reviewModal").style.display = 'block';
         $("#reviewModal").modal("show");
       })
