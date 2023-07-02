@@ -36,7 +36,7 @@
 <!-- 리뷰용 변수담기 -->
 <script>	
 const title = '${detail.title}';
-const userid = '${userId}';
+const userid = '${pageContext.request.userPrincipal.name}';
 </script>
 
 <!-- 좌표를 바탕으로 거리계산하기 -->
@@ -45,7 +45,6 @@ const userid = '${userId}';
 <!-- kakaoMap api -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7981cac6d0986eb33d99fce3ac0af96a&libraries=services"></script>
 <script src="/restaurants/js/kakaoMap.js"></script>
-
 
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
