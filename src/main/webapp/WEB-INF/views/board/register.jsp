@@ -38,7 +38,7 @@
 		  </div>
 		  <div class="form-group">
 		    <label for="userid">userid</label>
-		    <input type="text" class="form-control" id="userid" name="userid" placeholder="userid" required
+		    <input type="text" class="form-control" id="userid" name="userid" placeholder="userid" readonly
        value="${pageContext.request.userPrincipal.name}" />	  	
 		  	<div class="invalid-feedback">
 		  		작성자를 확인해 주세요
