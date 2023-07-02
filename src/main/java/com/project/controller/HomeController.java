@@ -1,6 +1,7 @@
 package com.project.controller;
 
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,11 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project.ms.dto.BringNaverApiDTO;
 import com.project.service.BringNaverService;
-
+import com.project.service.RegisterRstrntService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,6 +26,8 @@ public class HomeController {
 
 	@Autowired
 	private BringNaverService brService;
+	@Autowired
+	private RegisterRstrntService reqService;
 
 	// 메인페이지 화면단 api 정보 가져오기
 	@GetMapping("/")
@@ -37,14 +42,14 @@ public class HomeController {
 		return "main";
 	}
 
-//	// 서치페이지에서 맛집등록 요청 시 입력정보 DB insert 하기
-//	@PostMapping("/api/search")
-//	public String requsetReg(RegisterRstrntDTO dto) {
-//		log.info("입력 정보: "+dto);
-//
-//			boolean flag = reqService.sendRequest(dto);
-//		
-//			return "/";
-//		
-//	}
+	// 등록요청 삭제(마스터 권한 - del 페이지)
+	@GetMapping("/delete")
+	public String deleteGet(int reqId, RedirectAttributes rttr) {
+		log.info("요청 삭제: "+reqId);
+		
+		reqService.deleteRequest(reqId);
+			rttr.addFlashAttribute("result", "삭제가 완료되었습니다.");
+			
+			return "redirect:/api/master";			
+		}
 }

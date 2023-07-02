@@ -212,3 +212,32 @@ a {
 
 
 /***-----------카카오톡 공유하기 버튼--------------***/
+
+/***-----------관리자 권한 페이지--------------***/
+#requestTable{
+	padding-top: 2em;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.read_wrap{
+	padding-top: 1em;
+    margin: 0 auto;
+    max-width: 1040px;
+}
+
+.btn_wrap{
+	display: flex;
+    padding: 1em 0 2em 0;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+#backToList{
+	color: #fff;
+	background: rgb(25, 183, 194);
+}
+#deleteBtn{
+	color: #fff;
+    background-color: #e74a3b;
+
+}

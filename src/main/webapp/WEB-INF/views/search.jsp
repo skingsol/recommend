@@ -9,7 +9,7 @@
 	<div class="inner">
 		<nav id="gnb" class="gnb">
 			<ul class="gnb_ul">
-				<li class=""><a href=".."> <span>공지사항</span>
+				<li class=""><a href="/board/list"> <span>공지사항</span>
 				</a></li>
 				<li class=""><a href=".."> <span>자주 묻는 질문</span>
 				</a></li>
@@ -54,8 +54,8 @@
 								<div>
 									<div class="store_category_result"
 										style="display: flex; align-items: center;">
-										<a href="" id="search_title" class="store_name" data-title="${srch.title}">${srch.title}</a>
-										&nbsp;
+										<a href="" id="search_title" class="store_name"
+											data-title="${srch.title}">${srch.title}</a> &nbsp;
 									</div>
 									<p id="search_category">${srch.category}</p>
 									<div style="display: inline-block; vertical-align: top;">
@@ -71,28 +71,23 @@
 										fafa-heart"  -->
 										<span class="icon is-small"><i class="fa fa-heart-o"
 											aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
-									
+
 										<!-- 카카오 공유하기 버튼 -->
-										<a id="kakao-link-btn" href="javascript:kakaoShare()"> 
-											<img src="/main/img/icon-kakao.png" />
+										<a id="kakao-link-btn" href="javascript:kakaoShare()"> <img
+											src="/main/img/icon-kakao.png" />
 										</a>
-
-
 									</div>
 								</div>
 								<c:if test="${srch.homePageLink ne ''}">
 									<p class="store_link_result">
-										<a id='search_homePageLink' target='_blank' class=''
-											href="${srch.homePageLink}">홈페이지 바로가기</a>
+										<a id='search_homePageLink' target='_blank' class='' href="${srch.homePageLink}">홈페이지 바로가기</a>
 									</p>
 								</c:if>
 								<c:if test="${srch.homePageLink eq '' }">
-								<p class="store_link_result">
-										&nbsp;&nbsp;
-									</p>
+									<p class="store_link_result">&nbsp;&nbsp;</p>
 								</c:if>
 
-								
+
 								<p id="search_road_address" class="store_address_result">${srch.roadAddress}</p>
 								<div class="review_info">
 									<p class="likes">
@@ -128,13 +123,14 @@
 				<span>보통 당일 등록이 이루어지며, 등록 시 즉시 등록하신 이메일로 안내 드립니다.</span>
 			</div>
 		</div>
-		
-		
+
 
 		<!-- 음식점 등록 요청 팝업창 -->
-		<%-- <sec:authorize access="isAuthenticated()"> --%>
-		<form action='<c:url value="/api/search"/>' method="post" id="modalForm">
-		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+		<%-- <sec:authorize access="isAuthenticated()">  --%>
+		<form action='<c:url value="/api/search"/>' method="post"
+			id="modalForm">
+			<input type="hidden" name="${_csrf.parameterName}"
+				value="${_csrf.token}" />
 			<div class="modal" tabindex="-1" id="requestModal">
 				<div class="modal-dialog">
 					<div class="modal-content">
@@ -147,13 +143,23 @@
 						</div>
 						<div class="modal-body">
 							<div class="form-group">
-								<textarea name="reqName" rows="1"
-									class="form-control reqName" placeholder="식당 이름"></textarea>
+								<textarea name="reqName" rows="1" class="form-control reqName"
+									placeholder="맛집 이름"></textarea>
 							</div>
 							<div class="form-group">
-								<textarea name="reqContent" id="info" rows="4"
+								<textarea name="reqContent" id="info" rows="2"
 									class="form-control reqContent"
-									placeholder="식당의 주소, 지역명, 전화번호 등 알고있는 정보를 자유롭게 입력해 주세요."></textarea>
+									placeholder="맛집의 주소, 지역명을 입력해 주세요. 구체적인 정보일수록 등록에 도움이 됩니다."></textarea>
+							</div>
+							
+							<div class="form-group">
+								<textarea name="reqContent" id="info" rows="4"
+									class="form-control reqAddress"
+									placeholder="맛집에 대한 정보를 자유롭게 입력해 주세요."></textarea>
+							</div>
+							<div class="form-group">
+								<input type="text" name="reqUser" id="reqUser" class="form-control"  readonly
+		    					 value='may'/>
 							</div>
 						</div>
 						<div class="modal-footer">
@@ -165,57 +171,49 @@
 			</div>
 		</form>
 		<%-- </sec:authorize> --%>
-		
-		
+
+
 
 
 	</div>
 </div>
 
 
-
-<!-- 테스트 끝 -->
-
-
-
-
 <script>
-// CSRF 토큰 값 생성
+	// CSRF 토큰 값 생성
 	const csrfToken = '${_csrf.token}';
 </script>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script type="text/javascript">
-  // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
-  Kakao.init('6656444d6c987929be4c5c9e294903c5');
+	// SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
+	Kakao.init('6656444d6c987929be4c5c9e294903c5');
 
-  // SDK 초기화 여부를 판단합니다.
-  console.log(Kakao.isInitialized());
+	// SDK 초기화 여부를 판단합니다.
+	console.log(Kakao.isInitialized());
 
-  function kakaoShare() {
-    Kakao.Link.sendDefault({
-      objectType: 'feed',
-      content: {
-        title: '카카오공유하기 시 타이틀',
-        description: '카카오공유하기 시 설명',
-        imageUrl: '카카오공유하기 시 썸네일 이미지 경로',
-        link: {
-          mobileWebUrl: '카카오공유하기 시 클릭 후 이동 경로',
-          webUrl: '카카오공유하기 시 클릭 후 이동 경로',
-        },
-      },
-      buttons: [
-        {
-          title: '웹으로 보기',
-          link: {
-            mobileWebUrl: '카카오공유하기 시 클릭 후 이동 경로',
-            webUrl: '카카오공유하기 시 클릭 후 이동 경로',
-          },
-        },
-      ],
-      // 카카오톡 미설치 시 카카오톡 설치 경로이동
-      installTalk: true,
-    })
-  }
+	function kakaoShare() {
+		Kakao.Link.sendDefault({
+			objectType : 'feed',
+			content : {
+				title : '카카오공유하기 시 타이틀',
+				description : '카카오공유하기 시 설명',
+				imageUrl : '카카오공유하기 시 썸네일 이미지 경로',
+				link : {
+					mobileWebUrl : '카카오공유하기 시 클릭 후 이동 경로',
+					webUrl : '카카오공유하기 시 클릭 후 이동 경로',
+				},
+			},
+			buttons : [ {
+				title : '웹으로 보기',
+				link : {
+					mobileWebUrl : '카카오공유하기 시 클릭 후 이동 경로',
+					webUrl : '카카오공유하기 시 클릭 후 이동 경로',
+				},
+			}, ],
+			// 카카오톡 미설치 시 카카오톡 설치 경로이동
+			installTalk : true,
+		})
+	}
 </script>
 
 <script src="/restaurants/js/result2.js"></script>
