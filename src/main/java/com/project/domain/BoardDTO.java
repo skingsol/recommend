@@ -24,6 +24,9 @@ public class BoardDTO {
 	private int postAuth;
 	//첨부파일 정보
 	private List<AttachFileDTO> attachList;
+	public int getPostAuth() {
+        return postAuth;
+    }
 }
 
 

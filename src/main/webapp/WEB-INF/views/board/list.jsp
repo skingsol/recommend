@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	
 <%@ include file="../include/header.jsp"%>
  <link href="/board/css/sb-admin-2.ssb.css" rel="stylesheet"> 
 <!-- Page Heading -->
@@ -86,9 +88,12 @@
 		</tr>
 	</thead> 
 	<tbody>
+	<%-- 디버깅용 코드 --%>
 		<c:forEach var="dto" items="${list}">
-			<tr>
+			<tr class="${dto.postAuth == 1 ? 'admin-post' : ''}">  <!--postAuto 가 1이면 class명을 "admin-post"로 하기 -->
+			
 				<th scope="row" style="text-align: center;">${dto.postId}</th>
+				
 				<td class="post-title" ><a href="${dto.postId}" class="move">${dto.postTitle}</a>
 				
 				<td class="author" style="text-align: center;"><strong>${dto.replyCnt}</strong></td>

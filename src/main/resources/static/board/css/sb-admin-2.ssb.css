@@ -8,6 +8,14 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+ 
+ .table-bordered .admin-post td,
+.table-bordered .admin-post th {
+box-shadow: inset 0px -50px 0px 0px #e2f3f1;
+    color: rgb(25, 183, 194);
+    font-weight: bolder;
+ }
+ 
 :root { -
 	-blue: #4e73df; -
 	-indigo: #6610f2; -
@@ -11919,3 +11927,6 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
 	width: 100%
 }
+
+
+

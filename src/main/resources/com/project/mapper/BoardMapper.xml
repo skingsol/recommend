@@ -10,19 +10,17 @@
 	<!-- 페이지 나누기 조회 -->
 	<!-- 페이지 나누기 조회 -->
 <select id="list" resultType="com.project.domain.BoardDTO">
-	<![CDATA[
-		SELECT post_id, post_title, userid, post_regdate, post_content, replycnt
-		FROM (SELECT /*+INDEX_DESC(post pk_post)*/ rownum rn, post_id,post_title,userid,post_regdate,post_content,replycnt
-			from post  
-			      where 
-		]]>	 
-			<include refid="criteria"></include>		     
-		<![CDATA[	      
-			      
-			      rownum <= (#{page}*#{amount}))
-			where rn > (#{page}-1)*#{amount}		
-		]]>	
-	</select>
+  <![CDATA[
+  SELECT post_id, post_title, userid, post_regdate, post_content, replycnt, post_auth
+  FROM (
+    SELECT /*+INDEX_DESC(post pk_post)*/ rownum rn, post_id, post_title, userid, post_regdate, post_content, replycnt, post_auth
+    FROM post
+    WHERE rownum <= (#{page}*#{amount})
+    ORDER BY CASE WHEN userid IN (SELECT userid FROM authority WHERE auth = 'ROLE_ADMIN') THEN 0 ELSE 1 END, post_id DESC
+  )
+  WHERE rn > (#{page}-1)*#{amount}
+  ]]>
+</select>
 	
 	<!-- 전체 게시물 개수 : totalCnt -->
 	<select id="totalCnt" resultType="java.lang.Integer">
