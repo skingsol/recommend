@@ -75,14 +75,6 @@ body {
 }
 
 
-
-
-
-
-
-
-
-
  /* Customize the nav buttons size and layout */
 .custom-nav {
 	color: rgba(0, 0, 0, 0);
@@ -193,12 +185,40 @@ body {
 
 
 
+/* 위시리스트 css */
+.block{
+	margin: 0 20%;
+}
+#wishListTable{
+	margin: 5% 0%;
+	border: 2px solid #D3D3D3;
+	border-radius: 20px;
+	padding: 20px;
+}
+
+.test3{
+	width : 100%;
+	border-bottom: 2px solid #808080;
+	border-right: 2px solid #808080;
+	border-radius: 10px;
+	padding: 20px;
+	margin-right: 10%;
+	margin-bottom: 30px;
+}
+
+.restaurantTitle {
+    font-weight: bold;
+    font-size: larger;
+    margin: 10px;
+}
+
+.wishlistDelete{
+	text-align: right;
+}
+/*  */
 
 
-
-
-
-.write_review{
+.write_review {
 	border: 2px solid #D3D3D3;
 	border-radius: 20px;
 	padding: 20px;
@@ -220,6 +240,11 @@ text-align: right;
 margin-right: 10px;
 }
 
+.emptyWishList{
+padding:70px;
+height: 200px;
+text-align: center;
+}
 
 
 

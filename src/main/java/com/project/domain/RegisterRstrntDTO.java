@@ -13,6 +13,8 @@ import lombok.ToString;
 public class RegisterRstrntDTO {
 	private int reqId;
 	private String reqName;
+	private String reqAddress;
 	private String reqContent;
-	private Date regDate;
+	private String reqUser;
+	private Date reqDate;
 }

@@ -183,10 +183,10 @@ public class MemberController {
 		return "redirect:/member/changePwd";
 	}
 	
-	@GetMapping("/admin")
-	public void adminGet() {
-		log.info("admin 요청");
-	}
+//	@GetMapping("/admin")
+//	public void adminGet() {
+//		log.info("admin 요청");
+//	}
 	
 	
 	@GetMapping("/auth")

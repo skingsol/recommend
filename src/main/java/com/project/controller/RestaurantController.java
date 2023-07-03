@@ -22,6 +22,8 @@ import com.project.domain.ReviewDTO;
 import com.project.service.RestaurantService;
 import com.project.service.ResultService;
 import com.project.service.ReviewService;
+import com.project.service.WishListService;
+
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -34,26 +36,29 @@ public class RestaurantController {
 	private ResultService resultService;
 	@Autowired
 	private ReviewService reviewService;
+//	@Autowired
+//	private StarService stService;
 	@Autowired
 	private RestaurantService restaurantService;
-		
+	@Autowired
+	private WishListService wishListService;
 	
 	
 	// 맛집 상세페이지 이동
 	// 맛집 정보 테이블에 담기 (담기전 음식점 타이틀과 주소로 중복검사하기)
+
 	@GetMapping("/profile")
 	public void profileGet(String restaurantName, Model model) {
-	    log.info("맛집 상세페이지 요청: " + restaurantName);
-	    ResultDTO result = resultService.result(restaurantName);
-	    
-	    RestaurantDTO restaurantDTO = new RestaurantDTO();
-	    restaurantDTO.setTitle(result.getTitle());
-	    restaurantDTO.setAddress(result.getAddress());
-	    int restaurantId = restaurantService.saveRestaurant(restaurantDTO);
-	    
-	    model.addAttribute("result", result);
-	    model.addAttribute("restaurantId", restaurantId);
+
+		log.info("맛집 상세페이지 요청: " + restaurantName);
+		ResultDTO result = resultService.result(restaurantName);
+	//	int restaurantId
+	//	double star = stService.starAvg(restaurantId);
+		model.addAttribute("result", result);	
+	//	model.addAttribute("star", star);
+		log.info("result"+result);
 	}
+	
 	
 	
 	// 리뷰 보여주기

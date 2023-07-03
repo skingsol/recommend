@@ -10,7 +10,12 @@
 
   <!-- 위시리스트 보여주기 -->
   <select id="getWishList" resultType="com.project.domain.WishListDTO">
-    SELECT * FROM wishlist WHERE userid = #{userId}
+	SELECT users.userid, restaurant.restaurant_id, restaurant.title,
+	restaurant.address, restaurant.review_count, restaurant.wishlist_count
+	FROM wishlist
+	JOIN users ON wishlist.userid = users.userid
+	JOIN restaurant ON wishlist.restaurant_id = restaurant.restaurant_id
+	where wishlist.userid = #{userid}
   </select>
 
   <!-- 위시리스트 삭제하기 -->
@@ -20,7 +25,7 @@
   </delete>
 	
   <!-- 위시리스트 개수 카운트하기 -->
-  <select id="countWishList" resultType="java.lang.Integer">
+  <select id="countWishList" resultType="int">
     SELECT count(*) from wishlist where restaurant_id = #{restauantId}
   </select>
 	

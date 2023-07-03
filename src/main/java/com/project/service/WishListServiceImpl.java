@@ -14,8 +14,8 @@ public class WishListServiceImpl implements WishListService {
     private WishListMapper wishListMapper;
 
     @Override
-    public int insertWishList(WishListDTO wishList) {
-        return wishListMapper.insert(wishList);
+    public int insertWishList(int restaurantId,String userId) {
+        return wishListMapper.insert(restaurantId,userId);
     }
 
     @Override

@@ -48,13 +48,13 @@
 
 			<!-- 위시리스트 카운트 및 추가버튼  -->
 			<div class="wishlist_count">
-				<strong class="wishlist-text fs-5 mb-5">위시리스트 담긴 수 : <span class="wishlist-number" style="color: deeppink;">?</span>
+				<strong class="wishlist-text fs-5 mb-5">위시리스트 담긴 수 : <span class="wishlist-number" id='wish-count' style="color: deeppink;"></span>
 				</strong>
-				<button class="wishlist-button btn btn-outline-dark flex-shrink-0" type="button">
+				<button class="wishlist-button btn btn-outline-dark flex-shrink-0" id="btn-wish-add"type="button">
 					<i class="bi-heart-fill me-1"></i> 위시리스트에 추가
 				</button>
 			</div>
-
+ 
 		</div>
 	</div>
 	<!-- 상세 정보 영역 -->

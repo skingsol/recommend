@@ -4,10 +4,12 @@ import com.project.domain.WishListDTO;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 public interface WishListService {
-    int insertWishList(WishListDTO wishList);
-    List<WishListDTO> getWishList(String userId);
-    int deleteWishList(WishListDTO wishList);
-    int countWishList(int restaurantId);
+    public int insertWishList(@Param("restaurantId")int restaurantId,@Param("userId")String userId);
+    public List<WishListDTO> getWishList(String userId);
+    public int deleteWishList(WishListDTO wishList);
+    public  int countWishList(int restaurantId);
 }
 

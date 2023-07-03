@@ -41,7 +41,7 @@ const userid = '${pageContext.request.userPrincipal.name}';
 const csrfToken = '${_csrf.token}';
 </script>
 
-
+<script src="/restaurants/js/wishlist.js"></script>
 <script src="/restaurants/js/review.js"></script>
 <!-- 좌표를 바탕으로 거리계산하기 -->
 <script src="/restaurants/js/distance.js"></script>
