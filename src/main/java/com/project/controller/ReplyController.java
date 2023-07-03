@@ -35,11 +35,11 @@ public class ReplyController {
 
 	
 	// http://localhost:8080/replies/1 + GET : 1번 댓글 데이터 가져오기
-	@GetMapping(value="/{rno}")
-	public ResponseEntity<ReplyDTO> get(@PathVariable("rno") int rno){
-		log.info("댓글 조회 "+rno);
+	@GetMapping(value="/{replyId}")
+	public ResponseEntity<ReplyDTO> get(@PathVariable("replyId") int replyId){
+		log.info("댓글 조회 "+replyId);
 		
-		return new ResponseEntity<ReplyDTO>(reService.read(rno), HttpStatus.OK);
+		return new ResponseEntity<ReplyDTO>(reService.read(replyId), HttpStatus.OK);
 	}
 	
 	
@@ -56,18 +56,18 @@ public class ReplyController {
 	
 	// http://localhost:8080/replies/pages/bno/ + GET
 	
-	@GetMapping("/pages/{bno}/{page}")
-	public ResponseEntity<ReplyPageDTO> select(@PathVariable("bno") int bno,@PathVariable("page")int page){
-		log.info("댓글 조회 "+bno);
+	@GetMapping("/pages/{postId}/{page}")
+	public ResponseEntity<ReplyPageDTO> select(@PathVariable("postId") int postId,@PathVariable("page")int page){
+		log.info("댓글 조회 "+postId);
 		
 		Criteria cri = new Criteria(page, 10);
 		
-		return new ResponseEntity<ReplyPageDTO>(reService.getList(cri,bno), HttpStatus.OK);
+		return new ResponseEntity<ReplyPageDTO>(reService.getList(cri,postId), HttpStatus.OK);
 	}
 	
 	// http://localhost:8080/replies/rno + PUT + 수정데이터(json)
 	
-	@PutMapping("/{rno}")
+	@PutMapping("/{replyId}")
 	@PreAuthorize("principal.username == #dto.replyer")
 	public ResponseEntity<String> modify(@RequestBody ReplyDTO dto){
 		log.info("댓글 수정 "+dto);
@@ -79,12 +79,12 @@ public class ReplyController {
 	}
 	
 	// http://localhost:8080/replies/rno + DELETE : 댓글 삭제
-	@DeleteMapping("/{rno}")
+	@DeleteMapping("/{replyId}")
 	@PreAuthorize("principal.username == #dto.replyer")
-	public ResponseEntity<String> remove(@PathVariable("rno") int rno,@RequestBody ReplyDTO dto){
-		log.info("댓글 삭제 "+rno);
+	public ResponseEntity<String> remove(@PathVariable("replyId") int replyId,@RequestBody ReplyDTO dto){
+		log.info("댓글 삭제 "+replyId);
 		
-		return reService.delete(rno)?
+		return reService.delete(replyId)?
 				new ResponseEntity<String>("success", HttpStatus.OK):
 					new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);	
 		

@@ -1,5 +1,5 @@
 // 첨부파일 가져오기
-fetch("/board/getAttachList?bno=" + bno)
+fetch("/board/getAttachList?postId=" + postId)
   .then((response) => {
     if (!response.ok) {
       throw new Error("첨부물 없음");
@@ -23,10 +23,30 @@ modifyForm.addEventListener("submit", (e) => {
 
   let str = "";
   lis.forEach((ele, idx) => {
-    str += "<input type='hidden' name='attachList[" + idx + "].uuid' value='" + ele.dataset.uuid + "'/>";
-    str += "<input type='hidden' name='attachList[" + idx + "].uploadPath' value='" + ele.dataset.path + "'/>";
-    str += "<input type='hidden' name='attachList[" + idx + "].fileName' value='" + ele.dataset.filename + "'/>";
-    str += "<input type='hidden' name='attachList[" + idx + "].fileType' value='" + ele.dataset.type + "'/>";
+    str +=
+      "<input type='hidden' name='attachList[" +
+      idx +
+      "].uuid' value='" +
+      ele.dataset.uuid +
+      "'/>";
+    str +=
+      "<input type='hidden' name='attachList[" +
+      idx +
+      "].uploadPath' value='" +
+      ele.dataset.path +
+      "'/>";
+    str +=
+      "<input type='hidden' name='attachList[" +
+      idx +
+      "].fileName' value='" +
+      ele.dataset.filename +
+      "'/>";
+    str +=
+      "<input type='hidden' name='attachList[" +
+      idx +
+      "].fileType' value='" +
+      ele.dataset.type +
+      "'/>";
   });
 
   //수집한 태그 폼에 추가

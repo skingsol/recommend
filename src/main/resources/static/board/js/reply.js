@@ -4,7 +4,7 @@
 let replyService = (function () {
   //reply : 댓글 작성 자바스크립트 객체
   //callback : function
-  function add(reply_content, callback) {
+  function add(replyContent, callback) {
     console.log("add 함수");
 
     fetch("/replies/new", {
@@ -13,7 +13,7 @@ let replyService = (function () {
         "content-type": "application/json",
         "X-CSRF-TOKEN": csrfToken
       },
-      body: JSON.stringify(reply)
+      body: JSON.stringify(replyContent)
     })
       .then((response) => {
         //결과가 도착하게 되면 자동 호출(비동기호출)
@@ -33,10 +33,10 @@ let replyService = (function () {
   } // add 종료
 
   function getList(param, callback) {
-    let post_id = param.post_id;
+    let postId = param.postId;
     let page = param.page;
 
-    fetch("/replies/pages/" + post_id + "/" + page)
+    fetch("/replies/pages/" + postId + "/" + page)
       .then((response) => {
         if (!response.ok) {
           throw new Error("리스트 없음");
@@ -97,8 +97,8 @@ let replyService = (function () {
     }
   }
 
-  function get(reply_id, callback) {
-    fetch("/replies/" + reply_id)
+  function get(replyId, callback) {
+    fetch("/replies/" + replyId)
       .then((response) => {
         if (!response.ok) {
           throw new Error("가져올 댓글 없음");
@@ -113,14 +113,14 @@ let replyService = (function () {
       .catch((error) => console.log(error));
   }
 
-  function update(reply_content, callback) {
-    fetch("/replies/" + reply_content.reply_id, {
+  function update(replyContent, callback) {
+    fetch("/replies/" + replyContent.replyId, {
       method: "put",
       headers: {
         "content-type": "application/json",
         "X-CSRF-TOKEN": csrfToken
       },
-      body: JSON.stringify(reply_content)
+      body: JSON.stringify(replyContent)
     })
       .then((response) => {
         if (!response.ok) {
@@ -136,16 +136,16 @@ let replyService = (function () {
       .catch((error) => console.log(error));
   }
 
-  function remove(reply_id, reply_content, callback) {
-    const reply_content = { replyer: replyer };
+  function remove(replyId, replyer, callback) {
+    const replyContent = { replyer: replyer };
 
-    fetch("/replies/" + reply_id, {
+    fetch("/replies/" + replyId, {
       method: "delete",
       headers: {
         "X-CSRF-TOKEN": csrfToken,
         "content-type": "application/json"
       },
-      body: JSON.stringify(reply_content)
+      body: JSON.stringify(replyContent)
     })
       .then((response) => {
         if (!response.ok) {
