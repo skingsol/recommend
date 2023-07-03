@@ -90,6 +90,7 @@
 			<tr>
 				<th scope="row" style="text-align: center;">${dto.postId}</th>
 				<td class="post-title" ><a href="${dto.postId}" class="move">${dto.postTitle}</a>
+				
 				<td class="author" style="text-align: center;"><strong>${dto.replyCnt}</strong></td>
 				 
 <%-- 				<td class="post-content" style="text-align: center;">${dto.postContent}</td>
