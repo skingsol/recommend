@@ -8,9 +8,8 @@
 	<div class="inner">
 		<nav id="gnb" class="gnb">
 			<ul class="gnb_ul">
-				<li class=""><a href=".."> <span>공지사항</span>
-				</a></li>
-				<li class=""><a href=".."> <span>자주 묻는 질문</span>
+				
+				<li class=""><a href=".."> <span>게시판</span>
 				</a></li>
 			</ul>
 		</nav>

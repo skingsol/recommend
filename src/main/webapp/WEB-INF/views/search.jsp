@@ -10,9 +10,8 @@
 	<div class="inner">
 		<nav id="gnb" class="gnb">
 			<ul class="gnb_ul">
-				<li class=""><a href="/board/list"> <span>공지사항</span>
-				</a></li>
-				<li class=""><a href=".."> <span>자주 묻는 질문</span>
+			
+				<li class=""><a href=".."> <span>게시판</span>
 				</a></li>
 			</ul>
 		</nav>
@@ -72,7 +71,7 @@
 									<p class="store_link_result">&nbsp;&nbsp;</p>
 								</c:if>
 
-								<p id="search_road_address" class="store_address_result" data-address="${srch.roadAddress}" >${srch.roadAddress}</p>
+								<p id="search_road_address" class="store_address_result"" >${srch.roadAddress}</p>
 								<div class="review_info">
 									<p class="likes">
 										<span>12</span>명이 추천했습니다.

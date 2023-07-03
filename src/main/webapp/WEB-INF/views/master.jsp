@@ -7,9 +7,7 @@
 	<div class="inner">
 		<nav id="gnb" class="gnb">
 			<ul class="gnb_ul">
-				<li class="notice"><a href='<c:url value="/board/notice"  />'>
-						<span>공지사항</span>
-				</a></li>
+				
 				<li class="qna"><a
 					href="/board/list?page=1&amount=10&type=&keyword="> <span>게시판</span>
 				</a></li>

@@ -17,7 +17,17 @@ function kakaoShare() {
   const title = document.getElementById("search_title").getAttribute("data-title");
   const imageLink = document.getElementById("search_image").getAttribute("src");
   const roadAddress = document.getElementById("search_road_address").textContent;
-  const homePageLink = document.getElementById("search_homePageLink").href;
+  const homePageLink = document.getElementById("search_homePageLink");
+  let profilePage = "http://localhost:8080/restaurants/profile?restaurantName=" + title;
+
+  console.log(homePageLink);
+  console.log(profilePage);
+
+  // homePageLink가 null일 때를 처리하기 위한 조건문 추가
+  let homePageLink2 = null;
+  if (homePageLink) {
+    homePageLink2 = homePageLink.href;
+  }
 
   // 피드 구성하기
   Kakao.Link.sendDefault({
@@ -35,11 +45,10 @@ function kakaoShare() {
       {
         title: "홈페이지 바로가기",
         link: {
-          webUrl: homePageLink,
-          mobileWebUrl: homePageLink,
+          webUrl: homePageLink || profilePage,
+          mobileWebUrl: homePageLink || profilePage,
         },
       },
     ],
   });
-  // });
 }
