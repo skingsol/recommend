@@ -76,11 +76,7 @@ public class ApiController {
 		
 		List<RegisterRstrntDTO> list = reqService.listRequest();
 		log.info("요청 목록 조회 ");
-
-		//int total = rgService.getTotalCnt(cri);
-
 		model.addAttribute("list", list);
-		//model.addAttribute("pageDTO", new PageDTO(cri, total));
 		return "master";
 	}
 	
@@ -98,22 +94,10 @@ public class ApiController {
 	}
 	
 	
-//	// 등록요청 삭제(마스터 권한 - del 페이지)
-//	@GetMapping("/delete")
-//	public String deleteGet(int reqId) {
-//		log.info("요청 삭제: "+reqId);
-//		
-//		reqService.deleteRequest(reqId);
-//
-//		return "master";			
-//		}
-	
-
-	
 	//서치페이지 내에서 맛집등록 요청 시 작동하는 컨트롤러
 	@PostMapping("/search")
 	//@PreAuthorize("principal.username == #dto.reqUser")
-	public ResponseEntity<String> requestRegister(@RequestBody RegisterRstrntDTO dto, Principal pricipal , Model model) {
+	public ResponseEntity<String> requestRegister(@RequestBody RegisterRstrntDTO dto,  Model model) {
 		log.info("맛집 등록 요청 내용: ", dto);
 		 model.addAttribute("dto",dto);
 		return reqService.sendRequest(dto)?

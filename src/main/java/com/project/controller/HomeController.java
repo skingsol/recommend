@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.project.domain.MemberAuthDTO;
-import com.project.domain.ReviewDTO;
 import com.project.ms.dto.BringNaverApiDTO;
 import com.project.service.BringNaverService;
 import com.project.service.RegisterRstrntService;
@@ -31,8 +29,8 @@ public class HomeController {
 	private BringNaverService brService;
 	@Autowired
 	private RegisterRstrntService reqService;
-	@Autowired
-	private StarService stService;
+//	@Autowired
+//	private StarService stService;
 
 	// 메인페이지 화면단 api 정보 가져오기
 	@GetMapping("/")

@@ -144,7 +144,7 @@
 								<a class="dropdown-item" href="/api/master">사용자 요청 목록 </a>
 							</sec:authorize>
 							<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')">
-								<a class="dropdown-item" href="/wish">내 위시리스트 </a>
+								<a class="dropdown-item" href="/wishlist">내 위시리스트 </a>
 								<a class="dropdown-item" href="/member/mypage"> 내 프로필 수정 </a>
 							</sec:authorize>
 

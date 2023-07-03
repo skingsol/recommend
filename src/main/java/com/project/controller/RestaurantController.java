@@ -22,7 +22,7 @@ import com.project.domain.ReviewDTO;
 import com.project.service.RestaurantService;
 import com.project.service.ResultService;
 import com.project.service.ReviewService;
-import com.project.service.StarService;
+
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -35,12 +35,8 @@ public class RestaurantController {
 	private ResultService resultService;
 	@Autowired
 	private ReviewService reviewService;
-
-	
-	@Autowired
-	private StarService stService;
-	
-
+//	@Autowired
+//	private StarService stService;
 	@Autowired
 	private RestaurantService restaurantService;
 		

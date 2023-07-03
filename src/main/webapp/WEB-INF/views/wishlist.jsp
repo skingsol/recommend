@@ -27,8 +27,11 @@
 
 
 			<div class="row" id="search_result">
+					<input type="hidden" name="userId" id="userId" value="로그인 유저 아이디 넣기" /> 
 				<!-- 위시리스트 반복 구간 -->
+				
 				<%-- <c:forEach var="" items=""> --%>
+				
 					<div class="col-12 boxing space_wrap">
 						<div class="post-entry horizontal d-md-flex"
 							style="align-items: center;">
@@ -45,20 +48,18 @@
 											data-title=""></a> &nbsp;
 									</div>
 									<p id="search_category"></p>
-									<!-- <div style="display: inline-block; vertical-align: top;">
+									<div style="display: inline-block; vertical-align: top;">
 										<img class="score_image"
 											src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png"
 											alt="img" />
 									</div>
 									<div style="display: inline-block;">
 										<span class="review">3.8점(77)</span>
-									</div> -->
+									</div>
 									<div class="save_restaurant">
 										<!-- 좋아요 누른 하트 : class=" fafa-heart"  -->
-										<span class="icon is-small"><i class="fa fa-heart-o"
+										<span class="icon is-small"><i class="fa fa-heart"
 											aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
-
-										
 									</div>
 								</div>
 								<%-- <c:if test="${srch.homePageLink ne ''}"> --%>
@@ -107,9 +108,5 @@
 	// CSRF 토큰 값 생성
 	const csrfToken = '${_csrf.token}';
 </script>
-
-
-<script src="/restaurants/js/result2.js"></script>
-<!-- <script src="/search/js/request.js"></script> -->
 <script src="/search/js/search.js"></script>
 <%@ include file="include/footer.jsp"%>
