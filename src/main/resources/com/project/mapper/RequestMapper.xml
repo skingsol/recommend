@@ -4,12 +4,22 @@
 
 	<!-- 맛집 등록 요청 DB에 담기 -->
 	<insert id="sendRequest">
-		insert into register_restaurant(req_id, req_name, req_content) 
-		values(sq_register.nextval, #{reqName}, #{reqContent})
+		insert into register_restaurant(req_id, req_name, req_address, req_content, req_user) 
+		values(sq_register.nextval, #{reqName}, #{reqAddress}, #{reqContent},#{reqUser})
 	</insert>
 
+	<!-- 맛집 등록 요청 1건 보기 -->
 	<select id="readRequest" resultType="com.project.domain.RegisterRstrntDTO">
 		select * from register_restaurant where req_id = #{reqId}
 	</select>
 
+	<!-- 맛집 등록 요청 리스트 보기 -->
+	<select id="listRequest" resultType="com.project.domain.RegisterRstrntDTO">
+		select * from register_restaurant order by req_date asc
+	</select>
+	
+	<!-- 요청 삭제 -->
+	<delete id="deleteRequest">
+		delete from register_restaurant where req_id = #{reqId}
+	</delete>
 </mapper>
