@@ -7,12 +7,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ReviewDTO {
-	private int reviewId;
+public class RestaurantDTO {
 	private int restaurantId;
-	private String userId;
-	private String reviewContent;
-	private int grade;
-	private String reviewDate;
-	private String reviewUpdatedate;
+	private String title;
+	private String address;
+	private int wishlistCount;
+	private int reviewCount;
+	private int menuId;
+	private int reviewId;
 }

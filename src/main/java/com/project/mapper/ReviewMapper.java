@@ -13,4 +13,5 @@ public interface ReviewMapper {
 	public int update(ReviewDTO dto);
 	public ReviewDTO read(int reviewId);
 	public int delete(int reviewId);
+	//public int countReviews(int restauantId);
 }

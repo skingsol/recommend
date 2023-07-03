@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.mapper.RestaurantMapper">
+
+
+	<!-- 레스토랑 정보 입력 -->
+	<insert id="insert">
+		INSERT INTO restaurant (restaurant_id, title, address, wishlist_count, review_count, menu_id)
+		VALUES (restaurant_seq.nextval,#{title},#{address},#{wishlistCount},#{reviewCount},#{menuId})		
+	</insert>
+		
+  
+  	<!-- 레스토랑 정보 조회 -->
+    <select id="checkRestaurant" resultType="com.project.domain.RestaurantDTO">
+        SELECT * FROM restaurant WHERE title = #{title} AND address = #{address}
+    </select>
+    
+</mapper>

@@ -9,19 +9,17 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
+import com.project.domain.RestaurantDTO;
 import com.project.domain.ResultDTO;
 import com.project.domain.ReviewDTO;
+import com.project.service.RestaurantService;
 import com.project.service.ResultService;
 import com.project.service.ReviewService;
 
@@ -36,14 +34,25 @@ public class RestaurantController {
 	private ResultService resultService;
 	@Autowired
 	private ReviewService reviewService;
-	
+	@Autowired
+	private RestaurantService restaurantService;
 		
+	
+	
+	// 맛집 상세페이지 이동
+	// 맛집 정보 테이블에 담기 (담기전 음식점 타이틀과 주소로 중복검사하기)
 	@GetMapping("/profile")
 	public void profileGet(String restaurantName, Model model) {
-		log.info("맛집 상세페이지 요청: " + restaurantName);
-		ResultDTO result = resultService.result(restaurantName);
-		model.addAttribute("result", result);	
-		log.info("result"+result);
+	    log.info("맛집 상세페이지 요청: " + restaurantName);
+	    ResultDTO result = resultService.result(restaurantName);
+	    
+	    RestaurantDTO restaurantDTO = new RestaurantDTO();
+	    restaurantDTO.setTitle(result.getTitle());
+	    restaurantDTO.setAddress(result.getAddress());
+	    int restaurantId = restaurantService.saveRestaurant(restaurantDTO);
+	    
+	    model.addAttribute("result", result);
+	    model.addAttribute("restaurantId", restaurantId);
 	}
 	
 	
@@ -62,17 +71,16 @@ public class RestaurantController {
 	}
 	
 	// insert 작업
-//	@PostMapping("/new")
-//	public ResponseEntity<String> create(@RequestBody ReviewDTO ReviewDTO,Model model){
-	@GetMapping("/new")
-	public ResponseEntity<String> create(@ModelAttribute ReviewDTO ReviewDTO,Model model){
-		log.info("댓글 삽입 "+ReviewDTO);
-		
-		model.addAttribute("dto", ReviewDTO);
-		return reviewService.insert(ReviewDTO)?
-				new ResponseEntity<String>("success", HttpStatus.OK):
-					new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+	@PostMapping("/new")
+	public ResponseEntity<String> create(@RequestBody ReviewDTO ReviewDTO, Model model){
+	    log.info("댓글 삽입 " + ReviewDTO);
+
+	    model.addAttribute("dto", ReviewDTO);
+	    return reviewService.insert(ReviewDTO)?
+	            new ResponseEntity<String>("success", HttpStatus.OK):
+	                new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
+
 	
 	// update 작업
 	@GetMapping("/update")
@@ -91,17 +99,6 @@ public class RestaurantController {
 		return reviewService.delete(reviewId)?
 				new ResponseEntity<String>("success",HttpStatus.OK):
 					new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-	}
-
-	
+	}	
 	
 }
-
-
-
-
-
-
-
-
-
