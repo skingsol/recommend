@@ -91,9 +91,9 @@
 	     property : dto 변수명과 일치
 	-->
 	<resultMap type="com.project.domain.BoardDTO" id="boardMap">
-		<id property="postId" column="post_id"/>
-		<result property="postTitle" column="post_title"/>
-		<result property="postContent" column="post_content"/>
+		<id property="postId" column="postId"/>
+		<result property="postTitle" column="postTitle"/>
+		<result property="postContent" column="postContent"/>
 		<result property="userid" column="userid"/>
 		<collection property="attachList" resultMap="attachMap"/>
 	</resultMap>	
@@ -102,7 +102,7 @@
 		<result property="uploadPath" column="uploadPath"/>
 		<result property="fileName" column="fileName"/>
 		<result property="fileType" column="fileType"/>
-		<result property="postId" column="post_id"/>
+		<result property="postId" column="postId"/>
 	</resultMap>	
 	<select id="readAttach" resultMap="boardMap">
 		select post_title,post_content,userid,sa.post_id, uuid, uploadpath,filetype,filename

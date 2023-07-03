@@ -36,7 +36,7 @@ public class ReplyController {
 	
 	// http://localhost:8080/replies/1 + GET : 1번 댓글 데이터 가져오기
 	@GetMapping(value="/{replyId}")
-	public ResponseEntity<ReplyDTO> get(@PathVariable("replyId") Integer replyId){
+	public ResponseEntity<ReplyDTO> get(@PathVariable("replyId") int replyId){
 		log.info("댓글 조회 "+replyId);
 		
 		return new ResponseEntity<ReplyDTO>(reService.read(replyId), HttpStatus.OK);
@@ -57,7 +57,7 @@ public class ReplyController {
 	// http://localhost:8080/replies/pages/bno/ + GET
 	
 	@GetMapping("/pages/{postId}/{page}")
-	public ResponseEntity<ReplyPageDTO> select(@PathVariable("postId") Integer postId,@PathVariable("page")Integer page){
+	public ResponseEntity<ReplyPageDTO> select(@PathVariable("postId") int postId,@PathVariable("page")int page){
 		log.info("댓글 조회 "+postId);
 		
 		Criteria cri = new Criteria(page, 10);
@@ -69,9 +69,9 @@ public class ReplyController {
 	
 	@PutMapping("/{replyId}")
 	@PreAuthorize("principal.username == #dto.replyer")
-	public ResponseEntity<String> modify(@RequestBody ReplyDTO dto, @PathVariable("replyId") Integer replyId){
+	public ResponseEntity<String> modify(@RequestBody ReplyDTO dto){
 		log.info("댓글 수정 "+dto);
-		dto.setReplyId(replyId);
+		
 		return reService.update(dto)?
 				new ResponseEntity<String>("success", HttpStatus.OK):
 					new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);	
@@ -81,7 +81,7 @@ public class ReplyController {
 	// http://localhost:8080/replies/rno + DELETE : 댓글 삭제
 	@DeleteMapping("/{replyId}")
 	@PreAuthorize("principal.username == #dto.replyer")
-	public ResponseEntity<String> remove(@PathVariable("replyId") Integer replyId,@RequestBody ReplyDTO dto){
+	public ResponseEntity<String> remove(@PathVariable("replyId") int replyId,@RequestBody ReplyDTO dto){
 		log.info("댓글 삭제 "+replyId);
 		
 		return reService.delete(replyId)?

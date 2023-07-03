@@ -5,7 +5,6 @@ let replyService = (function () {
   //reply : 댓글 작성 자바스크립트 객체
   //callback : function
   function add(replyContent, callback) {
-    const postId = parseInt(replyContent.postId);
     console.log("add 함수");
 
     fetch("/replies/new", {
@@ -14,7 +13,7 @@ let replyService = (function () {
         "content-type": "application/json",
         "X-CSRF-TOKEN": csrfToken
       },
-      body: JSON.stringify({ replyContent, postId: posId })
+      body: JSON.stringify(replyContent)
     })
       .then((response) => {
         //결과가 도착하게 되면 자동 호출(비동기호출)
