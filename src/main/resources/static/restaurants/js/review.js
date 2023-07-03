@@ -6,7 +6,7 @@ function getReviewList() {
     return;
   }
 
-  fetch("/restaurants/list/" + "123") //restauantId)
+  fetch("/restaurants/list/" + restaurantId)
     .then((response) => {
       if (!response.ok) {
         throw new Error("리스트 없음");
@@ -56,12 +56,12 @@ function getReviewList() {
         </div>
         `;
         reviewList += review;
-      });      
+      });
       reviewGetList.innerHTML = reviewList;
     })
     .catch((error) => console.log("데이터를 가져올 수 없습니다.", error));
-  }
-  getReviewList();
+}
+getReviewList();
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 // 상세페이지 댓글 작성 기능넣기(insert)
@@ -100,44 +100,40 @@ document.querySelector("#insertForm").addEventListener("submit", (e) => {
   e.preventDefault();
 
   const reviewContent = document.querySelector("#insertForm #reviewContent").value;
-  //const userId = document.querySelector("#insertForm #userId").value;
   const userId = document.querySelector("#insertForm #userId").innerHTML;
 
   const data = {
     reviewContent: reviewContent,
     userId: userId,
-    //restauantId: restauantId,
-    restauantId: 123,
+    restaurantId: restaurantId,
     grade: grade,
   };
 
-  const queryString = new URLSearchParams(data).toString();
-
-  if(userId == ""){
+  if (userId == "") {
     alert("로그인 한 후 댓글 작성이 가능합니다.");
     document.querySelector("#insertForm #reviewContent").value = "";
-  } else if(userId != ""){
-  fetch("/restaurants/new?" + queryString, {
-    method: "get",
-    headers: {
-      "content-type": "application/json",
-    },
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("입력 오류");
-      }
-      return response.text();
+  } else if (userId != "") {
+    fetch("/restaurants/new", {
+      method: "POST",
+      headers: {
+        "X-CSRF-TOKEN": csrfToken,
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
     })
-    .then((data) => {
-      getReviewList();
-      document.querySelector("#insertForm #reviewContent").value = "";
-    })
-    .catch((error) => console.log(error));
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("입력 오류");
+        }
+        return response.text();
+      })
+      .then((data) => {
+        getReviewList();
+        document.querySelector("#insertForm #reviewContent").value = "";
+      })
+      .catch((error) => console.log(error));
   }
 });
-
-
 
 // 댓글 수정하기전 댓글 정보 가져오는 작업(read)
 document.querySelector(".section-title").addEventListener("click", (e) => {
@@ -155,23 +151,24 @@ document.querySelector(".section-title").addEventListener("click", (e) => {
   //console.log("댓글 작성자 ", userId);
 
   // 로그인 사용자 정보 가져오기
-   let userId = document.querySelector("#insertForm #userId").innerHTML;
-   let login_user = "";
-   if (form_reviewer == userId) {
-     login_user = userId;
-   }else if (form_reviewer != userId) {
+  let userId = document.querySelector("#insertForm #userId").innerHTML;
+  let login_user = "";
+  if (form_reviewer == userId) {
+    login_user = userId;
+  } else if (form_reviewer != userId) {
     alert("로그인 한 후 수정 및 삭제가 가능합니다.");
-     return;
-   }
+    return;
+  }
 
   // 이벤트를 부모가 감지를 하기 때문에
   if (e.target.classList.contains("modify_button")) {
     // 댓글 하나 가져오기
     // 로그인 사용자와 댓글 작성자가 같은지 확인
     if (userId != login_user) {
-       alert("자신의 댓글만 수정이 가능합니다.");
-       return;
-     }
+      alert("자신의 댓글만 수정이 가능합니다.");
+      return;
+    }
+
     fetch("/restaurants/" + reviewId)
       .then((response) => {
         if (!response.ok) {
@@ -193,11 +190,10 @@ document.querySelector(".section-title").addEventListener("click", (e) => {
     // 모달 창 안에 가져온 내용 보여주기
   } else if (e.target.classList.contains("delete_button")) {
     // 로그인 사용자와 댓글 작성자가 같은지 확인
-     if (userId != login_user) {
-       alert("자신의 댓글만 삭제 가능합니다.");
-       return;
-     }
-
+    if (userId != login_user) {
+      alert("자신의 댓글만 삭제 가능합니다.");
+      return;
+    }
 
     // 삭제버튼 클릭 시(delete)
     fetch("/restaurants/delete/" + reviewId, {
