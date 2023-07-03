@@ -68,7 +68,7 @@ public class ReplyController {
 	// http://localhost:8080/replies/rno + PUT + 수정데이터(json)
 	
 	@PutMapping("/{replyId}")
-	@PreAuthorize("principal.username == #dto.userid")
+	@PreAuthorize("principal.username == #dto.replyer")
 	public ResponseEntity<String> modify(@RequestBody ReplyDTO dto){
 		log.info("댓글 수정 "+dto);
 		
@@ -80,7 +80,7 @@ public class ReplyController {
 	
 	// http://localhost:8080/replies/rno + DELETE : 댓글 삭제
 	@DeleteMapping("/{replyId}")
-	@PreAuthorize("principal.username == #dto.userid")
+	@PreAuthorize("principal.username == #dto.replyer")
 	public ResponseEntity<String> remove(@PathVariable("replyId") int replyId,@RequestBody ReplyDTO dto){
 		log.info("댓글 삭제 "+replyId);
 		

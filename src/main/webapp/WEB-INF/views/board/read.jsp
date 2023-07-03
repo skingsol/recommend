@@ -11,9 +11,7 @@
 	<div class="inner">
 		<nav id="gnb" class="gnb">
 			<ul class="gnb_ul">
-				<li class="notice"><a href='<c:url value="/board/notice"  />'>
-						<span>공지사항</span>
-				</a></li>
+				
 				<li class="qna"><a
 					href="/board/list?page=1&amount=10&type=&keyword="> <span>게시판</span>
 				</a></li>
@@ -32,12 +30,12 @@
 		<form action="" method="post">
 			<div class="form-group">
 				<label for="post_title">post_title</label> <input type="text"
-					class="form-control" id="post_title" name="postTitle" readonly
+					class="form-control" id="postTitle" name="postTitle" readonly
 					value="${dto.postTitle}">
 			</div>
 			<div class="form-group">
 				<label for="post_content">post_content</label>
-				<textarea class="form-control" id="post_content" rows="10"
+				<textarea class="form-control" id="postContent" rows="10"
 					name="postContent" readonly>${dto.postContent}</textarea>
 			</div>
 			<div class="form-group">
@@ -46,13 +44,19 @@
 					value="${dto.userid}">
 			</div>
 
-			<%-- 로그인 상황에서 해당 게시물 작성자와 동일할 때만 보여주기 --%>
+			<%-- 로그인 상황에서 해당 게시물 작성자와 동일할 때만 보여주기 --%> 
 
-			<c:set var="username"
-				value="${pageContext.request.userPrincipal.name}" />
+
+			<%-- <c:set var="username"
+				value="${pageContext.request.userPrincipal.name}" /> --%>
+<security:authorize access="isAuthenticated()">
+				<security:authentication property="principal.username" var="username"/>
+
 			<c:if test="${username == dto.userid}">
 				<button type="button" class="btn btn-info">수정</button>
 			</c:if>
+			
+			</security:authorize>		
 
 			<button type="button" class="btn btn-secondary">목록</button>
 		</form>
@@ -83,7 +87,7 @@
 			</div>
 			<div class="col my-2"> 
 				<div class="form-row my-2">
-					<input type="text" name="userid" id="userid" class="form-control"
+					<input type="text" name="replyer" id="replyer" class="form-control"
 						readonly value='<security:authentication property="principal.username"/>'/>
 				</div>
 				<div class="form-row my-2">
@@ -114,7 +118,7 @@
 		</ul>
 	</div>
 	<div class="card-footer">
-		<!-- 댓글 페이지 나누기 -->
+		<!-- 댓글 페이지 나누기 --> 
 	</div>
 </div>
 <!-- 댓글 수정 폼 -->
@@ -135,7 +139,7 @@
 						class="form-control"></textarea>
 				</div>
 				<div class="form-group">
-					<input type="text" name="userid" id="userid" class="form-control"
+					<input type="text" name="replyer" id="replyer" class="form-control"
 						readonly />
 				</div>
 			</div>
@@ -153,8 +157,8 @@
 		name="type" value="${cri.type}" /> <input type="hidden"
 		name="keyword" value="${cri.keyword}" />
 </form>
-
- 
+    	
+    
 <script>
 	//게시물 글번호 가져오기
 	const postId = ${dto.postId};
@@ -168,7 +172,7 @@
 
 
 
-
+ 
 
 
 

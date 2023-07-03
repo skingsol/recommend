@@ -15,7 +15,7 @@ public class ReplyDTO {
 	private int replyId;
 	private int postId;
 	private String replyContent;
-	private String userid;
+	private String replyer;
 	private Date replyRegdate;	
 //	private Date updateDate;
 	private int replyAuth;

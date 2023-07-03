@@ -136,8 +136,8 @@ let replyService = (function () {
       .catch((error) => console.log(error));
   }
 
-  function remove(replyId, userid, callback) {
-    const replyContent = { userid: userid };
+  function remove(replyId, replyer, callback) {
+    const replyContent = { replyer: replyer };
 
     fetch("/replies/" + replyId, {
       method: "delete",

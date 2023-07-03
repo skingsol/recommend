@@ -186,7 +186,8 @@ function showList(pageNum) {
         result[idx].replyId +
         "'>";
       str += "<div class='d-flex justify-content-between'>";
-      str += "<strong class='primary-font'>" + result[idx].userid + "</strong>";
+      str +=
+        "<strong class='primary-font'>" + result[idx].replyer + "</strong>";
       str +=
         "<small class='text-muted text-right'>" +
         replyService.displayTime(result[idx].replyRegdate) +
@@ -211,13 +212,13 @@ if (replyForm) {
   replyForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const replyContent = document.querySelector("#replyContent");
-    const userid = document.querySelector("#userid");
+    const replyer = document.querySelector("#replyer");
 
     replyService.add(
       {
         postId: postId,
         replyContent: replyContent.value,
-        userid: userid.value
+        replyer: replyer.value
       },
       (result) => {
         //alert(result);
@@ -251,18 +252,18 @@ chat.addEventListener("click", (e) => {
   console.log("이벤트 발생 ", li);
 
   //rno 가져오기 ( data-* 속성값 가져오기 : dataset)
-  let replyId = li.dataset.replyId;
+  let replyId = li.getAttribute("data-replyId");
   console.log("replyId ", replyId);
 
   //댓글 작성자 정보 가져오기
-  let userid = li.firstElementChild.firstElementChild.innerHTML;
-  console.log("댓글 작성자 ", userid);
+  let replyer = li.firstElementChild.firstElementChild.innerHTML;
+  console.log("댓글 작성자 ", replyer);
 
   //로그인 사용자 정보 가져오기
-  let form_userid = document.querySelector("#replyForm #userid");
+  let form_replyer = document.querySelector("#replyForm #replyer");
   let login_user = "";
-  if (form_userid) {
-    login_user = form_userid.value;
+  if (form_replyer) {
+    login_user = form_replyer.value;
   }
 
   if (!login_user) {
@@ -273,7 +274,7 @@ chat.addEventListener("click", (e) => {
   // 이벤트를 부모가 감지를 하기 때문에
   if (e.target.classList.contains("btn-warning")) {
     //로그인 사용자와 댓글 작성자가 같은지 확인
-    if (userid != login_user) {
+    if (replyer != login_user) {
       alert("자신의 댓글만 수정이 가능합니다.");
       return;
     }
@@ -286,19 +287,19 @@ chat.addEventListener("click", (e) => {
       document.querySelector(".modal-body #replyId").value = result.replyId;
       document.querySelector(".modal-body #replyContent").value =
         result.replyContent;
-      document.querySelector(".modal-body #userid").value = result.userid;
+      document.querySelector(".modal-body #replyer").value = result.replyer;
 
       $("#replyModal").modal("show");
     });
   } else if (e.target.classList.contains("btn-danger")) {
     //로그인 사용자와 댓글 작성자가 같은지 확인
-    if (userid != login_user) {
+    if (replyer != login_user) {
       alert("자신의 댓글만 삭제가 가능합니다.");
       return;
     }
 
     //삭제버튼 클릭 시
-    replyService.remove(replyId, userid, (result) => {
+    replyService.remove(replyId, replyer, (result) => {
       if (result === "success") {
         alert("삭제 성공");
         showList(page);
@@ -313,9 +314,9 @@ document
   .addEventListener("click", () => {
     //모달 창안에 있는 rno, reply 가져온 후 자바스크립트 객체 생성
     const updateReply = {
-      rnreply_ido: document.querySelector(".modal-body #replyId").value,
+      replyId: document.querySelector(".modal-body #replyId").value,
       replyContent: document.querySelector(".modal-body #replyContent").value,
-      userid: document.querySelector(".modal-body #userid").value
+      replyer: document.querySelector(".modal-body #replyer").value
     };
 
     // replyService.update 호출

@@ -8,9 +8,7 @@
 	<div class="inner">
 		<nav id="gnb" class="gnb">
 			<ul class="gnb_ul">
-				<li class="notice"><a href='<c:url value="/board/notice"  />'>
-						<span>공지사항</span>
-				</a></li>
+				
 				<li class="qna"><a href="/board/list?page=1&amount=10&type=&keyword="> <span>게시판</span>
 				</a></li>
 			</ul>
@@ -18,6 +16,9 @@
 		<!--// gnb -->
 	</div>
 	<!--// inner -->
+	
+	</div>
+<div class="row card-header">게시글</div>
 </div>
 <div class="d-flex justify-content-center">
 	<!-- 검색부분  -->
