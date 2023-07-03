@@ -15,4 +15,6 @@ public class ReviewDTO {
 	private int grade;
 	private String reviewDate;
 	private String reviewUpdatedate;
+	
+	private double starAvg;
 }

@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project.domain.MemberAuthDTO;
+import com.project.domain.ReviewDTO;
 import com.project.ms.dto.BringNaverApiDTO;
 import com.project.service.BringNaverService;
 import com.project.service.RegisterRstrntService;
+import com.project.service.StarService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -29,6 +31,8 @@ public class HomeController {
 	private BringNaverService brService;
 	@Autowired
 	private RegisterRstrntService reqService;
+	@Autowired
+	private StarService stService;
 
 	// 메인페이지 화면단 api 정보 가져오기
 	@GetMapping("/")
@@ -36,10 +40,11 @@ public class HomeController {
 		log.info("메인 페이지 요청");
 
 		List<BringNaverApiDTO> list = brService.main("한식");
-
-		log.info("음식점 리스트" + list);
-
+		
+		
+		
 		model.addAttribute("list", list);
+		
 		return "main";
 	}
 

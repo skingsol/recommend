@@ -57,11 +57,11 @@
 											data-title="${srch.title}">${srch.title}</a> &nbsp;
 									</div>
 									<p id="search_category">${srch.category}</p>
-									<!-- <div style="display: inline-block; vertical-align: top;">
+									<div style="display: inline-block; vertical-align: top;">
 										<img class="score_image"
 											src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png"
 											alt="img" />
-									</div> -->
+									</div> 
 									<div style="display: inline-block;">
 										<span class="review">3.8점(77)</span>
 									</div>
@@ -85,11 +85,11 @@
 
 
 								<p id="search_road_address" class="store_address_result">${srch.roadAddress}</p>
-							<!-- 	<div class="review_info">
+							<div class="review_info">
 									<p class="likes">
 										<span>12</span>명이 추천했습니다.
 									</p>
-								</div> -->
+								</div> 
 
 							</div>
 						</div>

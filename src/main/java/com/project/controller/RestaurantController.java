@@ -24,6 +24,7 @@ import com.project.domain.ResultDTO;
 import com.project.domain.ReviewDTO;
 import com.project.service.ResultService;
 import com.project.service.ReviewService;
+import com.project.service.StarService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -37,12 +38,17 @@ public class RestaurantController {
 	@Autowired
 	private ReviewService reviewService;
 	
-		
+	@Autowired
+	private StarService stService;
+	
 	@GetMapping("/profile")
 	public void profileGet(String restaurantName, Model model) {
 		log.info("맛집 상세페이지 요청: " + restaurantName);
 		ResultDTO result = resultService.result(restaurantName);
+	//	int restaurantId
+	//	double star = stService.starAvg(restaurantId);
 		model.addAttribute("result", result);	
+	//	model.addAttribute("star", star);
 		log.info("result"+result);
 	}
 	
