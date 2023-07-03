@@ -11,7 +11,6 @@ public class BringNaverApiDTO {
 	// 화면에 보여줄 내용 + db 에서 가져온 내용 담을 객체
 	
 	private Long idx;		
-	 private String id;
 	
 	// SearchLocalItem + SearchImageItem
 	private String title;							// 음식명

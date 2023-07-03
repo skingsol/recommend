@@ -78,13 +78,7 @@ special.addEventListener("click", (e) => {
         str += "<span class='restaurant_name'>" + element.title + "</span>";
         str += "<strong class='point search_point'>";
         str += "</strong></a></p>";
-        str += "<div id='star_image' style='display: inline-block; vertical-align: top;'>";
-        str +=
-          "<img class='score_image' src='https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png' alt='img' />";
         str += "</div>";
-        str += "<div id='review_score' style='display: inline-block;'>";
-        str += "<span class='review'>3.8점(77)</span>";
-        str += "</div> </div>";
         str += "<div class='save_restaurant'>";
         str +=
           "<span class='icon is-small'><i class='fa fa-heart-o' aria-hidden='true'></i></span> &nbsp;<span class='like-num'></span>";

@@ -10,7 +10,7 @@
 	<div class="inner">
 		<nav id="gnb" class="gnb">
 			<ul class="gnb_ul">
-			
+
 				<li class=""><a href=".."> <span>게시판</span>
 				</a></li>
 			</ul>
@@ -27,15 +27,17 @@
 		<div class="row gutter-v1 align-items-stretch mb-5">
 
 
-				<!-- 검색결과 리스트 반복 구간 -->
+			<!-- 검색결과 리스트 반복 구간 -->
 			<div class="row" id="search_result" data-name="loop_section">
 				<c:forEach var="srch" items="${srchList}">
 					<div class="col-12 boxing space_wrap">
 						<div class="post-entry horizontal d-md-flex"
 							style="align-items: center;">
 							<div class="media">
+							<input type="hidden" class="restaurantId" value="${wishList.restaurantId}" data-restaurantId="${item.restaurantId}"/>
 								<a href=""> <img id="search_image" src="${srch.imageLink}"
-									alt="음식점 썸네일" class="img-fluid" data-title="${srch.title}" data-image="${srch.imageLink}">
+									alt="음식점 썸네일" class="img-fluid" data-title="${srch.title}"
+									data-image="${srch.imageLink}">
 								</a>
 							</div>
 							<div class="content_text">
@@ -47,44 +49,49 @@
 									</div>
 									<p id="search_category">${srch.category}</p>
 
-									<!-- 카톡 공유하기 기능 -->
-									<a id="kakao-link-btn" id="kakao" href="javascript:kakaoShare();"> <img style="height: 40px;" name="kakao-icon"
-										src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" />
-									</a>
-									<!-- 공유하기 기능 종료 -->
-									
+
+
 									<div class="save_restaurant">
 										<!-- 좋아요 누른 하트 : class="
 										fafa-heart"  -->
 										<span class="icon is-small"><i class="fa fa-heart-o"
-											aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
+											aria-hidden="true" id="heart-icon"></i></span> &nbsp;<span class="like-num"></span>
 
 									</div>
 								</div>
 								<c:if test="${srch.homePageLink ne ''}">
 									<p class="store_link_result">
-										<a id='search_homePageLink' target='_blank' data-home="${srch.homePageLink}"
-											href="${srch.homePageLink}">홈페이지 바로가기</a>
+										<a id='search_homePageLink' target='_blank'
+											data-home="${srch.homePageLink}" href="${srch.homePageLink}" style="color:blue;">홈페이지
+											바로가기</a>
 									</p>
 								</c:if>
 								<c:if test="${srch.homePageLink eq '' }">
 									<p class="store_link_result">&nbsp;&nbsp;</p>
 								</c:if>
 
-								<p id="search_road_address" class="store_address_result"" >${srch.roadAddress}</p>
+								<p id="search_road_address" class="store_address_result"" >지번 주소: ${srch.address}</p>
+								<p id="search_road_address" class="store_address_result"" >도로명 주소: ${srch.roadAddress}</p>
 								<div class="review_info">
 									<p class="likes">
 										<span>12</span>명이 추천했습니다.
 									</p>
 								</div>
 
-
+								<!-- 카톡 공유하기 기능 -->
+								<a id="kakao-link-btn" id="kakao"
+									href="javascript:kakaoShare();"> <img style="height: 40px;"
+									name="kakao-icon"
+									src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" />
+								</a>
+								<!-- 공유하기 기능 종료 -->
+								
 							</div>
 						</div>
 					</div>
 				</c:forEach>
 				<!-- 반복 구간 종료 -->
-				
+
 			</div>
 
 			<!-- 검색결과 더보기 버튼 : naver 지역검색 api 로는 구현 불가 -->
@@ -126,6 +133,7 @@
 							</button>
 						</div>
 						<div class="modal-body">
+						
 							<div class="form-group">
 								<textarea name="reqName" rows="1" class="form-control reqName"
 									placeholder="맛집 이름"></textarea>
@@ -157,6 +165,7 @@
 		</form>
 
 
+
 	</div>
 </div>
 
@@ -164,12 +173,13 @@
 <script>
 	// CSRF 토큰 값 생성
 	const csrfToken = '${_csrf.token}';
+	
 </script>
 
 
 
-
-<script src="/kakao/kakao.js"></script> 
+<script src="/main/js/wish.js"></script>
+<script src="/kakao/kakao.js"></script>
 <script src="/restaurants/js/result2.js"></script>
 <script src="/search/js/search.js"></script>
 <%@ include file="include/footer.jsp"%>
