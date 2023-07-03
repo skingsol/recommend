@@ -141,6 +141,7 @@
 		</div> 
 		<!--리뷰수정 모달 end -->		  
 	
+	 
 		<div class="write_review">
 			<form action="" id="insertForm">
 				<div class="section-title">
@@ -161,6 +162,7 @@
 				</button>
 				</div>
 				</div>
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />		
 			</form>
 		</div>
 	</div>
@@ -169,4 +171,5 @@
 
 	<div class="mb-5"></div>
 	</div>
+
 <%@ include file="../include/footer_restaruant.jsp"%>

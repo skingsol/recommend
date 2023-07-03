@@ -13,7 +13,7 @@
 		 from 
 		 		review 
 		 where 
-		 		restaurant_id=#{restauantId}
+		 		restaurant_id=#{restauantId}     
 	</select>
 	
 	
@@ -27,7 +27,7 @@
 						grade
 						) 
 		values(
-			#{restauantId},
+			#{restaurantId},
 			REVIEW_SEQ.NEXTVAL,
 			#{reviewContent},
 			#{userId},
