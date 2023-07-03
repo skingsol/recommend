@@ -77,8 +77,8 @@
 									placeholder="맛집에 대한 정보를 자유롭게 입력해 주세요."></textarea>
 							</div>
 							<div class="form-group">
-								<input type="text" name="reqUser" id="reqUser" class="form-control"  readonly
-		    					 value='may'/>
+							<!-- 로그인 유저 아이디 정보 value에 가져오기 -->
+		    					 <input type="text" class="form-control" id="loginUser" name="loginUser" value="${pageContext.request.userPrincipal.name}" readonly/>
 							</div>
 						</div>
 						<div class="modal-footer">
@@ -92,11 +92,12 @@
 		<%-- </sec:authorize> --%>
 				
 
-
 			</div>
 		</div>
 	</div>
 </div>
+
+
 
 
 <!-- 테스트 끝 -->

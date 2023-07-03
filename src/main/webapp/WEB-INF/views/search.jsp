@@ -148,18 +148,17 @@
 							</div>
 							<div class="form-group">
 								<textarea name="reqContent" id="info" rows="2"
-									class="form-control reqContent"
+									class="form-control reqAddress"
 									placeholder="맛집의 주소, 지역명을 입력해 주세요. 구체적인 정보일수록 등록에 도움이 됩니다."></textarea>
 							</div>
-							
 							<div class="form-group">
 								<textarea name="reqContent" id="info" rows="4"
-									class="form-control reqAddress"
+									class="form-control reqContent"
 									placeholder="맛집에 대한 정보를 자유롭게 입력해 주세요."></textarea>
 							</div>
 							<div class="form-group">
-								<input type="text" name="reqUser" id="reqUser" class="form-control"  readonly
-		    					 value='may'/>
+							<!-- 로그인 유저 아이디 정보 value에 가져오기 -->
+		    					 <input type="text" class="form-control" id="loginUser" name="loginUser" value="${pageContext.request.userPrincipal.name}" readonly/>
 							</div>
 						</div>
 						<div class="modal-footer">

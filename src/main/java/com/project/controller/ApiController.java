@@ -3,7 +3,7 @@ package com.project.controller;
 import java.security.Principal;
 import java.util.List;
 
-
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,6 +21,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project.domain.BoardDTO;
 import com.project.domain.Criteria;
+import com.project.domain.LoginDTO;
+import com.project.domain.MemberAuthDTO;
 import com.project.domain.RegisterRstrntDTO;
 import com.project.ms.dto.BringNaverApiDTO;
 import com.project.service.BringNaverService;

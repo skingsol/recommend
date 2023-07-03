@@ -5,12 +5,13 @@ const registerBtn = document.querySelector("#rq_reg_btn");
 const modal = document.getElementById("requestModal");
 
 registerBtn.addEventListener("click", (e) => {
-  modal.style.display = "flex";
-  // if (loginUser == "") {
-  //   alert("로그인 후 이용 가능합니다.");
-  // } else if (loginUser != "") {
-  //   modal.style.display = "flex";
-  // }
+  const loginUser = document.getElementById("loginUser").value;
+  console.log(loginUser);
+  if (loginUser == "") {
+    alert("로그인 후 이용 가능합니다.");
+  } else if (loginUser != "") {
+    modal.style.display = "flex";
+  }
 });
 
 const closeBtn = document.querySelector(".close");
@@ -32,7 +33,7 @@ document.querySelector("#modalForm").addEventListener("submit", (e) => {
   const name = document.querySelector(".reqName").value;
   const content = document.querySelector(".reqContent").value;
   const address = document.querySelector(".reqAddress").value;
-  const user = document.querySelector("#reqUser").value;
+  const user = document.querySelector("#loginUser").value;
 
   e.preventDefault();
 
