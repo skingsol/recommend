@@ -45,8 +45,8 @@ function kakaoShare() {
       {
         title: "홈페이지 바로가기",
         link: {
-          webUrl: homePageLink || profilePage,
-          mobileWebUrl: homePageLink || profilePage,
+          webUrl: homePageLink2 || profilePage,
+          mobileWebUrl: homePageLink2 || profilePage,
         },
       },
     ],
