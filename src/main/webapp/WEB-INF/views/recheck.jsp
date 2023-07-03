@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="include/header.jsp"%>
@@ -44,8 +43,6 @@
 
 
 				<!-- 음식점 등록 요청 팝업창 -->
-				
-						<%-- <sec:authorize access="isAuthenticated()">  --%>
 		<form action='<c:url value="/api/search"/>' method="post"
 			id="modalForm">
 			<input type="hidden" name="${_csrf.parameterName}"
@@ -89,8 +86,7 @@
 				</div>
 			</div>
 		</form>
-		<%-- </sec:authorize> --%>
-				
+			
 
 			</div>
 		</div>

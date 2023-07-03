@@ -46,6 +46,14 @@ public class RestaurantController {
 		log.info("result"+result);
 	}
 	
+	// 카톡 공유기능 테스트용 컨트롤러(삭제예정)
+	@GetMapping("/profile2")
+	public void profileGet2(String restaurantName, Model model) {
+		log.info("맛집 상세페이지 요청: " + restaurantName);
+		ResultDTO result = resultService.result(restaurantName);
+		model.addAttribute("result", result);	
+		log.info("result"+result);
+	}
 	
 	// 리뷰 보여주기
 	@GetMapping("/list/{restauantId}")

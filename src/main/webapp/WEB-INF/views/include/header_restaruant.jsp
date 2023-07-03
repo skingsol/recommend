@@ -103,10 +103,16 @@
 					<li class="nav-item dropdown no-arrow"><a
 						class="nav-link dropdown-toggle" href="#" id="userDropdown"
 						role="button" data-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false"> <span
-							class="mr-2 d-none d-lg-inline text-gray-600 small">아이디 님</span>
+						aria-expanded="false"> 						<sec:authorize access="isAnonymous()">						
+						 	<span class="mr-2 d-none d-lg-inline text-gray-600 small">로그인을 해주세요.</span>
 							<img class="img-profile rounded-circle"
 							src="/main/img/undraw_profile.svg">
+						</sec:authorize>
+						<sec:authorize access="isAuthenticated()">
+							<span class="mr-2 d-none d-lg-inline text-gray-600 small">${pageContext.request.userPrincipal.name}님</span>
+							<img class="img-profile rounded-circle"
+							src="/main/img/undraw_profile.svg">
+						</sec:authorize>
 					</a> <!-- Dropdown - User Information -->
 
 						<div class="dropdown-menu dropdown-menu-right  animated--grow-in"

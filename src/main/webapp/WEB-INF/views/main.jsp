@@ -102,7 +102,7 @@
 								</span> <strong class="point search_point "></strong>
 								</a>
 							</p>
-							<div id="star_image"
+<!-- 							<div id="star_image"
 								style="display: inline-block; vertical-align: top;">
 								<img class="score_image"
 									src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png"
@@ -110,7 +110,7 @@
 							</div>
 							<div id="review_score" style="display: inline-block;">
 								<span class="review">3.8점(77)</span>
-							</div>
+							</div> -->
 						</div>
 						<div class="save_restaurant">
 							<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
