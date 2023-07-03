@@ -133,7 +133,7 @@
                            class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                            로그아웃
                         </a>
-                        <a class="dropdown-item" href="#"> <i
+                        <a class="dropdown-item" href="http://localhost:8080/wishlist"> <i
                            class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> 내 위시리스트
                         </a>
                         <a class="dropdown-item" href="/member/mypage"> <i

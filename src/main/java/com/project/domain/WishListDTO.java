@@ -10,4 +10,8 @@ import lombok.NoArgsConstructor;
 public class WishListDTO {
 	private String userId;
 	private int restaurantId;
+	private String title;
+	private String address;
+	private int reviewCount;
+	private int wishlistCount;
 }

@@ -22,6 +22,7 @@ import com.project.domain.ReviewDTO;
 import com.project.service.RestaurantService;
 import com.project.service.ResultService;
 import com.project.service.ReviewService;
+import com.project.service.WishListService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -36,7 +37,8 @@ public class RestaurantController {
 	private ReviewService reviewService;
 	@Autowired
 	private RestaurantService restaurantService;
-		
+	@Autowired
+	private WishListService wishListService;
 	
 	
 	// 맛집 상세페이지 이동
