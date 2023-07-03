@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.mapper.WishListMapper">
+	
+  <!-- 위시리스트 추가 -->
+  <insert id="insert">
+    INSERT INTO wishlist (userid, restaurant_id)
+    VALUES (#{userId}, #{restaurantId})
+  </insert>
+
+  <!-- 위시리스트 보여주기 -->
+  <select id="getWishList" resultType="com.project.domain.WishListDTO">
+    SELECT * FROM wishlist WHERE userid = #{userId}
+  </select>
+
+  <!-- 위시리스트 삭제하기 -->
+  <delete id="delete">
+    DELETE FROM wishlist
+    WHERE userid = #{userId} AND restaurant_id = #{restaurantId}
+  </delete>
+	
+  <!-- 위시리스트 개수 카운트하기 -->
+  <select id="countWishList" resultType="java.lang.Integer">
+    SELECT count(*) from wishlist where restaurant_id = #{restauantId}
+  </select>
+	
+
+</mapper>

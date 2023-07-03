@@ -68,7 +68,6 @@
 
 <!-- 상세페이지 css -->
 <link rel="stylesheet" href="/restaurants/css/profile.css">
-
 </head>
 <body>
 	
