@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 
-<footer id="footer">
+<footer id="footer" style="position: absolute; bottom: 0; width: 100%;">
 	<div class="footer">
 		<span class="logo ko"><img src="/main/img/BaB.png" style="height: 40px; "/><em>All the information around me</em></span>
 		<ul class="utill_m">
-			<li><a href="https://corp.siksinhot.com/w2/company" target="_blank">회사 소개</a></li>
 			<li><a href="/">Bab(맛집 추천은 역시 Bab!)</a></li>
 			<li style="font-weight: bold;"><a target="_blank" href="/member/step1">개인정보처리방침 및 이용약관</a></li>
 			<li><a href="/board/list">공지사항</a></li>

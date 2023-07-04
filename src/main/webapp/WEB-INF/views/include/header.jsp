@@ -103,6 +103,7 @@
 						class="nav-link dropdown-toggle" href="#" id="userDropdown"
 						role="button" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false">
+						
 						<sec:authorize access="isAnonymous()">						
 						 	<span class="mr-2 d-none d-lg-inline text-gray-600 small">로그인을 해주세요.</span>
 							<img class="img-profile rounded-circle"
@@ -113,20 +114,17 @@
 							<img class="img-profile rounded-circle"
 							src="/main/img/undraw_profile.svg">
 						</sec:authorize>
-					</a> <!-- Dropdown - User Information -->
-
+					</a> 
+					
+					<!-- Dropdown - User Information -->
 						<div class="dropdown-menu dropdown-menu-right  animated--grow-in"
 							aria-labelledby="userDropdown" style="text-align: center;">
 
-							<!-- 사용자 인증 여부에 따라 로그인/로그아웃 페이지 설정 -->
+							<!-- 사용자 로그인 전 -->
 							<sec:authorize access="isAnonymous()">
-								<a class="dropdown-item" href='<c:url value="/member/login"  />'>로그인
-								</a>
-								<a class="dropdown-item" href='<c:url value="/member/step1"  />'>
-									회원가입 </a>
-
+								<a class="dropdown-item" href='<c:url value="/member/login"  />'>로그인</a>
+								<a class="dropdown-item" href='<c:url value="/member/step1"  />'>회원가입 </a>
 							</sec:authorize>
-
 
 							<!-- 사용자 로그인 시: 드롭다운 메뉴 변경 -->
 							<sec:authorize access="isAuthenticated()">
