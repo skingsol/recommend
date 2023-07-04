@@ -22,22 +22,23 @@
 
 
 <!-- 대문 이미지 슬라이드 -->
+<!-- 대문 이미지 슬라이드 -->
 <div class="slideshow-container">
 	<div class="slides">
 		<div class="mySlides fade1 active">
 			<img
-				src="https://file.rankingdak.com/image/RANK/BANNER/AR_IMG_1/20230620/IMG1687lsj254602389.jpg"
-				style="width: 100%">
+				src="/main/images/korean.jpg"
+				style="width: 100%; height: 450px;">
 		</div>
 		<div class="mySlides fade1 active">
 			<img
-				src="https://file.rankingdak.com/image/RANK/BANNER/AR_IMG_1/20230615/IMG1686JWG791986458.jpg"
-				style="width: 100%">
+				src="/main/images/sushi.jpg"
+				style="width: 100%; height: 450px;">
 		</div>
 		<div class="mySlides fade1 active">
 			<img
-				src="https://file.rankingdak.com/image/RANK/BANNER/AR_IMG_1/20230620/IMG1687cTW219471789.jpg"
-				style="width: 100%">
+				src="/main/images/chinese.jpg"
+				style="width: 100%; height: 450px;">
 		</div>
 		<div class="slide_btn" style="text-align: center">
 			<div class="dot active"></div>
@@ -46,6 +47,8 @@
 		</div>
 	</div>
 </div>
+
+
 
 
 
