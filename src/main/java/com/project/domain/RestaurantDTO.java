@@ -13,6 +13,5 @@ public class RestaurantDTO {
 	private String address;
 	private int wishlistCount;
 	private int reviewCount;
-	private int menuId;
 	private int reviewId;
 }
