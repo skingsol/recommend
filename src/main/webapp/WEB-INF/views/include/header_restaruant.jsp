@@ -5,7 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!DOCTYPE html>
 <html>
@@ -70,93 +70,96 @@
 <link rel="stylesheet" href="/restaurants/css/profile.css">
 </head>
 <body>
-	
-   <nav class="navbar navbar-expand navbar-light bg-white topbar "
-      id="header_center">
-      <div class="desc_header">
-         <div class="desc_header_wrap">
-            <div class="main_logo">
-               <a href="/"> <img class="main_logo_img"
-                  src="/main/img/BaB.png" alt="로고" />
-               </a>
-            </div>
+
+	<nav class="navbar navbar-expand navbar-light bg-white topbar "
+		id="header_center">
+		<div class="desc_header">
+			<div class="desc_header_wrap">
+				<div class="main_logo">
+					<a href="/"> <img class="main_logo_img" src="/main/img/BaB.png"
+						alt="로고" />
+					</a>
+				</div>
 
 
+				<form action="/api/search/" class="searchForm todo-form"
+					id="searchForm">
+					<div class="search_bar">
+						<div class="search_input_bar">
+							<input type="search" class="search_input"
+								placeholder="지역, 음식 또는 식당명 입력" name="query" value="${query }" />
+							<button class="search_icon" type="submit" aria-label="검색하기 버튼"></button>
+						</div>
+						<div class="todo-inner">
+							<div class="allDelete off">
+								<h5 class="tit">최근 검색어</h5>
+								<span class="x-btn">모두 지우기 ❌</span>
+							</div>
+							<p class="txt"></p>
+							<ul id="todo-list"></ul>
+						</div>
+					</div>
+				</form>
 
-            <form action="/api/search/" class="searchForm todo-form" id="searchForm">
-               <div class="search_bar">
-                  <div class="search_input_bar">
-                     <input type="search" class="search_input" placeholder="지역, 음식 또는 식당명 입력" name="query" value="${query}"/>
-                     <button class="search_icon" type="submit" aria-label="검색하기 버튼"></button>
-                  </div>
-                  <div class="todo-inner">
-                     <div class="allDelete off">
-                        <h5 class="tit">최근 검색어</h5>
-                        <span class="x-btn">모두 지우기 ❌</span>
-                     </div>
-                     <p class="txt"></p>
-                     <ul id="todo-list"></ul>
-                  </div>
-               </div>
-            </form>
+
+				<!-- Topbar Navbar -->
+				<ul class="navbar-nav ml-auto">
+
+					<!-- Nav Item - User Information -->
+					<li class="nav-item dropdown no-arrow"><a
+						class="nav-link dropdown-toggle" href="#" id="userDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false"> <sec:authorize access="isAnonymous()">
+								<span class="mr-2 d-none d-lg-inline text-gray-600 small">로그인을
+									해주세요.</span>
+								<img class="img-profile rounded-circle"
+									src="/main/img/undraw_profile.svg">
+							</sec:authorize> <sec:authorize access="isAuthenticated()">
+								<span class="mr-2 d-none d-lg-inline text-gray-600 small">${pageContext.request.userPrincipal.name}님</span>
+								<img class="img-profile rounded-circle"
+									src="/main/img/undraw_profile.svg">
+							</sec:authorize>
+					</a> <!-- Dropdown - User Information -->
+
+						<div class="dropdown-menu dropdown-menu-right  animated--grow-in"
+							aria-labelledby="userDropdown" style="text-align: center;">
+
+							<!-- 사용자 인증 여부에 따라 로그인/로그아웃 페이지 설정 -->
+							<sec:authorize access="isAnonymous()">
+								<a class="dropdown-item" href='<c:url value="/member/login"  />'>로그인
+								</a>
+								<a class="dropdown-item" href='<c:url value="/member/step1"  />'>
+									회원가입 </a>
+							</sec:authorize>
+
+							<!-- 사용자 로그인 시: 드롭다운 메뉴 변경 -->
+							<sec:authorize access="isAuthenticated()">
+								<a class="dropdown-item" href="#" id="logout"> 로그아웃 </a>
+							</sec:authorize>
+							<sec:authorize access="hasRole('ROLE_ADMIN')">
+								<a class="dropdown-item" href="/api/master">사용자 요청 목록 </a>
+							</sec:authorize>
+							<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')">
+								<a class="dropdown-item" href="/wishlist">내 위시리스트 </a>
+								<a class="dropdown-item" href="/member/mypage"> 내 프로필 수정 </a>
+							</sec:authorize>
 
 
-            <!-- Topbar Navbar -->
-            <ul class="navbar-nav ml-auto">
+						</div></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-               <!-- Nav Item - User Information -->
-               <li class="nav-item dropdown no-arrow"><a
-                  class="nav-link dropdown-toggle" href="#" id="userDropdown"
-                  role="button" data-toggle="dropdown" aria-haspopup="true"
-                  aria-expanded="false"> <span
-                     class="mr-2 d-none d-lg-inline text-gray-600 small">아이디 님</span>
-                     <img class="img-profile rounded-circle"
-                     src="/main/img/undraw_profile.svg">
-               </a> <!-- Dropdown - User Information -->
+	<!-- 로그아웃 클릭 시 -->
+	<form action="/logout" method="post" id="logoutForm">
+		<input type="hidden" name="${_csrf.parameterName}"
+			value="${_csrf.token}" />
+	</form>
 
-                  <div class="dropdown-menu dropdown-menu-right  animated--grow-in"
-                     aria-labelledby="userDropdown" style="text-align: center;">
+	<!-- 스크립트 : logout 클릭되면 폼 가져오기 / 폼 서브밋 -->
 
-                     <!-- 사용자 인증 여부에 따라 로그인/로그아웃 페이지 설정 -->
-                     <sec:authorize access="isAnonymous()">
-                        <a class="dropdown-item" href='<c:url value="/member/login"  />'>로그인
-                        </a>
-                        <a class="dropdown-item" href='<c:url value="/member/step1"  />'>
-                           회원가입 </a>
-
-                     </sec:authorize>
-                  
-
-                     <!-- 사용자 로그인 시: 드롭다운 메뉴 변경 -->
-                     <sec:authorize access="isAuthenticated()">
-                        <a class="dropdown-item" href="#" id="logout"> <i
-                           class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                           로그아웃
-                        </a>
-                        <a class="dropdown-item" href="http://localhost:8080/wishlist"> <i
-                           class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> 내 위시리스트
-                        </a>
-                        <a class="dropdown-item" href="/member/mypage"> <i
-                           class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> 내 프로필
-                           수정
-                        </a>
-                     </sec:authorize>
-
-                  </div></li>
-            </ul>
-         </div>
-      </div>
-   </nav>
-
-   <!-- 로그아웃 클릭 시 -->
-   <form action="/logout" method="post" id="logoutForm">
-      <input type="hidden" name="${_csrf.parameterName}"
-         value="${_csrf.token}" />
-   </form>
-
-   <!-- 스크립트 : logout 클릭되면 폼 가져오기 / 폼 서브밋 -->
-
-   <script>
+	<script>
 
    document.querySelector("#logout").addEventListener("click", () => {
       

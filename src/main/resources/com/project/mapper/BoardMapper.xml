@@ -16,7 +16,7 @@
     SELECT /*+INDEX_DESC(post pk_post)*/ rownum rn, post_id, post_title, userid, post_regdate, post_content, replycnt, post_auth
     FROM post
     WHERE rownum <= (#{page}*#{amount})
-    ORDER BY CASE WHEN userid IN (SELECT userid FROM authority WHERE auth = 'ROLE_ADMIN') THEN 0 ELSE 1 END, post_id DESC
+    ORDER BY CASE WHEN userid IN (SELECT userid FROM authority WHERE auth = 'ROLE_ADMIN') THEN 0 ELSE 1 END, post_id desc
   )
   WHERE rn > (#{page}-1)*#{amount}
   ]]>

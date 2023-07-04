@@ -1,13 +1,20 @@
 //---------------------------------------------------------------//
-//    맛집 등록 요청 버튼 클릭 시 모달창 띄움
+//    맛집 등록 요청 버튼 클릭 시 모달창 띄움(로그인 유저만)
 //---------------------------------------------------------------//
 const registerBtn = document.querySelector("#rq_reg_btn");
 const modal = document.getElementById("requestModal");
+
 registerBtn.addEventListener("click", (e) => {
-  modal.style.display = "flex";
+  const loginUser = document.getElementById("loginUser").value;
+  console.log(loginUser);
+  if (loginUser == "") {
+    alert("로그인 후 이용 가능합니다.");
+  } else if (loginUser != "") {
+    modal.style.display = "flex";
+  }
 });
 
-const closeBtn = modal.querySelector(".close");
+const closeBtn = document.querySelector(".close");
 closeBtn.addEventListener("click", (e) => {
   modal.style.display = "none";
 });
@@ -19,38 +26,46 @@ window.addEventListener("keyup", (e) => {
 });
 
 //---------------------------------------------------------------//
-//    모달창에서 등록요청 버튼 클릭 시 메시지 띄우고 페이지는 유지시키기
+//    모달창에서 등록요청 버튼 클릭 시 등록완료 알림창 띄우기
 //---------------------------------------------------------------//
 
 document.querySelector("#modalForm").addEventListener("submit", (e) => {
+  const name = document.querySelector(".reqName").value;
+  const content = document.querySelector(".reqContent").value;
+  const address = document.querySelector(".reqAddress").value;
+  const user = document.querySelector("#loginUser").value;
+
   e.preventDefault();
-  const name = document.querySelector(".reqName").innerHTML;
-  const content = document.querySelector(".reqContent").innerHTML;
-  console.log(name, content);
-  // const requestForm = {
-  //   reqName: document.querySelector(".reqName").innerHTML,
-  //   reqContent: document.querySelector(".reqContent").innerHTML,
-  // };
-  // console.log(requestForm);
-  // fetch("/api/search", {
-  //   method: "post",
-  //   headers: {
-  //     "content-type": "application/json",
-  //     "X-CSRF-TOKEN": csrfToken,
-  //   },
-  //   body: JSON.stringify(requestForm),
-  // })
-  //   .then((response) => {
-  //     //결과가 도착하게 되면 자동 호출(비동기호출)
-  //     if (!response.ok) {
-  //       throw new Error("입력값 오류");
-  //     }
-  //     return response.text(); //success
-  //   })
-  //   .then((data) => {
-  //     alert("요청이 등록되었습니다.");
-  //   })
-  //   .catch((error) => console.log(error));
+
+  const requestForm = {
+    reqName: name,
+    reqAddress: address,
+    reqContent: content,
+    reqUser: user,
+  };
+
+  console.log(requestForm);
+
+  fetch("/api/search", {
+    method: "post",
+    headers: {
+      "content-type": "application/json",
+      "X-CSRF-TOKEN": csrfToken,
+    },
+    body: JSON.stringify(requestForm),
+  })
+    .then((response) => {
+      //결과가 도착하게 되면 자동 호출(비동기호출)
+      if (!response.ok) {
+        throw new Error("입력값 오류");
+      }
+      return response.text(); //success
+    })
+    .then((data) => {
+      alert("요청이 등록되었습니다.");
+      modal.style.display = "none";
+    })
+    .catch((error) => console.log(error));
 });
 
 //---------------------------------------------------------------//
