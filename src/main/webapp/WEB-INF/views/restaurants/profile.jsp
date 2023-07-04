@@ -3,8 +3,6 @@
 <%@ include file="../include/header_restaruant.jsp"%>
 
 
-
-
 <!-- 맛집 상세 이미지 표시 -->
 <div class="restaurant_profile">
 	<div class="restaurant_poto_slider">
@@ -34,9 +32,7 @@
 						<h5>
 							<span class="result_category">${result.category}</span>
 						</h5>
-						<div class="star_score">
-							별점: <span> ★ </span> <span>5.0</span>
-						</div>
+						
 					</div>
 				</div>
 			</div>
@@ -75,45 +71,6 @@
 					</tr>
 				</tbody>
 			</table>
-		</div>
-
-		<div>
-			<table class="number">
-				<tbody>
-					<tr class="">
-						<th class="text-start">전화번호</th>
-						<td class="text-end"><span>02-123-4567</span></td>
-					</tr>
-
-					<tr class="time">
-						<th class="text-start">OPEN & CLOSE</th>
-						<td class="text-end"><span>11:30</span> ~ <span>07:30</span></td>
-					</tr>
-				</tbody>
-			</table>
-
-		</div>
-		<!-- 메뉴 표기 -->
-		<div class="restaurant_menu">
-			<!-- 반복될 메뉴 정보 영역 -->
-			<ul class="result_menu">
-				<li class="menu"><strong><span class="text-start">메뉴</span></strong>
-					<span class="text-muted"> - - - - - - - - - - - - - - - - -
-						- - -</span> <strong><span class="text-end">?.000<small>원</small></span></strong></li>
-			</ul>
-
-			<ul class="result_menu">
-				<li class="menu"><strong><span class="text-start">메뉴</span></strong>
-					<span class="text-muted"> - - - - - - - - - - - - - - - - -
-						- - -</span> <strong><span class="text-end">?.000<small>원</small></span></strong></li>
-			</ul>
-
-			<ul class="result_menu">
-				<li class="menu"><strong><span class="text-start">메뉴</span></strong>
-					<span class="text-muted"> - - - - - - - - - - - - - - - - -
-						- - -</span> <strong><span class="text-end">?.000<small>원</small></span></strong></li>
-			</ul>
-
 		</div>
 	</div>
 

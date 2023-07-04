@@ -20,9 +20,9 @@ document.querySelector("#btn-wish-add").addEventListener("click", () => {
       .then((data) => {
         console.log(data);
         if (data === "fail") {
-          alert("이미 찜목록에 있습니다.");
+          alert("이미 위시리스트에 있습니다.");
         } else {
-          alert("찜목록에 추가 되었습니다.");
+          alert("위시리스트에 추가 되었습니다.");
         }
         fetch("/wish/count?restaurantId=" + restaurantId)
           .then((response) => response.text())

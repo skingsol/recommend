@@ -103,24 +103,6 @@
 						</div></td>
 				</tr>
 				
-				
-
-
-				<tr id="tr_photo">
-					<th>프로필 사진</th>
-					<td><input name="key" type="hidden" value="profile"> <input
-						name="val" type="hidden" value=""> <input id="hid_photo"
-						type="hidden" value=""> <input id="hid_image"
-						name="fImage" type="file" class="hide">
-
-						<div class="fl"
-							style="width: 110px; height: 110px; background: url(https://dfzrjox9sv97l.cloudfront.net/dicons_20160930/img/common/img-profile-default.png);">
-							<img id="img_photo" src="" width="110" height="110"
-								style="border-radius: 50%; display: none;">
-						</div>
-						<div class="clear"></div> <br> 회원 프로필 사진으로 사용될 이미지를 등록해 주세요.</td>
-				</tr>
-
 			</tbody>
 		</table>
 

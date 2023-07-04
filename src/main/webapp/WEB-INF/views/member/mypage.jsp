@@ -20,25 +20,7 @@
 
 				<table id="tbl_info" class="table table-user">
 					<tbody>
-						<tr id="tr_photo">
-							<th>프로필 사진</th>
-							<td><iframe name="fImage"
-									style="display: none; width: 0; height: 0;"></iframe>
-								<div id="frm_image">
-									<input name="key" type="hidden" value="profile"> <input
-										name="val" type="hidden" value="2wlNkbXYa1uoaOlujVeDIw==">
-									<input id="hid_photo" type="hidden" value=""> <input
-										id="hid_image" name="fImage" type="file" class="hide">
-
-									<div class="fl"
-										style="width: 110px; height: 110px; background: url(https://dfzrjox9sv97l.cloudfront.net/dicons_20160930/img/common/img-profile-default.png);">
-										<img id="img_photo" src="" width="110" height="110"
-											style="border-radius: 50%; display: none;">
-									</div>
-									
-									<div class="clear"></div>
-								</div> <br> <br>회원 프로필 사진으로 사용될 이미지를 등록해 주세요.</td>
-						</tr>
+						
 						<tr id="tr_name">
 							<th>아이디</th>
 							<td><input type="text" class="form-control" id="userid"
