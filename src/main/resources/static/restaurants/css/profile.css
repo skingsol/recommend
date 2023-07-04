@@ -196,7 +196,7 @@ body {
 	padding: 20px;
 }
 
-.test3{
+.for_wishlist{
 	width : 100%;
 	border-bottom: 2px solid #808080;
 	border-right: 2px solid #808080;
@@ -205,6 +205,7 @@ body {
 	margin-right: 10%;
 	margin-bottom: 30px;
 }
+
 
 .restaurantTitle {
     font-weight: bold;

@@ -48,13 +48,15 @@ public class WishListController {
 			log.info("실패");
 		}  
     	return new ResponseEntity<> ("fail",HttpStatus.OK);
-    }
+    }    
+    
     @GetMapping("/wish/count")
     public ResponseEntity<String> wishCount(@RequestParam("restaurantId")int restaurantId) {
     	String count =  Integer.toString(wishListService.countWishList(restaurantId));
     	System.out.println(count);
     	return new ResponseEntity<> (count,HttpStatus.OK);
     }
+    
     @GetMapping("/wish/delete")
     public ResponseEntity<String> wishDelete(WishListDTO dto) {
     	wishListService.deleteWishList(dto);
