@@ -38,7 +38,7 @@ passwordField.addEventListener("input", function () {
     messageElement.style.color = "green";
   } else {
     messageElement.textContent =
-      "특수문자(예: !@#$ 등) 1자 이상을 포함한 5~15 글자의 비밀번호로 설정해주세요.";
+      "특수문자(예: !@#$ 등) 1자 이상을 포함한 5~12 글자의 비밀번호로 설정해주세요.";
     messageElement.style.color = "red";
   }
 });
@@ -90,7 +90,7 @@ document.querySelector("#email").addEventListener("blur", () => {
   let emailError = document.querySelector("#emailError");
   //이메일 확인
   if (email === "") {
-    emailError.innerHTML = "이메일 입력해주세요.";
+    emailError.innerHTML = "이메일을 입력해주세요.";
     emailError.style.display = "block";
   } else {
     emailError.innerHTML = "";
@@ -139,45 +139,42 @@ document.querySelector("#introduce").addEventListener("blur", () => {
   }
 });
 
-let Password = document.querySelector("#password").value;
-let Password2 = document.querySelector("#password2").value;
-let Email = document.querySelector("#email").value;
+//let Email = document.querySelector("#email").value;
 
 // 이메일확인
-if (Email.includes("@")) {
-  let EmailId = Email.split("@")[0];
-  if (EmailId === "") {
-    document.getElementById("emailError").innerHTML = "이메일을 입력해주세요.";
-    emailError.style.display = "block";
-  } else {
-    document.getElementById("emailError").innerHTML = "";
-  }
-} else {
-  document.getElementById("emailError").innerHTML =
-    "이메일이 올바르지 않습니다.";
-  emailError.style.display = "block";
-}
+//if (Email.includes("@")) {
+//const EmailId = Email.split("@")[0];
+// if (EmailId === "") {
+//   document.getElementById("emailError").innerHTML = "이메일을 입력해주세요.";
+//   emailError.style.display = "block";
+// } else {
+//   document.getElementById("emailError").innerHTML = "";
+// }
+//} else {
+// document.getElementById("emailError").innerHTML =
+//   "이메일이 올바르지 않습니다.";
+// emailError.style.display = "block";
+//}
 
+const Password = document.querySelector("#password").value;
+const Password2 = document.querySelector("#password2").value;
 // 비밀번호 확인
 if (Password !== Password2) {
-  passwordError.style.display = "block";
-  password2Error.style.display = "block";
   document.getElementById("passwordError").innerHTML = "";
   document.getElementById("password2Error").innerHTML =
     "비밀번호가 동일하지 않습니다.";
-  passwordError.style.display = "block";
 } else {
   document.getElementById("passwordError").innerHTML = "";
   document.getElementById("password2Error").innerHTML = "";
 }
 
-// const form = document.querySelector("form");
+const form = document.querySelector("#form");
 
-// form.addEventListener("submit", (e) => {
-//   if (!form.checkValidity()) {
-//     e.preventDefault();
-//     e.stopPropagation();
-//   }
+form.addEventListener("submit", (e) => {
+  if (!form.checkValidity()) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
 
-//   form.classList.add("was-validated");
-// });
+  form.classList.add("was-validated");
+});
