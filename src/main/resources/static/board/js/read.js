@@ -27,7 +27,7 @@ function showAttachFile(uploadResultArr) {
         item.fileType +
         "' >";
       str +=
-        "<a href='/display?fileName=" +
+        "<a href='/download?fileName=" +
         oriFileCallPath +
         "' data-lightbox='image'>";
       str +=

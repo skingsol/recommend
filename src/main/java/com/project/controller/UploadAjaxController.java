@@ -174,13 +174,18 @@ public class UploadAjaxController {
 		ResponseEntity<byte[]> result = null;
 		try {
 			// 서버가 보내는 파일에 대한 타입 지정
-			headers.add("content-type", Files.probeContentType(file.toPath()));
+			headers.add("content-type", Files.probeContentType(file.toPath()));			
 			result = new ResponseEntity<byte[]>(FileCopyUtils.copyToByteArray(file),HttpStatus.OK);
 		} catch (IOException e) {			
 			e.printStackTrace();
 		}
 		return result;
 	}
+	
+	
+	
+	
+	
 	
 	// HttpServletRequest 객체 : 클라이언트 정보를 가져올 수 있음
 	@GetMapping(value="/download", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
