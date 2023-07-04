@@ -18,4 +18,5 @@ public interface MemberService {
 	//비밀번호 변경
 	public boolean update(ChangeDTO changeDTO);
 
+	public boolean updateMember(MemberDTO memberDTO);
 }

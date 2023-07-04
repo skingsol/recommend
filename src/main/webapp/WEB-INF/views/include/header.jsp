@@ -154,6 +154,7 @@
          value="${_csrf.token}" />
    </form>
 
+
    <!-- 스크립트 : logout 클릭되면 폼 가져오기 / 폼 서브밋 -->
 
    <script>

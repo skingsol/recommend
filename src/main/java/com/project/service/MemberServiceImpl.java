@@ -71,16 +71,25 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.dupId(userid) == 0 ? true:false;
 	}	
 
+	
+	
+	@Transactional
 	@Override
 	public boolean remove(LoginDTO loginDTO) {		
 		
 		//비밀번호 확인
 		String encodePass = mapper.getPass(loginDTO.getUserid());
 		
+		
+		
 		if(bPasswordEncoder.matches(loginDTO.getPassword(), encodePass)) {
-			return mapper.leave(loginDTO.getUserid())==1?true:false;			
+			//auth 삭제 호출
+						
+			return mapper.leave_auth(loginDTO.getUserid()) == 1 && mapper.leave(loginDTO.getUserid()) == 1;
 		}
 		return false;
+		
+		
 	}
 	
 	@Override
@@ -97,6 +106,12 @@ public class MemberServiceImpl implements MemberService {
 			return mapper.update(changeDTO)==1?true:false;			
 		}
 		return false;
+	}
+
+
+	@Override
+	public boolean updateMember(MemberDTO memberDTO) {
+		return mapper.updateMember(memberDTO)==1?true:false;
 	}
 
 
