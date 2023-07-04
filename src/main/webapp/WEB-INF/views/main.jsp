@@ -22,22 +22,23 @@
 
 
 <!-- 대문 이미지 슬라이드 -->
+<!-- 대문 이미지 슬라이드 -->
 <div class="slideshow-container">
 	<div class="slides">
 		<div class="mySlides fade1 active">
 			<img
-				src="https://file.rankingdak.com/image/RANK/BANNER/AR_IMG_1/20230620/IMG1687lsj254602389.jpg"
-				style="width: 100%">
+				src="/main/images/korean.jpg"
+				style="width: 100%; height: 450px;">
 		</div>
 		<div class="mySlides fade1 active">
 			<img
-				src="https://file.rankingdak.com/image/RANK/BANNER/AR_IMG_1/20230615/IMG1686JWG791986458.jpg"
-				style="width: 100%">
+				src="/main/images/sushi.jpg"
+				style="width: 100%; height: 450px;">
 		</div>
 		<div class="mySlides fade1 active">
 			<img
-				src="https://file.rankingdak.com/image/RANK/BANNER/AR_IMG_1/20230620/IMG1687cTW219471789.jpg"
-				style="width: 100%">
+				src="/main/images/chinese.jpg"
+				style="width: 100%; height: 450px;">
 		</div>
 		<div class="slide_btn" style="text-align: center">
 			<div class="dot active"></div>
@@ -46,6 +47,8 @@
 		</div>
 	</div>
 </div>
+
+
 
 
 
@@ -102,7 +105,7 @@
 								</span> <strong class="point search_point "></strong>
 								</a>
 							</p>
-						<div id="star_image"
+						<%-- <div id="star_image"
 								style="display: inline-block; vertical-align: top;">
 								<img class="score_image"
 									src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/common_react/review__newstar__img.png"
@@ -111,17 +114,18 @@
 							<div id="review_score" style="display: inline-block;">
 								<span class="review">3.8점(77)</span>
 								<span class="review">${star}</span>
-							</div> 
+							</div>  --%>
 						</div>
-						<div class="save_restaurant">
-							<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
+						<!-- <div class="save_restaurant">
+							좋아요 누른 하트 : class="fa fa-heart" 
 							<span class="icon is-small"><i class="fa fa-heart-o"
 								aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</c:forEach>
 		
+			
 			
 		</div>
 	</section>	
@@ -129,6 +133,7 @@
 </div>
 
 <script src = "/main/js/main.js"></script>
+<script src="/main/js/wish.js"></script>
 <script src = "/restaurants/js/result.js"></script>
 
 <%@ include file="include/footer.jsp"%>

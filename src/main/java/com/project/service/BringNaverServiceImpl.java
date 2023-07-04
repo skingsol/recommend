@@ -104,6 +104,7 @@ public class BringNaverServiceImpl implements BringNaverService {
 							BringNaverApiDTO dto = new BringNaverApiDTO();
 							dto.setTitle(localItem.getTitle().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", ""));
 							dto.setCategory(localItem.getCategory());
+							dto.setAddress(localItem.getAddress());
 							dto.setRoadAddress(localItem.getRoadAddress());
 							dto.setHomePageLink(localItem.getLink());
 							dto.setImageLink(imageItem.getLink());
