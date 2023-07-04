@@ -241,3 +241,7 @@ a {
     background-color: #e74a3b;
 
 }
+
+#kakao-link-btn{position: absolute;
+    right: 1.3em;
+    bottom: 2em;}

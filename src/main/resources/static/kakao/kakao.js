@@ -1,6 +1,7 @@
 // 클릭 이벤트 추가
 document.querySelector(".container").addEventListener("click", (e) => {
-  if ((e.target.name = "kakao-icon")) {
+  console.log(e.target.name);
+  if (e.target.name === "kakao-icon") {
     console.log("카카오톡 공유하기 버튼 클릭!");
     kakaoShare();
   }
