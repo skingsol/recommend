@@ -47,6 +47,8 @@ public class ApiController {
 		return brService.main(query);
 	}
 
+	
+	
 	// 서치페이지에서 작동하는 컨트롤러(메인에서 검색 시에도 작동)
 	@GetMapping("/search")
 	public  String search(String query, Model model) {

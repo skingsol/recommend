@@ -38,9 +38,7 @@ public class HomeController {
 		log.info("메인 페이지 요청");
 
 		List<BringNaverApiDTO> list = brService.main("한식");
-		
-		
-		
+
 		model.addAttribute("list", list);
 		
 		return "main";

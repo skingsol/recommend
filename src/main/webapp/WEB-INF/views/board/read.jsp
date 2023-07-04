@@ -49,14 +49,17 @@
 
 			<%-- <c:set var="username"
 				value="${pageContext.request.userPrincipal.name}" /> --%>
+				
 			<security:authorize access="isAuthenticated()" >
 				<security:authentication property="principal.username" var="username" />
-				<c:if test="${username == dto.userid}">
+				<c:if test="${username == dto.userid} ">
 					<button type="button" class="btn btn-info">수정</button>
 				</c:if>
 
 			</security:authorize>
-
+<c:if test="${username != dto.userid and hasRole('ROLE_ADMIN')}">
+        <button type="button" class="btn btn-info">수정</button>
+    </c:if>
 			<button type="button" class="btn btn-secondary">목록</button>
 		</form>
 	</div>

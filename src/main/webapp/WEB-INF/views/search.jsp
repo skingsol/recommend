@@ -11,7 +11,7 @@
 		<nav id="gnb" class="gnb">
 			<ul class="gnb_ul">
 
-				<li class=""><a href=".."> <span>게시판</span>
+				<li class=""><a href="/board/list?page=1&amount=10&type=&keyword="> <span>게시판</span>
 				</a></li>
 			</ul>
 		</nav>
