@@ -1,24 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../include/header.jsp"%>
-<link href="/login/css/leavepage.css" rel="stylesheet">
-<h1>회원탈퇴</h1>
+<%@ include file="../include/header_restaruant.jsp"%>
 
-<main class="form-signin w-100 m-auto">
+<div class="login_body">
+<h1 style="text-align: center;">회원탈퇴</h1>
 	<form method="post" action='<c:url value="/member/leave"/>'>
-		<div class="form-floating">
-			<input type="text" class="form-control" id="userid" name="userid"
-				 readonly value="${pageContext.request.userPrincipal.name}" /> <label
-				for="floatingInput">UserId</label>
+		
+		<div class="login_title">
+				 <label	for="floatingInput">UserId</label>
+			<input type="text" class="form-control" id="userid" name="userid" style="font-size: 20px"
+				 readonly value="${pageContext.request.userPrincipal.name}" /> 
 		</div>
-		<div class="form-floating">
-			<input type="password" class="form-control" id="floatingPassword"
-				placeholder="password" name="password"> <label
-				for="floatingPassword">Password</label>
+		
+		<div class="login_title">
+				<label for="floatingPassword">Password</label>
+			<input type="password" class="form-control" id="floatingPassword" style="font-size: 20px"
+				placeholder="password" name="password"> 
 		</div>
-		<button class="w-100 btn btn-lg btn-danger" type="submit">회원탈퇴</button>
+		<div class="D_button_div">
+		<button class="D_button" type="submit">회원탈퇴</button>
 		<input type="hidden" name="${_csrf.parameterName}"
 			value="${_csrf.token}" />
+		</div>
 	</form>
-</main>
+</div>
 <%@ include file="../include/footer.jsp"%>

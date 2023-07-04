@@ -26,7 +26,7 @@
 	
   <!-- 위시리스트 개수 카운트하기 -->
   <select id="countWishList" resultType="int">
-    SELECT count(*) from wishlist where restaurant_id = #{restauantId}
+    SELECT count(*) from wishlist where restaurant_id = #{restaurantId}
   </select>
 	
 

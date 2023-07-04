@@ -1,9 +1,8 @@
 package com.project.controller;
 
-import java.security.Principal;
+
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,18 +10,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.project.domain.BoardDTO;
-import com.project.domain.Criteria;
-import com.project.domain.LoginDTO;
-import com.project.domain.MemberAuthDTO;
+
 import com.project.domain.RegisterRstrntDTO;
 import com.project.ms.dto.BringNaverApiDTO;
 import com.project.service.BringNaverService;
@@ -64,7 +58,7 @@ public class ApiController {
 		model.addAttribute("srchList", srchList);
 		
 		if(srchList.isEmpty()) return "recheck";
-		
+		log.info(srchList.toString());
 		return "search";
 	}
 	

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="security"
-	uri="http://www.springframework.org/security/tags"%>
+ <%@ taglib prefix="security"
+	uri="http://www.springframework.org/security/tags"%> 
 
 <%@ include file="../include/header.jsp"%>
 <link href="/board/css/sb-admin-2.ssb.css" rel="stylesheet">
@@ -11,7 +11,7 @@
 	<div class="inner">
 		<nav id="gnb" class="gnb">
 			<ul class="gnb_ul">
-				
+
 				<li class="qna"><a
 					href="/board/list?page=1&amount=10&type=&keyword="> <span>게시판</span>
 				</a></li>
@@ -44,19 +44,18 @@
 					value="${dto.userid}">
 			</div>
 
-			<%-- 로그인 상황에서 해당 게시물 작성자와 동일할 때만 보여주기 --%> 
+			<%-- 로그인 상황에서 해당 게시물 작성자와 동일할 때만 보여주기 --%>
 
 
 			<%-- <c:set var="username"
 				value="${pageContext.request.userPrincipal.name}" /> --%>
-<security:authorize access="isAuthenticated()">
-				<security:authentication property="principal.username" var="username"/>
+			<security:authorize access="isAuthenticated()" >
+				<security:authentication property="principal.username" var="username" />
+				<c:if test="${username == dto.userid}">
+					<button type="button" class="btn btn-info">수정</button>
+				</c:if>
 
-			<c:if test="${username == dto.userid}">
-				<button type="button" class="btn btn-info">수정</button>
-			</c:if>
-			
-			</security:authorize>		
+			</security:authorize>
 
 			<button type="button" class="btn btn-secondary">목록</button>
 		</form>
@@ -85,16 +84,17 @@
 				<textarea name="replyContent" id="replyContent" rows="5"
 					class="form-control"></textarea>
 			</div>
-			<div class="col my-2"> 
+			<div class="col my-2">
 				<div class="form-row my-2">
 					<input type="text" name="replyer" id="replyer" class="form-control"
-						readonly value='<security:authentication property="principal.username"/>'/>
+						readonly
+						value='<security:authentication property="principal.username"/>' />
 				</div>
 				<div class="form-row my-2">
 					<button class="btn btn-success btn-block">댓글 작성</button>
 				</div>
 			</div>
-		</div> 
+		</div>
 	</form>
 </security:authorize>
 <!-- 댓글 목록 -->
@@ -118,7 +118,7 @@
 		</ul>
 	</div>
 	<div class="card-footer">
-		<!-- 댓글 페이지 나누기 --> 
+		<!-- 댓글 페이지 나누기 -->
 	</div>
 </div>
 <!-- 댓글 수정 폼 -->
@@ -156,23 +156,23 @@
 		name="amount" value="${cri.amount}" /> <input type="hidden"
 		name="type" value="${cri.type}" /> <input type="hidden"
 		name="keyword" value="${cri.keyword}" />
-</form>
-    	
-    
-<script>
+</form> 
+
+
+<script> 
 	//게시물 글번호 가져오기
 	const postId = ${dto.postId};
- 
+  
 	// CSRF 토큰 값 생성
 	const csrfToken = '${_csrf.token}';
 </script>
 <script src="/board/js/reply.js"></script>
-<script src="/board/js/read.js"></script>
+<script src="/board/js/read.js"></script>  
 <%@ include file="../include/footer.jsp"%>
 
 
 
- 
+
 
 
 
