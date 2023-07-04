@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 
-<footer id="footer"  style="position: absolute; bottom: 0; width: 100%;">
+<footer id="footer"  >
 	<div class="footer">
 		<span class="logo ko"><img src="/main/img/BaB.png" style="height: 100px;"/><em>All the information around me</em></span>
 		<ul class="utill_m">

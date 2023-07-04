@@ -100,6 +100,8 @@ a {
 	background: #fbfbfb;
 	border-top: 1px solid #e7e7e7;
 	position: relative;
+	height: 100%;
+	
 	padding: 0 0 0 30px;
 	color: #777;
 	margin: 0px;
