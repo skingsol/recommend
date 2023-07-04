@@ -51,13 +51,13 @@
 
 
 
-									<div class="save_restaurant">
-										<!-- 좋아요 누른 하트 : class="
-										fafa-heart"  -->
+									<!-- <div class="save_restaurant">
+										좋아요 누른 하트 : class="
+										fafa-heart" 
 										<span class="icon is-small"><i class="fa fa-heart-o"
 											aria-hidden="true" id="heart-icon"></i></span> &nbsp;<span class="like-num"></span>
 
-									</div>
+									</div> -->
 								</div>
 								<c:if test="${srch.homePageLink ne ''}">
 									<p class="store_link_result">

@@ -116,11 +116,11 @@
 								<span class="review">${star}</span>
 							</div>  --%>
 						</div>
-						<div class="save_restaurant">
-							<!-- 좋아요 누른 하트 : class="fa fa-heart"  -->
+						<!-- <div class="save_restaurant">
+							좋아요 누른 하트 : class="fa fa-heart" 
 							<span class="icon is-small"><i class="fa fa-heart-o"
 								aria-hidden="true"></i></span> &nbsp;<span class="like-num"></span>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</c:forEach>
