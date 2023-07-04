@@ -5,8 +5,8 @@
 
 	<!-- 레스토랑 정보 입력 -->
 	<insert id="insert">
-		INSERT INTO restaurant (restaurant_id, title, address, wishlist_count, review_count, menu_id)
-		VALUES (restaurant_seq.nextval,#{title},#{address},#{wishlistCount},#{reviewCount},#{menuId})		
+		INSERT INTO restaurant (restaurant_id, title, address, wishlist_count, review_count)
+		VALUES (restaurant_seq.nextval,#{title},#{address},#{wishlistCount},#{reviewCount})		
 	</insert>
 		
   
