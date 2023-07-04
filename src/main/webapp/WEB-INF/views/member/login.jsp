@@ -52,6 +52,5 @@
 		</form>
 	</div>
 </div>
-<script src='<c:url value="/login/js/login.js" />'></script>
 
 <%@ include file="../include/footer.jsp"%>

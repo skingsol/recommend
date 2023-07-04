@@ -3,36 +3,50 @@
  *
  */
 
-$("#send").click(function () {
-  const to = $("#phone").val();
+//window.addEventListener("DOMContentLoaded", function () {
+var useridInput = document.getElementById("userid");
+var lblNameCheck = document.getElementById("lbl_name_check");
 
-  $.ajax({
-    url: "/ExampleController",
-    type: "POST",
-    data: {
-      to: to,
-    },
-    dataType: "json",
-    success: function (data) {
-      const checkNum = data;
-      alert("checkNum:" + checkNum);
+useridInput.addEventListener("input", function () {
+  var userid = this.value;
 
-      $("#enterBtn").click(function () {
-        const userNum = $("#userNum").val();
+  if (/^(?=[A-Za-z])(?=.*\d)[A-Za-z\d]{5,12}$/.test(userid)) {
+    lblNameCheck.textContent = "유효한 아이디입니다.";
+    lblNameCheck.classList.remove("error");
+  } else {
+    lblNameCheck.textContent = "5~12자의 영문, 숫자로 구성되어야 합니다.";
+    lblNameCheck.classList.add("error");
+  }
+});
+//});
 
-        if (checkNum === userNum) {
-          alert("인증 성공하였습니다.");
-        } else {
-          alert("인증 실패하였습니다. 다시 입력해주세요.");
-        }
-      });
-    },
-  });
+// 비밀번호 필드의 HTML 요소를 가져옵니다.
+const passwordField = document.getElementById("password");
+
+// 비밀번호 필드에 입력이 발생할 때마다 유효성을 검사하는 함수를 정의합니다.
+passwordField.addEventListener("input", function () {
+  // 비밀번호 필드의 값과 정규식을 비교합니다.
+  const isValid =
+    /^(?=[A-Za-z])(?=.*\d)(?=.*[!@#$%])[A-Za-z\d!@#$%]{5,12}$/.test(
+      passwordField.value
+    );
+
+  // 유효성 검사 결과에 따라 메시지를 업데이트합니다.
+  const messageElement = document.getElementById("lbl_pass_check");
+  if (isValid) {
+    messageElement.textContent = "유효한 비밀번호입니다.";
+    messageElement.style.color = "green";
+  } else {
+    messageElement.textContent =
+      "특수문자(예: !@#$ 등) 1자 이상을 포함한 5~15 글자의 비밀번호로 설정해주세요.";
+    messageElement.style.color = "red";
+  }
 });
 
-//중복 닉네임
+//중복 아이디
 document.querySelector(".btn-danger").addEventListener("click", () => {
   //사용자가 입력한 userid 가져오기
+
   const userid = document.querySelector("#userid").value;
 
   fetch("/member/dupId", {
@@ -125,14 +139,14 @@ document.querySelector("#introduce").addEventListener("blur", () => {
   }
 });
 
-let password = document.querySelector("#password").value;
-let password2 = document.querySelector("#password2").value;
-let email = document.querySelector("#email").value;
+let Password = document.querySelector("#password").value;
+let Password2 = document.querySelector("#password2").value;
+let Email = document.querySelector("#email").value;
 
 // 이메일확인
-if (email.includes("@")) {
-  let emailId = email.split("@")[0];
-  if (emailId === "") {
+if (Email.includes("@")) {
+  let EmailId = Email.split("@")[0];
+  if (EmailId === "") {
     document.getElementById("emailError").innerHTML = "이메일을 입력해주세요.";
     emailError.style.display = "block";
   } else {
@@ -145,7 +159,7 @@ if (email.includes("@")) {
 }
 
 // 비밀번호 확인
-if (password !== password2) {
+if (Password !== Password2) {
   passwordError.style.display = "block";
   password2Error.style.display = "block";
   document.getElementById("passwordError").innerHTML = "";
@@ -157,27 +171,13 @@ if (password !== password2) {
   document.getElementById("password2Error").innerHTML = "";
 }
 
-document.querySelector(".btn-mint").addEventListener("click", () => {
-  if (check) {
-    document.getElementById("emailError").innerHTML = "";
-    document.getElementById("passwordError").innerHTML = "";
-    document.getElementById("password2Error").innerHTML = "";
-    document.getElementById("txt_introError").innerHTML = "";
+// const form = document.querySelector("form");
 
-    //비동기 처리
-    setTimeout(function () {
-      alert("가입이 완료되었습니다.");
-    }, 0);
-  }
-});
+// form.addEventListener("submit", (e) => {
+//   if (!form.checkValidity()) {
+//     e.preventDefault();
+//     e.stopPropagation();
+//   }
 
-const form = document.querySelector("form");
-
-form.addEventListener("submit", (e) => {
-  if (!form.checkValidity()) {
-    e.preventDefault();
-    e.stopPropagation();
-  }
-
-  form.classList.add("was-validated");
-});
+//   form.classList.add("was-validated");
+// });

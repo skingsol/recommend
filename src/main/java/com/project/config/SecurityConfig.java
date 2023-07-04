@@ -67,12 +67,21 @@ public class SecurityConfig {
 		
 		http.logout()
 		.logoutSuccessUrl("/");
-		
+		 
 
+		
 		
 		http.rememberMe()
 		.tokenRepository(perTokenRepository())
 		.tokenValiditySeconds(604800);
+		
+		http.oauth2Login()
+	    .loginPage("/member/login")
+	    .authorizationEndpoint()
+	        .baseUri("/oauth2/authorization")
+	        .and()
+	    .defaultSuccessUrl("/login-success")
+	    .failureUrl("/member/login-error2");
 		
 //		http.authorizeHttpRequests().anyRequest().permitAll().and().httpBasic().and().csrf().disable();
 		

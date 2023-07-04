@@ -38,9 +38,13 @@
 
 
 	<!-- 회원탈퇴 -->
+	<delete id="leave_auth">
+		delete from authority where userid = #{userid}
+	</delete>
 	<delete id="leave">
 		delete from users where userid = #{userid}
 	</delete>
+
 
 	<!-- 비밀번호 변경 -->
 	<update id="update">
@@ -52,11 +56,29 @@
 
 
 
+	
 
+	<!-- 마이페이지 수정 -->
+	<update id="updateMember">
+		UPDATE users
+		SET email = #{email}
+		WHERE userid = #{userid}
+	</update>
+	
+	
+
+
+
+
+
+
+
+	<!-- 회원가입 시에 권한 -->
 	<insert id="setAuth"
 		parameterType="com.project.domain.MemberAuthDTO">
 		INSERT INTO authority (userid, auth)
-		VALUES (#{userid}, #{auth})
+		VALUES (#{userid},
+		#{auth})
 	</insert>
 
 
