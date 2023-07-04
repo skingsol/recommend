@@ -56,21 +56,26 @@
 							<button type="button" class="w-100 btn btn-danger">중복확인</button>
 						</div>
 				</tr>
+				
+				
+				
 				<tr id="tr_pw">
 					<th>비밀번호</th>
 					<td><input id="password" class="input-text w400"
 						type="password" name="password" style="margin-bottom: 8px;"
 						placeholder="비밀번호를 입력하세요." required
-						pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%])[A-Za-z\d!@#$%]{5,15}$"
-						aria-autocomplete="list">
+						pattern="^(?=[A-Za-z])(?=.*\d)(?=.*[!@#$%])[A-Za-z\d!@#$%]{5,12}$"
+						aria-autocomplete="list"><br>
+						<span id="lbl_pass_check" class="fc-blue"></span><br>
 						
-						<div id="passwordError" class="error"></div> <br> 
+						<div id="passwordError" class="error"></div>  
 						
 						<input id="password2" class="input-text w400" type="password"
-						name="password2" placeholder="비밀번호 확인"><br> <br>
+						name="password2" placeholder="비밀번호 확인"> <br />
+					
 						특수문자(예: !@#$ 등) 1자 이상을 포함한 5~15 글자의 비밀번호로 설정해주세요.
 
-						<div class="invalid-feedback">비밀번호를 확인해 주세요</div>
+						
 						
 						<div id="password2Error" class="error"></div></td>
 				</tr>
@@ -131,12 +136,14 @@
 	const csrfToken = '${_csrf.token}';
 </script>
 
+
+
 <script src='<c:url value="/login/js/register.js" />'></script>
 <%@ include file="../include/footer.jsp"%>
 
 
 
-
+ 
 
 
 

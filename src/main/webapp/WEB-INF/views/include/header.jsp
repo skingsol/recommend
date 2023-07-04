@@ -149,11 +149,16 @@
 							</sec:authorize>
 
 
+
 						</div></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
+
+
+   <!-- 스크립트 : logout 클릭되면 폼 가져오기 / 폼 서브밋 -->
+
 
 	<!-- 로그아웃 클릭 시 -->
 	<form action="/logout" method="post" id="logoutForm">
