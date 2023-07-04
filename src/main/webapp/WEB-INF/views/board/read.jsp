@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="security"
-	uri="http://www.springframework.org/security/tags"%>
+ <%@ taglib prefix="security"
+	uri="http://www.springframework.org/security/tags"%> 
 
 <%@ include file="../include/header.jsp"%>
 <link href="/board/css/sb-admin-2.ssb.css" rel="stylesheet">
@@ -50,9 +50,7 @@
 			<%-- <c:set var="username"
 				value="${pageContext.request.userPrincipal.name}" /> --%>
 			<security:authorize access="isAuthenticated()" >
-				<security:authentication property="principal.username"
-					var="username" />
-
+				<security:authentication property="principal.username" var="username" />
 				<c:if test="${username == dto.userid}">
 					<button type="button" class="btn btn-info">수정</button>
 				</c:if>
@@ -158,22 +156,18 @@
 		name="amount" value="${cri.amount}" /> <input type="hidden"
 		name="type" value="${cri.type}" /> <input type="hidden"
 		name="keyword" value="${cri.keyword}" />
-		<input type="hidden" name="postAuth" value="${dto.postAuth}" /> 
-</form>
+</form> 
 
 
-<script>
+<script> 
 	//게시물 글번호 가져오기
-	const postId = $
-	{
-		dto.postId
-	};
-
+	const postId = ${dto.postId};
+  
 	// CSRF 토큰 값 생성
 	const csrfToken = '${_csrf.token}';
 </script>
 <script src="/board/js/reply.js"></script>
-<script src="/board/js/read.js"></script>
+<script src="/board/js/read.js"></script>  
 <%@ include file="../include/footer.jsp"%>
 
 
