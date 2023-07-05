@@ -64,7 +64,8 @@ special.addEventListener("click", (e) => {
       data.forEach((element) => {
         //console.log(element);
         //str += "<c:forEach var='food' items='${list }'>";
-        str += "<div class='w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link'>";
+        str +=
+          "<div class='w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:grow hover:shadow-lg restaurant_link'>";
         str += "<a href='' class='image_link'>";
         str +=
           "<img id='image_link' src='" +
@@ -80,9 +81,9 @@ special.addEventListener("click", (e) => {
         str += "</strong></a></p>";
         str += "</div>";
         str += "<div class='save_restaurant'>";
-        str +=
-          "<span class='icon is-small'><i class='fa fa-heart-o' aria-hidden='true'></i></span> &nbsp;<span class='like-num'></span>";
+        str += "<span class='icon is-small'></span> &nbsp;<span class='like-num'></span>";
         str += "</div></div></div>";
+
         //str = "</c:forEach>";
       });
       //console.log(str);
