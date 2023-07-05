@@ -80,6 +80,8 @@ special.addEventListener("click", (e) => {
         str += "<strong class='point search_point'>";
         str += "</strong></a></p>";
         str += "</div>";
+        str += "</div></div>";
+
         //str = "</c:forEach>";
       });
       //console.log(str);
@@ -89,74 +91,3 @@ special.addEventListener("click", (e) => {
     })
     .catch((error) => console.log(error));
 });
-
-//----------------------------------------------------//
-//  검색 아이콘 클릭 시 검색결과 페이지로 이동
-//----------------------------------------------------//
-// const searchForm = document.querySelector("#searchForm");
-// searchForm.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   const keyword = document.querySelector(".search_input");
-//   if (keyword.value === "") {
-//     alert("검색어를 입력하세요");
-//     keyword.focus();
-//     return;
-//   }
-//   console.log("키워드 내용", keyword.value);
-//   //searchForm.setAttribute("action", "/api/search?query=" + keyword.value);
-//   // console.log("서치폼 링크", searchForm.getAttribute("action"));
-//   // searchForm.submit();
-// });
-
-//---------------------------------------------------------------//
-//    맛집 위시리스트 저장 / 이미 저장된 맛집은 채워진 하트로 표시
-//---------------------------------------------------------------//
-
-// // 가상의 저장된 식당 데이터 (가정)
-// let savedRestaurants = [];
-
-// // 클릭 이벤트 핸들러 함수
-// function handleSaveRestaurant(event) {
-//   const icon = event.target;
-//   const restaurantElement = icon.closest(".save_restaurant");
-
-//   // 식당 데이터 가져오기
-//   const restaurantData = {
-//     // 식당에 대한 데이터를 가져오는 방법에 따라 필요한 정보를 여기에 추가해주세요
-//   };
-
-//   // 이미 저장된 식당인지 확인
-//   const isSaved = savedRestaurants.some((savedRestaurant) => {
-//     // 이미 저장된 식당을 식별하는 기준에 따라 비교해주세요
-//     // 예시: savedRestaurant.id === restaurantData.id
-//   });
-
-//   if (isSaved) {
-//     // 이미 저장된 식당이라면 저장 취소 처리
-//     savedRestaurants = savedRestaurants.filter((savedRestaurant) => {
-//       // 삭제 조건을 설정해주세요
-//       // 예시: savedRestaurant.id !== restaurantData.id
-//     });
-
-//     // 아이콘 변경
-//     icon.classList.remove("fa-heart");
-//     icon.classList.add("fa-heart-o");
-//   } else {
-//     // 식당을 저장할 경우
-//     savedRestaurants.push(restaurantData);
-
-//     // 아이콘 변경
-//     icon.classList.remove("fa-heart-o");
-//     icon.classList.add("fa-heart");
-//   }
-
-//   // 저장된 식당 수 업데이트
-//   const likeNumElement = restaurantElement.querySelector(".like-num");
-//   likeNumElement.textContent = savedRestaurants.length;
-// }
-
-// // fa-heart-o 아이콘 클릭 이벤트 리스너 등록
-// const heartIcon = document.querySelector(".fa-heart-o");
-// heartIcon.addEventListener("click", handleSaveRestaurant);
-
-//---------------------------------------------------------------//
