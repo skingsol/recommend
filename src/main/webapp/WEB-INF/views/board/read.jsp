@@ -22,24 +22,23 @@
 	<!--// inner -->
 
 </div>
-<div class="row card-header">상세페이지</div>
-
+<div class="row card-header">상세 페이지</div>
 
 <div class="row">
 	<div class="col">
 		<form action="" method="post">
 			<div class="form-group">
-				<label for="post_title">post_title</label> <input type="text"
+				<label for="post_title">제목</label> <input type="text"
 					class="form-control" id="postTitle" name="postTitle" readonly
 					value="${dto.postTitle}">
 			</div>
 			<div class="form-group">
-				<label for="post_content">post_content</label>
+				<label for="post_content">내용</label>
 				<textarea class="form-control" id="postContent" rows="10"
 					name="postContent" readonly>${dto.postContent}</textarea>
 			</div>
 			<div class="form-group">
-				<label for="userid">userid</label> <input type="text"
+				<label for="userid">작성자</label> <input type="text"
 					class="form-control" id="userid" name="userid" readonly
 					value="${dto.userid}">
 			</div>
@@ -51,10 +50,9 @@
 				value="${pageContext.request.userPrincipal.name}" /> --%>
 			<security:authorize access="isAuthenticated()" >
 				<security:authentication property="principal.username" var="username" />
-				<c:if test="${username == dto.userid}">
+				<c:if test="${username == dto.userid }">
 					<button type="button" class="btn btn-info">수정</button>
 				</c:if>
-
 			</security:authorize>
 
 			<button type="button" class="btn btn-secondary">목록</button>

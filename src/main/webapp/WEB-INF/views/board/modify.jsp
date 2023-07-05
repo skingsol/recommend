@@ -24,17 +24,17 @@
 	<div class="col">
 		<form action="" method="post" id="modifyForm">
 			<div class="form-group">
-				<label for="postTitle">Title</label> <input type="text"
+				<label for="postTitle">제목</label> <input type="text"
 					class="form-control" id="postTitle" name="postTitle"
 					value="${dto.postTitle}">
 			</div>
 			<div class="form-group">
-				<label for="postContent">Content</label>
+				<label for="postContent">내용</label>
 				<textarea class="form-control" id="postContent" rows="10"
 					name="postContent">${dto.postContent}</textarea>
 			</div>
 			<div class="form-group">
-				<label for="userid">userid</label> <input type="text"
+				<label for="userid">작성자</label> <input type="text"
 					class="form-control" id="userid" name="userid" readonly
 					value="${dto.userid}">
 			</div>

@@ -118,12 +118,12 @@
 	<!-- 글 수정 : post_id 일치 시 (post_title, post_content, updatedate) -->
 	<update id="update">
 		update post set post_title=#{postTitle}, post_content=#{postContent}
-		where post_id=#{postId}
+		where post_id=#{postId} and (post_id = #{postId} or post_auth = 1)
 	</update>
 	
 	<!-- 글 삭제 -->
 	<delete id="delete">
-		delete from post where post_id=#{postId}
+		delete from post where post_id=#{postId} and (post_id = #{postId} or post_auth = 1)
 	</delete>
 </mapper>
 

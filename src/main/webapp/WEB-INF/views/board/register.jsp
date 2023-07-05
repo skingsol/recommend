@@ -8,9 +8,7 @@
 	<div class="inner">
 		<nav id="gnb" class="gnb">
 			<ul class="gnb_ul">
-				<li class="notice"><a href='<c:url value="/board/notice"  />'>
-						<span>공지사항</span>
-				</a></li>
+				
 				<li class="qna"><a href="/board/list?page=1&amount=10&type=&keyword="> <span>게시판</span>
 				</a></li>
 			</ul>
@@ -18,26 +16,28 @@
 		<!--// gnb --> 
 	</div>
 	<!--// inner -->
+	</div>
+<div class="row card-header">글작성 페이지</div>
 </div>
 <div class="row ">
 	<div class="col">
 		<form action="" method="post" id="registerForm" novalidate>
 		  <div class="form-group">
-		    <label for="post_title">post_title</label>
-		    <input type="text" class="form-control" id="post_title" placeholder="postTitle" name="postTitle" required>		  	
+		    <label for="post_title">제목</label>
+		    <input type="text" class="form-control" id="post_title" placeholder="제목을 입력해주세요" name="postTitle" required>		  	
 		  	<div class="invalid-feedback">
 		  		제목을 확인해 주세요
 		  	</div>
 		  </div>		 	  
 		  <div class="form-group">
-		    <label for="post_content">post_content</label>
-		    <textarea class="form-control" id="post_content" rows="10" name="postContent" placeholder="post_content" required></textarea>		  
+		    <label for="post_content">내용</label>
+		    <textarea class="form-control" id="post_content" rows="10" name="postContent" placeholder="내용을 입력해주세요" required></textarea>		  
 		  	<div class="invalid-feedback">
 		  		내용을 확인해 주세요
 		  	</div>
 		  </div>
 		  <div class="form-group">
-		    <label for="userid">userid</label>
+		    <label for="userid">작성자</label>
 		    <input type="text" class="form-control" id="userid" name="userid" placeholder="userid" readonly
        value="${pageContext.request.userPrincipal.name}" />	  	
 		  	<div class="invalid-feedback">
