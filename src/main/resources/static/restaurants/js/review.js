@@ -155,7 +155,8 @@ document.querySelector(".section-title").addEventListener("click", (e) => {
   let login_user = "";
   if (form_reviewer == userId) {
     login_user = userId;
-  } else if (form_reviewer != userId) {
+  //} else if (form_reviewer != userId) {
+  } else if (userId == "") {
     alert("로그인 한 후 수정 및 삭제가 가능합니다.");
     return;
   }

@@ -7,7 +7,7 @@
 	    required, maxlength, max, min, email, url
 	-->
 <link href="/login/css/registerpage.css" rel="stylesheet">
-<form action='<c:url value="/member/register" />' method="post"
+<form id="form" action='<c:url value="/member/register" />' method="post"
 	novalidate>
 	<div class="row">
 
@@ -71,13 +71,15 @@
 						<div id="passwordError" class="error"></div>  
 						
 						<input id="password2" class="input-text w400" type="password"
-						name="password2" placeholder="비밀번호 확인"> <br />
+						name="password2" placeholder="비밀번호 확인"> 
+						<div id="password2Error" class="error"></div><br />
 					
 						특수문자(예: !@#$ 등) 1자 이상을 포함한 5~15 글자의 비밀번호로 설정해주세요.
 
 						
 						
-						<div id="password2Error" class="error"></div></td>
+						
+						</td>
 				</tr>
 
 
@@ -103,6 +105,7 @@
 						</div></td>
 				</tr>
 				
+
 			</tbody>
 		</table>
 

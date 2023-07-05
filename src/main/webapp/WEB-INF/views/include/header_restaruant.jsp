@@ -90,14 +90,7 @@
 								placeholder="지역, 음식 또는 식당명 입력" name="query" value="${query }" />
 							<button class="search_icon" type="submit" aria-label="검색하기 버튼"></button>
 						</div>
-						<div class="todo-inner">
-							<div class="allDelete off">
-								<h5 class="tit">최근 검색어</h5>
-								<span class="x-btn">모두 지우기 ❌</span>
-							</div>
-							<p class="txt"></p>
-							<ul id="todo-list"></ul>
-						</div>
+						
 					</div>
 				</form>
 
