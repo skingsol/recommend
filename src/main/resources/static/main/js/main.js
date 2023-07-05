@@ -79,7 +79,7 @@ special.addEventListener("click", (e) => {
         str += "<strong class='point search_point'>";
         str += "</strong></a></p>";
         str += "</div>";
-        str += "</div>";
+        str += "</div></div>";
 
         //str = "</c:forEach>";
       });
