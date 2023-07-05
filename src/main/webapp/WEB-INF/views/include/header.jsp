@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>BAB 머 먹을래?</title>
 <!-- 메인페이지 & 서치 페이지 디자인 영역  -->
 <!-- 항상 상위 유지할 링크 -->
 <link
