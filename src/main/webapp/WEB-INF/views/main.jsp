@@ -99,7 +99,7 @@
 					<a href="" class="image_link"> <img id="image_link"
 						src="${food.imageLink}" style="width: 205px; height: 235px;"
 						data-title="${food.title}">
-					</a>
+					</a> 
 					<div id="shortcuts" class="pt-3 flex items-center">
 						<div class="line_diveider">
 							<p>
