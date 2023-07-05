@@ -20,7 +20,7 @@
 		<div class="col-md-6">
 			<div id="map" style="width: 100%; height: 350px;"></div>
 		</div>
-
+  
 		<!-- 제목, 카테고리 평점 -->
 		<div class="col-md-6">
 			<div class="fs-5 mb-5">
